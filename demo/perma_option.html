@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Social Share Privacy: Perma Option</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://github.com/panzi/jQuery-Cookies/raw/master/jquery.cookies.js"></script>
+<script type="text/javascript" src="../jquery.socialshareprivacy.js"></script>
+<script type="text/javascript" src="../jquery.socialshareprivacy.facebook.js"></script>
+<script type="text/javascript" src="../jquery.socialshareprivacy.twitter.js"></script>
+<script type="text/javascript" src="../jquery.socialshareprivacy.gplus.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+// define the default order of the buttons:
+$.fn.socialSharePrivacy.settings.order = ['facebook', 'gplus', 'twitter'];
+$.fn.socialSharePrivacy.settings.path_prefix = '../';
+
+$(document).ready(function () {
+	$('#share1').socialSharePrivacy({
+		perma_option: 'off',
+		info_link_target: '_blank'
+	});
+	
+	$('#share2').socialSharePrivacy({
+		// Set perma_option to "on".
+		// Initially it is only set to "on" if jQuery.cookie is available.
+		perma_option: 'on',
+		set_perma_option: function (service_name) {
+			localStorage.setItem('socialSharePrivacy_'+service_name, 'perma_on');
+		},
+		del_perma_option: function (service_name) {
+			localStorage.removeItem('socialSharePrivacy_'+service_name);
+		},
+		// Only one of the two methods "get_perma_options" and "get_perma_option" has
+		// to be implemented. Though the other has to be set to null, so the default
+		// cookie based method is not used.
+		get_perma_options: null,
+		get_perma_option: function (service_name) {
+			return localStorage.getItem('socialSharePrivacy_'+service_name) === 'perma_on';
+		}
+	});
+});
+// ]]>
+</script>
+</head>
+<body>
+
+<h1>Social Share Privacy: perma Option</h1>
+
+<p>
+Share buttons without perma option:
+</p>
+
+<div id="share1"></div>
+
+<p>
+Share buttons that use HTML5 localStorage for perma options:
+</p>
+
+<div id="share2"></div>
+
+</body>
+</html>

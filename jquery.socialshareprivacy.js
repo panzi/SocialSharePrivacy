@@ -146,13 +146,11 @@
 	function permCheckChangeHandler (options) {
 		return function () {
 			var $input = $(this);
-			var cookie_name = 'socialSharePrivacy_' + $input.attr('data-service');
-
 			if ($input.is(':checked')) {
-				$.cookie(cookie_name, 'perma_on', options.cookie_expires, options.cookie_path, options.cookie_domain);
+				options.set_perma_option($input.attr('data-service'), options);
 				$input.parent().addClass('checked');
 			} else {
-				$.cookie(cookie_name, null, -1, options.cookie_path, options.cookie_domain);
+				options.del_perma_option($input.attr('data-service'), options);
 				$input.parent().removeClass('checked');
 			}
 		};
@@ -176,11 +174,36 @@
 		$settings.find('.settings_info_menu').removeClass('on').addClass('off');
 	}
 
+	function setPermaOption (service_name, options) {
+		$.cookie('socialSharePrivacy_'+service_name, 'perma_on', options.cookie_expires, options.cookie_path, options.cookie_domain);
+	}
+	
+	function delPermaOption (service_name, options) {
+		$.cookie('socialSharePrivacy_'+service_name, null, -1, options.cookie_path, options.cookie_domain);
+	}
+
+	function getPermaOption (service_name, options) {
+		return !!options.get_perma_options(options)[service_name];
+	}
+	
+	function getPermaOptions (options) {
+		var cookies = $.cookie();
+		var permas = {};
+		for (var name in cookies) {
+			var match = /^socialSharePrivacy_(.+)$/.exec(name);
+			if (match) {
+				permas[match[1]] = cookies[name] === 'perma_on';
+			}
+		}
+		return permas;
+	}
+
+
 	// extend jquery with our plugin function
 	function socialSharePrivacy (settings) {
 
 		// overwrite default values with user settings
-		var options = $.extend(true, socialSharePrivacy.settings, settings);
+		var options = $.extend(true, {}, socialSharePrivacy.settings, settings);
 		var order = options.order || [];
 
 		var any_on = false;
@@ -220,6 +243,20 @@
 				document.createStyleSheet(css_path);
 			} else if ($(document.head).find('link[href="'+options.css_path+'"]').length === 0) {
 				$(document.head).append($('<link rel="stylesheet" type="text/css" />').attr('href', css_path));
+			}
+		}
+
+		// get stored perma options
+		var permas;
+		if (options.perma_option === 'on' && any_perm) {
+			if (options.get_perma_options) {
+				permas = options.get_perma_options(options);
+			}
+			else {
+				permas = {};
+				for (var service_name in options.services) {
+					permas[service_name] = options.get_perma_option(service_name, options);
+				}
 			}
 		}
 
@@ -263,16 +300,16 @@
 			//
 			var $settings_info = $('<li class="settings_info"><div class="settings_info_menu off perma_option_off"><a>' +
 				'<span class="help_info icon"><span class="info">' + options.txt_help + '</span></span></a></div></li>');
-			$settings_info.find('> .settings_info_menu > a').attr('href', options.info_link);
+			var $info_link = $settings_info.find('> .settings_info_menu > a').attr('href', options.info_link);
+			if (options.info_link_target) {
+				$info_link.attr("target",options.info_link_target);
+			}
 			$context.append($settings_info);
 
 			$context.find('.help_info').on('mouseenter', enterHelpInfo).on('mouseleave', leaveHelpInfo);
 
-			// menu for permanently enabling of service buttons via cookie
-			if (any_perm) {
-
-				// get cookies
-				var cookies = $.cookie();
+			// menu for permanently enabling of service buttons
+			if (options.perma_option === 'on' && any_perm) {
 
 				// define container
 				var $container_settings_info = $context.find('li.settings_info');
@@ -295,8 +332,7 @@
 
 					if (service && service.status === 'on' && service.perma_option === 'on') {
 						var class_name = service.class_name || service_name;
-						var cookie_name = 'socialSharePrivacy_'+service_name;
-						var perma = cookies[cookie_name] === 'perma_on'; ;
+						var perma = permas[service_name];
 						var $field = $('<label><input type="checkbox"' + (perma ? ' checked="checked"/>' : '/>') +
 							service.display_name + '</label>');
 						$field.find('input').attr('data-service', service_name);
@@ -305,7 +341,7 @@
 						// enable services when cookie set and refresh cookie
 						if (perma) {
 							$context.find('li.'+class_name+' span.switch').click();
-							$.cookie(cookie_name, 'perma_on', options.cookie_expires, options.cookie_path, options.cookie_domain);
+							options.set_perma_option(service_name, options);
 						}
 					}
 				}
@@ -331,6 +367,11 @@
 		'txt_settings'      : 'Settings',
 		'txt_help'          : 'If you activate these fields via click, data will be sent to a third party (Facebook, Twitter, Google, ...) and stored there. For more details click <em>i</em>.',
 		'settings_perma'    : 'Permanently enable share buttons:',
+		'set_perma_option'  : setPermaOption,
+		'del_perma_option'  : delPermaOption,
+		'get_perma_options' : getPermaOptions,
+		'get_perma_option'  : getPermaOption,
+		'perma_option'      : $.cookie ? 'on' : 'off',
 		'cookie_path'       : '/',
 		'cookie_domain'     : document.location.hostname,
 		'cookie_expires'    : 365,
