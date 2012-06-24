@@ -17,7 +17,7 @@
 (function ($, undefined) {
 	"use strict";
 	// abbreviate at last blank before length and add "\u2026" (horizontal ellipsis)
-	function abbreviateText(text, length) {
+	function abbreviateText (text, length) {
 		// length of UTF-8 encoded string
 		if (unescape(encodeURIComponent(text)).length <= length) {
 			return text;
@@ -38,7 +38,7 @@
 
 	// create tweet text from content of <meta name="DC.title"> and <meta name="DC.creator">
 	// fallback to content of <title> tag
-	function getTweetText() {
+	function getTweetText (options, uri) {
 		var title = $('meta[name="DC.title"]').attr('content');
 		var creator = $('meta[name="DC.creator"]').attr('content');
 
@@ -62,11 +62,11 @@
 		'referrer_track'    : '', 
 		'tweet_text'        : getTweetText,
 		'button'            : function (options, uri) {
-			var text = options.tweet_text;
-			if (typeof text === 'function') {
-				text = text();
-			}
-			// 120 is the max character count left after twitters automatic url shortening with t.co
+			var text = typeof(options.tweet_text) === 'function' ?
+				options.tweet_text.call(this, options, uri) :
+				String(options.tweet_text||'');
+			// 120 is the max character count left after twitters automatic
+			// url shortening with t.co
 			text = abbreviateText(text, 120);
 
 			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:130px; height:25px;"></iframe>').attr(

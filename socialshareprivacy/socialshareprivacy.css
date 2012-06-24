@@ -38,6 +38,15 @@
 .social_share_privacy_area .twitter {
 	width: 148px;
 }
+.social_share_privacy_area .tumblr a {
+	display: inline-block;
+	text-indent: -9999em;
+	overflow: hidden;
+	width: 62px;
+	height: 20px; 
+	margin-right: 20px;
+	background: url(images/tumblr.png) top left no-repeat transparent;
+}
 .social_share_privacy_area li div.tweet {
 	width: 115px;
 }

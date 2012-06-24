@@ -108,7 +108,7 @@
 				$switch.addClass('on').removeClass('off').html(service.txt_on);
 				$container.find('img.privacy_dummy').replaceWith(
 					typeof(service.button) === "function" ?
-					service.button.call($container[0],service,uri,options) :
+					service.button.call($container.parent().parent()[0],service,uri,options) :
 					service.button);
 			} else {
 				$container.removeClass('info_off');
@@ -208,6 +208,7 @@
 
 		var any_on = false;
 		var any_perm = false;
+		var any_unsafe = false;
 		var unordered = [];
 		for (var service_name in options.services) {
 			var service = options.services[service_name];
@@ -216,9 +217,12 @@
 				if ($.inArray(service_name, order) === -1) {
 					unordered.push(service_name);
 				}
-			}
-			if (service.perma_option === 'on') {
-				any_perm = true;
+				if (service.privacy !== 'safe') {
+					any_unsafe = true;
+					if (service.perma_option === 'on') {
+						any_perm = true;
+					}
+				}
 			}
 			if (!('language' in service)) {
 				service.language = options.language;
@@ -266,7 +270,7 @@
 			// canonical uri that will be shared
 			var uri = options.uri;
 			if (typeof uri === 'function') {
-				uri = uri($context);
+				uri = uri.call(this, options);
 			}
 
 			for (var i = 0; i < order.length; ++ i) {
@@ -276,21 +280,30 @@
 				if (service && service.status === 'on') {
 					var class_name = service.class_name || service_name;
 					var button_class = service.button_class || service_name;
+					var $help_info;
 
-					var $help_info = $('<li class="help_info"><span class="info">' +
-						service.txt_info + '</span><span class="switch off">' + service.txt_off +
-						'</span><div class="dummy_btn"></div></li>').addClass(class_name);
-					$help_info.find('.dummy_btn').
-						addClass(button_class).
-						append($('<img/>').addClass(button_class+'_privacy_dummy privacy_dummy').
-							attr({
-								alt: service.dummy_alt,
-								src: service.path_prefix + service.dummy_img
-							}));
+					if (service.privacy === 'safe') {
+						$help_info = $('<li class="help_info"><span class="info">' +
+							service.txt_info + '</span><div class="dummy_btn"></div></li>').addClass(class_name);
+						$help_info.find('.dummy_btn').
+							addClass(button_class).
+							append(service.button.call(this,service,uri,options));
+					}
+					else {
+						$help_info = $('<li class="help_info"><span class="info">' +
+							service.txt_info + '</span><span class="switch off">' + service.txt_off +
+							'</span><div class="dummy_btn"></div></li>').addClass(class_name);
+						$help_info.find('.dummy_btn').
+							addClass(button_class).
+							append($('<img/>').addClass(button_class+'_privacy_dummy privacy_dummy').
+								attr({
+									alt: service.dummy_alt,
+									src: service.path_prefix + service.dummy_img
+								}));
 					
-					$help_info.find('.dummy_btn img.privacy_dummy, span.switch').on(
-						'click', buttonClickHandler(service, button_class, uri, options));
-
+						$help_info.find('.dummy_btn img.privacy_dummy, span.switch').on(
+							'click', buttonClickHandler(service, button_class, uri, options));
+					}
 					$context.append($help_info);
 				}
 			}
@@ -298,67 +311,72 @@
 			//
 			// append Info/Settings-area
 			//
-			var $settings_info = $('<li class="settings_info"><div class="settings_info_menu off perma_option_off"><a>' +
-				'<span class="help_info icon"><span class="info">' + options.txt_help + '</span></span></a></div></li>');
-			var $info_link = $settings_info.find('> .settings_info_menu > a').attr('href', options.info_link);
-			if (options.info_link_target) {
-				$info_link.attr("target",options.info_link_target);
-			}
-			$context.append($settings_info);
+			if (any_unsafe) {
+				var $settings_info = $('<li class="settings_info"><div class="settings_info_menu off perma_option_off"><a>' +
+					'<span class="help_info icon"><span class="info">' + options.txt_help + '</span></span></a></div></li>');
+				var $info_link = $settings_info.find('> .settings_info_menu > a').attr('href', options.info_link);
+				if (options.info_link_target) {
+					$info_link.attr("target",options.info_link_target);
+				}
+				$context.append($settings_info);
 
-			$context.find('.help_info').on('mouseenter', enterHelpInfo).on('mouseleave', leaveHelpInfo);
+				$context.find('.help_info').on('mouseenter', enterHelpInfo).on('mouseleave', leaveHelpInfo);
 
-			// menu for permanently enabling of service buttons
-			if (options.perma_option === 'on' && any_perm) {
+				// menu for permanently enabling of service buttons
+				if (options.perma_option === 'on' && any_perm) {
 
-				// define container
-				var $container_settings_info = $context.find('li.settings_info');
+					// define container
+					var $container_settings_info = $context.find('li.settings_info');
 
-				// remove class that fomrats the i-icon, because perma-options are shown
-				var $settings_info_menu = $container_settings_info.find('.settings_info_menu');
-				$settings_info_menu.removeClass('perma_option_off');
+					// remove class that fomrats the i-icon, because perma-options are shown
+					var $settings_info_menu = $container_settings_info.find('.settings_info_menu');
+					$settings_info_menu.removeClass('perma_option_off');
 
-				// append perma-options-icon (.settings) and form (hidden)
-				$settings_info_menu.append(
-					'<span class="settings">' + options.txt_settings + '</span><form><fieldset><legend>' +
-					options.settings_perma + '</legend></fieldset></form>');
+					// append perma-options-icon (.settings) and form (hidden)
+					$settings_info_menu.append(
+						'<span class="settings">' + options.txt_settings + '</span><form><fieldset><legend>' +
+						options.settings_perma + '</legend></fieldset></form>');
 
 
-				// write services with <input> and <label> and checked state from cookie
-				var $fieldset = $settings_info_menu.find('form fieldset');
-				for (var i = 0; i < order.length; ++ i) {
-					var service_name = order[i];
-					var service = options.services[service_name];
+					// write services with <input> and <label> and checked state from cookie
+					var $fieldset = $settings_info_menu.find('form fieldset');
+					for (var i = 0; i < order.length; ++ i) {
+						var service_name = order[i];
+						var service = options.services[service_name];
 
-					if (service && service.status === 'on' && service.perma_option === 'on') {
-						var class_name = service.class_name || service_name;
-						var perma = permas[service_name];
-						var $field = $('<label><input type="checkbox"' + (perma ? ' checked="checked"/>' : '/>') +
-							service.display_name + '</label>');
-						$field.find('input').attr('data-service', service_name);
-						$fieldset.append($field);
+						if (service && service.status === 'on' && service.perma_option === 'on' && service.privacy !== 'safe') {
+							var class_name = service.class_name || service_name;
+							var perma = permas[service_name];
+							var $field = $('<label><input type="checkbox"' + (perma ? ' checked="checked"/>' : '/>') +
+								service.display_name + '</label>');
+							$field.find('input').attr('data-service', service_name);
+							$fieldset.append($field);
 
-						// enable services when cookie set and refresh cookie
-						if (perma) {
-							$context.find('li.'+class_name+' span.switch').click();
-							options.set_perma_option(service_name, options);
+							// enable services when cookie set and refresh cookie
+							if (perma) {
+								$context.find('li.'+class_name+' span.switch').click();
+								options.set_perma_option(service_name, options);
+							}
 						}
 					}
+
+					// indicate clickable setings gear
+					$container_settings_info.find('span.settings').css('cursor', 'pointer');
+
+					// show settings menu on hover
+					$container_settings_info.on('mouseenter', enterSettingsInfo).on('mouseleave', leaveSettingsInfo);
+
+					// interaction for <input> to enable services permanently (cookie will be set or deleted)
+					$container_settings_info.find('fieldset input').on('change', permCheckChangeHandler(options));
 				}
-
-				// indicate clickable setings gear
-				$container_settings_info.find('span.settings').css('cursor', 'pointer');
-
-				// show settings menu on hover
-				$container_settings_info.on('mouseenter', enterSettingsInfo).on('mouseleave', leaveSettingsInfo);
-
-				// interaction for <input> to enable services permanently (cookie will be set or deleted)
-				$container_settings_info.find('fieldset input').on('change', permCheckChangeHandler(options));
 			}
 			
 			$(this).prepend($context);
 		});
 	};
+
+	// expose helper functions:
+	socialSharePrivacy.absurl = absurl;
 
 	socialSharePrivacy.settings = {
 		'services'          : {},

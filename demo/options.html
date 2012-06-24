@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Social Share Privacy: More Options</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://github.com/panzi/jQuery-Cookies/raw/master/jquery.cookies.js"></script>
+<script type="text/javascript" src="../jquery.socialshareprivacy.js"></script>
+<script type="text/javascript" src="../jquery.socialshareprivacy.facebook.js"></script>
+<script type="text/javascript" src="../jquery.socialshareprivacy.twitter.js"></script>
+<script type="text/javascript" src="../jquery.socialshareprivacy.gplus.js"></script>
+<script type="text/javascript" src="../jquery.socialshareprivacy.tumblr.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+// define the default order of the buttons:
+$.fn.socialSharePrivacy.settings.order = ['facebook', 'gplus', 'twitter', 'tumblr'];
+$.fn.socialSharePrivacy.settings.path_prefix = '../';
+
+$(document).ready(function () {
+	$('#share1').socialSharePrivacy({
+		services: {
+			facebook: { status: 'off' },
+			tumblr: {
+				type    : 'video',
+				caption : "RickRoll'D",
+				embed   : '<iframe width="420" height="315" src="http://www.youtube.com/embed/oHg5SJYRHA0" frameborder="0" allowfullscreen></iframe>'
+			}
+		}
+	});
+	$('#share2').socialSharePrivacy({
+		services: {
+			tumblr: {
+				type  : 'quote',
+				quote : 'The best way to use social sharing.'
+			}
+		}
+	});
+	$('#share3').socialSharePrivacy({
+		services: {
+			tumblr: {
+				type        : 'link',
+				name        : 'Post a link on Tumblr',
+				description : 'Demo showing how to use Shocial Share Privacy to post a link on Tumblr.'
+			}
+		}
+	});
+	$('#share4').socialSharePrivacy({
+		services: {
+			facebook : { status: 'off' },
+			twitter  : { status: 'off' },
+			gplus    : { status: 'off' },
+			tumblr   : {
+				type    : 'photo',
+				caption : 'An orc drawn with pencil, traced and colored in inkscape.',
+				photo   : 'http://www.deviantart.com/download/4617948/orc__blizzard_x_mas_like____colored.png'
+			}
+		}
+	});
+});
+// ]]>
+</script>
+</head>
+<body>
+
+<h1>Social Share Privacy: More Options</h1>
+
+<p>
+...
+</p>
+
+<div id="share1"></div>
+
+<p>
+...
+</p>
+
+<div id="share2"></div>
+
+<p>
+...
+</p>
+
+<div id="share3"></div>
+
+<p>
+...
+</p>
+
+<div id="share4"></div>
+
+</body>
+</html>
