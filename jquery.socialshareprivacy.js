@@ -14,7 +14,6 @@
  * Spread the word, link to us if you can.
  */
 (function ($, undefined) {
-
 	"use strict";
 
 	/*
@@ -327,10 +326,11 @@
 
 	socialSharePrivacy.settings = {
 		'services'          : {},
+		// TODO: translate heise article into english
 		'info_link'         : 'http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html',
-		'txt_settings'      : 'Einstellungen',
-		'txt_help'          : 'Wenn Sie diese Felder durch einen Klick aktivieren, werden Informationen an Facebook, Twitter oder Google in die USA &uuml;bertragen und unter Umst&auml;nden auch dort gespeichert. N&auml;heres erfahren Sie durch einen Klick auf das <em>i</em>.',
-		'settings_perma'    : 'Dauerhaft aktivieren und Daten&uuml;ber&shy;tragung zustimmen:',
+		'txt_settings'      : 'Settings',
+		'txt_help'          : 'If you activate these fields via click, data will be sent to a third party (Facebook, Twitter, Google, ...) and stored there. For more details click <em>i</em>.',
+		'settings_perma'    : 'Permanently enable share buttons:',
 		'cookie_path'       : '/',
 		'cookie_domain'     : document.location.hostname,
 		'cookie_expires'    : 365,

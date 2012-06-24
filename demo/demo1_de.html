@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <title>Social Share Privacy: Demo 1</title>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -8,9 +8,13 @@
 <script type="text/javascript" src="../jquery.socialshareprivacy.facebook.js"></script>
 <script type="text/javascript" src="../jquery.socialshareprivacy.twitter.js"></script>
 <script type="text/javascript" src="../jquery.socialshareprivacy.gplus.js"></script>
+<script type="text/javascript" src="../jquery.socialshareprivacy.de.js"></script>
+<script type="text/javascript" src="../jquery.socialshareprivacy.facebook.de.js"></script>
+<script type="text/javascript" src="../jquery.socialshareprivacy.twitter.de.js"></script>
+<script type="text/javascript" src="../jquery.socialshareprivacy.gplus.de.js"></script>
 <script type="text/javascript">
 // <![CDATA[
-// define the default order of the buttons:
+// Default reihenfolge der Buttons festlegen:
 $.fn.socialSharePrivacy.settings.order = ['facebook', 'gplus', 'twitter'];
 
 $(document).ready(function () {
@@ -25,20 +29,20 @@ $(document).ready(function () {
 <h1>Social Share Privacy: Demo 1</h1>
 
 <p>
-Demo share buttons:
+Demo share Buttons:
 </p>
 
 <div class="share"></div>
 
 <p>
-Social share privacy actually supports more than one share button list in one document.
+Social share privacy unterst&uuml;tzt mehr als eine share Button Liste pro Dokument.
 </p>
 
 <div class="share"></div>
 
 <p>
-Different share buttons can have different options. E.g. these share buttons use the URI
-"http://example.com/" instead of the document.location.
+Unterschiedliche share Buttons k&ouml;nnen unterschiedliche Optionen verwenden. Diese
+share Buttons verwenden z.B. die URI "http://example.com/" statt document.location.
 </p>
 
 <div id="other"></div>

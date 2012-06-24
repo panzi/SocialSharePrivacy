@@ -13,7 +13,6 @@
  *
  * Spread the word, link to us if you can.
  */
-
 (function ($, undefined) {
 	"use strict";
 
@@ -22,17 +21,17 @@
 		'button_class'      : 'gplusone',
 		'dummy_img'         : 'socialshareprivacy/images/dummy_gplus.png',
 		'dummy_alt'         : '"Google+1"-Dummy',
-		'txt_info'          : '2 Klicks f&uuml;r mehr Datenschutz: Erst wenn Sie hier klicken, wird der Button aktiv und Sie k&ouml;nnen Ihre Empfehlung an Google+ senden. Schon beim Aktivieren werden Daten an Dritte &uuml;bertragen &ndash; siehe <em>i</em>.',
-		'txt_gplus_off'     : 'nicht mit Google+ verbunden',
-		'txt_gplus_on'      : 'mit Google+ verbunden',
+		'txt_info'          : '2 clicks for more privacy: The Google+ button will be enabled when you click here. Activating the button already sends data to Google &ndash; see <em>i</em>.',
+		'txt_gplus_off'     : 'not connected to Google+',
+		'txt_gplus_on'      : 'connected to Google+',
 		'perma_option'      : 'on',
 		'display_name'      : 'Google+',
 		'referrer_track'    : '',
 		'button'            : function (options, uri) {
 			// we use the Google+ "asynchronous" code, standard code is flaky if inserted into dom after load
 			var $code = $('<div class="g-plusone" data-size="medium"></div><script type="text/javascript">window.___gcfg = {lang: "' +
-					options.language + '"}; (function() { var po = document.createElement("script"); po.type = "text/javascript"; ' +
-				'po.async = true; po.src = "https://apis.google.com/js/plusone.js"; ' +
+				options.language.replace('_','-') + '"}; (function() { var po = document.createElement("script"); ' +
+				'po.type = "text/javascript"; po.async = true; po.src = "https://apis.google.com/js/plusone.js"; ' +
 				'var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s); })(); </script>');
 			$code.find('.g-plusone').attr('data-href', uri + options.referrer_track);
 			return $code;
