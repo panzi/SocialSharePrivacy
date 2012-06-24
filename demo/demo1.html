@@ -5,8 +5,13 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="https://github.com/panzi/jQuery-Cookies/raw/master/jquery.cookies.js"></script>
 <script type="text/javascript" src="../jquery.socialshareprivacy.js"></script>
+<script type="text/javascript" src="../jquery.socialshareprivacy.facebook.js"></script>
+<script type="text/javascript" src="../jquery.socialshareprivacy.twitter.js"></script>
+<script type="text/javascript" src="../jquery.socialshareprivacy.gplus.js"></script>
 <script type="text/javascript">
 // <![CDATA[
+$.fn.socialSharePrivacy.settings.order = ['facebook', 'gplus', 'twitter'];
+
 $(document).ready(function () {
 	$('.share').socialSharePrivacy({path_prefix: '../'});
 });
@@ -16,11 +21,12 @@ $(document).ready(function () {
 <body>
 
 <p>
-Some text.<br/>
-Some more text.<br/>
-And more.<br/>
-And even more text.<br/>
-And this is the last line.
+Bla<br/>
+bla<br/>
+bla<br/>
+bla<br/>
+bla<br/>
+bla.
 </p>
 
 <div class="share"></div>

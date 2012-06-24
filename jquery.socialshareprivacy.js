@@ -7,7 +7,7 @@
  * Copyright (c) 2011 Hilko Holweg, Sebastian Hilbig, Nicolas Heiringhoff, Juergen Schmidt,
  * Heise Zeitschriften Verlag GmbH & Co. KG, http://www.heise.de
  *
- * Copiright (c) 2012 Mathias panzenböck
+ * Copiright (c) 2012 Mathias Panzenböck
  *
  * is released under the MIT License http://www.opensource.org/licenses/mit-license.php
  *
@@ -182,13 +182,18 @@
 
 		// overwrite default values with user settings
 		var options = $.extend(true, socialSharePrivacy.settings, settings);
+		var order = options.order || [];
 
 		var any_on = false;
 		var any_perm = false;
+		var unordered = [];
 		for (var service_name in options.services) {
 			var service = options.services[service_name];
 			if (service.status === 'on') {
 				any_on = true;
+				if ($.inArray(service_name, order) === -1) {
+					unordered.push(service_name);
+				}
 			}
 			if (service.perma_option === 'on') {
 				any_perm = true;
@@ -200,6 +205,8 @@
 				service.path_prefix = options.path_prefix;
 			}
 		}
+		unordered.sort();
+		order = order.concat(unordered);
 
 		// check if at least one service is activated
 		if (!any_on) {
@@ -226,10 +233,11 @@
 				uri = uri($context);
 			}
 
-			for (var service_name in options.services) {
+			for (var i = 0; i < order.length; ++ i) {
+				var service_name = order[i];
 				var service = options.services[service_name];
 
-				if (service.status === 'on') {
+				if (service && service.status === 'on') {
 					var class_name = service.class_name || service_name;
 					var button_class = service.button_class || service_name;
 
@@ -281,20 +289,24 @@
 
 
 				// write services with <input> and <label> and checked state from cookie
-				for (var service_name in options.services) {
+				var $fieldset = $settings_info_menu.find('form fieldset');
+				for (var i = 0; i < order.length; ++ i) {
+					var service_name = order[i];
 					var service = options.services[service_name];
 
-					if (service.status === 'on' && service.perma_option === 'on') {
+					if (service && service.status === 'on' && service.perma_option === 'on') {
 						var class_name = service.class_name || service_name;
-						var perma = cookies['socialSharePrivacy_'+service_name] === 'perma_on'; ;
+						var cookie_name = 'socialSharePrivacy_'+service_name;
+						var perma = cookies[cookie_name] === 'perma_on'; ;
 						var $field = $('<label><input type="checkbox"' + (perma ? ' checked="checked"/>' : '/>') +
 							service.display_name + '</label>');
 						$field.find('input').attr('data-service', service_name);
-						$container_settings_info.find('form fieldset').append($field);
+						$fieldset.append($field);
 
-						// enable services when cookie set
+						// enable services when cookie set and refresh cookie
 						if (perma) {
 							$context.find('li.'+class_name+' span.switch').click();
+							$.cookie(cookie_name, 'perma_on', options.cookie_expires, options.cookie_path, options.cookie_domain);
 						}
 					}
 				}
@@ -330,136 +342,3 @@
 
 	$.fn.socialSharePrivacy = socialSharePrivacy;
 }(jQuery));
-
-
-(function ($, undefined) {
-	// abbreviate at last blank before length and add "\u2026" (horizontal ellipsis)
-	function abbreviateText(text, length) {
-		// length of UTF-8 encoded string
-		if (unescape(encodeURIComponent(text)).length <= length) {
-			return text;
-		}
-
-		// "\u2026" is actually 3 bytes long in UTF-8
-		// TODO: if any of the last 3 characters is > 1 byte long this truncates too much
-		var abbrev = text.slice(0, length - 3);
-
-		if (!/\W/.test(text.charAt(length - 3))) {
-			var match = /^(.*)\s\S*$/.exec(abbrev);
-			if (match) {
-				abbrev = match[1];
-			}
-		}
-		return abbrev + "\u2026";
-	}
-
-	// create tweet text from content of <meta name="DC.title"> and <meta name="DC.creator">
-	// fallback to content of <title> tag
-	function getTweetText() {
-		var title = $('meta[name="DC.title"]').attr('content');
-		var creator = $('meta[name="DC.creator"]').attr('content');
-
-		if (title && creator) {
-			return title + ' - ' + creator;
-		} else {
-			return $('title').text();
-		}
-	}
-
-	var facebook_locales = {"af":["ZA"],"ar":["AR"],"az":["AZ"],"be":["BY"],"bg":["BG"],"bn":["IN"],"bs":["BA"],"ca":["ES"],"cs":["CZ"],"cy":["GB"],"da":["DK"],"de":["DE"],"el":["GR"],"en":["GB","PI","UD","US"],"eo":["EO"],"es":["ES","LA"],"et":["EE"],"eu":["ES"],"fa":["IR"],"fb":["LT"],"fi":["FI"],"fo":["FO"],"fr":["CA","FR"],"fy":["NL"],"ga":["IE"],"gl":["ES"],"he":["IL"],"hi":["IN"],"hr":["HR"],"hu":["HU"],"hy":["AM"],"id":["ID"],"is":["IS"],"it":["IT"],"ja":["JP"],"ka":["GE"],"km":["KH"],"ko":["KR"],"ku":["TR"],"la":["VA"],"lt":["LT"],"lv":["LV"],"mk":["MK"],"ml":["IN"],"ms":["MY"],"nb":["NO"],"ne":["NP"],"nl":["NL"],"nn":["NO"],"pa":["IN"],"pl":["PL"],"ps":["AF"],"pt":["BR","PT"],"ro":["RO"],"ru":["RU"],"sk":["SK"],"sl":["SI"],"sq":["AL"],"sr":["RS"],"sv":["SE"],"sw":["KE"],"ta":["IN"],"te":["IN"],"th":["TH"],"tl":["PH"],"tr":["TR"],"uk":["UA"],"vi":["VN"],"zh":["CN","HK","TW"]};
-
-	$.extend($.fn.socialSharePrivacy.settings.services, {
-		'facebook' : {
-			'status'            : 'on',
-			'button_class'      : 'fb_like',
-			'dummy_img'         : 'socialshareprivacy/images/dummy_facebook.png',
-			'dummy_alt'         : 'Facebook "Like"-Dummy',
-			'txt_info'          : '2 Klicks f&uuml;r mehr Datenschutz: Erst wenn Sie hier klicken, wird der Button aktiv und Sie k&ouml;nnen Ihre Empfehlung an Facebook senden. Schon beim Aktivieren werden Daten an Dritte &uuml;bertragen &ndash; siehe <em>i</em>.',
-			'txt_off'           : 'nicht mit Facebook verbunden',
-			'txt_on'            : 'mit Facebook verbunden',
-			'perma_option'      : 'on',
-			'display_name'      : 'Facebook',
-			'referrer_track'    : '',
-			'action'            : 'recommend',
-			'colorscheme'       : 'light',
-			'button'            : function (options, uri) {
-				var locale = options.language;
-
-				// TODO: more locale fallback logic
-				if (!/^[a-z]{2}_{2}[A-Z]$/.test(locale)) {
-					var locales = facebook_locales[locale];
-					if (locales) {
-						locale = locale+"_"+locales[0];
-					}
-					else {
-						locale = "en_US";
-					}
-				}
-
-				return $('<iframe height="21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:145px; height:21px;" allowtransparency="true"></iframe>').attr(
-					'src','http://www.facebook.com/plugins/like.php?'+$.param({
-						locale     : locale,
-						href       : uri + options.referrer_track,
-						send       : 'false',
-						layout     : 'button_count',
-						width      : '120',
-						height     : '21',
-						show_faces : 'false',
-						action     : options.action,
-						colorscheme: options.colorscheme,
-						font       : ''
-					}));
-			}
-		}, 
-		'twitter' : {
-			'status'            : 'on', 
-			'button_class'      : 'tweet',
-			'dummy_img'         : 'socialshareprivacy/images/dummy_twitter.png',
-			'dummy_alt'         : '"Tweet this"-Dummy',
-			'txt_info'          : '2 Klicks f&uuml;r mehr Datenschutz: Erst wenn Sie hier klicken, wird der Button aktiv und Sie k&ouml;nnen Ihre Empfehlung an Twitter senden. Schon beim Aktivieren werden Daten an Dritte &uuml;bertragen &ndash; siehe <em>i</em>.',
-			'txt_off'           : 'nicht mit Twitter verbunden',
-			'txt_on'            : 'mit Twitter verbunden',
-			'perma_option'      : 'on',
-			'display_name'      : 'Twitter',
-			'referrer_track'    : '', 
-			'tweet_text'        : getTweetText,
-			'button'            : function (options, uri) {
-				var text = options.tweet_text;
-				if (typeof text === 'function') {
-					text = text();
-				}
-				// 120 is the max character count left after twitters automatic url shortening with t.co
-				text = abbreviateText(text, 120);
-
-				return $('<iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:130px; height:25px;"></iframe>').attr(
-					'src', 'http://platform.twitter.com/widgets/tweet_button.html?'+$.param({
-						url     : uri + options.referrer_track,
-						counturl: uri,
-						text    : text,
-						count   : 'horizontal',
-						lang    : options.language
-					}));
-			}
-		},
-		'gplus' : {
-			'status'            : 'on',
-			'button_class'      : 'gplusone',
-			'dummy_img'         : 'socialshareprivacy/images/dummy_gplus.png',
-			'dummy_alt'         : '"Google+1"-Dummy',
-			'txt_info'          : '2 Klicks f&uuml;r mehr Datenschutz: Erst wenn Sie hier klicken, wird der Button aktiv und Sie k&ouml;nnen Ihre Empfehlung an Google+ senden. Schon beim Aktivieren werden Daten an Dritte &uuml;bertragen &ndash; siehe <em>i</em>.',
-			'txt_gplus_off'     : 'nicht mit Google+ verbunden',
-			'txt_gplus_on'      : 'mit Google+ verbunden',
-			'perma_option'      : 'on',
-			'display_name'      : 'Google+',
-			'referrer_track'    : '',
-			'button'            : function (options, uri) {
-				// we use the Google+ "asynchronous" code, standard code is flaky if inserted into dom after load
-				return $('<div class="g-plusone" data-size="medium"></div><script type="text/javascript">window.___gcfg = {lang: "' +
-					options.language + '"}; (function() { var po = document.createElement("script"); po.type = "text/javascript"; ' +
-					'po.async = true; po.src = "https://apis.google.com/js/plusone.js"; ' +
-					'var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s); })(); </script>').attr(
-					'data-href', uri + options.referrer_track);
-			}
-		}
-	});
-})(jQuery);
