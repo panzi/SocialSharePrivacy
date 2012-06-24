@@ -17,8 +17,8 @@
 	"use strict";
 
 	$.extend($.fn.socialSharePrivacy.settings.services.gplus, {
-		'txt_info'          : '2 Klicks f&uuml;r mehr Datenschutz: Erst wenn Sie hier klicken, wird der Button aktiv und Sie k&ouml;nnen Ihre Empfehlung an Google+ senden. Schon beim Aktivieren werden Daten an Dritte &uuml;bertragen &ndash; siehe <em>i</em>.',
-		'txt_gplus_off'     : 'nicht mit Google+ verbunden',
-		'txt_gplus_on'      : 'mit Google+ verbunden'
+		'txt_info' : '2 Klicks f&uuml;r mehr Datenschutz: Erst wenn Sie hier klicken, wird der Button aktiv und Sie k&ouml;nnen Ihre Empfehlung an Google+ senden. Schon beim Aktivieren werden Daten an Dritte &uuml;bertragen &ndash; siehe <em>i</em>.',
+		'txt_off'  : 'nicht mit Google+ verbunden',
+		'txt_on'   : 'mit Google+ verbunden'
 	});
 })(jQuery);
