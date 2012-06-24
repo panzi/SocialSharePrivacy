@@ -10,17 +10,6 @@
 (function ($, undefined) {
 	"use strict";
 
-	function getCaption (options, uri) {
-		var title = $('meta[name="DC.title"]').attr('content');
-		var creator = $('meta[name="DC.creator"]').attr('content');
-
-		if (title && creator) {
-			return title + ' - ' + creator;
-		} else {
-			return $('title').text();
-		}
-	}
-
 	function getQuote (options, uri) {
 		var text = $('article, p').text();
 		
@@ -39,7 +28,7 @@
 	}
 
 	function getDescription (options, uri) {
-		return $('meta[name="description"]').attr('content') || '';
+		return $('meta[name="description"]').attr('content') || getQuote.call(this, options, uri);
 	}
 
 	var HTML_CHAR_MAP = {
@@ -94,7 +83,7 @@
 		'referrer_track'    : '',
 		'type'              : 'link', // possible values are 'link', 'quote', 'photo' or 'video'
 		// type: 'link':
-		'name'              : getCaption,
+		'name'              : $.fn.socialSharePrivacy.getTitle,
 		'description'       : getDescription,
 		// type: 'quote':
 		'quote'             : getQuote,
@@ -104,7 +93,7 @@
 		// type: 'video':
 		'embed'             : getEmbedCode,
 		// type: 'photo' or 'video':
-		'caption'           : getCaption,
+		'caption'           : $.fn.socialSharePrivacy.getTitle,
 		'button'            : function (options, uri) {
 			var $code = $('<a>' + options.txt_button + '</a>');
 			$code.click(function (event) {

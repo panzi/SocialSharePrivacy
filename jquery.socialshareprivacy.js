@@ -86,6 +86,18 @@
 			return base+path.join("/");
 		}
 	}
+	
+	// helper function that gets the title of the current page
+	function getTitle (options, uri) {
+		var title = $('meta[name="DC.title"]').attr('content');
+		var creator = $('meta[name="DC.creator"]').attr('content');
+
+		if (title && creator) {
+			return title + ' - ' + creator;
+		} else {
+			return $('title').text();
+		}
+	}
 
 	// build URI from rel="canonical" or document.location
 	function getURI() {
@@ -100,7 +112,7 @@
 	}
 
 	function buttonClickHandler (service, button_class, uri, options) {
-		return function () {
+		function onclick () {
 			var $container = $(this).parents('li.help_info').first();
 			var $switch = $container.find('span.switch');
 			if ($switch.hasClass('off')) {
@@ -118,9 +130,10 @@
 						attr({
 							alt: service.dummy_alt,
 							src: service.path_prefix + service.dummy_img
-						}));
+						}).click(onclick));
 			}
 		};
+		return onclick;
 	}
 
 	// display info-overlays a tiny bit delayed
@@ -301,8 +314,8 @@
 									src: service.path_prefix + service.dummy_img
 								}));
 					
-						$help_info.find('.dummy_btn img.privacy_dummy, span.switch').on(
-							'click', buttonClickHandler(service, button_class, uri, options));
+						$help_info.find('.dummy_btn img.privacy_dummy, span.switch').click(
+							buttonClickHandler(service, button_class, uri, options));
 					}
 					$context.append($help_info);
 				}
@@ -376,7 +389,8 @@
 	};
 
 	// expose helper functions:
-	socialSharePrivacy.absurl = absurl;
+	socialSharePrivacy.absurl   = absurl;
+	socialSharePrivacy.getTitle = getTitle;
 
 	socialSharePrivacy.settings = {
 		'services'          : {},

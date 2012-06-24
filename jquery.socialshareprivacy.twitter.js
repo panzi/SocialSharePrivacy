@@ -36,19 +36,6 @@
 		return abbrev + "\u2026";
 	}
 
-	// create tweet text from content of <meta name="DC.title"> and <meta name="DC.creator">
-	// fallback to content of <title> tag
-	function getTweetText (options, uri) {
-		var title = $('meta[name="DC.title"]').attr('content');
-		var creator = $('meta[name="DC.creator"]').attr('content');
-
-		if (title && creator) {
-			return title + ' - ' + creator;
-		} else {
-			return $('title').text();
-		}
-	}
-
 	$.fn.socialSharePrivacy.settings.services.twitter = {
 		'status'            : 'on', 
 		'button_class'      : 'tweet',
@@ -59,8 +46,8 @@
 		'txt_on'            : 'connceted to Twitter',
 		'perma_option'      : 'on',
 		'display_name'      : 'Twitter',
-		'referrer_track'    : '', 
-		'tweet_text'        : getTweetText,
+		'referrer_track'    : '',
+		'tweet_text'        : $.fn.socialSharePrivacy.getTitle,
 		'button'            : function (options, uri) {
 			var text = typeof(options.tweet_text) === 'function' ?
 				options.tweet_text.call(this, options, uri) :

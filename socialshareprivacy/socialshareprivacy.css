@@ -47,6 +47,10 @@
 	margin-right: 20px;
 	background: url(images/tumblr.png) top left no-repeat transparent;
 }
+.social_share_privacy_area .reddit img,
+.social_share_privacy_area .reddit iframe {
+	margin-right: 20px;
+}
 .social_share_privacy_area li div.tweet {
 	width: 115px;
 }
