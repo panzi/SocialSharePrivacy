@@ -16,25 +16,6 @@
 
 (function ($, undefined) {
 	"use strict";
-	// abbreviate at last blank before length and add "\u2026" (horizontal ellipsis)
-	function abbreviateText (text, length) {
-		// length of UTF-8 encoded string
-		if (unescape(encodeURIComponent(text)).length <= length) {
-			return text;
-		}
-
-		// "\u2026" is actually 3 bytes long in UTF-8
-		// TODO: if any of the last 3 characters is > 1 byte long this truncates too much
-		var abbrev = text.slice(0, length - 3);
-
-		if (!/\W/.test(text.charAt(length - 3))) {
-			var match = /^(.*)\s\S*$/.exec(abbrev);
-			if (match) {
-				abbrev = match[1];
-			}
-		}
-		return abbrev + "\u2026";
-	}
 
 	$.fn.socialSharePrivacy.settings.services.twitter = {
 		'status'            : 'on', 
@@ -54,7 +35,7 @@
 				String(options.tweet_text||'');
 			// 120 is the max character count left after twitters automatic
 			// url shortening with t.co
-			text = abbreviateText(text, 120);
+			text = $.fn.socialSharePrivacy.abbreviateText(text, 120);
 
 			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:130px; height:25px;"></iframe>').attr(
 				'src', 'http://platform.twitter.com/widgets/tweet_button.html?'+$.param({

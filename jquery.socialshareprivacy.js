@@ -89,7 +89,7 @@
 	
 	// helper function that gets the title of the current page
 	function getTitle (options, uri, settings) {
-		var title = settings.title;
+		var title = settings && settings.title;
 		if (typeof title === "function") {
 			title = title.call(this, options, uri, settings);
 		}
@@ -109,7 +109,7 @@
 	}
 
 	function getDescription (options, uri, settings) {
-		var description = settings.description;
+		var description = settings && settings.description;
 		if (typeof description === "function") {
 			description = description.call(this, options, uri, settings);
 		}
@@ -118,11 +118,11 @@
 			return description;
 		}
 
-		return $('meta[name="description"]').attr('content') || $.trim($('article, p, body').first().text());
+		return abbreviateText($('meta[name="description"]').attr('content') || $.trim($('article, p').first().text()) || $.trim($('body').text()), 3500);
 	}
 	
 	function getImage (options, uri, settings) {
-		var img = settings.image;
+		var img = settings && settings.image;
 		if (typeof img === "function") {
 			img = img.call(this, options, uri, settings);
 		}
@@ -131,7 +131,9 @@
 			return img;
 		}
 
-		var imgs = $('img').filter(':visible');
+		var imgs = $('img').filter(':visible').filter(function () {
+			return $(this).parents('.social_share_privacy_area').length === 0;
+		});
 		if (imgs.length === 0) {
 			return $('link[rel~="shortcut"][rel~="icon"]').attr('href') || 'http://www.google.com/s2/favicons?'+$.param({domain:location.hostname});
 		}
@@ -140,6 +142,26 @@
 		});
 		// browser makes src absolute:
 		return imgs[0].src;
+	}
+	
+	// abbreviate at last blank before length and add "\u2026" (horizontal ellipsis)
+	function abbreviateText (text, length) {
+		// length of UTF-8 encoded string
+		if (unescape(encodeURIComponent(text)).length <= length) {
+			return text;
+		}
+
+		// "\u2026" is actually 3 bytes long in UTF-8
+		// TODO: if any of the last 3 characters is > 1 byte long this truncates too much
+		var abbrev = text.slice(0, length - 3);
+
+		if (!/\W/.test(text.charAt(length - 3))) {
+			var match = /^(.*)\s\S*$/.exec(abbrev);
+			if (match) {
+				abbrev = match[1];
+			}
+		}
+		return abbrev + "\u2026";
 	}
 	
 	var HTML_CHAR_MAP = {
@@ -157,7 +179,7 @@
 	}
 
 	function getEmbed (options, uri, settings) {
-		var embed = settings.embed;
+		var embed = settings && settings.embed;
 		if (typeof embed === "function") {
 			embed = embed.call(this, options, uri, settings);
 		}
@@ -466,6 +488,7 @@
 	socialSharePrivacy.getImage   = getImage;
 	socialSharePrivacy.getEmbed   = getEmbed;
 	socialSharePrivacy.getDescription = getDescription;
+	socialSharePrivacy.abbreviateText = abbreviateText;
 
 	socialSharePrivacy.settings = {
 		'services'          : {},
