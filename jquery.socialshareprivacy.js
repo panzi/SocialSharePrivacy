@@ -88,7 +88,16 @@
 	}
 	
 	// helper function that gets the title of the current page
-	function getTitle (options, uri) {
+	function getTitle (options, uri, settings) {
+		var title = settings.title;
+		if (typeof title === "function") {
+			title = title.call(this, options, uri, settings);
+		}
+
+		if (title) {
+			return title;
+		}
+
 		var title = $('meta[name="DC.title"]').attr('content');
 		var creator = $('meta[name="DC.creator"]').attr('content');
 
@@ -99,8 +108,70 @@
 		}
 	}
 
+	function getDescription (options, uri, settings) {
+		var description = settings.description;
+		if (typeof description === "function") {
+			description = description.call(this, options, uri, settings);
+		}
+
+		if (description) {
+			return description;
+		}
+
+		return $('meta[name="description"]').attr('content') || $.trim($('article, p, body').first().text());
+	}
+	
+	function getImage (options, uri, settings) {
+		var img = settings.image;
+		if (typeof img === "function") {
+			img = img.call(this, options, uri, settings);
+		}
+
+		if (img) {
+			return img;
+		}
+
+		var imgs = $('img').filter(':visible');
+		if (imgs.length === 0) {
+			return $('link[rel~="shortcut"][rel~="icon"]').attr('href') || 'http://www.google.com/s2/favicons?'+$.param({domain:location.hostname});
+		}
+		imgs.sort(function (lhs, rhs) {
+			return rhs.offsetWidth * rhs.offsetHeight - lhs.offsetWidth * lhs.offsetHeight;
+		});
+		// browser makes src absolute:
+		return imgs[0].src;
+	}
+	
+	var HTML_CHAR_MAP = {
+		'<': '&lt;',
+		'>': '&gt;',
+		'&': '&amp;',
+		'"': '&quot;',
+		"'": '&#39;'
+	};
+
+	function escapeHtml (s) {
+		return s.replace(/[<>&"']/g, function (ch) {
+			return HTML_CHAR_MAP[ch];
+		});
+	}
+
+	function getEmbed (options, uri, settings) {
+		var embed = settings.embed;
+		if (typeof embed === "function") {
+			embed = embed.call(this, options, uri, settings);
+		}
+
+		if (embed) {
+			return embed;
+		}
+
+		return '<iframe scrolling="no" frameborder="0" style="border:none;" allowtransparency="true" src="' +
+			escapeHtml(uri + options.referrer_track) + '"></iframe>';
+	}
+
 	// build URI from rel="canonical" or document.location
-	function getURI() {
+	function getURI () {
 		var uri = document.location.href;
 		var canonical = $("link[rel=canonical]").attr("href");
 
@@ -389,12 +460,16 @@
 	};
 
 	// expose helper functions:
-	socialSharePrivacy.absurl   = absurl;
-	socialSharePrivacy.getTitle = getTitle;
+	socialSharePrivacy.absurl     = absurl;
+	socialSharePrivacy.escapeHtml = escapeHtml;
+	socialSharePrivacy.getTitle   = getTitle;
+	socialSharePrivacy.getImage   = getImage;
+	socialSharePrivacy.getEmbed   = getEmbed;
+	socialSharePrivacy.getDescription = getDescription;
 
 	socialSharePrivacy.settings = {
 		'services'          : {},
-		// TODO: translate heise article into english
+		// TODO: translate heise article to english
 		'info_link'         : 'http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html',
 		'txt_settings'      : 'Settings',
 		'txt_help'          : 'If you activate these fields via click, data will be sent to a third party (Facebook, Twitter, Google, ...) and stored there. For more details click <em>i</em>.',

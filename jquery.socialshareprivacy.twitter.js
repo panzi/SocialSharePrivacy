@@ -48,9 +48,9 @@
 		'display_name'      : 'Twitter',
 		'referrer_track'    : '',
 		'tweet_text'        : $.fn.socialSharePrivacy.getTitle,
-		'button'            : function (options, uri) {
+		'button'            : function (options, uri, settings) {
 			var text = typeof(options.tweet_text) === 'function' ?
-				options.tweet_text.call(this, options, uri) :
+				options.tweet_text.call(this, options, uri, settings) :
 				String(options.tweet_text||'');
 			// 120 is the max character count left after twitters automatic
 			// url shortening with t.co

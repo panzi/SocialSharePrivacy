@@ -10,7 +10,7 @@
 (function ($, undefined) {
 	"use strict";
 
-	function getQuote (options, uri) {
+	function getQuote (options, uri, settings) {
 		var text = $('article, p').text();
 		
 		if (text.length <= 600) {
@@ -27,48 +27,14 @@
 		return abbrev + "\u2026";
 	}
 
-	function getDescription (options, uri) {
-		return $('meta[name="description"]').attr('content') || getQuote.call(this, options, uri);
-	}
-
-	var HTML_CHAR_MAP = {
-		'<': '&lt;',
-		'>': '&gt;',
-		'&': '&amp;',
-		'"': '&quot;',
-		"'": '&#39;'
-	};
-
-	function escapeHtml (s) {
-		return s.replace(/[<>&"']/g, function (ch) {
-			return HTML_CHAR_MAP[ch];
-		});
-	}
-
-	function getEmbedCode (options, uri) {
-		return '<iframe scrolling="no" frameborder="0" style="border:none;" allowtransparency="true" src="'+escapeHtml(uri)+'"></iframe>';
-	}
-
-	function getPhoto (options, uri) {
-		var imgs = $('img');
-		if (imgs.length === 0) {
-			return uri;
-		}
-		imgs.sort(function (lhs, rhs) {
-			return rhs.offsetWidth * rhs.offsetHeight - lhs.offsetWidth * lhs.offsetHeight;
-		});
-		// browser makes src absolute:
-		return imgs[0].src;
-	}
-
 	function getClickthru (options, uri) {
 		return uri + options.referrer_track;
 	}
 
-	function get (self, options, uri, name) {
+	function get (self, options, uri, settings, name) {
 		var value = options[name];
 		if (typeof value === "function") {
-			return value.call(self, options, uri);
+			return value.call(self, options, uri, settings);
 		}
 		return String(value);
 	}
@@ -84,17 +50,17 @@
 		'type'              : 'link', // possible values are 'link', 'quote', 'photo' or 'video'
 		// type: 'link':
 		'name'              : $.fn.socialSharePrivacy.getTitle,
-		'description'       : getDescription,
+		'description'       : $.fn.socialSharePrivacy.getDescription,
 		// type: 'quote':
 		'quote'             : getQuote,
 		// type: 'photo':
-		'photo'             : getPhoto,
+		'photo'             : $.fn.socialSharePrivacy.getImage,
 		'clickthrou'        : getClickthru,
 		// type: 'video':
-		'embed'             : getEmbedCode,
+		'embed'             : $.fn.socialSharePrivacy.getEmbed,
 		// type: 'photo' or 'video':
 		'caption'           : $.fn.socialSharePrivacy.getTitle,
-		'button'            : function (options, uri) {
+		'button'            : function (options, uri, settings) {
 			var $code = $('<a>' + options.txt_button + '</a>');
 			$code.click(function (event) {
 				var winx = window.screenX || window.screenLeft;
@@ -112,27 +78,27 @@
 				case 'link':
 					return $code.attr('href', 'http://www.tumblr.com/share/link?'+$.param({
 						url         : uri + options.referrer_track,
-						name        : get(this, options, uri, 'name'),
-						description : get(this, options, uri, 'description')
+						name        : get(this, options, uri, settings, 'name'),
+						description : get(this, options, uri, settings, 'description')
 					}));
 
 				case 'quote':
 					return $code.attr('href', 'http://www.tumblr.com/share/quote?'+$.param({
 						source      : uri + options.referrer_track,
-						quote       : get(this, options, uri, 'quote')
+						quote       : get(this, options, uri, settings, 'quote')
 					}));
 
 				case 'photo':
 					return $code.attr('href', 'http://www.tumblr.com/share/photo?'+$.param({
-						source      : get(this, options, uri, 'photo'),
-						caption     : get(this, options, uri, 'caption'),
-						clickthrou  : get(this, options, uri, 'clickthrou')
+						source      : get(this, options, uri, settings, 'photo'),
+						caption     : get(this, options, uri, settings, 'caption'),
+						clickthrou  : get(this, options, uri, settings, 'clickthrou')
 					}));
 
 				case 'video':
 					return $code.attr('href', 'http://www.tumblr.com/share/video?'+$.param({
-						embed       : get(this, options, uri, 'embed'),
-						caption     : get(this, options, uri, 'caption')
+						embed       : get(this, options, uri, settings, 'embed'),
+						caption     : get(this, options, uri, settings, 'caption')
 					}));
 			}
 		}

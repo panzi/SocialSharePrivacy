@@ -38,15 +38,16 @@
 		'referrer_track'    : '',
 		'title'             : $.fn.socialSharePrivacy.getTitle,
 		'target'            : '',
-		'newwindow'         : '',
+		'newwindow'         : '1',
 		'bgcolor'           : 'transparent',
 		'bordercolor'       : '',
 		'css'               : '',
 		'button'            : function (options, uri) {
-			if ('https:' == document.location.protocol) {
-				var base_url = 'https://redditstatic.s3.amazonaws.com'
+			var base_url;
+			if ('https:' === document.location.protocol) {
+				base_url = 'https://redditstatic.s3.amazonaws.com';
 			} else {
-				var base_url = 'http://www.reddit.com/static'
+				base_url = 'http://www.reddit.com/static';
 			}
 			var params = {
 				url   : uri + options.referrer_track,
@@ -61,7 +62,7 @@
 			if (options.css)         params.css         = options.css;
 			if (options.newwindow)   params.newwindow   = options.newwindow;
 
-			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:120px; height:25px;"></iframe>').attr(
+			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:120px; height:20px;"></iframe>').attr(
 				'src', base_url+'/button/button1.html?'+$.param(params));
 		}
 	};

@@ -9,6 +9,8 @@
 <script type="text/javascript" src="../jquery.socialshareprivacy.twitter.js"></script>
 <script type="text/javascript" src="../jquery.socialshareprivacy.gplus.js"></script>
 <script type="text/javascript" src="../jquery.socialshareprivacy.tumblr.js"></script>
+<script type="text/javascript" src="../jquery.socialshareprivacy.reddit.js"></script>
+<script type="text/javascript" src="../jquery.socialshareprivacy.pinterest.js"></script>
 <script type="text/javascript">
 // <![CDATA[
 // define the default order of the buttons:
@@ -44,15 +46,13 @@ $(document).ready(function () {
 		}
 	});
 	$('#share4').socialSharePrivacy({
+		title: 'An orc drawn with pencil, traced and colored in inkscape.',
+		image: 'http://www.deviantart.com/download/4617948/orc__blizzard_x_mas_like____colored.png',
 		services: {
-			facebook : { status: 'off' },
-			twitter  : { status: 'off' },
-			gplus    : { status: 'off' },
-			tumblr   : {
-				type    : 'photo',
-				caption : 'An orc drawn with pencil, traced and colored in inkscape.',
-				photo   : 'http://www.deviantart.com/download/4617948/orc__blizzard_x_mas_like____colored.png'
-			}
+			facebook : { status : 'off'   },
+			twitter  : { status : 'off'   },
+			gplus    : { status : 'off'   },
+			tumblr   : { type   : 'photo' }
 		}
 	});
 });

@@ -54,6 +54,9 @@
 .social_share_privacy_area li div.tweet {
 	width: 115px;
 }
+.social_share_privacy_area li div.pinit {
+	width: 100px;
+}
 /* Twitter end */
 /* Google+ begin */
 .social_share_privacy_area .gplus {
