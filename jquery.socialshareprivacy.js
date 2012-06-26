@@ -358,7 +358,7 @@
 			// IE fix (needed for IE < 9 - but done for all IE versions)
 			if (document.createStyleSheet) {
 				document.createStyleSheet(css_path);
-			} else if ($(document.head).find('link[href="'+options.css_path+'"]').length === 0) {
+			} else if ($('link[href="'+css_path+'"]').length === 0) {
 				$(document.head).append($('<link rel="stylesheet" type="text/css" />').attr('href', css_path));
 			}
 		}
