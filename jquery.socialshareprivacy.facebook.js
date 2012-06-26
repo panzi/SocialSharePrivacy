@@ -21,7 +21,8 @@
 	$.fn.socialSharePrivacy.settings.services.facebook = {
 		'status'            : 'on',
 		'button_class'      : 'fb_like',
-		'dummy_img'         : 'socialshareprivacy/images/dummy_facebook.png',
+		'dummy_line_img'    : 'socialshareprivacy/images/dummy_facebook.png',
+		'dummy_box_img'     : 'socialshareprivacy/images/dummy_box_facebook.png',
 		'dummy_alt'         : 'Facebook "Like"-Dummy',
 		'txt_info'          : '2 clicks for more privacy: The Facebook Like button will be enabled when you click here. Activating the button already sends data to Facebook &ndash; see <em>i</<em>.',
 		'txt_off'           : 'not connetcted to Facebook',
@@ -29,9 +30,9 @@
 		'perma_option'      : 'on',
 		'display_name'      : 'Facebook',
 		'referrer_track'    : '',
-		'action'            : 'recommend',
+		'action'            : 'like',
 		'colorscheme'       : 'light',
-		'button'            : function (options, uri) {
+		'button'            : function (options, uri, settings) {
 			// ensure a locale that is supported by facebook
 			// otherwise facebook renders nothing
 			var match = /^([a-z]{2})_([A-Z]{2})$/.exec(options.language);
@@ -52,18 +53,33 @@
 				locale = options.language+"_"+locales[options.language][0];
 			}
 
-			return $('<iframe height="21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:145px; height:21px;" allowtransparency="true"></iframe>').attr(
+			var layout, w, h;
+			if (settings.layout === 'line') {
+				w = 120;
+				h = 20;
+				layout = 'button_count';
+			}
+			else {
+				w = 80;
+				h = 61;
+				layout = 'box_count';
+			}
+			return $('<iframe scrolling="no" frameborder="0" allowtransparency="true"></iframe>').css({
+					width   : w+'px',
+					height  : h+'px',
+					overflow: 'hidden',
+					border  : 'none'
+				}).attr(
 				'src','http://www.facebook.com/plugins/like.php?'+$.param({
 					locale     : locale,
 					href       : uri + options.referrer_track,
 					send       : 'false',
-					layout     : 'button_count',
-					width      : '120',
-					height     : '21',
+					layout     : layout,
+					width      : String(w),
+					height     : String(h),
 					show_faces : 'false',
 					action     : options.action,
-					colorscheme: options.colorscheme,
-					font       : ''
+					colorscheme: options.colorscheme
 				}));
 		}
 	};

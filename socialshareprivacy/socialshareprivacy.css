@@ -27,11 +27,11 @@
 }
 /* Facebook begin */
 .social_share_privacy_area .facebook {
-    width: 180px;
     display: inline-block;
 }
-.social_share_privacy_area .facebook .fb_like iframe {
-    width: 145px;
+.social_share_privacy_area .facebook .fb_like {
+	margin-right: 20px;
+	width: 120px;
 }
 /* Facebook end */
 /* Twitter begin */
@@ -42,10 +42,15 @@
 	display: inline-block;
 	text-indent: -9999em;
 	overflow: hidden;
-	width: 62px;
-	height: 20px; 
+	width: 81px;
+	height: 20px;
 	margin-right: 20px;
 	background: url(images/tumblr.png) top left no-repeat transparent;
+}
+.social_share_privacy_area.box .tumblr a {
+	width: 58px;
+	height: 58px;
+	background: url(images/tumblr_box.png) top left no-repeat transparent;
 }
 .social_share_privacy_area .reddit img,
 .social_share_privacy_area .reddit iframe {

@@ -20,7 +20,8 @@
 	$.fn.socialSharePrivacy.settings.services.twitter = {
 		'status'            : 'on', 
 		'button_class'      : 'tweet',
-		'dummy_img'         : 'socialshareprivacy/images/dummy_twitter.png',
+		'dummy_line_img'    : 'socialshareprivacy/images/dummy_twitter.png',
+		'dummy_box_img'     : 'socialshareprivacy/images/dummy_box_twitter.png',
 		'dummy_alt'         : '"Tweet this"-Dummy',
 		'txt_info'          : '2 clicks for more privacy: The Tweet this button will be enabled when you click here. Activating the button already sends data to Twitter &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connceted to Twitter',
@@ -36,13 +37,29 @@
 			// 120 is the max character count left after twitters automatic
 			// url shortening with t.co
 			text = $.fn.socialSharePrivacy.abbreviateText(text, 120);
+			var layout, w, h;
+			if (settings.layout === 'line') {
+				w = 120;
+				h = 20;
+				layout = 'horizontal';
+			}
+			else {
+				w = 68;
+				h = 62;
+				layout =  === 'line' ? 'horizontal' : 'vertical';
+			}
 
-			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:130px; height:25px;"></iframe>').attr(
+			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no"></iframe>').css({
+					width   : w+'px',
+					height  : h+'px',
+					overflow: 'hidden',
+					border  : 'none'
+				}).attr(
 				'src', 'http://platform.twitter.com/widgets/tweet_button.html?'+$.param({
 					url     : uri + options.referrer_track,
 					counturl: uri,
 					text    : text,
-					count   : 'horizontal',
+					count   : layout,
 					lang    : options.language
 				}));
 		}

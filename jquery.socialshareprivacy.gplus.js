@@ -19,7 +19,8 @@
 	$.fn.socialSharePrivacy.settings.services.gplus = {
 		'status'            : 'on',
 		'button_class'      : 'gplusone',
-		'dummy_img'         : 'socialshareprivacy/images/dummy_gplus.png',
+		'dummy_line_img'    : 'socialshareprivacy/images/dummy_gplus.png',
+		'dummy_box_img'     : 'socialshareprivacy/images/dummy_box_gplus.png',
 		'dummy_alt'         : '"Google+1"-Dummy',
 		'txt_info'          : '2 clicks for more privacy: The Google+ button will be enabled when you click here. Activating the button already sends data to Google &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connected to Google+',
@@ -27,13 +28,16 @@
 		'perma_option'      : 'on',
 		'display_name'      : 'Google+',
 		'referrer_track'    : '',
-		'button'            : function (options, uri) {
+		'button'            : function (options, uri, settings) {
 			// we use the Google+ "asynchronous" code, standard code is flaky if inserted into dom after load
-			var $code = $('<div class="g-plusone" data-size="medium"></div><script type="text/javascript">window.___gcfg = {lang: "' +
+			var $code = $('<div class="g-plusone"></div><script type="text/javascript">window.___gcfg = {lang: "' +
 				options.language.replace('_','-') + '"}; (function() { var po = document.createElement("script"); ' +
 				'po.type = "text/javascript"; po.async = true; po.src = "https://apis.google.com/js/plusone.js"; ' +
 				'var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s); })(); </script>');
-			$code.find('.g-plusone').attr('data-href', uri + options.referrer_track);
+			$code.filter('.g-plusone').attr({
+				'data-href': uri + options.referrer_track,
+				'data-size': settings.layout === 'line' ? 'medium' : 'tall'
+			});
 			return $code;
 		}
 	};

@@ -28,7 +28,8 @@
 	$.fn.socialSharePrivacy.settings.services.reddit = {
 		'status'            : 'on', 
 		'button_class'      : 'reddit',
-		'dummy_img'         : 'socialshareprivacy/images/dummy_reddit.png',
+		'dummy_line_img'    : 'socialshareprivacy/images/dummy_reddit.png',
+		'dummy_box_img'     : 'socialshareprivacy/images/dummy_box_reddit.png',
 		'dummy_alt'         : '"Reddit this!"-Dummy',
 		'txt_info'          : '2 clicks for more privacy: The reddit this! button will be enabled when you click here. Activating the button already sends data to reddit &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connceted to reddit',
@@ -42,8 +43,18 @@
 		'bgcolor'           : 'transparent',
 		'bordercolor'       : '',
 		'css'               : '',
-		'button'            : function (options, uri) {
-			var base_url;
+		'button'            : function (options, uri, settings) {
+			var base_url, w, h, layout;
+			if (settings.layout === 'line') {
+				w = 120;
+				h = 18;
+				layout = '/button/button1.html?';
+			}
+			else {
+				w = 58;
+				h = 66;
+				layout = '/button/button2.html?';
+			}
 			if ('https:' === document.location.protocol) {
 				base_url = 'https://redditstatic.s3.amazonaws.com';
 			} else {
@@ -51,7 +62,7 @@
 			}
 			var params = {
 				url   : uri + options.referrer_track,
-				width : '120'
+				width : String(w)
 			};
 			var text   = get(this, options, uri, 'text');
 			var target = get(this, options, uri, 'target');
@@ -62,8 +73,13 @@
 			if (options.css)         params.css         = options.css;
 			if (options.newwindow)   params.newwindow   = options.newwindow;
 
-			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:120px; height:20px;"></iframe>').attr(
-				'src', base_url+'/button/button1.html?'+$.param(params));
+			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no"></iframe>').css({
+					width   : w+'px',
+					height  : h+'px',
+					overflow: 'hidden',
+					border  : 'none'
+				}).attr(
+				'src', base_url+layout+$.param(params));
 		}
 	};
 })(jQuery);

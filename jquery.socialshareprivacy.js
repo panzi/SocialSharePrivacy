@@ -118,9 +118,13 @@
 			return description;
 		}
 
-		return abbreviateText($('meta[name="description"]').attr('content') || $.trim($('article, p').first().text()) || $.trim($('body').text()), 3500);
+		return abbreviateText($('meta[name="description"]').attr('content') ||
+			$.trim($('article, p').first().text()) || $.trim($('body').text()), 3500);
 	}
 	
+	// find the largest image of the website
+	// if no image at all is found use googles favicon service, which
+	// defaults to a small globe (so there is always some image)
 	function getImage (options, uri, settings) {
 		var img = settings && settings.image;
 		if (typeof img === "function") {
@@ -135,7 +139,8 @@
 			return $(this).parents('.social_share_privacy_area').length === 0;
 		});
 		if (imgs.length === 0) {
-			return $('link[rel~="shortcut"][rel~="icon"]').attr('href') || 'http://www.google.com/s2/favicons?'+$.param({domain:location.hostname});
+			return $('link[rel~="shortcut"][rel~="icon"]').attr('href') ||
+				'http://www.google.com/s2/favicons?'+$.param({domain:location.hostname});
 		}
 		imgs.sort(function (lhs, rhs) {
 			return rhs.offsetWidth * rhs.offsetHeight - lhs.offsetWidth * lhs.offsetHeight;
@@ -222,7 +227,8 @@
 					append($('<img/>').addClass(button_class+'_privacy_dummy privacy_dummy').
 						attr({
 							alt: service.dummy_alt,
-							src: service.path_prefix + service.dummy_img
+							src: service.path_prefix + (options.layout === 'line' ?
+								service.dummy_line_img : service.dummy_box_img)
 						}).click(onclick));
 			}
 		};
@@ -306,16 +312,17 @@
 
 
 	// extend jquery with our plugin function
-	function socialSharePrivacy (settings) {
+	function socialSharePrivacy (options) {
 
 		// overwrite default values with user settings
-		var options = $.extend(true, {}, socialSharePrivacy.settings, settings);
+		options = $.extend(true, {}, socialSharePrivacy.settings, options);
 		var order = options.order || [];
 
-		var any_on = false;
-		var any_perm = false;
+		var dummy_img  = options.layout === 'line' ? 'dummy_line_img' : 'dummy_box_img';
+		var any_on     = false;
+		var any_perm   = false;
 		var any_unsafe = false;
-		var unordered = [];
+		var unordered  = [];
 		for (var service_name in options.services) {
 			var service = options.services[service_name];
 			if (service.status === 'on') {
@@ -370,15 +377,15 @@
 			}
 		}
 
-		return this.each(function () {
-			var $context = $('<ul class="social_share_privacy_area"></ul>')
-			
-			// canonical uri that will be shared
-			var uri = options.uri;
-			if (typeof uri === 'function') {
-				uri = uri.call(this, options);
-			}
+		// canonical uri that will be shared
+		var uri = options.uri;
+		if (typeof uri === 'function') {
+			uri = uri.call(this, options);
+		}
 
+		return this.each(function () {
+			var $context = $('<ul class="social_share_privacy_area"></ul>').addClass(options.layout);
+			
 			for (var i = 0; i < order.length; ++ i) {
 				var service_name = order[i];
 				var service = options.services[service_name];
@@ -404,7 +411,7 @@
 							append($('<img/>').addClass(button_class+'_privacy_dummy privacy_dummy').
 								attr({
 									alt: service.dummy_alt,
-									src: service.path_prefix + service.dummy_img
+									src: service.path_prefix + service[dummy_img]
 								}));
 					
 						$help_info.find('.dummy_btn img.privacy_dummy, span.switch').click(
@@ -497,6 +504,7 @@
 		'txt_settings'      : 'Settings',
 		'txt_help'          : 'If you activate these fields via click, data will be sent to a third party (Facebook, Twitter, Google, ...) and stored there. For more details click <em>i</em>.',
 		'settings_perma'    : 'Permanently enable share buttons:',
+		'layout'            : 'line', // possible values: 'line' (~120x20) or 'box' (~58x62)
 		'set_perma_option'  : setPermaOption,
 		'del_perma_option'  : delPermaOption,
 		'get_perma_options' : getPermaOptions,

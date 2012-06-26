@@ -28,7 +28,8 @@
 	$.fn.socialSharePrivacy.settings.services.pinterest = {
 		'status'            : 'on', 
 		'button_class'      : 'pinit',
-		'dummy_img'         : 'socialshareprivacy/images/dummy_pinit.png',
+		'dummy_line_img'    : 'socialshareprivacy/images/dummy_pinit.png',
+		'dummy_box_img'     : 'socialshareprivacy/images/dummy_box_pinit.png',
 		'dummy_alt'         : '"Pin it"-Dummy',
 		'txt_info'          : '2 clicks for more privacy: The Pin it button will be enabled when you click here. Activating the button already sends data to Pinterest &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connceted to Pinterest',
@@ -40,7 +41,17 @@
 		'description'       : $.fn.socialSharePrivacy.getDescription,
 		'media'             : $.fn.socialSharePrivacy.getImage,
 		'button'            : function (options, uri, settings) {
-			var base_url;
+			var base_url, w, h, layout;
+			if (settings.layout === 'line') {
+				w = 100;
+				h = 20;
+				layout = 'horizontal';
+			}
+			else {
+				w = 43;
+				h = 58;
+				layout = 'vertical';
+			}
 			if ('https:' === document.location.protocol) {
 				base_url = 'https://assets.pinterest.com/pinit.html?';
 			} else {
@@ -49,7 +60,7 @@
 			var params = {
 				ref    : uri,
 				url    : uri + options.referrer_track,
-				layout : 'horizontal',
+				layout : layout,
 				count  : '1',
 				media  : get(this, options, uri, settings, 'media')
 			};
@@ -58,7 +69,12 @@
 			if (title)       params.title       = title;
 			if (description) params.description = description;
 
-			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:100px; height:20px;"></iframe>').attr(
+			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no"></iframe>').css({
+					width   : w+'px',
+					height  : h+'px',
+					overflow: 'hidden',
+					boder   : 'none'
+				}).attr(
 				'src', base_url+$.param(params));
 		}
 	};

@@ -39,6 +39,19 @@
 		return String(value);
 	}
 
+	function openTumblr (event) {
+		var winx = window.screenX || window.screenLeft;
+		var winy = window.screenY || window.screenTop;
+		var winw = window.outerWidth || window.innerWidth;
+		var winh = window.outerHeight || window.innerHeight;
+		var width = 450;
+		var height = 430;
+		var x = Math.round(winx + (winw - width)  * 0.5);
+		var y = Math.round(winy + (winh - height) * 0.5);
+		window.open(this.href, 't', 'left='+x+',top='+y+',toolbar=0,resizable=0,status=0,menubar=0,width='+width+',height='+height);
+		event.preventDefault();
+	}
+
 	$.fn.socialSharePrivacy.settings.services.tumblr = {
 		'status'            : 'on',
 		'privacy'           : 'safe',
@@ -61,19 +74,7 @@
 		// type: 'photo' or 'video':
 		'caption'           : $.fn.socialSharePrivacy.getTitle,
 		'button'            : function (options, uri, settings) {
-			var $code = $('<a>' + options.txt_button + '</a>');
-			$code.click(function (event) {
-				var winx = window.screenX || window.screenLeft;
-				var winy = window.screenY || window.screenTop;
-				var winw = window.outerWidth || window.innerWidth;
-				var winh = window.outerHeight || window.innerHeight;
-				var width = 450;
-				var height = 430;
-				var x = Math.round(winx + (winw - width)  * 0.5);
-				var y = Math.round(winy + (winh - height) * 0.5);
-				window.open(this.href, 't', 'left='+x+',top='+y+',toolbar=0,resizable=0,status=0,menubar=0,width='+width+',height='+height);
-				event.preventDefault();
-			});
+			var $code = $('<a target="_blank">' + options.txt_button + '</a>').click(openTumblr);
 			switch (options.type) {
 				case 'link':
 					return $code.attr('href', 'http://www.tumblr.com/share/link?'+$.param({
