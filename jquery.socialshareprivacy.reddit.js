@@ -17,10 +17,10 @@
 (function ($, undefined) {
 	"use strict";
 
-	function get (self, options, uri, name) {
+	function get (self, options, uri, settings, name) {
 		var value = options[name];
 		if (typeof value === "function") {
-			return value.call(self, options, uri);
+			return value.call(self, options, uri, settings);
 		}
 		return String(value);
 	}
@@ -62,8 +62,8 @@
 				url   : uri + options.referrer_track,
 				width : String(w)
 			};
-			var text   = get(this, options, uri, 'text');
-			var target = get(this, options, uri, 'target');
+			var text   = get(this, options, uri, settings, 'text');
+			var target = get(this, options, uri, settings, 'target');
 			if (text)   params.text = text;
 			if (target) params.text = target;
 			if (options.bgcolor)     params.bgcolor     = options.bgcolor;

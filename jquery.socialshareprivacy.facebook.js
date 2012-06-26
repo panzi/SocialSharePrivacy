@@ -60,7 +60,7 @@
 				layout = 'button_count';
 			}
 			else {
-				w = 80;
+				w = 62;
 				h = 61;
 				layout = 'box_count';
 			}
