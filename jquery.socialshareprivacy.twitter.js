@@ -44,9 +44,9 @@
 				layout = 'horizontal';
 			}
 			else {
-				w = 68;
+				w = 62;
 				h = 62;
-				layout =  === 'line' ? 'horizontal' : 'vertical';
+				layout = 'vertical';
 			}
 
 			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no"></iframe>').css({
