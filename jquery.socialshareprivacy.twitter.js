@@ -61,7 +61,7 @@
 					text    : text,
 					count   : layout,
 					lang    : options.language
-				}));
+				}).replace(/\+/g,'%20'));
 		}
 	};
 })(jQuery);
