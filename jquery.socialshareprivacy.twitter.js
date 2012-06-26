@@ -37,29 +37,13 @@
 			// 120 is the max character count left after twitters automatic
 			// url shortening with t.co
 			text = $.fn.socialSharePrivacy.abbreviateText(text, 120);
-			var layout, w, h;
-			if (settings.layout === 'line') {
-				w = 120;
-				h = 20;
-				layout = 'horizontal';
-			}
-			else {
-				w = 62;
-				h = 62;
-				layout = 'vertical';
-			}
 
-			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no"></iframe>').css({
-					width   : w+'px',
-					height  : h+'px',
-					overflow: 'hidden',
-					border  : 'none'
-				}).attr(
+			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no"></iframe>').attr(
 				'src', 'http://platform.twitter.com/widgets/tweet_button.html?'+$.param({
 					url     : uri + options.referrer_track,
 					counturl: uri,
 					text    : text,
-					count   : layout,
+					count   : settings.layout === 'line' ? 'horizontal' : 'vertical',
 					lang    : options.language
 				}).replace(/\+/g,'%20'));
 		}

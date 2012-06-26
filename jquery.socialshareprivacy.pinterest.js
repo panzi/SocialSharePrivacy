@@ -41,17 +41,7 @@
 		'description'       : $.fn.socialSharePrivacy.getDescription,
 		'media'             : $.fn.socialSharePrivacy.getImage,
 		'button'            : function (options, uri, settings) {
-			var base_url, w, h, layout;
-			if (settings.layout === 'line') {
-				w = 100;
-				h = 20;
-				layout = 'horizontal';
-			}
-			else {
-				w = 43;
-				h = 58;
-				layout = 'vertical';
-			}
+			var base_url;
 			if ('https:' === document.location.protocol) {
 				base_url = 'https://assets.pinterest.com/pinit.html?';
 			} else {
@@ -60,7 +50,7 @@
 			var params = {
 				ref    : uri,
 				url    : uri + options.referrer_track,
-				layout : layout,
+				layout : settings.layout === 'line' ? 'horizontal' : 'vertical',
 				count  : '1',
 				media  : get(this, options, uri, settings, 'media')
 			};
@@ -69,12 +59,7 @@
 			if (title)       params.title       = title;
 			if (description) params.description = description;
 
-			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no"></iframe>').css({
-					width   : w+'px',
-					height  : h+'px',
-					overflow: 'hidden',
-					boder   : 'none'
-				}).attr(
+			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no"></iframe>').attr(
 				'src', base_url+$.param(params));
 		}
 	};

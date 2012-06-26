@@ -64,12 +64,7 @@
 				h = 61;
 				layout = 'box_count';
 			}
-			return $('<iframe scrolling="no" frameborder="0" allowtransparency="true"></iframe>').css({
-					width   : w+'px',
-					height  : h+'px',
-					overflow: 'hidden',
-					border  : 'none'
-				}).attr(
+			return $('<iframe scrolling="no" frameborder="0" allowtransparency="true"></iframe>').attr(
 				'src','http://www.facebook.com/plugins/like.php?'+$.param({
 					locale     : locale,
 					href       : uri + options.referrer_track,

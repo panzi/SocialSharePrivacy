@@ -44,15 +44,13 @@
 		'bordercolor'       : '',
 		'css'               : '',
 		'button'            : function (options, uri, settings) {
-			var base_url, w, h, layout;
+			var base_url, w, layout;
 			if (settings.layout === 'line') {
 				w = 120;
-				h = 18;
 				layout = '/button/button1.html?';
 			}
 			else {
 				w = 58;
-				h = 66;
 				layout = '/button/button2.html?';
 			}
 			if ('https:' === document.location.protocol) {
@@ -73,12 +71,7 @@
 			if (options.css)         params.css         = options.css;
 			if (options.newwindow)   params.newwindow   = options.newwindow;
 
-			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no"></iframe>').css({
-					width   : w+'px',
-					height  : h+'px',
-					overflow: 'hidden',
-					border  : 'none'
-				}).attr(
+			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no"></iframe>').attr(
 				'src', base_url+layout+$.param(params));
 		}
 	};

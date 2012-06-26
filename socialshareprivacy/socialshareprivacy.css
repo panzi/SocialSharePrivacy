@@ -49,6 +49,45 @@
 	margin-right: 20px;
 	width: 120px;
 }
+.social_share_privacy_area .pinterest iframe,
+.social_share_privacy_area .reddit iframe,
+.social_share_privacy_area .twitter iframe,
+.social_share_privacy_area .facebook iframe {
+	overflow: hidden;
+	border: none;
+}
+.social_share_privacy_area.line .facebook iframe {
+	width: 120px;
+	height: 20px;
+}
+.social_share_privacy_area.box .facebook iframe {
+	width: 80px;
+	height: 61px;
+}
+.social_share_privacy_area.line .pinterest iframe {
+	width: 100px;
+	height: 20px;
+}
+.social_share_privacy_area.box .pinterest iframe {
+	width: 43px;
+	height: 58px;
+}
+.social_share_privacy_area.line .reddit iframe {
+	width: 120px;
+	height: 18px;
+}
+.social_share_privacy_area.box .reddit iframe {
+	width: 58px;
+	height: 66px;
+}
+.social_share_privacy_area.line .twitter iframe {
+	width: 120px;
+	height: 20px;
+}
+.social_share_privacy_area.box .twitter iframe {
+	width: 62px;
+	height: 62px;
+}
 /* Facebook end */
 /* Twitter begin */
 .social_share_privacy_area .tumblr a {
