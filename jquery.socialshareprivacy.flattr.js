@@ -25,7 +25,7 @@
 		'dummy_line_img'    : 'socialshareprivacy/images/dummy_flattr.png',
 		'dummy_box_img'     : 'socialshareprivacy/images/dummy_box_flattr.png',
 		'dummy_alt'         : '"Flattr"-Dummy',
-		'txt_info'          : '2 clicks for more privacy: The Flattr button will be enabled when you click here. Activating the button already sends data to Flattr &ndash; see <em>i</em>.',
+		'txt_info'          : '2 clicks for more privacy: The Flattr button will be enabled once you click here. Activating the button already sends data to Flattr &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connceted to Flattr',
 		'txt_on'            : 'connceted to Flattr',
 		'perma_option'      : 'on',

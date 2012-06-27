@@ -31,7 +31,7 @@
 		'dummy_line_img'    : 'socialshareprivacy/images/dummy_pinit.png',
 		'dummy_box_img'     : 'socialshareprivacy/images/dummy_box_pinit.png',
 		'dummy_alt'         : '"Pin it"-Dummy',
-		'txt_info'          : '2 clicks for more privacy: The Pin it button will be enabled when you click here. Activating the button already sends data to Pinterest &ndash; see <em>i</em>.',
+		'txt_info'          : '2 clicks for more privacy: The Pin it button will be enabled once you click here. Activating the button already sends data to Pinterest &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connceted to Pinterest',
 		'txt_on'            : 'connceted to Pinterest',
 		'perma_option'      : 'on',

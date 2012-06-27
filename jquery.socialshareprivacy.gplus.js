@@ -22,7 +22,7 @@
 		'dummy_line_img'    : 'socialshareprivacy/images/dummy_gplus.png',
 		'dummy_box_img'     : 'socialshareprivacy/images/dummy_box_gplus.png',
 		'dummy_alt'         : '"Google+1"-Dummy',
-		'txt_info'          : '2 clicks for more privacy: The Google+ button will be enabled when you click here. Activating the button already sends data to Google &ndash; see <em>i</em>.',
+		'txt_info'          : '2 clicks for more privacy: The Google+ button will be enabled once you click here. Activating the button already sends data to Google &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connected to Google+',
 		'txt_on'            : 'connected to Google+',
 		'perma_option'      : 'on',
