@@ -24,7 +24,7 @@
 		'dummy_line_img'    : 'socialshareprivacy/images/dummy_facebook.png',
 		'dummy_box_img'     : 'socialshareprivacy/images/dummy_box_facebook.png',
 		'dummy_alt'         : 'Facebook "Like"-Dummy',
-		'txt_info'          : '2 clicks for more privacy: The Facebook Like button will be enabled once you click here. Activating the button already sends data to Facebook &ndash; see <em>i</<em>.',
+		'txt_info'          : '2 clicks for more privacy: The Facebook Like button will be enabled once you click here. Activating the button already sends data to Facebook &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connetcted to Facebook',
 		'txt_on'            : 'connected to Facebook',
 		'perma_option'      : 'on',
