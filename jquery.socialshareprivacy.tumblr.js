@@ -72,7 +72,7 @@
 		// type: 'video':
 		'embed'             : $.fn.socialSharePrivacy.getEmbed,
 		// type: 'photo' or 'video':
-		'caption'           : $.fn.socialSharePrivacy.getTitle,
+		'caption'           : $.fn.socialSharePrivacy.getDescription,
 		'button'            : function (options, uri, settings) {
 			var $code = $('<a target="_blank">' + options.txt_button + '</a>').click(openTumblr);
 			switch (options.type) {
