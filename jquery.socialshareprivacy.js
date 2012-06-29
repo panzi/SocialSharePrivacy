@@ -501,6 +501,7 @@
 		'services'          : {},
 		// TODO: translate heise article to english
 		'info_link'         : 'http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html',
+		'info_link_target'  : '',
 		'txt_settings'      : 'Settings',
 		'txt_help'          : 'If you activate these fields via click, data will be sent to a third party (Facebook, Twitter, Google, ...) and stored there. For more details click <em>i</em>.',
 		'settings_perma'    : 'Permanently enable share buttons:',
@@ -513,9 +514,9 @@
 		'cookie_path'       : '/',
 		'cookie_domain'     : document.location.hostname,
 		'cookie_expires'    : 365,
+		'path_prefix'       : '',
 		'css_path'          : 'socialshareprivacy/socialshareprivacy.css',
 		'uri'               : getURI,
-		'path_prefix'       : '',
 		'language'          : 'en'
 	};
 
