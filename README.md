@@ -516,6 +516,8 @@ N/A
 
 ### Twitter Options
 
+https://twitter.com/about/resources/buttons#tweet
+
 <table>
 <thead>
 	<tr>
@@ -526,9 +528,29 @@ N/A
 </thead>
 <tbody>
 	<tr>
-		<td>tweet_text</td>
+		<td>text</td>
 		<td>jQuery.fn.socialSharePrivacy.getTitle</td>
 		<td></td>
+	</tr>
+	<tr>
+		<td>via</td>
+		<td></td>
+		<td>Twitter user name.</td>
+	</tr>
+	<tr>
+		<td>related</td>
+		<td></td>
+		<td>Twitter user name.</td>
+	</tr>
+	<tr>
+		<td>hashtags</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>dnt</td>
+		<td>true</td>
+		<td>Do not tailor.</td>
 	</tr>
 </tbody>
 </table>

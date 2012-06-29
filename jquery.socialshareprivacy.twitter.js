@@ -29,23 +29,34 @@
 		'perma_option'      : 'on',
 		'display_name'      : 'Twitter',
 		'referrer_track'    : '',
-		'tweet_text'        : $.fn.socialSharePrivacy.getTitle,
+		'via'               : '',
+		'related'           : '',
+		'hashtags'          : '',
+		'dnt'               : 'true',
+		'text'              : $.fn.socialSharePrivacy.getTitle,
 		'button'            : function (options, uri, settings) {
-			var text = typeof(options.tweet_text) === 'function' ?
-				options.tweet_text.call(this, options, uri, settings) :
-				String(options.tweet_text||'');
+			var text = typeof(options.text) === 'function' ?
+				options.text.call(this, options, uri, settings) :
+				String(options.text);
 			// 120 is the max character count left after twitters automatic
 			// url shortening with t.co
 			text = $.fn.socialSharePrivacy.abbreviateText(text, 120);
 
+			var params = {
+				url     : uri + options.referrer_track,
+				counturl: uri,
+				text    : text,
+				count   : settings.layout === 'line' ? 'horizontal' : 'vertical',
+				lang    : options.language
+			};
+			if (options.via)      params.via      = options.via;
+			if (options.related)  params.related  = options.related;
+			if (options.hashtags) params.hashtags = options.hashtags;
+			if (options.dnt)      params.dnt      = options.dnt;
+
 			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no"></iframe>').attr(
-				'src', 'http://platform.twitter.com/widgets/tweet_button.html?'+$.param({
-					url     : uri + options.referrer_track,
-					counturl: uri,
-					text    : text,
-					count   : settings.layout === 'line' ? 'horizontal' : 'vertical',
-					lang    : options.language
-				}).replace(/\+/g,'%20'));
+				'src', 'http://platform.twitter.com/widgets/tweet_button.html?' +
+				$.param(params).replace(/\+/g,'%20'));
 		}
 	};
 })(jQuery);
