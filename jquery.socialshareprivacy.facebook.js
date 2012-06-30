@@ -32,6 +32,7 @@
 		'referrer_track'    : '',
 		'action'            : 'like',
 		'colorscheme'       : 'light',
+		'font'              : '',
 		'button'            : function (options, uri, settings) {
 			// ensure a locale that is supported by facebook
 			// otherwise facebook renders nothing
@@ -53,29 +54,28 @@
 				locale = options.language+"_"+locales[options.language][0];
 			}
 
-			var layout, w, h;
+			var params = {
+				locale     : locale,
+				href       : uri + options.referrer_track,
+				send       : 'false',
+				show_faces : 'false',
+				action     : options.action,
+				colorscheme: options.colorscheme
+			};
+			if (options.font) params.font = options.font;
+
 			if (settings.layout === 'line') {
-				w = 120;
-				h = 20;
-				layout = 'button_count';
+				params.width  = '120';
+				params.height = '20';
+				params.layout = 'button_count';
 			}
 			else {
-				w = 62;
-				h = 61;
-				layout = 'box_count';
+				params.width  = 62;
+				params.height = 61;
+				params.layout = 'box_count';
 			}
 			return $('<iframe scrolling="no" frameborder="0" allowtransparency="true"></iframe>').attr(
-				'src','http://www.facebook.com/plugins/like.php?'+$.param({
-					locale     : locale,
-					href       : uri + options.referrer_track,
-					send       : 'false',
-					layout     : layout,
-					width      : String(w),
-					height     : String(h),
-					show_faces : 'false',
-					action     : options.action,
-					colorscheme: options.colorscheme
-				}));
+				'src','http://www.facebook.com/plugins/like.php?'+$.param(params));
 		}
 	};
 })(jQuery);

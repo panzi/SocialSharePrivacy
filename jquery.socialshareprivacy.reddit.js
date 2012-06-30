@@ -42,7 +42,6 @@
 		'newwindow'         : '1',
 		'bgcolor'           : 'transparent',
 		'bordercolor'       : '',
-		'css'               : '',
 		'button'            : function (options, uri, settings) {
 			var base_url, w, layout;
 			if (settings.layout === 'line') {
@@ -68,7 +67,6 @@
 			if (target) params.target = target;
 			if (options.bgcolor)     params.bgcolor     = options.bgcolor;
 			if (options.bordercolor) params.bordercolor = options.bordercolor;
-			if (options.css)         params.css         = options.css;
 			if (options.newwindow)   params.newwindow   = options.newwindow;
 
 			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no"></iframe>').attr(

@@ -118,29 +118,42 @@
 			return description;
 		}
 
-		return abbreviateText($('meta[name="description"]').attr('content') ||
+		return abbreviateText($('meta[name="description"], meta[itemprop="description"]').attr('content') ||
 			$.trim($('article, p').first().text()) || $.trim($('body').text()), 3500);
 	}
+
+	var IMAGE_ATTR_MAP = {
+		META   : 'content',
+		IMG    : 'src',
+		A      : 'href',
+		IFRAME : 'src'
+	};
 	
 	// find the largest image of the website
 	// if no image at all is found use googles favicon service, which
 	// defaults to a small globe (so there is always some image)
 	function getImage (options, uri, settings) {
-		var img = settings && settings.image;
+		var imgs, img = settings && settings.image;
 		if (typeof img === "function") {
 			img = img.call(this, options, uri, settings);
 		}
 
-		if (img) {
-			return img;
+		if (!img) {
+			imgs = $('itemscope *[itemprop="image"]').first();
+			img = imgs.attr(IMAGE_ATTR_MAP[imgs[0].nodeName]);
 		}
 
-		var imgs = $('img').filter(':visible').filter(function () {
+		if (img) {
+			return absurl(img);
+		}
+
+		imgs = $('img').filter(':visible').filter(function () {
 			return $(this).parents('.social_share_privacy_area').length === 0;
 		});
 		if (imgs.length === 0) {
-			return $('link[rel~="shortcut"][rel~="icon"]').attr('href') ||
-				'http://www.google.com/s2/favicons?'+$.param({domain:location.hostname});
+			img = $('link[rel~="shortcut"][rel~="icon"]').attr('href');
+			if (img) return absurl(img);
+			return 'http://www.google.com/s2/favicons?'+$.param({domain:location.hostname});
 		}
 		imgs.sort(function (lhs, rhs) {
 			return rhs.offsetWidth * rhs.offsetHeight - lhs.offsetWidth * lhs.offsetHeight;
