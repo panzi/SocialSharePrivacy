@@ -62,10 +62,10 @@
 				url   : uri + options.referrer_track,
 				width : String(w)
 			};
-			var text   = get(this, options, uri, settings, 'text');
+			var title  = get(this, options, uri, settings, 'title');
 			var target = get(this, options, uri, settings, 'target');
-			if (text)   params.text = text;
-			if (target) params.text = target;
+			if (title)  params.title  = title;
+			if (target) params.target = target;
 			if (options.bgcolor)     params.bgcolor     = options.bgcolor;
 			if (options.bordercolor) params.bordercolor = options.bordercolor;
 			if (options.css)         params.css         = options.css;
