@@ -522,7 +522,7 @@ Example:
 		<td>newwindow</td>
 		<td>1</td>
 		<td>Opens reddit in a new window when set to <code>1</code>. Set this option to an empty string or
-		anything that evaluates to false to opten reddit in the same window.</td>
+		anything that evaluates to false to open reddit in the same window.</td>
 	</tr>
 	<tr>
 		<td>bgcolor</td>
@@ -631,7 +631,7 @@ Example:
 		$('#share').socialSharePrivacy({
 			services: {
 				twitter: {
-					hastags : 'win'
+					hashtags : 'win'
 				}
 			}
 		});
