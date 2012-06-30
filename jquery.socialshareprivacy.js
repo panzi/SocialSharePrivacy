@@ -140,7 +140,9 @@
 
 		if (!img) {
 			imgs = $('itemscope *[itemprop="image"]').first();
-			img = imgs.attr(IMAGE_ATTR_MAP[imgs[0].nodeName]);
+			if (imgs.length > 0) {
+				img = imgs.attr(IMAGE_ATTR_MAP[imgs[0].nodeName]);
+			}
 		}
 
 		if (img) {
