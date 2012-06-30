@@ -173,7 +173,7 @@ Or like this:
 	</tr>
 	<tr>
 		<td>cookie_domain</td>
-		<td>document.location.hostname</td>
+		<td><code>document.location.hostname</code></td>
 		<td></td>
 	</tr>
 	<tr>
@@ -198,8 +198,10 @@ Or like this:
 	</tr>
 	<tr>
 		<td>uri</td>
-		<td>location.href or the value of the link element with the rel attribute <code>canonical</code></td>
-		<td>URI of the thing to share that is passed on to the share services.</td>
+		<td>[Function]</td>
+		<td>URI of the thing to share that is passed on to the share services. The default function
+		uses the value of the first <code>link</code> element with the rel attribute <code>canonical</code>
+		it can find or <code>location.href</code> if there is none. (Function or string)</td>
 	</tr>
 	<tr>
 		<td>title</td>
@@ -242,7 +244,7 @@ Or like this:
 	</tr>
 	<tr>
 		<td>class_name</td>
-		<td></td>
+		<td>[service specific]</td>
 		<td>The HTML class of the share button wrapper. Per default it is the key of the
 		service as it is registered in jQuery.fn.socialSharePrivacy.settings.services.</td>
 	</tr>
