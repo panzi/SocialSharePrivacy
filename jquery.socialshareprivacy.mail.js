@@ -21,7 +21,7 @@
 	var getDescription = $.fn.socialSharePrivacy.getDescription;
 
 	function getBody (options, uri, settings) {
-		return getDescription.call(options, uri, settings) + '\n\n' + uri;
+		return getDescription.call(options, uri, settings) + '\n\n' + uri + options.referrer_track;
 	}
 
 	$.fn.socialSharePrivacy.settings.services.mail = {

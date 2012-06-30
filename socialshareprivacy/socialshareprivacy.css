@@ -271,6 +271,7 @@
 }
 .social_share_privacy_area li.settings_info .settings_info_menu {
     background-color: #f3f4f5;
+    color: #000;
     border: 2px solid #e7e3e3;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
