@@ -1,8 +1,6 @@
 Social Share Privacy
 ====================
 
-(This document is work in progress.)
-
 Social Share Privacy is a jQuery plugin that lets you add social share buttons
 to your website that don't allow the social sites to track your users. The buttons
 are first disabled and a user needs to click them to enable them. So in order to
@@ -96,133 +94,133 @@ Or like this:
 
 <table>
 <thead>
-	<tr>
-		<th>Option</th>
-		<th>Default Value</th>
-		<th>Description</th>
-	</tr>
+<tr>
+<th>Option</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
 </thead>
 <tbody>
-	<tr>
-		<td>info_link</td>
-		<td><a href="http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html">http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html</a></td>
-		<td>The link of the <em>i</em>-icon that links users to more information about this.</td>
-	</tr>
-	<tr>
-		<td>info_link_target</td>
-		<td></td>
-		<td>The target attribute of the info link. Possible values are <code>_blank</code>,
-		<code>_self</code>, <code>_parent</code>, <code>_top</code> or a frame name.</td>
-	</tr>
-	<tr>
-		<td>txt_settings</td>
-		<td>Settings</td>
-		<td>The text of the settings icon.</td>
-	</tr>
-	<tr>
-		<td>txt_help</td>
-		<td>[Text]</td>
-		<td>Tooltip text of the settings menu.</td>
-	</tr>
-	<tr>
-		<td>settings_perma</td>
-		<td>[Text]</td>
-		<td>Headline of the settings menu.</td>
-	</tr>
-	<tr>
-		<td>layout</td>
-		<td>line</td>
-		<td>Possible values: <code>line</code> or <code>box</code></td>
-	</tr>
-	<tr>
-		<td>set_perma_option</td>
-		<td>function (service_name, settings)</td>
-		<td>Function that stores the perma setting of the service specified by service_name.</td>
-	</tr>
-	<tr>
-		<td>del_perma_option</td>
-		<td>function (service_name, settings)</td>
-		<td>Function that removes the perma setting of the service specified by service_name.</td>
-	</tr>
-	<tr>
-		<td>get_perma_options</td>
-		<td>function (settings)</td>
-		<td>Function that gets the perma setting of all services in an object where the keys are
-		the service names and the values are boolean. Services that are missing are assumed as
-		false.</td>
-	</tr>
-	<tr>
-		<td>get_perma_option</td>
-		<td>function (service_name, settings)</td>
-		<td>Function that gets the perma setting of the service specified by service_name.
-		Returns a boolean value.<br/>
-		<br/>
-		Only one of the two functions get_perma_options and get_perma_option
-		need to be implemented. In that case the respective other needs to be set to
-		null.</td>
-	</tr>
-	<tr>
-		<td>perma_option</td>
-		<td>on (if the jQuery cookies plugin is installed)</td>
-		<td>Possible values: <code>on</code> and <code>off</code></td>
-	</tr>
-	<tr>
-		<td>cookie_path</td>
-		<td>/</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>cookie_domain</td>
-		<td><code>document.location.hostname</code></td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>cookie_expires</td>
-		<td>365</td>
-		<td>Days until the cookie expires.</td>
-	</tr>
-	<tr>
-		<td>path_prefix</td>
-		<td></td>
-		<td>Prefix to all paths (css_path, dummy_line_img, dummy_box_img)</td>
-	</tr>
-	<tr>
-		<td>css_path</td>
-		<td>socialshareprivacy/socialshareprivacy.css</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>language</td>
-		<td>en</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>uri</td>
-		<td>[Function]</td>
-		<td>URI of the thing to share that is passed on to the share services. The default function
-		uses the value of the first <code>link</code> element with the rel attribute <code>canonical</code>
-		it can find or <code>location.href</code> if there is none. (Function or string)</td>
-	</tr>
-	<tr>
-		<td>title</td>
-		<td></td>
-		<td>The title to pass to any share service that want's one.</td>
-	</tr>
-	<tr>
-		<td>description</td>
-		<td></td>
-		<td>The description to pass to any share service that want's one.</td>
-	</tr>
-	<tr>
-		<td>image</td>
-		<td></td>
-		<td>Image URL to pass to any share service that want's one.</td>
-	</tr>
-	<tr>
-		<td>embed</td>
-		<td></td>
-		<td>HTML embed code to pass to any share service that want's one.</td>
-	</tr>
+<tr>
+<td>info_link</td>
+<td><a href="http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html">http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html</a></td>
+<td>The link of the <em>i</em>-icon that links users to more information about this.</td>
+</tr>
+<tr>
+<td>info_link_target</td>
+<td></td>
+<td>The target attribute of the info link. Possible values are <code>_blank</code>,
+<code>_self</code>, <code>_parent</code>, <code>_top</code> or a frame name.</td>
+</tr>
+<tr>
+<td>txt_settings</td>
+<td>Settings</td>
+<td>The text of the settings icon.</td>
+</tr>
+<tr>
+<td>txt_help</td>
+<td>[Text]</td>
+<td>Tooltip text of the settings menu.</td>
+</tr>
+<tr>
+<td>settings_perma</td>
+<td>[Text]</td>
+<td>Headline of the settings menu.</td>
+</tr>
+<tr>
+<td>layout</td>
+<td>line</td>
+<td>Possible values: <code>line</code> or <code>box</code></td>
+</tr>
+<tr>
+<td>set_perma_option</td>
+<td>function (service_name, settings)</td>
+<td>Function that stores the perma setting of the service specified by service_name.</td>
+</tr>
+<tr>
+<td>del_perma_option</td>
+<td>function (service_name, settings)</td>
+<td>Function that removes the perma setting of the service specified by service_name.</td>
+</tr>
+<tr>
+<td>get_perma_options</td>
+<td>function (settings)</td>
+<td>Function that gets the perma setting of all services in an object where the keys are
+the service names and the values are boolean. Services that are missing are assumed as
+false.</td>
+</tr>
+<tr>
+<td>get_perma_option</td>
+<td>function (service_name, settings)</td>
+<td>Function that gets the perma setting of the service specified by service_name.
+Returns a boolean value.<br/>
+<br/>
+Only one of the two functions get_perma_options and get_perma_option
+need to be implemented. In that case the respective other needs to be set to
+null.</td>
+</tr>
+<tr>
+<td>perma_option</td>
+<td>on (if the jQuery cookies plugin is installed)</td>
+<td>Possible values: <code>on</code> and <code>off</code></td>
+</tr>
+<tr>
+<td>cookie_path</td>
+<td>/</td>
+<td></td>
+</tr>
+<tr>
+<td>cookie_domain</td>
+<td><code>document.location.hostname</code></td>
+<td></td>
+</tr>
+<tr>
+<td>cookie_expires</td>
+<td>365</td>
+<td>Days until the cookie expires.</td>
+</tr>
+<tr>
+<td>path_prefix</td>
+<td></td>
+<td>Prefix to all paths (css_path, dummy_line_img, dummy_box_img)</td>
+</tr>
+<tr>
+<td>css_path</td>
+<td>socialshareprivacy/socialshareprivacy.css</td>
+<td></td>
+</tr>
+<tr>
+<td>language</td>
+<td>en</td>
+<td></td>
+</tr>
+<tr>
+<td>uri</td>
+<td>[Function]</td>
+<td>URI of the thing to share that is passed on to the share services. The default function
+uses the value of the first <code>link</code> element with the rel attribute <code>canonical</code>
+it can find or <code>location.href</code> if there is none. (Function or string)</td>
+</tr>
+<tr>
+<td>title</td>
+<td></td>
+<td>The title to pass to any share service that want's one.</td>
+</tr>
+<tr>
+<td>description</td>
+<td></td>
+<td>The description to pass to any share service that want's one.</td>
+</tr>
+<tr>
+<td>image</td>
+<td></td>
+<td>Image URL to pass to any share service that want's one.</td>
+</tr>
+<tr>
+<td>embed</td>
+<td></td>
+<td>HTML embed code to pass to any share service that want's one.</td>
+</tr>
 </tbody>
 </table>
 
@@ -230,81 +228,81 @@ Or like this:
 
 <table>
 <thead>
-	<tr>
-		<th>Option</th>
-		<th>Default Value</th>
-		<th>Description</th>
-	</tr>
+<tr>
+<th>Option</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
 </thead>
 <tbody>
-	<tr>
-		<td>status</td>
-		<td>on</td>
-		<td>Possible values: <code>on</code> and <code>off</code></td>
-	</tr>
-	<tr>
-		<td>class_name</td>
-		<td>[service specific]</td>
-		<td>The HTML class of the share button wrapper. Per default it is the key of the
-		service as it is registered in <code>jQuery.fn.socialSharePrivacy.settings.services</code>.</td>
-	</tr>
-	<tr>
-		<td>button_class</td>
-		<td></td>
-		<td>HTML class of the share button. Per default the same as class_name.</td>
-	</tr>
-	<tr>
-		<td>dummy_line_img</td>
-		<td></td>
-		<td>Placeholder image for deactivated button in <code>line</code> layout.</td>
-	</tr>
-	<tr>
-		<td>dummy_box_img</td>
-		<td></td>
-		<td>Placeholder image for deactivated button in <code>box</code> layout.</td>
-	</tr>
-	<tr>
-		<td>dummy_alt</td>
-		<td>[Text]</td>
-		<td>Alt text of the placeholder image.</td>
-	</tr>
-	<tr>
-		<td>txt_info</td>
-		<td>[Text]</td>
-		<td>Help text for deactivated button.</td>
-	</tr>
-	<tr>
-		<td>txt_off</td>
-		<td>[Text]</td>
-		<td>Status text if button is deactivated.</td>
-	</tr>
-	<tr>
-		<td>txt_on</td>
-		<td>[Text]</td>
-		<td>Status text if button is activated.</td>
-	</tr>
-	<tr>
-		<td>perma_option</td>
-		<td>on</td>
-		<td>Specifies whether the perma option shall be alowed for a certain service.<br/>
-		Possible values: <code>on</code> and <code>off</code></td>
-	</tr>
-	<tr>
-		<td>display_name</td>
-		<td>[Text]</td>
-		<td>Name of the service.</td>
-	</tr>
-	<tr>
-		<td>referrer_track</td>
-		<td></td>
-		<td>A string that is appended to the URI for this service, so you can track from
-		where your users are coming.</td>
-	</tr>
-	<tr>
-		<td>language</td>
-		<td></td>
-		<td>Override the global language just for this service.</td>
-	</tr>
+<tr>
+<td>status</td>
+<td>on</td>
+<td>Possible values: <code>on</code> and <code>off</code></td>
+</tr>
+<tr>
+<td>class_name</td>
+<td>[service specific]</td>
+<td>The HTML class of the share button wrapper. Per default it is the key of the
+service as it is registered in <code>jQuery.fn.socialSharePrivacy.settings.services</code>.</td>
+</tr>
+<tr>
+<td>button_class</td>
+<td></td>
+<td>HTML class of the share button. Per default the same as class_name.</td>
+</tr>
+<tr>
+<td>dummy_line_img</td>
+<td></td>
+<td>Placeholder image for deactivated button in <code>line</code> layout.</td>
+</tr>
+<tr>
+<td>dummy_box_img</td>
+<td></td>
+<td>Placeholder image for deactivated button in <code>box</code> layout.</td>
+</tr>
+<tr>
+<td>dummy_alt</td>
+<td>[Text]</td>
+<td>Alt text of the placeholder image.</td>
+</tr>
+<tr>
+<td>txt_info</td>
+<td>[Text]</td>
+<td>Help text for deactivated button.</td>
+</tr>
+<tr>
+<td>txt_off</td>
+<td>[Text]</td>
+<td>Status text if button is deactivated.</td>
+</tr>
+<tr>
+<td>txt_on</td>
+<td>[Text]</td>
+<td>Status text if button is activated.</td>
+</tr>
+<tr>
+<td>perma_option</td>
+<td>on</td>
+<td>Specifies whether the perma option shall be alowed for a certain service.<br/>
+Possible values: <code>on</code> and <code>off</code></td>
+</tr>
+<tr>
+<td>display_name</td>
+<td>[Text]</td>
+<td>Name of the service.</td>
+</tr>
+<tr>
+<td>referrer_track</td>
+<td></td>
+<td>A string that is appended to the URI for this service, so you can track from
+where your users are coming.</td>
+</tr>
+<tr>
+<td>language</td>
+<td></td>
+<td>Override the global language just for this service.</td>
+</tr>
 </tbody>
 </table>
 
@@ -331,29 +329,29 @@ Example:
 
 <table>
 <thead>
-	<tr>
-		<th>Option</th>
-		<th>Default Value</th>
-		<th>Description</th>
-	</tr>
+<tr>
+<th>Option</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
 </thead>
 <tbody>
-	<tr>
-		<td>action</td>
-		<td>like</td>
-		<td>Possible values: <code>like</code> or <code>recommend</code></td>
-	</tr>
-	<tr>
-		<td>colorscheme</td>
-		<td>light</td>
-		<td>Possible values: <code>light</code> or <code>dark</code></td>
-	</tr>
-	<tr>
-		<td>font</td>
-		<td></td>
-		<td>Possible values: <code>arial</code>, <code>lucida grande</code>, <code>segoe ui</code>, <code>tahoma</code>,
-		<code>trebuchet ms</code> or <code>verdana</code></td>
-	</tr>
+<tr>
+<td>action</td>
+<td>like</td>
+<td>Possible values: <code>like</code> or <code>recommend</code></td>
+</tr>
+<tr>
+<td>colorscheme</td>
+<td>light</td>
+<td>Possible values: <code>light</code> or <code>dark</code></td>
+</tr>
+<tr>
+<td>font</td>
+<td></td>
+<td>Possible values: <code>arial</code>, <code>lucida grande</code>, <code>segoe ui</code>, <code>tahoma</code>,
+<code>trebuchet ms</code> or <code>verdana</code></td>
+</tr>
 </tbody>
 </table>
 
@@ -376,50 +374,49 @@ Example:
 
 <table>
 <thead>
-	<tr>
-		<th>Option</th>
-		<th>Default Value</th>
-		<th>Description</th>
-	</tr>
+<tr>
+<th>Option</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
 </thead>
 <tbody>
-	<tr>
-		<td>title</td>
-		<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
-		<td>Title of the thing to share. (Function or string)</td>
-	</tr>
-	<tr>
-		<td>description</td>
-		<td><a href="#getDescription">jQuery.fn.socialSharePrivacy.getDescription</a></td>
-		<td>Description of the thing to share. (Function or string)</td>
-	</tr>
-	<tr>
-		<td>uid</td>
-		<td></td>
-		<td>Flattr username.</td>
-	</tr>
-	<tr>
-		<td>category</td>
-		<td></td>
-		<td>Possible values: <code>Text</code>, <code>Images</code>, <code>Video</code>, <code>Software</code>, <code>People</code> or
-		<code>Other</code></td>
-	</tr>
-	<tr>
-		<td>tags</td>
-		<td></td>
-		<td>Multiple tags are seperated by a comma <code>,</code>. Only alpha characters are
-		supported in tags.</td>
-	</tr>
-	<tr>
-		<td>popout</td>
-		<td></td>
-		<td>When set to <code>0</code> no popout will appear when the Flattr button is hovered.</td>
-	</tr>
-	<tr>
-		<td>hidden</td>
-		<td></td>
-		<td>When set to <code>1</code> your content will not be publicly listed on Flattr.</td>
-	</tr>
+<tr>
+<td>title</td>
+<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
+<td>Title of the thing to share. (Function or string)</td>
+</tr>
+<tr>
+<td>description</td>
+<td><a href="#getDescription">jQuery.fn.socialSharePrivacy.getDescription</a></td>
+<td>Description of the thing to share. (Function or string)</td>
+</tr>
+<tr>
+<td>uid</td>
+<td></td>
+<td>Flattr username.</td>
+</tr>
+<tr>
+<td>category</td>
+<td></td>
+<td>Possible values: <code>Text</code>, <code>Images</code>, <code>Video</code>, <code>Software</code>, <code>People</code> or
+<code>Other</code></td>
+</tr>
+<tr>
+<td>tags</td>
+<td></td>
+<td>Multiple tags are seperated by a comma <code>,</code>. Only alpha characters are supported in tags.</td>
+</tr>
+<tr>
+<td>popout</td>
+<td></td>
+<td>When set to <code>0</code> no popout will appear when the Flattr button is hovered.</td>
+</tr>
+<tr>
+<td>hidden</td>
+<td></td>
+<td>When set to <code>1</code> your content will not be publicly listed on Flattr.</td>
+</tr>
 </tbody>
 </table>
 
@@ -433,23 +430,23 @@ See also: [official documentation](http://www.google.com/webmasters/+1/button/)
 
 <table>
 <thead>
-	<tr>
-		<th>Option</th>
-		<th>Default Value</th>
-		<th>Description</th>
-	</tr>
+<tr>
+<th>Option</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
 </thead>
 <tbody>
-	<tr>
-		<td>subject</td>
-		<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
-		<td>Subject of the new email. (Function or string)</td>
-	</tr>
-	<tr>
-		<td>body</td>
-		<td>[Function]</td>
-		<td>Body of the new email. (Function or string)</td>
-	</tr>
+<tr>
+<td>subject</td>
+<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
+<td>Subject of the new email. (Function or string)</td>
+</tr>
+<tr>
+<td>body</td>
+<td>[Function]</td>
+<td>Body of the new email. (Function or string)</td>
+</tr>
 </tbody>
 </table>
 
@@ -459,28 +456,28 @@ See also: [official documentation](http://pinterest.com/about/goodies/#button_fo
 
 <table>
 <thead>
-	<tr>
-		<th>Option</th>
-		<th>Default Value</th>
-		<th>Description</th>
-	</tr>
+<tr>
+<th>Option</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
 </thead>
 <tbody>
-	<tr>
-		<td>title</td>
-		<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
-		<td>Title of the thing to share. (Function or string)</td>
-	</tr>
-	<tr>
-		<td>description</td>
-		<td><a href="#getDescription">jQuery.fn.socialSharePrivacy.getDescription</td>
-		<td>Description of the thing to share. (Function or string)</td>
-	</tr>
-	<tr>
-		<td>media</td>
-		<td><a href="#getImage">jQuery.fn.socialSharePrivacy.getImage</a></td>
-		<td>URL of image that represents the thing to share. (Function or string)</td>
-	</tr>
+<tr>
+<td>title</td>
+<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
+<td>Title of the thing to share. (Function or string)</td>
+</tr>
+<tr>
+<td>description</td>
+<td><a href="#getDescription">jQuery.fn.socialSharePrivacy.getDescription</td>
+<td>Description of the thing to share. (Function or string)</td>
+</tr>
+<tr>
+<td>media</td>
+<td><a href="#getImage">jQuery.fn.socialSharePrivacy.getImage</a></td>
+<td>URL of image that represents the thing to share. (Function or string)</td>
+</tr>
 </tbody>
 </table>
 
@@ -503,39 +500,39 @@ Example:
 
 <table>
 <thead>
-	<tr>
-		<th>Option</th>
-		<th>Default Value</th>
-		<th>Description</th>
-	</tr>
+<tr>
+<th>Option</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
 </thead>
 <tbody>
-	<tr>
-		<td>title</td>
-		<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
-		<td>Title of the thing to share. (Function or string)</td>
-	</tr>
-	<tr>
-		<td>target</td>
-		<td></td>
-		<td>A cummunity to target.</td>
-	</tr>
-	<tr>
-		<td>newwindow</td>
-		<td>1</td>
-		<td>Opens reddit in a new window when set to <code>1</code>. Set this option to an empty string or
-		anything that evaluates to false to open reddit in the same window.</td>
-	</tr>
-	<tr>
-		<td>bgcolor</td>
-		<td>transparent</td>
-		<td>HTML color.</td>
-	</tr>
-	<tr>
-		<td>bordercolor</td>
-		<td></td>
-		<td>HTML color.</td>
-	</tr>
+<tr>
+<td>title</td>
+<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
+<td>Title of the thing to share. (Function or string)</td>
+</tr>
+<tr>
+<td>target</td>
+<td></td>
+<td>A cummunity to target.</td>
+</tr>
+<tr>
+<td>newwindow</td>
+<td>1</td>
+<td>Opens reddit in a new window when set to <code>1</code>. Set this option to an empty string or
+anything that evaluates to false to open reddit in the same window.</td>
+</tr>
+<tr>
+<td>bgcolor</td>
+<td>transparent</td>
+<td>HTML color.</td>
+</tr>
+<tr>
+<td>bordercolor</td>
+<td></td>
+<td>HTML color.</td>
+</tr>
 </tbody>
 </table>
 
@@ -558,68 +555,68 @@ Example:
 
 <table>
 <thead>
-	<tr>
-		<th>Option</th>
-		<th>Default Value</th>
-		<th>Description</th>
-	</tr>
+<tr>
+<th>Option</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
 </thead>
 <tbody>
-	<tr>
-		<td>type</td>
-		<td>link</td>
-		<td>Possible values: <code>link</code>, <code>quote</code>, <code>photo</code> or <code>video</code></td>
-	</tr>
-	<tr>
-		<td>name</td>
-		<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
-		<td>Title of the thing to share. (Function or string)<br/>
-		<br/>
-		This option is only defined for the type <code>link</code>.</td>
-	</tr>
-	<tr>
-		<td>description</td>
-		<td><a href="#getDescription">jQuery.fn.socialSharePrivacy.getDescription</a></td>
-		<td>Description of the thing to share. (Function or string)<br/>
-		<br/>
-		This option is only defined for the type <code>link</code>.</td>
-	</tr>
-	<tr>
-		<td>quote</td>
-		<td>[Function]</td>
-		<td>Quote to share. (Function or string)<br/>
-		<br/>
-		This option is only defined for the type <code>quote</code>.</td>
-	</tr>
-	<tr>
-		<td>photo</td>
-		<td><a href="#getImage">jQuery.fn.socialSharePrivacy.getImage</a></td>
-		<td>Image URL of the thing to share. (Function or string)<br/>
-		<br/>
-		This option is only defined for the type <code>photo</code>.</td>
-	</tr>
-	<tr>
-		<td>clickthrou</td>
-		<td>[Function]</td>
-		<td>The URL to where you get when you click the image. Per default it's the
-		shared URI including the referrer_track. (Function or string)<br/>
-		<br/>
-		This option is only defined for the type <code>photo</code>.</td>
-	</tr>
-	<tr>
-		<td>embed</td>
-		<td><a href="#getEmbed">jQuery.fn.socialSharePrivacy.getEmbed</a></td>
-		<td>Embed code of the thing to share. (Function or string)<br/>
-		<br/>
-		This option is only defined for the type <code>video</code>.</td>
-	</tr>
-	<tr>
-		<td>caption</td>
-		<td><a href="#getDescription">jQuery.fn.socialSharePrivacy.getDescription</a></td>
-		<td>Caption of the thing to share. (Function or string)<br/>
-		<br/>
-		This option is only defined for the types <code>photo</code> and <code>video</code>.</td>
-	</tr>
+<tr>
+<td>type</td>
+<td>link</td>
+<td>Possible values: <code>link</code>, <code>quote</code>, <code>photo</code> or <code>video</code></td>
+</tr>
+<tr>
+<td>name</td>
+<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
+<td>Title of the thing to share. (Function or string)<br/>
+<br/>
+This option is only defined for the type <code>link</code>.</td>
+</tr>
+<tr>
+<td>description</td>
+<td><a href="#getDescription">jQuery.fn.socialSharePrivacy.getDescription</a></td>
+<td>Description of the thing to share. (Function or string)<br/>
+<br/>
+This option is only defined for the type <code>link</code>.</td>
+</tr>
+<tr>
+<td>quote</td>
+<td>[Function]</td>
+<td>Quote to share. (Function or string)<br/>
+<br/>
+This option is only defined for the type <code>quote</code>.</td>
+</tr>
+<tr>
+<td>photo</td>
+<td><a href="#getImage">jQuery.fn.socialSharePrivacy.getImage</a></td>
+<td>Image URL of the thing to share. (Function or string)<br/>
+<br/>
+This option is only defined for the type <code>photo</code>.</td>
+</tr>
+<tr>
+<td>clickthrou</td>
+<td>[Function]</td>
+<td>The URL to where you get when you click the image. Per default it's the
+shared URI including the referrer_track. (Function or string)<br/>
+<br/>
+This option is only defined for the type <code>photo</code>.</td>
+</tr>
+<tr>
+<td>embed</td>
+<td><a href="#getEmbed">jQuery.fn.socialSharePrivacy.getEmbed</a></td>
+<td>Embed code of the thing to share. (Function or string)<br/>
+<br/>
+This option is only defined for the type <code>video</code>.</td>
+</tr>
+<tr>
+<td>caption</td>
+<td><a href="#getDescription">jQuery.fn.socialSharePrivacy.getDescription</a></td>
+<td>Caption of the thing to share. (Function or string)<br/>
+<br/>
+This option is only defined for the types <code>photo</code> and <code>video</code>.</td>
+</tr>
 </tbody>
 </table>
 
@@ -641,39 +638,39 @@ Example:
 
 <table>
 <thead>
-	<tr>
-		<th>Option</th>
-		<th>Default Value</th>
-		<th>Description</th>
-	</tr>
+<tr>
+<th>Option</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
 </thead>
 <tbody>
-	<tr>
-		<td>text</td>
-		<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
-		<td>Tweet text (excluding the URL). It will be truncated to 120 characters, leaving
-		place for 20 characters for the shortened URL. (Function or string)</td>
-	</tr>
-	<tr>
-		<td>via</td>
-		<td></td>
-		<td>Twitter username (without the leading <code>@</code>).</td>
-	</tr>
-	<tr>
-		<td>related</td>
-		<td></td>
-		<td>Twitter username (without the leading <code>@</code>).</td>
-	</tr>
-	<tr>
-		<td>hashtags</td>
-		<td></td>
-		<td>Hashtag to add to the tweet (without the leading <code>#</code>).</td>
-	</tr>
-	<tr>
-		<td>dnt</td>
-		<td>true</td>
-		<td>Do not tailor.</td>
-	</tr>
+<tr>
+<td>text</td>
+<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
+<td>Tweet text (excluding the URL). It will be truncated to 120 characters, leaving
+place for 20 characters for the shortened URL. (Function or string)</td>
+</tr>
+<tr>
+<td>via</td>
+<td></td>
+<td>Twitter username (without the leading <code>@</code>).</td>
+</tr>
+<tr>
+<td>related</td>
+<td></td>
+<td>Twitter username (without the leading <code>@</code>).</td>
+</tr>
+<tr>
+<td>hashtags</td>
+<td></td>
+<td>Hashtag to add to the tweet (without the leading <code>#</code>).</td>
+</tr>
+<tr>
+<td>dnt</td>
+<td>true</td>
+<td>Do not tailor.</td>
+</tr>
 </tbody>
 </table>
 
@@ -717,32 +714,32 @@ Escapes text so it can be used safely in HTML strings.
 
 <table>
 <thead>
-	<tr>
-		<th>Character</th>
-		<th>Replacement</th>
-	</tr>
+<tr>
+<th>Character</th>
+<th>Replacement</th>
+</tr>
 </thead>
 <tbody>
-	<tr>
-		<td><code>&lt;</code></td>
-		<td><code>&amp;lt;</code></td>
-	</tr>
-	<tr>
-		<td><code>&gt;</code></td>
-		<td><code>&amp;gt;</code></td>
-	</tr>
-	<tr>
-		<td><code>&amp;</code></td>
-		<td><code>&amp;amp;</code></td>
-	</tr>
-	<tr>
-		<td><code>"</code></td>
-		<td><code>&amp;quot;</code></td>
-	</tr>
-	<tr>
-		<td><code>'</code></td>
-		<td><code>&amp;#39;</code></td>
-	</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td><code>&amp;lt;</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td><code>&amp;gt;</code></td>
+</tr>
+<tr>
+<td><code>&amp;</code></td>
+<td><code>&amp;amp;</code></td>
+</tr>
+<tr>
+<td><code>"</code></td>
+<td><code>&amp;quot;</code></td>
+</tr>
+<tr>
+<td><code>'</code></td>
+<td><code>&amp;#39;</code></td>
+</tr>
 </tbody>
 </table>
 
