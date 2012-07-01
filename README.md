@@ -470,7 +470,7 @@ See also: [official documentation](http://pinterest.com/about/goodies/#button_fo
 </tr>
 <tr>
 <td>description</td>
-<td><a href="#getDescription">jQuery.fn.socialSharePrivacy.getDescription</td>
+<td><a href="#getDescription">jQuery.fn.socialSharePrivacy.getDescription</a></td>
 <td>Description of the thing to share. (Function or string)</td>
 </tr>
 <tr>
