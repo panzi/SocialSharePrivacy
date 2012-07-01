@@ -13,14 +13,14 @@ a user can also permanently enable a social share button.
 
 Supported share services:
 
- * Facebook
- * Twitter
- * Google+
- * Flattr
- * Pinterest
- * reddit
- * Tumblr
- * email
+ * [Facebook](#facebook)
+ * [Flattr](#flattr)
+ * [Google+](#gplus)
+ * [email](#mail)
+ * [Pinterest](#pinterest)
+ * [reddit](#reddit)
+ * [Tumblr](#tumblr)
+ * [Twitter](#twitter)
 
 Note that Tumblr and email are just normal links and thus always enabled.
 
@@ -105,7 +105,7 @@ Or like this:
 <tbody>
 	<tr>
 		<td>info_link</td>
-		<td>http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html</td>
+		<td><a href="http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html">http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html</a></td>
 		<td>The link of the <em>i</em>-icon that links users to more information about this.</td>
 	</tr>
 	<tr>
@@ -246,7 +246,7 @@ Or like this:
 		<td>class_name</td>
 		<td>[service specific]</td>
 		<td>The HTML class of the share button wrapper. Per default it is the key of the
-		service as it is registered in jQuery.fn.socialSharePrivacy.settings.services.</td>
+		service as it is registered in <code>jQuery.fn.socialSharePrivacy.settings.services</code>.</td>
 	</tr>
 	<tr>
 		<td>button_class</td>
@@ -308,7 +308,7 @@ Or like this:
 </tbody>
 </table>
 
-### Facebook Options (`facebook`)
+### <span id="facebook">Facebook Options</span> (`facebook`)
 
 Note that facebook only supports certain languages and requires the region suffix (e.g.
 `en_US`). The facebook service ensures that only supported language strings are sent
@@ -357,7 +357,7 @@ Example:
 </tbody>
 </table>
 
-### Flattr Options (`flattr`)
+### <span id="flattr">Flattr Options</span> (`flattr`)
 
 See also: [official documentation](http://developers.flattr.net/button/)
 
@@ -385,12 +385,12 @@ Example:
 <tbody>
 	<tr>
 		<td>title</td>
-		<td>jQuery.fn.socialSharePrivacy.getTitle</td>
+		<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
 		<td>Title of the thing to share. (Function or string)</td>
 	</tr>
 	<tr>
 		<td>description</td>
-		<td>jQuery.fn.socialSharePrivacy.getDescription</td>
+		<td><a href="#getDescription">jQuery.fn.socialSharePrivacy.getDescription</a></td>
 		<td>Description of the thing to share. (Function or string)</td>
 	</tr>
 	<tr>
@@ -423,13 +423,13 @@ Example:
 </tbody>
 </table>
 
-### Google+ Options (`gplus`)
+### <span id="gplus">Google+ Options</span> (`gplus`)
 
 There are no Google+ specific options.
 
 See also: [official documentation](http://www.google.com/webmasters/+1/button/)
 
-### EMail Options (`mail`)
+### <span id="mail">EMail Options</span> (`mail`)
 
 <table>
 <thead>
@@ -442,7 +442,7 @@ See also: [official documentation](http://www.google.com/webmasters/+1/button/)
 <tbody>
 	<tr>
 		<td>subject</td>
-		<td>jQuery.fn.socialSharePrivacy.getTitle</td>
+		<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
 		<td>Subject of the new email. (Function or string)</td>
 	</tr>
 	<tr>
@@ -453,7 +453,7 @@ See also: [official documentation](http://www.google.com/webmasters/+1/button/)
 </tbody>
 </table>
 
-### Pinterest Options (`pinterest`)
+### <span id="pinterest">Pinterest Options</span> (`pinterest`)
 
 See also: [official documentation](http://pinterest.com/about/goodies/#button_for_web_sites)
 
@@ -468,17 +468,17 @@ See also: [official documentation](http://pinterest.com/about/goodies/#button_fo
 <tbody>
 	<tr>
 		<td>title</td>
-		<td>jQuery.fn.socialSharePrivacy.getTitle</td>
+		<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
 		<td>Title of the thing to share. (Function or string)</td>
 	</tr>
 	<tr>
 		<td>description</td>
-		<td>jQuery.fn.socialSharePrivacy.getDescription</td>
+		<td><a href="#getDescription">jQuery.fn.socialSharePrivacy.getDescription</td>
 		<td>Description of the thing to share. (Function or string)</td>
 	</tr>
 	<tr>
 		<td>media</td>
-		<td>jQuery.fn.socialSharePrivacy.getImage</td>
+		<td><a href="#getImage">jQuery.fn.socialSharePrivacy.getImage</a></td>
 		<td>URL of image that represents the thing to share. (Function or string)</td>
 	</tr>
 </tbody>
@@ -512,7 +512,7 @@ Example:
 <tbody>
 	<tr>
 		<td>title</td>
-		<td>jQuery.fn.socialSharePrivacy.getTitle</td>
+		<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
 		<td>Title of the thing to share. (Function or string)</td>
 	</tr>
 	<tr>
@@ -539,7 +539,7 @@ Example:
 </tbody>
 </table>
 
-### Tumblr Options (`tumblr`)
+### <span id="tumblr">Tumblr Options</span> (`tumblr`)
 
 See also: [official documentation](http://www.tumblr.com/docs/en/buttons)
 
@@ -572,14 +572,14 @@ Example:
 	</tr>
 	<tr>
 		<td>name</td>
-		<td>jQuery.fn.socialSharePrivacy.getTitle</td>
+		<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
 		<td>Title of the thing to share. (Function or string)<br/>
 		<br/>
 		This option is only defined for the type <code>link</code>.</td>
 	</tr>
 	<tr>
 		<td>description</td>
-		<td>jQuery.fn.socialSharePrivacy.getDescription</td>
+		<td><a href="#getDescription">jQuery.fn.socialSharePrivacy.getDescription</a></td>
 		<td>Description of the thing to share. (Function or string)<br/>
 		<br/>
 		This option is only defined for the type <code>link</code>.</td>
@@ -593,7 +593,7 @@ Example:
 	</tr>
 	<tr>
 		<td>photo</td>
-		<td>jQuery.fn.socialSharePrivacy.getImage</td>
+		<td><a href="#getImage">jQuery.fn.socialSharePrivacy.getImage</a></td>
 		<td>Image URL of the thing to share. (Function or string)<br/>
 		<br/>
 		This option is only defined for the type <code>photo</code>.</td>
@@ -608,14 +608,14 @@ Example:
 	</tr>
 	<tr>
 		<td>embed</td>
-		<td>jQuery.fn.socialSharePrivacy.getEmbed</td>
+		<td><a href="#getEmbed">jQuery.fn.socialSharePrivacy.getEmbed</a></td>
 		<td>Embed code of the thing to share. (Function or string)<br/>
 		<br/>
 		This option is only defined for the type <code>video</code>.</td>
 	</tr>
 	<tr>
 		<td>caption</td>
-		<td>jQuery.fn.socialSharePrivacy.getDescription</td>
+		<td><a href="#getDescription">jQuery.fn.socialSharePrivacy.getDescription</a></td>
 		<td>Caption of the thing to share. (Function or string)<br/>
 		<br/>
 		This option is only defined for the types <code>photo</code> and <code>video</code>.</td>
@@ -623,7 +623,7 @@ Example:
 </tbody>
 </table>
 
-### Twitter Options (`twitter`)
+### <span id="twitter">Twitter Options</span> (`twitter`)
 
 See also: [official documentation](https://twitter.com/about/resources/buttons#tweet)
 
@@ -650,7 +650,7 @@ Example:
 <tbody>
 	<tr>
 		<td>text</td>
-		<td>jQuery.fn.socialSharePrivacy.getTitle</td>
+		<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
 		<td>Tweet text (excluding the URL). It will be truncated to 120 characters, leaving
 		place for 20 characters for the shortened URL. (Function or string)</td>
 	</tr>
@@ -692,14 +692,101 @@ Custom Services
 		};
 	})(jQuery);
 
-### jQuery.fn.socialSharePrivacy.\*
+### Helper Functions (`jQuery.fn.socialSharePrivacy.*`)
 
 Some helper functions that might be handy to use in your custom service.
 
- * absurl(url [, baseurl])
- * abbreviateText(text, length)
- * escapeHtml(text)
- * .getTitle(options, uri, settings)
- * .getImage(options, uri, settings)
- * .getEmbed(options, uri, settings)
- * .getDescription(options, uri, settings)
+#### <span id="absurl">absurl(url [, baseurl])</span>
+
+Build an absolute url using a base url.
+The provided base url has to be a valid absolute url. It will not be validated!
+If no base url is given the documents base url/location is used.
+Schemes that behave other than http might not work.
+This function tries to support `file:`-urls, but might fail in some cases.
+`email:`-urls aren't supported at all (don't make sense anyway).
+
+#### <span id="abbreviateText">abbreviateText(text, length)</span>
+
+Abbreviate at last blank before length and add `"\u2026"` (…, horizontal ellipsis).
+The length is the number of UTF-8 encoded bytes, not the number of unicode code
+points, because twitters 140 "characters" are actually bytes.
+
+#### <span id="escapeHtml">escapeHtml(text)</span>
+
+Escapes text so it can be used safely in HTML strings.
+
+<table>
+<thead>
+	<tr>
+		<th>Character</th>
+		<th>Replacement</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td><code>&lt;</code></td>
+		<td><code>&amp;lt;</code></td>
+	</tr>
+	<tr>
+		<td><code>&gt;</code></td>
+		<td><code>&amp;gt;</code></td>
+	</tr>
+	<tr>
+		<td><code>&amp;</code></td>
+		<td><code>&amp;amp;</code></td>
+	</tr>
+	<tr>
+		<td><code>"</code></td>
+		<td><code>&amp;quot;</code></td>
+	</tr>
+	<tr>
+		<td><code>'</code></td>
+		<td><code>&amp;#39;</code></td>
+	</tr>
+</tbody>
+</table>
+
+#### <span id="getTitle">getTitle(options, uri, settings)</span>
+
+Lookup title of shared thing in several places:
+
+ * `settings.title`, which may be a string or a function with the same parameters.
+ * `$('meta[name="DC.title"]').attr('content') + ' - ' + $('meta[name="DC.creator"]').attr('content')`
+ * `$('title').text()`
+
+The element of the share button is passed as `this`.
+
+#### <span id="getImage">getImage(options, uri, settings)</span>
+
+Lookup image URL of shared thing in several places:
+
+ * `settings.image`, which may be a string or a function with the same parameters.
+ * `$('itemscope *[itemprop="image"]').first().attr('content'` / `'src'` / `'href')`
+ * `$('img').filter(':visible').filter(function () { return $(this).parents('.social_share_privacy_area').length === 0; })`,
+   using the image with the biggest area.
+ * `$('link[rel~="shortcut"][rel~="icon"]').attr('href')`
+ * `'http://www.google.com/s2/favicons?'+$.param({domain:location.hostname})`
+
+The element of the share button is passed as `this`.
+
+#### <span id="getEmbed">getEmbed(options, uri, settings)</span>
+
+Lookup image URL of shared thing in several places:
+
+ * `settings.embed`, which may be a string or a function with the same parameters.
+ * `'<iframe scrolling="no" frameborder="0" style="border:none;" allowtransparency="true" src="' + escapeHtml(uri + options.referrer_track) + '"></iframe>'`
+
+The element of the share button is passed as `this`.
+
+#### <span id="getDescription">getDescription(options, uri, settings)</span>
+
+Lookup description of shared thing in several places:
+
+ * `settings.description`, which may be a string or a function with the same parameters.
+ * `$('meta[name="description"], meta[itemprop="description"]').attr('content')`
+ * `$('article, p').first().text()`
+ * `$('body').text()`
+
+If not defined in `settings.description` the found text is truncated at 3500 bytes.
+
+The element of the share button is passed as `this`.

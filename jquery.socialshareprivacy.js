@@ -25,7 +25,7 @@
 	 * The provided base url has to be a valid absolute url. It will not be validated!
 	 * If no base url is given the document location is used.
 	 * Schemes that behave other than http might not work.
-	 * It tries to support file:-urls, but might fail in some cases.
+	 * This function tries to support file:-urls, but might fail in some cases.
 	 * email:-urls aren't supported at all (don't make sense anyway).
 	 */
 	function absurl (url, base) {
