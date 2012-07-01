@@ -411,15 +411,15 @@
 					var $help_info;
 
 					if (service.privacy === 'safe') {
-						$help_info = $('<li class="help_info"><span class="info">' +
-							service.txt_info + '</span><div class="dummy_btn"></div></li>').addClass(class_name);
+						$help_info = $('<li class="help_info"><div class="info">' +
+							service.txt_info + '</div><div class="dummy_btn"></div></li>').addClass(class_name);
 						$help_info.find('.dummy_btn').
 							addClass(button_class).
 							append(service.button.call(this,service,uri,options));
 					}
 					else {
-						$help_info = $('<li class="help_info"><span class="info">' +
-							service.txt_info + '</span><span class="switch off">' + service.txt_off +
+						$help_info = $('<li class="help_info"><div class="info">' +
+							service.txt_info + '</div><span class="switch off">' + service.txt_off +
 							'</span><div class="dummy_btn"></div></li>').addClass(class_name);
 						$help_info.find('.dummy_btn').
 							addClass(button_class).
