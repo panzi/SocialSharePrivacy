@@ -45,32 +45,34 @@ see the file
 How to use
 ----------
 
-	<html>
-	<head>
-	…
-	<script type="text/javascript" src="jquery.js"></script> 
-	<script type="text/javascript" src="jquery.socialshareprivacy.js"></script>
-	<script type="text/javascript" src="jquery.socialshareprivacy.facebook.js"></script>
-	<script type="text/javascript" src="jquery.socialshareprivacy.twitter.js"></script>
-	<script type="text/javascript" src="jquery.socialshareprivacy.gplus.js"></script>
-	<script type="text/javascript" src="jquery.socialshareprivacy.flattr.js"></script>
-	<script type="text/javascript" src="jquery.socialshareprivacy.pinterest.js"></script>
-	<script type="text/javascript" src="jquery.socialshareprivacy.reddit.js"></script>
-	<script type="text/javascript" src="jquery.socialshareprivacy.tumblr.js"></script>
-	<script type="text/javascript" src="jquery.socialshareprivacy.mail.js"></script>
-	<script type="text/javascript">
-	$(document).ready(function () {
-		$('#share').socialSharePrivacy();
-	});
-	</script>
-	…
-	</head>
-	<body>
-	…
-	<div id="share"></div>
-	…
-	</body>
-	</html>
+```html
+<html>
+<head>
+…
+<script type="text/javascript" src="jquery.js"></script> 
+<script type="text/javascript" src="jquery.socialshareprivacy.js"></script>
+<script type="text/javascript" src="jquery.socialshareprivacy.facebook.js"></script>
+<script type="text/javascript" src="jquery.socialshareprivacy.twitter.js"></script>
+<script type="text/javascript" src="jquery.socialshareprivacy.gplus.js"></script>
+<script type="text/javascript" src="jquery.socialshareprivacy.flattr.js"></script>
+<script type="text/javascript" src="jquery.socialshareprivacy.pinterest.js"></script>
+<script type="text/javascript" src="jquery.socialshareprivacy.reddit.js"></script>
+<script type="text/javascript" src="jquery.socialshareprivacy.tumblr.js"></script>
+<script type="text/javascript" src="jquery.socialshareprivacy.mail.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	$('#share').socialSharePrivacy();
+});
+</script>
+…
+</head>
+<body>
+…
+<div id="share"></div>
+…
+</body>
+</html>
+```
 
 You only need to include the JavaScript files of the services you want to use.
 
@@ -81,16 +83,20 @@ Options
 
 Set these options like this:
 
-	$.fn.socialSharePrivacy.settings.title = "Title of the thing to share."
-	…
+```javascript
+$.fn.socialSharePrivacy.settings.title = "Title of the thing to share.";
+…
+```
 
 Or like this:
 
-	$.extend($.fn.socialSharePrivacy.settings, {
-		path_prefix: "/socialshareprivacy",
-		css_path:    "socialshareprivacy.css",
-		…
-	});
+```javascript
+$.extend($.fn.socialSharePrivacy.settings, {
+	path_prefix: "/socialshareprivacy",
+	css_path:    "socialshareprivacy.css",
+	…
+});
+```
 
 <table>
 <thead>
@@ -316,16 +322,18 @@ See also: [official documentation](http://developers.facebook.com/docs/reference
 
 Example:
 
-	$(document).ready(function () {
-		$('#share').socialSharePrivacy({
-			services: {
-				facebook: {
-					action      : 'recommend',
-					colorscheme : 'dark'
-				}
+```javascript
+$(document).ready(function () {
+	$('#share').socialSharePrivacy({
+		services: {
+			facebook: {
+				action      : 'recommend',
+				colorscheme : 'dark'
 			}
-		});
+		}
 	});
+});
+```
 
 <table>
 <thead>
@@ -360,17 +368,18 @@ Example:
 See also: [official documentation](http://developers.flattr.net/button/)
 
 Example:
-
-	$(document).ready(function () {
-		$('#share').socialSharePrivacy({
-			services: {
-				flattr: {
-					uid      : 'yourflattrid',
-					category : 'Text'
-				}
+```javascript
+$(document).ready(function () {
+	$('#share').socialSharePrivacy({
+		services: {
+			flattr: {
+				uid      : 'yourflattrid',
+				category : 'Text'
 			}
-		});
+		}
 	});
+});
+```
 
 <table>
 <thead>
@@ -487,16 +496,18 @@ See also: [official documentation](http://www.reddit.com/buttons/)
 
 Example:
 
-	$(document).ready(function () {
-		$('#share').socialSharePrivacy({
-			services: {
-				reddit: {
-					newwindow : false,
-					bgcolor   : '#ffff00'
-				}
+```javascript
+$(document).ready(function () {
+	$('#share').socialSharePrivacy({
+		services: {
+			reddit: {
+				newwindow : false,
+				bgcolor   : '#ffff00'
 			}
-		});
+		}
 	});
+});
+```
 
 <table>
 <thead>
@@ -542,16 +553,18 @@ See also: [official documentation](http://www.tumblr.com/docs/en/buttons)
 
 Example:
 
-	$(document).ready(function () {
-		$('#share').socialSharePrivacy({
-			services: {
-				tumblr: {
-					type  : 'photo',
-					photo : 'http://example.com/example.png'
-				}
+```javascript
+$(document).ready(function () {
+	$('#share').socialSharePrivacy({
+		services: {
+			tumblr: {
+				type  : 'photo',
+				photo : 'http://example.com/example.png'
 			}
-		});
+		}
 	});
+});
+```
 
 <table>
 <thead>
@@ -626,15 +639,17 @@ See also: [official documentation](https://twitter.com/about/resources/buttons#t
 
 Example:
 
-	$(document).ready(function () {
-		$('#share').socialSharePrivacy({
-			services: {
-				twitter: {
-					hashtags : 'win'
-				}
+```javascript
+$(document).ready(function () {
+	$('#share').socialSharePrivacy({
+		services: {
+			twitter: {
+				hashtags : 'win'
 			}
-		});
+		}
 	});
+});
+```
 
 <table>
 <thead>
@@ -677,17 +692,19 @@ place for 20 characters for the shortened URL. (Function or string)</td>
 Custom Services
 ---------------
 
-	(function ($, undefined) {
-		$.fn.socialSharePrivacy.settings.services.myservice = {
-			/* default values for common service options... */
-			'button': function (options, uri, settings) {
-				return $('<iframe scrolling="no" frameborder="0" allowtransparency="true"></iframe>').attr(
-					'src', 'http://myservice.example/?' + $.param({
-						url: uri + options.referrer_track
-					});
-			}
-		};
-	})(jQuery);
+```javascript
+(function ($, undefined) {
+	$.fn.socialSharePrivacy.settings.services.myservice = {
+		/* default values for common service options... */
+		'button': function (options, uri, settings) {
+			return $('<iframe scrolling="no" frameborder="0" allowtransparency="true"></iframe>').attr(
+				'src', 'http://myservice.example/?' + $.param({
+					url: uri + options.referrer_track
+				});
+		}
+	};
+})(jQuery);
+```
 
 ### Helper Functions (`jQuery.fn.socialSharePrivacy.*`)
 
