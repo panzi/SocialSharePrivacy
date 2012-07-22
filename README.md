@@ -788,7 +788,8 @@ The element of the share button is passed as `this`.
 Lookup image URL of shared thing in several places:
 
  * `settings.embed`, which may be a string or a function with the same parameters.
- * `'<iframe scrolling="no" frameborder="0" style="border:none;" allowtransparency="true" src="' + escapeHtml(uri + options.referrer_track) + '"></iframe>'`
+ * `'<iframe scrolling="no" frameborder="0" style="border:none;" allowtransparency="true" src="' +`<br/>
+   `escapeHtml(uri + options.referrer_track) + '"></iframe>'`
 
 The element of the share button is passed as `this`.
 
