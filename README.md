@@ -11,14 +11,14 @@ a user can also permanently enable a social share button.
 
 Supported share services:
 
- * [Facebook](#facebook)
- * [Flattr](#flattr)
- * [Google+](#gplus)
- * [email](#mail)
- * [Pinterest](#pinterest)
- * [reddit](#reddit)
- * [Tumblr](#tumblr)
- * [Twitter](#twitter)
+ * [Facebook](#facebook-options-facebook)
+ * [Flattr](#flattr-options-flattr)
+ * [Google+](#google-options-gplus)
+ * [email](#email-options-mail)
+ * [Pinterest](#pinterest-options-pinterest)
+ * [reddit](#reddit-options-reddit)
+ * [Tumblr](#tumblr-options-tumblr)
+ * [Twitter](#twitter-options-twitter)
 
 Note that Tumblr and email are just normal links and thus always enabled.
 
@@ -40,7 +40,7 @@ However, you can plug in you own replacement to store this options differently
 (e.g. via ajax in the user profile or in the browsers local store). For an
 example that stores the perma options in HTML5 local storage instead of cookies
 see the file
-[jquery.socialshareprivacy.localstorage.js](jquery.socialshareprivacy.localstorage.js).
+[jquery.socialshareprivacy.localstorage.js](https://github.com/panzi/SocialSharePrivacy/blob/master/jquery.socialshareprivacy.localstorage.js).
 
 How to use
 ----------
@@ -312,7 +312,7 @@ where your users are coming.</td>
 </tbody>
 </table>
 
-### <span id="facebook">Facebook Options</span> (`facebook`)
+### <span id="facebook-options-facebook">Facebook Options</span> (`facebook`)
 
 Note that facebook only supports certain languages and requires the region suffix (e.g.
 `en_US`). The facebook service ensures that only supported language strings are sent
@@ -363,7 +363,7 @@ $(document).ready(function () {
 </tbody>
 </table>
 
-### <span id="flattr">Flattr Options</span> (`flattr`)
+### <span id="flattr-options-flattr">Flattr Options</span> (`flattr`)
 
 See also: [official documentation](http://developers.flattr.net/button/)
 
@@ -392,12 +392,12 @@ $(document).ready(function () {
 <tbody>
 <tr>
 <td>title</td>
-<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
+<td><a href="#gettitleoptions-uri-settings">jQuery.fn.socialSharePrivacy.getTitle</a></td>
 <td>Title of the thing to share. (Function or string)</td>
 </tr>
 <tr>
 <td>description</td>
-<td><a href="#getDescription">jQuery.fn.socialSharePrivacy.getDescription</a></td>
+<td><a href="#getdescriptionoptions-uri-settings">jQuery.fn.socialSharePrivacy.getDescription</a></td>
 <td>Description of the thing to share. (Function or string)</td>
 </tr>
 <tr>
@@ -429,13 +429,13 @@ $(document).ready(function () {
 </tbody>
 </table>
 
-### <span id="gplus">Google+ Options</span> (`gplus`)
+### <span id="google-options-gplus">Google+ Options</span> (`gplus`)
 
 There are no Google+ specific options.
 
 See also: [official documentation](http://www.google.com/webmasters/+1/button/)
 
-### <span id="mail">EMail Options</span> (`mail`)
+### <span id="email-options-mail">EMail Options</span> (`mail`)
 
 <table>
 <thead>
@@ -448,7 +448,7 @@ See also: [official documentation](http://www.google.com/webmasters/+1/button/)
 <tbody>
 <tr>
 <td>subject</td>
-<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
+<td><a href="#gettitleoptions-uri-settings">jQuery.fn.socialSharePrivacy.getTitle</a></td>
 <td>Subject of the new email. (Function or string)</td>
 </tr>
 <tr>
@@ -459,7 +459,7 @@ See also: [official documentation](http://www.google.com/webmasters/+1/button/)
 </tbody>
 </table>
 
-### <span id="pinterest">Pinterest Options</span> (`pinterest`)
+### <span id="pinterest-options-pinterest">Pinterest Options</span> (`pinterest`)
 
 See also: [official documentation](http://pinterest.com/about/goodies/#button_for_web_sites)
 
@@ -474,23 +474,23 @@ See also: [official documentation](http://pinterest.com/about/goodies/#button_fo
 <tbody>
 <tr>
 <td>title</td>
-<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
+<td><a href="#gettitleoptions-uri-settings">jQuery.fn.socialSharePrivacy.getTitle</a></td>
 <td>Title of the thing to share. (Function or string)</td>
 </tr>
 <tr>
 <td>description</td>
-<td><a href="#getDescription">jQuery.fn.socialSharePrivacy.getDescription</a></td>
+<td><a href="#getdescriptionoptions-uri-settings">jQuery.fn.socialSharePrivacy.getDescription</a></td>
 <td>Description of the thing to share. (Function or string)</td>
 </tr>
 <tr>
 <td>media</td>
-<td><a href="#getImage">jQuery.fn.socialSharePrivacy.getImage</a></td>
+<td><a href="#getimageoptions-uri-settings">jQuery.fn.socialSharePrivacy.getImage</a></td>
 <td>URL of image that represents the thing to share. (Function or string)</td>
 </tr>
 </tbody>
 </table>
 
-### Reddit Options (`reddit`)
+### <span id="reddit-options-reddit">Reddit Options</span> (`reddit`)
 
 See also: [official documentation](http://www.reddit.com/buttons/)
 
@@ -520,7 +520,7 @@ $(document).ready(function () {
 <tbody>
 <tr>
 <td>title</td>
-<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
+<td><a href="#gettitleoptions-uri-settings">jQuery.fn.socialSharePrivacy.getTitle</a></td>
 <td>Title of the thing to share. (Function or string)</td>
 </tr>
 <tr>
@@ -547,7 +547,7 @@ anything that evaluates to false to open reddit in the same window.</td>
 </tbody>
 </table>
 
-### <span id="tumblr">Tumblr Options</span> (`tumblr`)
+### <span id="tumblr-options-tumblr">Tumblr Options</span> (`tumblr`)
 
 See also: [official documentation](http://www.tumblr.com/docs/en/buttons)
 
@@ -582,14 +582,14 @@ $(document).ready(function () {
 </tr>
 <tr>
 <td>name</td>
-<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
+<td><a href="#gettitleoptions-uri-settings">jQuery.fn.socialSharePrivacy.getTitle</a></td>
 <td>Title of the thing to share. (Function or string)<br/>
 <br/>
 This option is only defined for the type <code>link</code>.</td>
 </tr>
 <tr>
 <td>description</td>
-<td><a href="#getDescription">jQuery.fn.socialSharePrivacy.getDescription</a></td>
+<td><a href="#getdescriptionoptions-uri-settings">jQuery.fn.socialSharePrivacy.getDescription</a></td>
 <td>Description of the thing to share. (Function or string)<br/>
 <br/>
 This option is only defined for the type <code>link</code>.</td>
@@ -603,7 +603,7 @@ This option is only defined for the type <code>quote</code>.</td>
 </tr>
 <tr>
 <td>photo</td>
-<td><a href="#getImage">jQuery.fn.socialSharePrivacy.getImage</a></td>
+<td><a href="#getimageoptions-uri-settings">jQuery.fn.socialSharePrivacy.getImage</a></td>
 <td>Image URL of the thing to share. (Function or string)<br/>
 <br/>
 This option is only defined for the type <code>photo</code>.</td>
@@ -618,14 +618,14 @@ This option is only defined for the type <code>photo</code>.</td>
 </tr>
 <tr>
 <td>embed</td>
-<td><a href="#getEmbed">jQuery.fn.socialSharePrivacy.getEmbed</a></td>
+<td><a href="#getembedoptions-uri-settings">jQuery.fn.socialSharePrivacy.getEmbed</a></td>
 <td>Embed code of the thing to share. (Function or string)<br/>
 <br/>
 This option is only defined for the type <code>video</code>.</td>
 </tr>
 <tr>
 <td>caption</td>
-<td><a href="#getDescription">jQuery.fn.socialSharePrivacy.getDescription</a></td>
+<td><a href="#getdescriptionoptions-uri-settings">jQuery.fn.socialSharePrivacy.getDescription</a></td>
 <td>Caption of the thing to share. (Function or string)<br/>
 <br/>
 This option is only defined for the types <code>photo</code> and <code>video</code>.</td>
@@ -633,7 +633,7 @@ This option is only defined for the types <code>photo</code> and <code>video</co
 </tbody>
 </table>
 
-### <span id="twitter">Twitter Options</span> (`twitter`)
+### <span id="twitter-options-twitter">Twitter Options</span> (`twitter`)
 
 See also: [official documentation](https://twitter.com/about/resources/buttons#tweet)
 
@@ -662,7 +662,7 @@ $(document).ready(function () {
 <tbody>
 <tr>
 <td>text</td>
-<td><a href="#getTitle">jQuery.fn.socialSharePrivacy.getTitle</a></td>
+<td><a href="#gettitleoptions-uri-settings">jQuery.fn.socialSharePrivacy.getTitle</a></td>
 <td>Tweet text (excluding the URL). It will be truncated to 120 characters, leaving
 place for 20 characters for the shortened URL. (Function or string)</td>
 </tr>
@@ -710,7 +710,7 @@ Custom Services
 
 Some helper functions that might be handy to use in your custom service.
 
-#### <span id="absurl">absurl(url [, baseurl])</span>
+#### <span id="absurlurl--baseurl">absurl(url [, baseurl])</span>
 
 Build an absolute url using a base url.
 The provided base url has to be a valid absolute url. It will not be validated!
@@ -719,13 +719,13 @@ Schemes that behave other than http might not work.
 This function tries to support `file:`-urls, but might fail in some cases.
 `email:`-urls aren't supported at all (don't make sense anyway).
 
-#### <span id="abbreviateText">abbreviateText(text, length)</span>
+#### <span id="abbreviatetexttext-length">abbreviateText(text, length)</span>
 
 Abbreviate at last blank before length and add `"\u2026"` (…, horizontal ellipsis).
 The length is the number of UTF-8 encoded bytes, not the number of unicode code
 points, because twitters 140 "characters" are actually bytes.
 
-#### <span id="escapeHtml">escapeHtml(text)</span>
+#### <span id="escapehtmltext">escapeHtml(text)</span>
 
 Escapes text so it can be used safely in HTML strings.
 
@@ -760,7 +760,7 @@ Escapes text so it can be used safely in HTML strings.
 </tbody>
 </table>
 
-#### <span id="getTitle">getTitle(options, uri, settings)</span>
+#### <span id="gettitleoptions-uri-settings">getTitle(options, uri, settings)</span>
 
 Lookup title of shared thing in several places:
 
@@ -770,7 +770,7 @@ Lookup title of shared thing in several places:
 
 The element of the share button is passed as `this`.
 
-#### <span id="getImage">getImage(options, uri, settings)</span>
+#### <span id="getimageoptions-uri-settings">getImage(options, uri, settings)</span>
 
 Lookup image URL of shared thing in several places:
 
@@ -783,7 +783,7 @@ Lookup image URL of shared thing in several places:
 
 The element of the share button is passed as `this`.
 
-#### <span id="getEmbed">getEmbed(options, uri, settings)</span>
+#### <span id="getembedoptions-uri-settings">getEmbed(options, uri, settings)</span>
 
 Lookup image URL of shared thing in several places:
 
@@ -793,7 +793,7 @@ Lookup image URL of shared thing in several places:
 
 The element of the share button is passed as `this`.
 
-#### <span id="getDescription">getDescription(options, uri, settings)</span>
+#### <span id="getdescriptionoptions-uri-settings">getDescription(options, uri, settings)</span>
 
 Lookup description of shared thing in several places:
 
