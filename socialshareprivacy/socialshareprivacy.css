@@ -1,8 +1,8 @@
 .social_share_privacy_area {
-    clear: both;
-    margin: 20px 0 !important;
+	clear: both;
+	margin: 5px 0;
 	list-style-type: none;
-	padding: 0 !important;
+	padding: 0;
 	width: auto;
 	display: block;
 }
