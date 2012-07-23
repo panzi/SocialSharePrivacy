@@ -1,0 +1,6 @@
+.float-image {
+	float: right;
+}
+.float-image img {
+	width: auto;
+}
