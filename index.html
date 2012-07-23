@@ -7,6 +7,7 @@
     <meta name="description" content="Social Share Privacy : Fork of &quot;jquery.socialshareprivacy.js | 2 Klicks fuer mehr Datenschutz&quot;" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="socialshareprivacy/style.css">
 
     <title>Social Share Privacy</title>
   </head>
@@ -31,9 +32,33 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <p>More and more websites use like-buttons from Facebook, Google+ and Twitter. However, these buttons send information to these social networks even if the user do not click them, but only if they are present on a webpage. This way these networks are able to track which websites users are visiting and are able to build fairly complete browser histories of their users. Because this is neither what a user might expect nor what many website operators that embed like-buttons want, this alternative way of using these social services was developed.</p>
+
+<figure style="width:180px;margin-top:10px;">
+<div>
+<img src="socialshareprivacy/images/like_deactivated.png">
+
+<div class="step"><span class="darr">&darr;</span> 1st click: activate button</div>
+
+<img src="socialshareprivacy/images/like_activated.png">
+
+<div class="step"><span class="darr">&darr;</span> 2nd click: like</div>
+
+<img src="socialshareprivacy/images/like_liked.png">
+</div>
+
+<figcaption>Per default this button doesn't send information to a third party.</figcaption>
+</figure>
+
+
+<p>More and more websites use like-buttons from Facebook, Google+ and Twitter. However, these buttons send information to these social networks even if the user do not click them, but only if they are present on a webpage. This way these networks are able to track which websites users are visiting and are able to build fairly complete browser histories of their users. Because this is neither what a user might expect nor what many website operators that embed like-buttons want, this alternative way of using these social services was developed.</p>
 
 <p>The concept is fairly easy. Per default only a gray mockup image of a like-button is embedded. Only if a user clicks this button the real like-button is loaded and information sent to the social network. With a second click the user can then like the webpage (or tweet it etc.).</p>
+
+
+<figure style="width:172px;">
+<img src="socialshareprivacy/images/permissions.png">
+<figcaption>All buttons can be permanently enabled.</figcaption>
+</figure>
 
 <p>The first click basically means that the user agrees that information is sent to the social network in question. But only for the page that embeds like-button and only for the selected social network. If the user visits the same page again the button is at first again deactivated. This way one can prevent, that social network owners can build complete surf profiles of their users.</p>
 

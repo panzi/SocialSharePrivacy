@@ -1,6 +1,24 @@
-.float-image {
+figure {
 	float: right;
+	margin-left: 10px;
+	margin-bottom: 10px;
 }
-.float-image img {
+figure img {
+	margin: 0;
+	padding: 0;
+	display: block;
 	width: auto;
+	border: none;
+	box-shadow: none;
+}
+figure .step {
+	margin: 5px 0px;
+}
+figure .step .darr {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+figure figcaption {
+	font-size: 0.8em;
+	margin-top: 10px;
 }
