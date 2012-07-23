@@ -23,8 +23,8 @@ Supported share services:
 Note that Tumblr and email are just normal links and thus always enabled.
 
 This is a fork of socialSharePrivacy by Heise. In this fork the service support
-was made extensible, some services where added and some bugs fixed. It is also has
-some incompatible changes (consolidated option names).
+was made extensible, some services where added and some bugs fixed. It has some
+incompatible changes, though (consolidated option names).
 
 The original can be found here:
 [http://www.heise.de/extras/socialshareprivacy/](http://www.heise.de/extras/socialshareprivacy/)
