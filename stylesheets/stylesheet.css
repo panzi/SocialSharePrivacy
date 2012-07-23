@@ -143,21 +143,6 @@ strong {
   font-weight: bold;
 }
 
-img {
-  position: relative;
-  margin: 0 auto;
-  max-width: 739px;
-  padding: 5px;
-  margin: 10px 0 10px 0;
-  border: 1px solid #ebebeb;
-
-  box-shadow: 0 0 5px #ebebeb;
-  -webkit-box-shadow: 0 0 5px #ebebeb;
-  -moz-box-shadow: 0 0 5px #ebebeb;
-  -o-box-shadow: 0 0 5px #ebebeb;
-  -ms-box-shadow: 0 0 5px #ebebeb;
-}
-
 pre, code {
   width: 100%;
   color: #222;
@@ -251,16 +236,6 @@ td {
   padding: 10px;
   border: 1px solid #373737;
  }
-
-form {
-  background: #f2f2f2;
-  padding: 20px;
-}
-
-img {
-  width: 100%;
-  max-width: 100%;
-}
 
 /*******************************************************************************
 Full-Width Styles
@@ -372,6 +347,7 @@ Full-Width Styles
 
 #footer_wrap {
   background: #212121;
+  min-height: 200px;
 }
 
 

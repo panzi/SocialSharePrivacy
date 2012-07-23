@@ -9,6 +9,24 @@
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
     <link rel="stylesheet" type="text/css" media="screen" href="socialshareprivacy/style.css">
 
+	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.cookies.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.facebook.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.gplus.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.mail.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.pinterest.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.reddit.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.tumblr.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.twitter.js"></script>
+	<script type="text/javascript">
+	$.fn.socialSharePrivacy.settings.order = ['facebook','twitter','gplus','reddit','pinterest','tumblr','mail'];
+	$(document).ready(function () {
+		$('#share').socialSharePrivacy();
+	});
+	</script>
+
+
     <title>Social Share Privacy</title>
   </head>
 
@@ -69,6 +87,9 @@
 <h2>For Webmasters</h2>
 
 <p>Social Share Privacy is a jQuery plugin under the MIT license. More information on how to use it on your own webpage you can find on <a href="https://github.com/panzi/SocialSharePrivacy">github</a>.</p>
+
+<div id="share"></div>
+<div class="clear"></div>
       </section>
     </div>
 

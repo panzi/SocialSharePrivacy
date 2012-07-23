@@ -22,3 +22,6 @@ figure figcaption {
 	font-size: 0.8em;
 	margin-top: 10px;
 }
+.clear {
+	clear: both;
+}
