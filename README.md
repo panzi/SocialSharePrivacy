@@ -109,7 +109,7 @@ $.extend($.fn.socialSharePrivacy.settings, {
 <tbody>
 <tr>
 <td>info_link</td>
-<td><a href="http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html">http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html</a></td>
+<td><a href="http://panzi.github.com/SocialSharePrivacy/">http://panzi.github.com/SocialSharePrivacy/</a></td>
 <td>The link of the <em>i</em>-icon that links users to more information about this.</td>
 </tr>
 <tr>
