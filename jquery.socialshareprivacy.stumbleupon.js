@@ -48,9 +48,6 @@
 				src:    base_url+$.param({url: uri + options.referrer_track}),
 				width:  w,
 				height: h
-			}).css({
-				width:  w+'px',
-				height: h+'px'
 			});
 		}
 	};

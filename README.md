@@ -17,6 +17,7 @@ Supported share services:
  * [email](#email-options-mail)
  * [Pinterest](#pinterest-options-pinterest)
  * [reddit](#reddit-options-reddit)
+ * [Stumble Upon](#stumbleupon-options-stumbleupon)
  * [Tumblr](#tumblr-options-tumblr)
  * [Twitter](#twitter-options-twitter)
 
@@ -57,6 +58,7 @@ How to use
 <script type="text/javascript" src="jquery.socialshareprivacy.flattr.js"></script>
 <script type="text/javascript" src="jquery.socialshareprivacy.pinterest.js"></script>
 <script type="text/javascript" src="jquery.socialshareprivacy.reddit.js"></script>
+<script type="text/javascript" src="jquery.socialshareprivacy.stumbleupon.js"></script>
 <script type="text/javascript" src="jquery.socialshareprivacy.tumblr.js"></script>
 <script type="text/javascript" src="jquery.socialshareprivacy.mail.js"></script>
 <script type="text/javascript">
@@ -546,6 +548,12 @@ anything that evaluates to false to open reddit in the same window.</td>
 </tr>
 </tbody>
 </table>
+
+### <span id="stumbleupon-options-stumbleupon">Stumble Upon Options</span> (`stumbleupon`)
+
+There are no Stumble Upon specific options.
+
+See also: [official documentation](http://www.stumbleupon.com/dt/badges/create)
 
 ### <span id="tumblr-options-tumblr">Tumblr Options</span> (`tumblr`)
 
