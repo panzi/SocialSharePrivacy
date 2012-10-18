@@ -17,7 +17,7 @@ Supported share services:
  * [email](#email-options-mail)
  * [Pinterest](#pinterest-options-pinterest)
  * [reddit](#reddit-options-reddit)
- * [Stumble Upon](#stumbleupon-options-stumbleupon)
+ * [Stumble Upon](#stumble-upon-options-stumbleupon)
  * [Tumblr](#tumblr-options-tumblr)
  * [Twitter](#twitter-options-twitter)
 
@@ -549,7 +549,7 @@ anything that evaluates to false to open reddit in the same window.</td>
 </tbody>
 </table>
 
-### <span id="stumbleupon-options-stumbleupon">Stumble Upon Options</span> (`stumbleupon`)
+### <span id="stumble-upon-options-stumbleupon">Stumble Upon Options</span> (`stumbleupon`)
 
 There are no Stumble Upon specific options.
 
