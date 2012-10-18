@@ -206,8 +206,10 @@ null.</td>
 <td>uri</td>
 <td>[Function]</td>
 <td>URI of the thing to share that is passed on to the share services. The default function
-uses the value of the first <code>link</code> element with the rel attribute <code>canonical</code>
-it can find or <code>location.href</code> if there is none. (Function or string)</td>
+uses the value of the first <code>link</code> element with the <code>rel</code> attribute
+<code>canonical</code> or the first <code>meta</code> element with the <code>property</code>
+attribute <code>og:url</code> it can find or <code>location.href</code> if there are no such
+elements. (Function or string)</td>
 </tr>
 <tr>
 <td>title</td>
@@ -774,6 +776,8 @@ Lookup title of shared thing in several places:
 
  * `settings.title`, which may be a string or a function with the same parameters.
  * `$('meta[name="DC.title"]').attr('content') + ' - ' + $('meta[name="DC.creator"]').attr('content')`
+ * `$('meta[name="DC.title"]').attr('content')`
+ * `$('meta[property="og:title"]').attr('content')`
  * `$('title').text()`
 
 The element of the share button is passed as `this`.
@@ -783,7 +787,9 @@ The element of the share button is passed as `this`.
 Lookup image URL of shared thing in several places:
 
  * `settings.image`, which may be a string or a function with the same parameters.
- * `$('itemscope *[itemprop="image"]').first().attr('content'` / `'src'` / `'href')`
+ * `$('meta[property="image"], meta[property="og:image"], meta[property="og:image:url"], ' +`<br/>
+   `'meta[name="twitter:image"], link[rel="image_src"], itemscope *[itemprop="image"]').`<br/>
+   `first().attr('content'` / `'src'` / `'href')`
  * `$('img').filter(':visible').filter(function () { return $(this).parents('.social_share_privacy_area').length === 0; })`,
    using the image with the biggest area.
  * `$('link[rel~="shortcut"][rel~="icon"]').attr('href')`
