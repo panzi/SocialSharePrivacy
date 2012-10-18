@@ -135,6 +135,10 @@ footer a:hover {
   text-shadow: #0090ff 0px 0px 2px;
 }
 
+#share a:hover {
+	text-shadow: none;
+}
+
 em {
   font-style: italic;
 }
@@ -347,7 +351,7 @@ Full-Width Styles
 
 #footer_wrap {
   background: #212121;
-  min-height: 200px;
+  min-height: 210px;
 }
 
 

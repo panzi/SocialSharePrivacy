@@ -6,11 +6,14 @@
 	width: auto;
 	display: block;
 }
+.social_share_privacy_area.line {
+	height: 25px;
+}
 .social_share_privacy_area.box {
 	width: 95px;
 }
 .social_share_privacy_area li {
-	margin: 5px 0;
+	margin: 0 !important;
 	padding: 0 !important;
 }
 .social_share_privacy_area.box li {
@@ -48,6 +51,7 @@
 }
 .social_share_privacy_area .pinterest iframe,
 .social_share_privacy_area .reddit iframe,
+.social_share_privacy_area .stumbleupon iframe,
 .social_share_privacy_area .twitter iframe,
 .social_share_privacy_area .facebook iframe {
 	overflow: hidden;
@@ -55,7 +59,7 @@
 }
 .social_share_privacy_area.line .facebook iframe {
 	width: 120px;
-	height: 21px;
+	height: 20px;
 }
 .social_share_privacy_area.box .facebook iframe {
 	width: 62px;
@@ -76,6 +80,16 @@
 .social_share_privacy_area.box .reddit iframe {
 	width: 58px;
 	height: 66px;
+}
+.social_share_privacy_area.line .stumbleupon iframe,
+.social_share_privacy_area.line .stumbleupon img {
+	width: 74px;
+	height: 18px;
+}
+.social_share_privacy_area.box .stumbleupon iframe,
+.social_share_privacy_area.box .stumbleupon img {
+	width: 50px;
+	height: 60px;
 }
 .social_share_privacy_area.line .twitter iframe {
 	width: 120px;
@@ -148,7 +162,9 @@
 	background: url(images/mail_box.png) top left no-repeat transparent;
 }
 .social_share_privacy_area.line .reddit img,
-.social_share_privacy_area.line .reddit iframe {
+.social_share_privacy_area.line .reddit iframe,
+.social_share_privacy_area.line .stumbleupon img,
+.social_share_privacy_area.line .stumbleupon iframe {
 	margin-right: 20px;
 }
 .social_share_privacy_area.line li div.tweet {
@@ -213,9 +229,6 @@
     background-color: #fdfbec;
     color: #000;
     z-index: 500;
-	-moz-text-shadow: none;
-	-webkit-text-shadow: none;
-	text-shadow: none;
 }
 .social_share_privacy_area.line li.help_info .info,
 .social_share_privacy_area li .help_info.icon .info {
