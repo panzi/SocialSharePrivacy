@@ -27,12 +27,19 @@
 		'perma_option'      : 'on',
 		'display_name'      : 'Linked in',
 		'referrer_track'    : '',
+		'onsuccess'         : null,
+		'onerror'           : null,
+		'showzero'          : false,
 		'button'            : function (options, uri, settings) {
 			var protocol = location.protocol === 'https:' ? 'https' : 'http';
-			var $code = $('<script type="IN/Share"></script>').attr({
+			var attrs = {
 				'data-counter' : settings.layout === 'line' ? 'right' : 'top',
-				'data-url'     : uri + options.referrer_track
-			});
+				'data-url'     : uri + options.referrer_track,
+				'data-showzero': String(options.showzero)
+			};
+			if (options.onsuccess) attrs['data-onsuccess'] = options.onsuccess;
+			if (options.onerror)   attrs['data-onerror']   = options.onerror;
+			var $code = $('<script type="IN/Share"></script>').attr(attrs);
 
 			if (window.IN && window.IN.parse) {
 				$code = $code.add('<script type="text/javascript">IN.parse(document.body);</script>');

@@ -11,10 +11,11 @@ a user can also permanently enable a social share button.
 
 Supported share services:
 
+ * [EMail](#email-options-mail)
  * [Facebook](#facebook-options-facebook)
  * [Flattr](#flattr-options-flattr)
  * [Google+](#google-options-gplus)
- * [email](#email-options-mail)
+ * [Linked in](#linked-in-options-linkedin)
  * [Pinterest](#pinterest-options-pinterest)
  * [reddit](#reddit-options-reddit)
  * [Stumble Upon](#stumble-upon-options-stumbleupon)
@@ -59,6 +60,7 @@ How to use
 <script type="text/javascript" src="jquery.socialshareprivacy.pinterest.js"></script>
 <script type="text/javascript" src="jquery.socialshareprivacy.reddit.js"></script>
 <script type="text/javascript" src="jquery.socialshareprivacy.stumbleupon.js"></script>
+<script type="text/javascript" src="jquery.socialshareprivacy.linkedin.js"></script>
 <script type="text/javascript" src="jquery.socialshareprivacy.tumblr.js"></script>
 <script type="text/javascript" src="jquery.socialshareprivacy.mail.js"></script>
 <script type="text/javascript">
@@ -316,6 +318,30 @@ where your users are coming.</td>
 </tbody>
 </table>
 
+### <span id="email-options-mail">EMail Options</span> (`mail`)
+
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>subject</td>
+<td><a href="#gettitleoptions-uri-settings">jQuery.fn.socialSharePrivacy.getTitle</a></td>
+<td>Subject of the new email. (Function or string)</td>
+</tr>
+<tr>
+<td>body</td>
+<td>[Function]</td>
+<td>Body of the new email. (Function or string)</td>
+</tr>
+</tbody>
+</table>
+
 ### <span id="facebook-options-facebook">Facebook Options</span> (`facebook`)
 
 Note that facebook only supports certain languages and requires the region suffix (e.g.
@@ -439,30 +465,6 @@ There are no Google+ specific options.
 
 See also: [official documentation](http://www.google.com/webmasters/+1/button/)
 
-### <span id="email-options-mail">EMail Options</span> (`mail`)
-
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Default Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>subject</td>
-<td><a href="#gettitleoptions-uri-settings">jQuery.fn.socialSharePrivacy.getTitle</a></td>
-<td>Subject of the new email. (Function or string)</td>
-</tr>
-<tr>
-<td>body</td>
-<td>[Function]</td>
-<td>Body of the new email. (Function or string)</td>
-</tr>
-</tbody>
-</table>
-
 ### <span id="pinterest-options-pinterest">Pinterest Options</span> (`pinterest`)
 
 See also: [official documentation](http://pinterest.com/about/goodies/#button_for_web_sites)
@@ -490,6 +492,39 @@ See also: [official documentation](http://pinterest.com/about/goodies/#button_fo
 <td>media</td>
 <td><a href="#getimageoptions-uri-settings">jQuery.fn.socialSharePrivacy.getImage</a></td>
 <td>URL of image that represents the thing to share. (Function or string)</td>
+</tr>
+</tbody>
+</table>
+
+### <span id="linked-in-options-linkedin">Linked in Options</span> (`linkedin`)
+
+See also: [official documentation](http://developer.linkedin.com/share-plugin)
+
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onsuccess</td>
+<td></td>
+<td>Name of a callback function that shall invoked when the link was successfully shared.
+The shared url will be passed as a parameter. (String)</td>
+</tr>
+<tr>
+<td>onerror</td>
+<td></td>
+<td>Name of a callback function that shall invoked if link sharing failed.
+The shared url will be passed as a parameter. (String)</td>
+</tr>
+<tr>
+<td>showzero</td>
+<td>false</td>
+<td>Even show count and no placeholder if there are zero shares. (Boolean)</td>
 </tr>
 </tbody>
 </table>
