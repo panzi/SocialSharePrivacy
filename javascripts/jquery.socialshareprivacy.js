@@ -104,7 +104,7 @@
 		if (title && creator) {
 			return title + ' - ' + creator;
 		} else {
-			return $('title').text();
+			return title || $('meta[property="og:title"]').attr('content') || $('title').text();
 		}
 	}
 
@@ -126,7 +126,8 @@
 		META   : 'content',
 		IMG    : 'src',
 		A      : 'href',
-		IFRAME : 'src'
+		IFRAME : 'src',
+		LINK   : 'href'
 	};
 	
 	// find the largest image of the website
@@ -139,7 +140,7 @@
 		}
 
 		if (!img) {
-			imgs = $('itemscope *[itemprop="image"]').first();
+			imgs = $('meta[property="image"], meta[property="og:image"], meta[property="og:image:url"], meta[name="twitter:image"], link[rel="image_src"], itemscope *[itemprop="image"]').first();
 			if (imgs.length > 0) {
 				img = imgs.attr(IMAGE_ATTR_MAP[imgs[0].nodeName]);
 			}
@@ -215,7 +216,7 @@
 	// build URI from rel="canonical" or document.location
 	function getURI () {
 		var uri = document.location.href;
-		var canonical = $("link[rel=canonical]").attr("href");
+		var canonical = $("link[rel=canonical]").attr("href") || $('head meta[property="og:url"]').attr("content");
 
 		if (canonical) {
 			uri = absurl(canonical);
