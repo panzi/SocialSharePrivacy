@@ -379,12 +379,18 @@
 
 					case "option":
 						if (arguments.length > 2) {
-							options[arg] = arguments[2];
-							break;
+							var value = {};
+							value[arg] = arguments[2];
+							$.extend(true, options, value);
 						}
+						else {
+							return options[arg];
+						}
+						break;
 
 					case "options":
-						return options[arg];
+						$.extend(true, options, arg);
+						break;
 
 					default:
 						throw new Error("socialSharePrivacy: unknown command: "+command);

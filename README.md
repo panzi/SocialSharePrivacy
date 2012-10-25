@@ -80,6 +80,54 @@ $(document).ready(function () {
 
 You only need to include the JavaScript files of the services you want to use.
 
+Methods
+-------
+
+### disable
+
+**Signature:**
+```javascript
+.socialSharePrivacy("disable", [service_name])
+```
+
+Disable the named service or disable all services if no `service_name` is given.
+
+### enable
+
+**Signature:**
+```javascript
+.socialSharePrivacy("enable", [service_name])
+```
+
+Enable the named service or enable all services if no `service_name` is given.
+
+### option
+
+**Signature:**
+```javascript
+.socialSharePrivacy("option", option_name, [value])
+```
+
+Get or set any option. If no `value` is specified it will act as a getter.
+
+### options
+
+**Signature:**
+```javascript
+.socialSharePrivacy("options", [options])
+```
+
+Get or set all options. If no `options` are specified it will act as a getter.
+
+### toggle
+
+**Signature:**
+```javascript
+.socialSharePrivacy("toggle", [service_name])
+```
+
+Toggle the named service or toggle all services if no `service_name` is given.
+
 Options
 -------
 
