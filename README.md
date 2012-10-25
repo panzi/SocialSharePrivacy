@@ -83,6 +83,23 @@ You only need to include the JavaScript files of the services you want to use.
 Methods
 -------
 
+### socialSharePrivacy
+
+**Signature:**
+```javascript
+.socialSharePrivacy([options])
+```
+
+Add social share buttons to the current element.
+
+### destroy
+
+**Signature:**
+```javascript
+.socialSharePrivacy("destroy")
+```
+Remove all social share buttons. This will return the element back to its pre-init state.
+
 ### disable
 
 **Signature:**

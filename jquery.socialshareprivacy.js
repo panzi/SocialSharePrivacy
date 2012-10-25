@@ -356,6 +356,11 @@
 
 					case "options":
 						return this.data('social-share-privacy-options');
+
+					case "destroy":
+						this.children('.social_share_privacy_area').remove();
+						this.removeData('social-share-privacy-options');
+						break;
 	
 					default:
 						throw new Error("socialSharePrivacy: unknown command: "+command);
