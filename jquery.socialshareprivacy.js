@@ -330,6 +330,61 @@
 	// extend jquery with our plugin function
 	function socialSharePrivacy (options) {
 
+		if (typeof options === "string") {
+			var command = options;
+			if (arguments.length === 1) {
+				switch (command) {
+					case "enable":
+						this.find('.switch.off').click();
+						break;
+
+					case "disable":
+						this.find('.switch.on').click();
+						break;
+
+					case "toggle":
+						this.find('.switch').click();
+						break;
+
+					case "options":
+						return this.data('social-share-privacy-options');
+	
+					default:
+						throw new Error("socialSharePrivacy: unknown command: "+command);
+				}
+			}
+			else {
+				var arg = arguments[1];
+				options = this.data('social-share-privacy-options');
+				switch (command) {
+					case "enable":
+						this.find('.'+(options.services[arg].class_name||arg)+' .switch.off').click();
+						break;
+
+					case "disable":
+						this.find('.'+(options.services[arg].class_name||arg)+' .switch.on').click();
+						break;
+
+					case "toggle":
+						this.find('.'+(options.services[arg].class_name||arg)+' .switch').click();
+						break;
+
+					case "option":
+						if (arguments.length > 2) {
+							options[arg] = arguments[2];
+							break;
+						}
+
+					case "options":
+						return options[arg];
+
+					default:
+						throw new Error("socialSharePrivacy: unknown command: "+command);
+				}
+			}
+			return this;
+		}
+
 		// overwrite default values with user settings
 		options = $.extend(true, {}, socialSharePrivacy.settings, options);
 		var order = options.order || [];
@@ -393,13 +448,13 @@
 			}
 		}
 
-		// canonical uri that will be shared
-		var uri = options.uri;
-		if (typeof uri === 'function') {
-			uri = uri.call(this, options);
-		}
-
 		return this.each(function () {
+			// canonical uri that will be shared
+			var uri = options.uri;
+			if (typeof uri === 'function') {
+				uri = uri.call(this, options);
+			}
+
 			var $context = $('<ul class="social_share_privacy_area"></ul>').addClass(options.layout);
 			
 			for (var i = 0; i < order.length; ++ i) {
@@ -500,7 +555,7 @@
 				}
 			}
 			
-			$(this).prepend($context);
+			$(this).prepend($context).data('social-share-privacy-options',options);
 		});
 	};
 
