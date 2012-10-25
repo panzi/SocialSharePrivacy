@@ -225,9 +225,17 @@
 		return uri;
 	}
 
-	function buttonClickHandler (service, button_class, uri, options) {
+	function buttonClickHandler (service_name) {
 		function onclick () {
 			var $container = $(this).parents('li.help_info').first();
+			var $share = $container.parents('.social_share_privacy_area').first().parent();
+			var options = $share.data('social-share-privacy-options');
+			var service = options.services[service_name];
+			var button_class = service.button_class || service_name;
+			var uri = options.uri;
+			if (typeof uri === 'function') {
+				uri = uri.call($share[0], options);
+			}
 			var $switch = $container.find('span.switch');
 			if ($switch.hasClass('off')) {
 				$container.addClass('info_off');
@@ -271,17 +279,17 @@
 		$info_wrapper.removeClass('display');
 	}
 
-	function permCheckChangeHandler (options) {
-		return function () {
-			var $input = $(this);
-			if ($input.is(':checked')) {
-				options.set_perma_option($input.attr('data-service'), options);
-				$input.parent().addClass('checked');
-			} else {
-				options.del_perma_option($input.attr('data-service'), options);
-				$input.parent().removeClass('checked');
-			}
-		};
+	function permCheckChangeHandler () {
+		var $input = $(this);
+		var $share = $input.parents('.social_share_privacy_area').first().parent();
+		var options = $share.data('social-share-privacy-options');
+		if ($input.is(':checked')) {
+			options.set_perma_option($input.attr('data-service'), options);
+			$input.parent().addClass('checked');
+		} else {
+			options.del_perma_option($input.attr('data-service'), options);
+			$input.parent().removeClass('checked');
+		}
 	}
 
 	function enterSettingsInfo () {
@@ -486,7 +494,7 @@
 								}));
 					
 						$help_info.find('.dummy_btn img.privacy_dummy, span.switch').click(
-							buttonClickHandler(service, button_class, uri, options));
+							buttonClickHandler(service_name));
 					}
 					$context.append($help_info);
 				}
@@ -521,7 +529,6 @@
 						'<span class="settings">' + options.txt_settings + '</span><form><fieldset><legend>' +
 						options.settings_perma + '</legend></fieldset></form>');
 
-
 					// write services with <input> and <label> and checked state from cookie
 					var $fieldset = $settings_info_menu.find('form fieldset');
 					for (var i = 0; i < order.length; ++ i) {
@@ -550,8 +557,8 @@
 					// show settings menu on hover
 					$container_settings_info.on('mouseenter', enterSettingsInfo).on('mouseleave', leaveSettingsInfo);
 
-					// interaction for <input> to enable services permanently (cookie will be set or deleted)
-					$container_settings_info.find('fieldset input').on('change', permCheckChangeHandler(options));
+					// interaction for <input> to enable services permanently
+					$container_settings_info.find('fieldset input').on('change', permCheckChangeHandler);
 				}
 			}
 			
