@@ -34,7 +34,7 @@
 				'data-lang'    : options.language
 			});
 
-			return $code.add("<script type='text/javascript'>(function(d, s) { var x = d.createElement(s), s = d.getElementsByTagName(s)[0]; x.src = 'https://www.xing-share.com/js/external/share.js'; s.parentNode.insertBefore(x, s); })(document, 'script');</script>");
+			return $code.add("<script type='text/javascript'>(function(d, s) { var x = d.createElement(s); s = d.getElementsByTagName(s)[0]; x.src = 'https://www.xing-share.com/js/external/share.js'; s.parentNode.insertBefore(x, s); })(document, 'script');</script>");
 		}
 	};
 })(jQuery);
