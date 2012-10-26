@@ -21,6 +21,7 @@ Supported share services:
  * [Stumble Upon](#stumble-upon-options-stumbleupon)
  * [Tumblr](#tumblr-options-tumblr)
  * [Twitter](#twitter-options-twitter)
+ * [XING](#xing-options-xing)
 
 Note that Tumblr and email are just normal links and thus always enabled.
 
@@ -798,6 +799,15 @@ place for 20 characters for the shortened URL. (Function or string)</td>
 </tr>
 </tbody>
 </table>
+
+### <span id="xing-options-xing">XING Options</span> (`xing`)
+
+There are no XING specific options.
+
+Note that the view counter will not work unless the XING button is enabled by the
+user.
+
+See also: [official documentation](https://www.xing.com/app/share?op=button_builder)
 
 Custom Services
 ---------------
