@@ -11,6 +11,7 @@ a user can also permanently enable a social share button.
 
 Supported share services:
 
+ * [Buffer](#buffer-options-buffer)
  * [EMail](#email-options-mail)
  * [Facebook](#facebook-options-facebook)
  * [Flattr](#flattr-options-flattr)
@@ -380,6 +381,52 @@ where your users are coming.</td>
 <td>language</td>
 <td></td>
 <td>Override the global language just for this service.</td>
+</tr>
+</tbody>
+</table>
+
+### <span id="buffer-options-buffer">Buffer Options</span> (`buffer`)
+
+See also: [official documentation](http://bufferapp.com/extras/button)
+
+Example:
+
+```javascript
+$(document).ready(function () {
+	$('#share').socialSharePrivacy({
+		services: {
+			buffer: {
+				text : 'Some descriptive text...'
+			}
+		}
+	});
+});
+```
+
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td><a href="#gettitleoptions-uri-settings">jQuery.fn.socialSharePrivacy.getTitle</a></td>
+<td>Tweet text (excluding the URL). It will be truncated to 120 characters, leaving
+place for 20 characters for the shortened URL. (Function or string)</td>
+</tr>
+<tr>
+<td>via</td>
+<td></td>
+<td>Twitter username (without the leading <code>@</code>). (Function or string)</td>
+</tr>
+<tr>
+<td>picture</td>
+<td><a href="#getimageoptions-uri-settings">jQuery.fn.socialSharePrivacy.getImage</a></td>
+<td>URL of image that represents the thing to share. (Function or string)</td>
 </tr>
 </tbody>
 </table>
