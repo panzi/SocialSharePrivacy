@@ -43,7 +43,8 @@
 				'src', 'http://widgets.bufferapp.com/button/?'+$.param({
 					count   : settings.layout === 'line' ? 'horizontal' : 'vertical',
 					via     : get(this, options, uri, settings, 'via'),
-					text    : get(this, options, uri, settings, 'text'),
+					text    : $.fn.socialSharePrivacy.abbreviateText(
+						get(this, options, uri, settings, 'text'), 120),
 					picture : get(this, options, uri, settings, 'picture'),
 					url     : uri + options.referrer_track,
 					source  : 'button'
