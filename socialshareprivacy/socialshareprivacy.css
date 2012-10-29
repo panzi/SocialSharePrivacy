@@ -15,6 +15,7 @@
 .social_share_privacy_area li {
 	margin: 0 !important;
 	padding: 0 !important;
+	list-style-type: none !important;
 }
 .social_share_privacy_area.box li {
 	text-align: center;
