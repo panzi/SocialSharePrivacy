@@ -135,6 +135,12 @@ footer a:hover {
   text-shadow: #0090ff 0px 0px 2px;
 }
 
+#share {
+	position: absolute;
+	top: 40px;
+	left: 10px;
+}
+
 #share a:hover {
 	text-shadow: none;
 }
@@ -346,7 +352,11 @@ Full-Width Styles
 }
 
 #main_content {
+  position: relative;
   padding-top: 40px;
+  min-height: 1090px;
+  padding-left: 110px;
+  padding-right: 110px;
 }
 
 #footer_wrap {

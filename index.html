@@ -26,7 +26,7 @@
 	<script type="text/javascript">
 	$.fn.socialSharePrivacy.settings.order = ['facebook','twitter','gplus','stumbleupon','reddit','pinterest','tumblr','linkedin','buffer','xing','mail'];
 	$(document).ready(function () {
-		$('#share').socialSharePrivacy();
+		$('#share').socialSharePrivacy({layout:'box'});
 	});
 	</script>
 
@@ -55,6 +55,7 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
 
+<div id="share"></div>
 <figure style="width:180px;margin-top:10px;">
 <div>
 <img src="socialshareprivacy/images/like_deactivated.png">
@@ -92,7 +93,6 @@
 
 <p>Social Share Privacy is a jQuery plugin under the MIT license. More information on how to use it on your own webpage you can find on <a href="https://github.com/panzi/SocialSharePrivacy">github</a>.</p>
 
-<div id="share"></div>
 <div class="clear"></div>
       </section>
     </div>
