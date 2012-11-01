@@ -476,6 +476,8 @@
 
 			var $context = $('<ul class="social_share_privacy_area"></ul>').addClass(options.layout);
 			
+			$(this).prepend($context).data('social-share-privacy-options',options);
+
 			for (var i = 0; i < order.length; ++ i) {
 				var service_name = order[i];
 				var service = options.services[service_name];
@@ -572,8 +574,6 @@
 					$container_settings_info.find('fieldset input').on('change', permCheckChangeHandler);
 				}
 			}
-			
-			$(this).prepend($context).data('social-share-privacy-options',options);
 		});
 	};
 
