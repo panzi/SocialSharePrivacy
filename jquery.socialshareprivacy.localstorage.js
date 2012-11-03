@@ -11,9 +11,9 @@
 	"use strict";
 
 	$.extend($.fn.socialSharePrivacy.settings, {
-		// Set perma_option to "on".
-		// Initially it is only set to "on" if jQuery.cookie is available.
-		perma_option: 'on',
+		// Set perma_option to true.
+		// Initially it is only set to true if jQuery.cookie is available.
+		perma_option: true,
 		set_perma_option: function (service_name) {
 			localStorage.setItem('socialSharePrivacy_'+service_name, 'perma_on');
 		},

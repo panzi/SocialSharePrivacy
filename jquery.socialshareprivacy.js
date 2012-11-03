@@ -214,12 +214,15 @@
 	}
 
 	// build URI from rel="canonical" or document.location
-	function getURI () {
+	function getURI (options) {
 		var uri = document.location.href;
 		var canonical = $("link[rel=canonical]").attr("href") || $('head meta[property="og:url"]').attr("content");
 
 		if (canonical) {
 			uri = absurl(canonical);
+		}
+		else if (options && options.ignore_fragment) {
+			uri = uri.replace(/#.*$/,'');
 		}
 
 		return uri;
@@ -415,14 +418,14 @@
 		var unordered  = [];
 		for (var service_name in options.services) {
 			var service = options.services[service_name];
-			if (service.status === 'on') {
+			if (service.status) {
 				any_on = true;
 				if ($.inArray(service_name, order) === -1) {
 					unordered.push(service_name);
 				}
 				if (service.privacy !== 'safe') {
 					any_unsafe = true;
-					if (service.perma_option === 'on') {
+					if (service.perma_option) {
 						any_perm = true;
 					}
 				}
@@ -455,7 +458,7 @@
 
 		// get stored perma options
 		var permas;
-		if (options.perma_option === 'on' && any_perm) {
+		if (options.perma_option && any_perm) {
 			if (options.get_perma_options) {
 				permas = options.get_perma_options(options);
 			}
@@ -482,7 +485,7 @@
 				var service_name = order[i];
 				var service = options.services[service_name];
 
-				if (service && service.status === 'on') {
+				if (service && service.status) {
 					var class_name = service.class_name || service_name;
 					var button_class = service.button_class || service_name;
 					var $help_info;
@@ -528,7 +531,7 @@
 				$context.find('.help_info').on('mouseenter', enterHelpInfo).on('mouseleave', leaveHelpInfo);
 
 				// menu for permanently enabling of service buttons
-				if (options.perma_option === 'on' && any_perm) {
+				if (options.perma_option && any_perm) {
 
 					// define container
 					var $container_settings_info = $context.find('li.settings_info');
@@ -548,7 +551,7 @@
 						var service_name = order[i];
 						var service = options.services[service_name];
 
-						if (service && service.status === 'on' && service.perma_option === 'on' && service.privacy !== 'safe') {
+						if (service && service.status && service.perma_option && service.privacy !== 'safe') {
 							var class_name = service.class_name || service_name;
 							var perma = permas[service_name];
 							var $field = $('<label><input type="checkbox"' + (perma ? ' checked="checked"/>' : '/>') +
@@ -598,14 +601,15 @@
 		'del_perma_option'  : delPermaOption,
 		'get_perma_options' : getPermaOptions,
 		'get_perma_option'  : getPermaOption,
-		'perma_option'      : $.cookie ? 'on' : 'off',
+		'perma_option'      : !!$.cookie,
 		'cookie_path'       : '/',
 		'cookie_domain'     : document.location.hostname,
 		'cookie_expires'    : 365,
 		'path_prefix'       : '',
 		'css_path'          : 'socialshareprivacy/socialshareprivacy.css',
 		'uri'               : getURI,
-		'language'          : 'en'
+		'language'          : 'en',
+		'ignore_fragment'   : true
 	};
 
 	$.fn.socialSharePrivacy = socialSharePrivacy;

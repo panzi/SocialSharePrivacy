@@ -238,8 +238,8 @@ null.</td>
 </tr>
 <tr>
 <td>perma_option</td>
-<td>on (if the jQuery cookies plugin is installed)</td>
-<td>Possible values: <code>on</code> and <code>off</code></td>
+<td>true (if the jQuery cookies plugin is installed)</td>
+<td>Give users the posibility to permanently enable services. (Boolean)</td>
 </tr>
 <tr>
 <td>cookie_path</td>
@@ -300,6 +300,11 @@ elements. (Function or string)</td>
 <td></td>
 <td>HTML embed code to pass to any share service that want's one.</td>
 </tr>
+<tr>
+<td>ignore_fragment</td>
+<td>true</td>
+<td>Ignore the <code>#fragment</code> part of the url. (Boolean)</td>
+</tr>
 </tbody>
 </table>
 
@@ -316,8 +321,8 @@ elements. (Function or string)</td>
 <tbody>
 <tr>
 <td>status</td>
-<td>on</td>
-<td>Possible values: <code>on</code> and <code>off</code></td>
+<td>true</td>
+<td>Enable/disable this service. (Boolean)</td>
 </tr>
 <tr>
 <td>class_name</td>
@@ -362,9 +367,9 @@ service as it is registered in <code>jQuery.fn.socialSharePrivacy.settings.servi
 </tr>
 <tr>
 <td>perma_option</td>
-<td>on</td>
-<td>Specifies whether the perma option shall be alowed for a certain service.<br/>
-Possible values: <code>on</code> and <code>off</code></td>
+<td>true</td>
+<td>Give users the posibility to permanently enable this service.<br/>
+(Boolean)</td>
 </tr>
 <tr>
 <td>display_name</td>

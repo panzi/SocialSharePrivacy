@@ -17,7 +17,7 @@
 	"use strict";
 
 	$.fn.socialSharePrivacy.settings.services.gplus = {
-		'status'            : 'on',
+		'status'            : true,
 		'button_class'      : 'gplusone',
 		'dummy_line_img'    : 'socialshareprivacy/images/dummy_gplus.png',
 		'dummy_box_img'     : 'socialshareprivacy/images/dummy_box_gplus.png',
@@ -25,7 +25,7 @@
 		'txt_info'          : '2 clicks for more privacy: The Google+ button will be enabled once you click here. Activating the button already sends data to Google &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connected to Google+',
 		'txt_on'            : 'connected to Google+',
-		'perma_option'      : 'on',
+		'perma_option'      : true,
 		'display_name'      : 'Google+',
 		'referrer_track'    : '',
 		'button'            : function (options, uri, settings) {

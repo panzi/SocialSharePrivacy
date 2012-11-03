@@ -19,7 +19,7 @@
 	var locales = {"af":["ZA"],"ar":["AR"],"az":["AZ"],"be":["BY"],"bg":["BG"],"bn":["IN"],"bs":["BA"],"ca":["ES"],"cs":["CZ"],"cy":["GB"],"da":["DK"],"de":["DE"],"el":["GR"],"en":["US","GB","PI","UD"],"eo":["EO"],"es":["ES","LA"],"et":["EE"],"eu":["ES"],"fa":["IR"],"fb":["LT"],"fi":["FI"],"fo":["FO"],"fr":["CA","FR"],"fy":["NL"],"ga":["IE"],"gl":["ES"],"he":["IL"],"hi":["IN"],"hr":["HR"],"hu":["HU"],"hy":["AM"],"id":["ID"],"is":["IS"],"it":["IT"],"ja":["JP"],"ka":["GE"],"km":["KH"],"ko":["KR"],"ku":["TR"],"la":["VA"],"lt":["LT"],"lv":["LV"],"mk":["MK"],"ml":["IN"],"ms":["MY"],"nb":["NO"],"ne":["NP"],"nl":["NL"],"nn":["NO"],"pa":["IN"],"pl":["PL"],"ps":["AF"],"pt":["BR","PT"],"ro":["RO"],"ru":["RU"],"sk":["SK"],"sl":["SI"],"sq":["AL"],"sr":["RS"],"sv":["SE"],"sw":["KE"],"ta":["IN"],"te":["IN"],"th":["TH"],"tl":["PH"],"tr":["TR"],"uk":["UA"],"vi":["VN"],"zh":["CN","HK","TW"]};
 
 	$.fn.socialSharePrivacy.settings.services.facebook = {
-		'status'            : 'on',
+		'status'            : true,
 		'button_class'      : 'fb_like',
 		'dummy_line_img'    : 'socialshareprivacy/images/dummy_facebook.png',
 		'dummy_box_img'     : 'socialshareprivacy/images/dummy_box_facebook.png',
@@ -27,7 +27,7 @@
 		'txt_info'          : '2 clicks for more privacy: The Facebook Like button will be enabled once you click here. Activating the button already sends data to Facebook &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connetcted to Facebook',
 		'txt_on'            : 'connected to Facebook',
-		'perma_option'      : 'on',
+		'perma_option'      : true,
 		'display_name'      : 'Facebook',
 		'referrer_track'    : '',
 		'action'            : 'like',

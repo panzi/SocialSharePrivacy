@@ -26,7 +26,7 @@
 	}
 
 	$.fn.socialSharePrivacy.settings.services.reddit = {
-		'status'            : 'on', 
+		'status'            : true, 
 		'button_class'      : 'reddit',
 		'dummy_line_img'    : 'socialshareprivacy/images/dummy_reddit.png',
 		'dummy_box_img'     : 'socialshareprivacy/images/dummy_box_reddit.png',
@@ -34,7 +34,7 @@
 		'txt_info'          : '2 clicks for more privacy: The reddit this! button will be enabled once you click here. Activating the button already sends data to reddit &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connceted to reddit',
 		'txt_on'            : 'connceted to reddit',
-		'perma_option'      : 'on',
+		'perma_option'      : true,
 		'display_name'      : 'Reddit',
 		'referrer_track'    : '',
 		'title'             : $.fn.socialSharePrivacy.getTitle,

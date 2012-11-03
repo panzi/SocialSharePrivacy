@@ -53,7 +53,7 @@
 	}
 
 	$.fn.socialSharePrivacy.settings.services.tumblr = {
-		'status'            : 'on',
+		'status'            : true,
 		'privacy'           : 'safe',
 		'button_class'      : 'tubmlr',
 		'txt_info'          : 'Post this on Tumblr.',
