@@ -39,23 +39,22 @@ $(document).ready(function () {
 			},
 			disqus: {
 				shortname : 'socialshareprivacy',
-				uri       : 'http://panzi.github.com/SocialSharePrivacy/'
+				count     : 'reactions'
 			}
 		}
 	});
 	$('#share2').socialSharePrivacy({
-		services: {
+		layout   : 'box',
+		uri      : 'http://panzi.github.com/SocialSharePrivacy/',
+		services : {
 			tumblr: {
 				type  : 'quote',
 				quote : 'The best way to use social sharing.'
 			},
 			disqus: {
-				shortname : 'socialshareprivacy',
-				uri       : 'http://panzi.github.com/SocialSharePrivacy/',
-				count     : 'reactions'
+				shortname : 'socialshareprivacy'
 			}
-		},
-		layout: 'box'
+		}
 	});
 	$('#share3').socialSharePrivacy({
 		services: {
