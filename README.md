@@ -12,6 +12,7 @@ a user can also permanently enable a social share button.
 Supported share services:
 
  * [Buffer](#buffer-options-buffer)
+ * [Disqus](#disqus-options-disqus)
  * [EMail](#email-options-mail)
  * [Facebook](#facebook-options-facebook)
  * [Flattr](#flattr-options-flattr)
@@ -55,16 +56,19 @@ How to use
 …
 <script type="text/javascript" src="jquery.js"></script> 
 <script type="text/javascript" src="jquery.socialshareprivacy.js"></script>
+<script type="text/javascript" src="jquery.socialshareprivacy.buffer.js"></script>
+<script type="text/javascript" src="jquery.socialshareprivacy.disqus.js"></script>
 <script type="text/javascript" src="jquery.socialshareprivacy.facebook.js"></script>
-<script type="text/javascript" src="jquery.socialshareprivacy.twitter.js"></script>
-<script type="text/javascript" src="jquery.socialshareprivacy.gplus.js"></script>
 <script type="text/javascript" src="jquery.socialshareprivacy.flattr.js"></script>
+<script type="text/javascript" src="jquery.socialshareprivacy.gplus.js"></script>
+<script type="text/javascript" src="jquery.socialshareprivacy.linkedin.js"></script>
+<script type="text/javascript" src="jquery.socialshareprivacy.mail.js"></script>
 <script type="text/javascript" src="jquery.socialshareprivacy.pinterest.js"></script>
 <script type="text/javascript" src="jquery.socialshareprivacy.reddit.js"></script>
 <script type="text/javascript" src="jquery.socialshareprivacy.stumbleupon.js"></script>
-<script type="text/javascript" src="jquery.socialshareprivacy.linkedin.js"></script>
 <script type="text/javascript" src="jquery.socialshareprivacy.tumblr.js"></script>
-<script type="text/javascript" src="jquery.socialshareprivacy.mail.js"></script>
+<script type="text/javascript" src="jquery.socialshareprivacy.twitter.js"></script>
+<script type="text/javascript" src="jquery.socialshareprivacy.xing.js"></script>
 <script type="text/javascript">
 $(document).ready(function () {
 	$('#share').socialSharePrivacy();
@@ -432,6 +436,52 @@ place for 20 characters for the shortened URL. (Function or string)</td>
 <td>picture</td>
 <td><a href="#getimageoptions-uri-settings">jQuery.fn.socialSharePrivacy.getImage</a></td>
 <td>URL of image that represents the thing to share. (Function or string)</td>
+</tr>
+</tbody>
+</table>
+
+### <span id="disqus-options-disqus">Disqus Options</span> (`disqus`)
+
+See also: [official documentation](http://socialshareprivacy.disqus.com/admin/universal/)
+
+**WARNING:** This is a hack. Using this Disqus button will break any usage of the comment
+count code as shown on the linked page above. This button does of course not interfere
+with the main Disqus widget.
+
+Example:
+
+```javascript
+$(document).ready(function () {
+	$('#share').socialSharePrivacy({
+		services: {
+			disqus: {
+				shortname : 'myforumshortname',
+				count     : 'reactions'
+			}
+		}
+	});
+});
+```
+
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shortname</td>
+<td></td>
+<td>Your Disqus forum shortname. (String)</td>
+</tr>
+<tr>
+<td>count</td>
+<td>comments</td>
+<td>What count to show.<br/>
+Possible values: <code>comments</code> or <code>reactions</code></td>
 </tr>
 </tbody>
 </table>

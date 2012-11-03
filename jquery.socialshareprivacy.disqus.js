@@ -18,17 +18,62 @@
 
 	var DISQUSWIDGETS = {
 		displayCount: function (data) {
+			var options = requestQueue.shift();
 			$('.social_share_privacy_area .disqus .disqus-widget:not(.init)').each(function () {
 				var $widget = $(this);
-				var key = $widget.attr("data-count");
-				var count = data.counts[0][key];
-				var text = data.text[key];
-				$widget.attr('title', count === 0 ? text.zero : count === 1 ? text.one : text.multiple.replace('{num}', count));
-				$widget.find('.count a').text(String(count));
-				$widget.addClass('init');
+				if ($widget.attr("data-shortname") === options.shortname && $widget.attr("data-uri") === options.uri) {
+					var key = $widget.attr("data-count");
+					var count = data.counts[0][key];
+					var text = data.text[key];
+					$widget.attr('title', count === 0 ? text.zero : count === 1 ? text.one : text.multiple.replace('{num}', count));
+					$widget.find('.count a').text(String(count));
+					$widget.addClass('init');
+				}
 			});
 		}
 	};
+
+	var requestId     = 0;
+	var requestActive = false;
+	var requestQueue  = [];
+
+	function enqueue (options) {
+		options.requestId = String(requestId ++);
+		requestQueue.push(options);
+		if (!requestActive) {
+			request(options);
+		}
+	}
+
+	function request (options) {
+		requestActive = true;
+		var script = document.createElement('script');
+		script.type  = "text/javascript";
+		script.src   = 'http://'+options.shortname+'.disqus.com/count.js?q=1&0=2,'+encodeURIComponent(options.uri);
+		script.async = true;
+		script.setAttribute('data-request-id', options.requestId);
+		script.onload = script.onreadystatechange = script.onerror = requestLoad;
+		(document.head||document.body).appendChild(script);
+	}
+
+	function requestLoad (event) {
+		if (!this.readyState || this.readyState === 'loaded' || this.readyState === 'complete' || event.type === 'error') {
+			this.onload = this.onreadystatechange = this.onerror = requestLoad;
+			var $script = $(this);
+			var requestId = $script.attr('data-request-id');
+
+			if (requestQueue.length > 0 && requestQueue[0].requestId === requestId) {
+				requestQueue.shift();
+			}
+		
+			if (requestQueue.length > 0) {
+				request(requestQueue[0]);
+			}
+			else {
+				requestActive = false;
+			}
+		}
+	}
 
 	$.fn.socialSharePrivacy.settings.services.disqus = {
 		'status'            : true,
@@ -59,10 +104,18 @@
 					'<a href="#disqus_thread" class="name">Disq<span class="us">us</span></a></div>');
 			}
 
-			return $code.attr('data-count', options.count).add(
-				$('<script type="text/javascript"></script>').attr('src',
-					'http://'+options.shortname+'.disqus.com/count.js?q=1&0=2,'+
-					encodeURIComponent(uri + options.referrer_track)));
+			$code.attr({
+				'data-count'     : options.count,
+				'data-shortname' : options.shortname,
+				'data-uri'       : uri + options.referrer_track
+			});
+
+			enqueue({
+				shortname : options.shortname,
+				uri       : uri + options.referrer_track
+			});
+
+			return $code;
 		}
 	};
 })(jQuery);

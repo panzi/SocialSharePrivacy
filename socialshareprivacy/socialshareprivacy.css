@@ -162,8 +162,9 @@
 }
 
 .social_share_privacy_area.line .disqus img.privacy_dummy {
-	width: 80px;
+	width: 49px;
 	height: 20px;
+	margin-right: 45px;
 }
 .social_share_privacy_area.box .disqus img.privacy_dummy {
 	width: 55px;
@@ -236,6 +237,7 @@
 }
 .social_share_privacy_area.line .disqus .disqus-widget .count {
 	margin-left: 4px;
+	min-width: 1em;
 }
 .social_share_privacy_area.box .disqus .disqus-widget .count {
 	height: 34px;
@@ -330,8 +332,7 @@
 .social_share_privacy_area.line .stumbleupon img,
 .social_share_privacy_area.line .stumbleupon iframe,
 .social_share_privacy_area.line .buffer iframe,
-.social_share_privacy_area.line .disqus .disqus-widget,
-.social_share_privacy_area.line .disqus img.privacy_dummy  {
+.social_share_privacy_area.line .disqus .disqus-widget {
 	margin-right: 20px;
 }
 .social_share_privacy_area.line li div.tweet {
