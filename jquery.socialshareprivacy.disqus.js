@@ -88,6 +88,7 @@
 		'referrer_track'    : '',
 		'shortname'         : '',
 		'count'             : 'comments',
+		'onclick'           : null,
 		'button'            : function (options, uri, settings) {
 			// this breaks every other usage of the disqus count API:
 			window.DISQUSWIDGETS = DISQUSWIDGETS;
@@ -109,6 +110,11 @@
 				'data-shortname' : options.shortname,
 				'data-uri'       : uri + options.referrer_track
 			});
+
+			if (options.onclick) {
+				$code.find('a').click(typeof options.onclick === "function" ?
+					options.onclick : new Function("event", options.onclick));
+			}
 
 			enqueue({
 				shortname : options.shortname,

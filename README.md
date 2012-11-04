@@ -483,6 +483,11 @@ $(document).ready(function () {
 <td>What count to show.<br/>
 Possible values: <code>comments</code> or <code>reactions</code></td>
 </tr>
+<tr>
+<td>onclick</td>
+<td></td>
+<td>Function to call when the Disqus button was clicked. (Function or String)</td>
+</tr>
 </tbody>
 </table>
 
