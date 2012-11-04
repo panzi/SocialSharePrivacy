@@ -173,8 +173,18 @@
 .social_share_privacy_area .disqus .disqus-widget {
 	line-height: 20px;
 	font-size: 11px;
-	font-family: sans-serif;
+	font-family: Arial, sans-serif;
 	cursor: text;
+	white-space: nowrap;
+	text-align: left;
+}
+.social_share_privacy_area .disqus .disqus-widget a,
+.social_share_privacy_area .disqus .disqus-widget a:hover {
+	-webkit-text-shadow: none;
+	-moz-text-shadow: none;
+	-ms-text-shadow: none;
+	-o-text-shadow: none;
+	text-shadow: none;
 }
 .social_share_privacy_area .disqus .disqus-widget a.name {
 	overflow: hidden;
@@ -182,7 +192,11 @@
 	text-transform: uppercase;
 	text-decoration: none;
 	color: #5E8BA9;
-	text-shadow: 0 1px 0 rgba(255,255,255,.5);
+	-webkit-text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+	-moz-text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+	-ms-text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+	-o-text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
 	height: 18px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
@@ -200,6 +214,7 @@
 .social_share_privacy_area.line .disqus .disqus-widget a.name {
 	display: inline-block;
 	padding: 0px 4px;
+	vertical-align: top;
 }
 .social_share_privacy_area.box .disqus .disqus-widget {
 	display: block;
@@ -234,6 +249,9 @@
 	background: white;
 	border-radius: 3px;
 	text-align: center;
+}
+.social_share_privacy_area .disqus .disqus-widget .count a {
+	font-weight: normal;
 }
 .social_share_privacy_area.line .disqus .disqus-widget .count {
 	margin-left: 4px;
@@ -288,6 +306,7 @@
 	text-decoration: none;
 }
 .social_share_privacy_area .disqus .disqus-widget .count a:hover {
+	color: #333;
 	text-decoration: underline;
 }
 
