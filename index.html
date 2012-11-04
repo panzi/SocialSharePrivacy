@@ -31,7 +31,12 @@
 		$('#share').socialSharePrivacy({
 			layout:'box',
 			services: {
-				disqus: {shortname: disqus_shortname}
+				disqus: {
+					shortname: disqus_shortname,
+					onclick: function () {
+						$('#comments-button').click();
+					}
+				}
 			}
 		});
 		$('#comments-button').click(function () {
