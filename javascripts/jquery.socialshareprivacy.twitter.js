@@ -32,7 +32,7 @@
 		'via'               : '',
 		'related'           : '',
 		'hashtags'          : '',
-		'dnt'               : 'true',
+		'dnt'               : true,
 		'text'              : $.fn.socialSharePrivacy.getTitle,
 		'button'            : function (options, uri, settings) {
 			var text = typeof(options.text) === 'function' ?
