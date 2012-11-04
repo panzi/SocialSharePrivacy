@@ -17,14 +17,14 @@
 	"use strict";
 
 	$.fn.socialSharePrivacy.settings.services.xing = {
-		'status'            : 'on',
+		'status'            : true,
 		'dummy_line_img'    : 'socialshareprivacy/images/dummy_xing.png',
 		'dummy_box_img'     : 'socialshareprivacy/images/dummy_box_xing.png',
 		'dummy_alt'         : '"XING"-Dummy',
 		'txt_info'          : '2 clicks for more privacy: The XING button will be enabled once you click here. Activating the button already sends data to XING &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connected to XING',
 		'txt_on'            : 'connected to XING',
-		'perma_option'      : 'on',
+		'perma_option'      : true,
 		'display_name'      : 'XING',
 		'referrer_track'    : '',
 		'button'            : function (options, uri, settings) {

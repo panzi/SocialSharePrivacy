@@ -25,7 +25,7 @@
 	}
 
 	$.fn.socialSharePrivacy.settings.services.mail = {
-		'status'            : 'on',
+		'status'            : true,
 		'privacy'           : 'safe',
 		'button_class'      : 'mail',
 		'txt_info'          : 'Send this per email to a friend.',

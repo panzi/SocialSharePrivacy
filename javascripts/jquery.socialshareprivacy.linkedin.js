@@ -17,14 +17,14 @@
 	"use strict";
 
 	$.fn.socialSharePrivacy.settings.services.linkedin = {
-		'status'            : 'on',
+		'status'            : true,
 		'dummy_line_img'    : 'socialshareprivacy/images/dummy_linkedin.png',
 		'dummy_box_img'     : 'socialshareprivacy/images/dummy_box_linkedin.png',
 		'dummy_alt'         : '"Linked in"-Dummy',
 		'txt_info'          : '2 clicks for more privacy: The Linked in button will be enabled once you click here. Activating the button already sends data to Linked in &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connected to Linked in',
 		'txt_on'            : 'connected to Linked in',
-		'perma_option'      : 'on',
+		'perma_option'      : true,
 		'display_name'      : 'Linked in',
 		'referrer_track'    : '',
 		'onsuccess'         : null,

@@ -18,7 +18,7 @@
 	"use strict";
 
 	$.fn.socialSharePrivacy.settings.services.stumbleupon = {
-		'status'            : 'on', 
+		'status'            : true, 
 		'button_class'      : 'stumbleupon',
 		'dummy_line_img'    : 'socialshareprivacy/images/dummy_stumbleupon.png',
 		'dummy_box_img'     : 'socialshareprivacy/images/dummy_box_stumbleupon.png',
@@ -26,7 +26,7 @@
 		'txt_info'          : '2 clicks for more privacy: The Stumble! button will be enabled once you click here. Activating the button already sends data to Stumble Upon &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connceted to stumble upon',
 		'txt_on'            : 'connceted to stumble upon',
-		'perma_option'      : 'on',
+		'perma_option'      : true,
 		'display_name'      : 'Stumble Upon',
 		'referrer_track'    : '',
 		'button'            : function (options, uri, settings) {

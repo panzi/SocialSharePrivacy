@@ -23,10 +23,21 @@
 	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.linkedin.js"></script>
 	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.xing.js"></script>
 	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.buffer.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.disqus.js"></script>
 	<script type="text/javascript">
 	$.fn.socialSharePrivacy.settings.order = ['facebook','twitter','gplus','stumbleupon','reddit','pinterest','tumblr','linkedin','buffer','xing','mail'];
+	var disqus_shortname = 'socialshareprivacy';
 	$(document).ready(function () {
-		$('#share').socialSharePrivacy({layout:'box'});
+		$('#share').socialSharePrivacy({
+			layout:'box',
+			services: {
+				disqus: {shortname: disqus_shortname}
+			}
+		});
+		$('#comments-button').click(function () {
+			$.getScript('http://' + disqus_shortname + '.disqus.com/embed.js');
+			$(this).remove();
+		});
 	});
 	</script>
 
@@ -94,6 +105,13 @@
 <p>Social Share Privacy is a jQuery plugin under the MIT license. More information on how to use it on your own webpage you can find on <a href="https://github.com/panzi/SocialSharePrivacy">github</a>.</p>
 
 <div class="clear"></div>
+
+<hr/>
+
+<div id="disqus_thread"></div>
+
+<a id="comments-button" href="javascript:void(0)">Comments</a>
+
       </section>
     </div>
 
