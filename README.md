@@ -71,20 +71,21 @@ How to use
 <script type="text/javascript" src="jquery.socialshareprivacy.xing.js"></script>
 <script type="text/javascript">
 $(document).ready(function () {
-	$('#share').socialSharePrivacy();
+	$('.share').socialSharePrivacy();
 });
 </script>
 …
 </head>
 <body>
 …
-<div id="share"></div>
+<div class="share"></div>
 …
 </body>
 </html>
 ```
 
-You only need to include the JavaScript files of the services you want to use.
+You only need to include the JavaScript files of the services you want to use. I
+reccomend to pack all needed files into one using a JavaScript packer/compressor.
 
 Methods
 -------
@@ -96,7 +97,7 @@ Methods
 .socialSharePrivacy([options])
 ```
 
-Add social share buttons to the current element.
+Add social share buttons to all elements in the set.
 
 ### destroy
 
@@ -104,7 +105,8 @@ Add social share buttons to the current element.
 ```javascript
 .socialSharePrivacy("destroy")
 ```
-Remove all social share buttons. This will return the element back to its pre-init state.
+Remove all social share buttons. This will return all elements in the set back
+to their pre-init state.
 
 ### disable
 
@@ -131,7 +133,7 @@ Enable the named service or enable all services if no `service_name` is given.
 .socialSharePrivacy("option", option_name, [value])
 ```
 
-Get or set any option. If no `value` is specified it will act as a getter.
+Get or set an option. If no `value` is specified it will act as a getter.
 
 ### options
 
@@ -153,6 +155,106 @@ Toggle the named service or toggle all services if no `service_name` is given.
 
 Options
 -------
+
+Options can be set globally via `$.fn.socialSharePrivacy.settings`, via an
+options object passed to the `socialSharePrivacy` function or via `data-*`
+attributes of the share element. If options are defined in more than one way
+the `data-*` attributes will overwrite the options from the passed options
+object and the options from passed options object will overwrite the
+globally defined options.
+
+### `data-*` attributes
+
+In order to pass the options as `data-*` attributes simply prepend `data-` to
+all option names. For the language option you can also simple use the standard
+`lang` attribute. If you want to set an option of an service just use a `data-*`
+attribute that includes dots (`.`) as if it where a JavaScript property
+expression:
+
+```html
+<div class="share"
+	lang="de"
+	data-uri="http://example.com/"
+	data-image="http://example.com/image.png"
+	data-services.tumblr.type="photo"
+	data-order="facebook twitter tumblr"></div>
+```
+
+If you want you can combine all options of a service and pass a JSON string as
+attribute value:
+
+```html
+<div class="share"
+	lang="de"
+	data-uri="http://example.com/"
+	data-image="http://example.com/image.png"
+	data-services.tumblr='{"type":"photo"}'
+	data-order="facebook twitter tumblr"></div>
+```
+
+You can also do this for all services:
+
+```html
+<div class="share"
+	lang="de"
+	data-uri="http://example.com/"
+	data-image="http://example.com/image.png"
+	data-services='{"tumblr":{"type":"photo"}}'
+	data-order="facebook twitter tumblr"></div>
+```
+
+Or even all options at once:
+
+```html
+<div class="share"
+	data-options='{
+		"language" : "de",
+		"uri"      : "http://example.com/",
+		"image"    : "http://example.com/image.png",
+		"services" : {
+			"tumblr" : {
+				"type" : "photo"
+			}
+		},
+		"order"    : ["facebook", "twitter", "tumblr"]
+	}'></div>
+```
+
+Actually these aren't JSON objects but JavaScript expressions. This way
+you can pass JavaScript code that will evaluate the option values when the
+`socialSharePrivacy` function is called. You can even pass a whole new
+service implementation inline, if you want:
+
+```html
+<div class="share"
+	data-options="{
+		language : document.documentElement.lang,
+		title    : document.title,
+		services : {
+			my_inline_service : {
+				status         : true,
+				dummy_line_img : 'dummy.png',
+				dummy_alt      : 'DISABLED',
+				display_name   : 'My Inline Service',
+				txt_info       : 'Click to enable.',
+				perma_option   : true,
+				button         : function (options, uri, serrings) {
+					return $('<div>ENABLED</div>');
+				}
+			}
+		}
+	}"></div>
+```
+
+The main advantage of using the `data-*` attributes is, that you can easily
+render several *different* share elements on your webserver and then initialize
+them with one single JavaScript function call (no need for uniqe element IDs
+and separate JavaScript calls for each element).
+
+**NOTE:** When passing service options via `data-*` attributes all option
+values (except the common service options) are treated as strings. If you
+need to pass values of other types (numbers, booleans, lists or functions)
+you need to use the JavaScript object syntax.
 
 ### Global Options
 
@@ -390,6 +492,11 @@ where your users are coming.</td>
 <td>language</td>
 <td></td>
 <td>Override the global language just for this service.</td>
+</tr>
+<tr>
+<td>path_prefix</td>
+<td></td>
+<td>Override the global <code>path_prefix</code> just for this service.</td>
 </tr>
 </tbody>
 </table>

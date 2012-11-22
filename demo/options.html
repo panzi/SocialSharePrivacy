@@ -43,19 +43,7 @@ $(document).ready(function () {
 			}
 		}
 	});
-	$('#share2').socialSharePrivacy({
-		layout   : 'box',
-		uri      : 'http://panzi.github.com/SocialSharePrivacy/',
-		services : {
-			tumblr: {
-				type  : 'quote',
-				quote : 'The best way to use social sharing.'
-			},
-			disqus: {
-				shortname : 'socialshareprivacy'
-			}
-		}
-	});
+	$('#share2').socialSharePrivacy();
 	$('#share3').socialSharePrivacy({
 		services: {
 			tumblr: {
@@ -104,7 +92,11 @@ body {
 ...
 </p>
 
-<div id="share2"></div>
+<div id="share2"
+	data-layout="box"
+	data-uri="http://panzi.github.com/SocialSharePrivacy/"
+	data-services.tumblr="{type:'quote',quote:'The best way to use social sharing.'}"
+	data-services.disqus.shortname="socialshareprivacy"></div>
 
 <p>
 ...

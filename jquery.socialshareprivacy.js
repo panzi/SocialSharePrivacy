@@ -242,14 +242,14 @@
 			var $switch = $container.find('span.switch');
 			if ($switch.hasClass('off')) {
 				$container.addClass('info_off');
-				$switch.addClass('on').removeClass('off').html(service.txt_on);
+				$switch.addClass('on').removeClass('off').html(service.txt_on||'\u00a0');
 				$container.find('img.privacy_dummy').replaceWith(
 					typeof(service.button) === "function" ?
 					service.button.call($container.parent().parent()[0],service,uri,options) :
 					service.button);
 			} else {
 				$container.removeClass('info_off');
-				$switch.addClass('off').removeClass('on').html(service.txt_off);
+				$switch.addClass('off').removeClass('on').html(service.txt_off||'\u00a0');
 				$container.find('.dummy_btn').empty().
 					append($('<img/>').addClass(button_class+'_privacy_dummy privacy_dummy').
 						attr({
@@ -371,28 +371,41 @@
 			}
 			else {
 				var arg = arguments[1];
-				options = this.data('social-share-privacy-options');
 				switch (command) {
 					case "enable":
-						this.find('.'+(options.services[arg].class_name||arg)+' .switch.off').click();
+						this.each(function () {
+							var $self = $(this);
+							var options = $self.data('social-share-privacy-options');
+							$self.find('.'+(options.services[arg].class_name||arg)+' .switch.off').click();
+						});
 						break;
 
 					case "disable":
-						this.find('.'+(options.services[arg].class_name||arg)+' .switch.on').click();
+						this.each(function () {
+							var $self = $(this);
+							var options = $self.data('social-share-privacy-options');
+							this.find('.'+(options.services[arg].class_name||arg)+' .switch.on').click();
+						});
 						break;
 
 					case "toggle":
-						this.find('.'+(options.services[arg].class_name||arg)+' .switch').click();
+						this.each(function () {
+							var $self = $(this);
+							var options = $self.data('social-share-privacy-options');
+							this.find('.'+(options.services[arg].class_name||arg)+' .switch').click();
+						});
 						break;
 
 					case "option":
 						if (arguments.length > 2) {
 							var value = {};
 							value[arg] = arguments[2];
-							$.extend(true, options, value);
+							this.each(function () {
+								$.extend(true, $(this).data('social-share-privacy-options'), value);
+							});
 						}
 						else {
-							return options[arg];
+							return this.data('social-share-privacy-options')[arg];
 						}
 						break;
 
@@ -407,83 +420,162 @@
 			return this;
 		}
 
-		// overwrite default values with user settings
-		options = $.extend(true, {}, socialSharePrivacy.settings, options);
-		var order = options.order || [];
-
-		var dummy_img  = options.layout === 'line' ? 'dummy_line_img' : 'dummy_box_img';
-		var any_on     = false;
-		var any_perm   = false;
-		var any_unsafe = false;
-		var unordered  = [];
-		for (var service_name in options.services) {
-			var service = options.services[service_name];
-			if (service.status) {
-				any_on = true;
-				if ($.inArray(service_name, order) === -1) {
-					unordered.push(service_name);
-				}
-				if (service.privacy !== 'safe') {
-					any_unsafe = true;
-					if (service.perma_option) {
-						any_perm = true;
+		return this.each(function () {
+			// parse options passed via data-* attributes:
+			var data = {};
+			if (this.lang) data.language = this.lang;
+			for (var i = 0, attrs = this.attributes; i < attrs.length; ++ i) {
+				var attr = attrs[i];
+				if (/^data-./.test(attr.name)) {
+					var path = attr.name.slice(5).replace(/-/g,"_").split(".");
+					var ctx = data, j = 0;
+					for (; j < path.length-1; ++ j) {
+						var name = path[j];
+						if (name in ctx) {
+							ctx = ctx[name];
+							if (typeof ctx === "string") {
+								ctx = (new Function("return ("+ctx+");")).call(this);
+							}
+						}
+						else {
+							ctx = ctx[name] = {};
+						}
+					}
+					var name = path[j];
+					if (typeof ctx[name] === "object") {
+						ctx[name] = $.extend(true, (new Function("return ("+attr.value+");")).call(this), ctx[name]);
+					}
+					else {
+						ctx[name] = attr.value;
 					}
 				}
 			}
-			if (!('language' in service)) {
-				service.language = options.language;
+			// parse global option values:
+			if ('cookie_expires'   in data) data.cookie_expires  = Number(data.cookie_expires);
+			if ('perma_option'     in data) data.perma_option    = $.trim(data.perma_option).toLowerCase()    === "true";
+			if ('ignore_fragment'  in data) data.ignore_fragment = $.trim(data.ignore_fragment).toLowerCase() === "true";
+			if ('set_perma_option' in data) {
+				data.set_perma_option = new Function("service_name", "options", data.set_perma_option);
 			}
-			if (!('path_prefix' in service)) {
-				service.path_prefix = options.path_prefix;
+			if ('del_perma_option' in data) {
+				data.del_perma_option = new Function("service_name", "options", data.del_perma_option);
 			}
-		}
-		unordered.sort();
-		order = order.concat(unordered);
-
-		// check if at least one service is activated
-		if (!any_on) {
-			return;
-		}
-
-		// insert stylesheet into document and prepend target element
-		if (options.css_path) {
-			var css_path = (options.path_prefix||"") + options.css_path;
-			// IE fix (needed for IE < 9 - but done for all IE versions)
-			if (document.createStyleSheet) {
-				document.createStyleSheet(css_path);
-			} else if ($('link[href="'+css_path+'"]').length === 0) {
-				$(document.head).append($('<link rel="stylesheet" type="text/css" />').attr('href', css_path));
+			if ('get_perma_option' in data) {
+				data.get_perma_option = new Function("service_name", "options", data.get_perma_option);
 			}
-		}
-
-		// get stored perma options
-		var permas;
-		if (options.perma_option && any_perm) {
-			if (options.get_perma_options) {
-				permas = options.get_perma_options(options);
+			if ('get_perma_options' in data) {
+				data.get_perma_options = new Function("options", data.get_perma_options);
 			}
-			else {
-				permas = {};
-				for (var service_name in options.services) {
-					permas[service_name] = options.get_perma_option(service_name, options);
+			if ('order' in data) {
+				data.order = $.trim(data.order);
+				if (data.order) {
+					data.order = data.order.split(/\s+/g);
+				}
+				else {
+					delete data.order;
 				}
 			}
-		}
+			if (typeof data.services === "string") {
+				data.services = (new Function("return ("+data.services+");")).call(this);
+			}
+			if ('options' in data) {
+				data = $.extend(data, (new Function("return ("+data.options+");")).call(this));
+				delete data.options;
+			}
+			if ('services' in data) {
+				for (var service_name in data.services) {
+					var service = data.services[service_name];
+					if (typeof service === "string") {
+						data.services[service_name] = (new Function("return ("+service+");")).call(this);
+					}
+					// only values of common options are parsed:
+					if (typeof service.status === "string") {
+						service.status = $.trim(service.status).toLowerCase() === "true";
+					}
+					if (typeof service.perma_option === "string") {
+						service.perma_option = $.trim(service.perma_option).toLowerCase() === "true";
+					}
+				}
+			}
+			// overwrite default values with user settings
+			var this_options = $.extend(true,{},socialSharePrivacy.settings,options,data);
+			var order = this_options.order || [];
 
-		return this.each(function () {
-			// canonical uri that will be shared
-			var uri = options.uri;
-			if (typeof uri === 'function') {
-				uri = uri.call(this, options);
+			var dummy_img  = this_options.layout === 'line' ? 'dummy_line_img' : 'dummy_box_img';
+			var any_on     = false;
+			var any_perm   = false;
+			var any_unsafe = false;
+			var unordered  = [];
+			for (var service_name in this_options.services) {
+				var service = this_options.services[service_name];
+				if (service.status) {
+					any_on = true;
+					if ($.inArray(service_name, order) === -1) {
+						unordered.push(service_name);
+					}
+					if (service.privacy !== 'safe') {
+						any_unsafe = true;
+						if (service.perma_option) {
+							any_perm = true;
+						}
+					}
+				}
+				if (!('language' in service)) {
+					service.language = this_options.language;
+				}
+				if (!('path_prefix' in service)) {
+					service.path_prefix = this_options.path_prefix;
+				}
+				if (!('referrer_track' in service)) {
+					service.referrer_track = '';
+				}
+			}
+			unordered.sort();
+			order = order.concat(unordered);
+
+			// check if at least one service is activated
+			if (!any_on) {
+				return;
 			}
 
-			var $context = $('<ul class="social_share_privacy_area"></ul>').addClass(options.layout);
-			
-			$(this).prepend($context).data('social-share-privacy-options',options);
+			// insert stylesheet into document and prepend target element
+			if (this_options.css_path) {
+				var css_path = (this_options.path_prefix||"") + this_options.css_path;
+				// IE fix (needed for IE < 9 - but done for all IE versions)
+				if (document.createStyleSheet) {
+					document.createStyleSheet(css_path);
+				} else if ($('link[href="'+css_path+'"]').length === 0) {
+					$('<link/>',{rel:'stylesheet',type:'text/css',href:css_path}).appendTo(document.head);
+				}
+			}
+
+			// get stored perma options
+			var permas;
+			if (this_options.perma_option && any_perm) {
+				if (this_options.get_perma_options) {
+					permas = this_options.get_perma_options(this_options);
+					}
+				else {
+					permas = {};
+					for (var service_name in this_options.services) {
+						permas[service_name] = this_options.get_perma_option(service_name, this_options);
+					}
+				}
+			}
+
+			// canonical uri that will be shared
+			var uri = this_options.uri;
+			if (typeof uri === 'function') {
+				uri = uri.call(this, this_options);
+			}
+
+			var $context = $('<ul class="social_share_privacy_area"></ul>').addClass(this_options.layout);
+
+			$(this).prepend($context).data('social-share-privacy-options',this_options);
 
 			for (var i = 0; i < order.length; ++ i) {
 				var service_name = order[i];
-				var service = options.services[service_name];
+				var service = this_options.services[service_name];
 
 				if (service && service.status) {
 					var class_name = service.class_name || service_name;
@@ -495,11 +587,11 @@
 							service.txt_info + '</div><div class="dummy_btn"></div></li>').addClass(class_name);
 						$help_info.find('.dummy_btn').
 							addClass(button_class).
-							append(service.button.call(this,service,uri,options));
+							append(service.button.call(this,service,uri,this_options));
 					}
 					else {
 						$help_info = $('<li class="help_info"><div class="info">' +
-							service.txt_info + '</div><span class="switch off">' + service.txt_off +
+							service.txt_info + '</div><span class="switch off">' + (service.txt_off||'\u00a0') +
 							'</span><div class="dummy_btn"></div></li>').addClass(class_name);
 						$help_info.find('.dummy_btn').
 							addClass(button_class).
@@ -521,17 +613,17 @@
 			//
 			if (any_unsafe) {
 				var $settings_info = $('<li class="settings_info"><div class="settings_info_menu off perma_option_off"><a>' +
-					'<span class="help_info icon"><span class="info">' + options.txt_help + '</span></span></a></div></li>');
-				var $info_link = $settings_info.find('> .settings_info_menu > a').attr('href', options.info_link);
-				if (options.info_link_target) {
-					$info_link.attr("target",options.info_link_target);
+					'<span class="help_info icon"><span class="info">' + this_options.txt_help + '</span></span></a></div></li>');
+				var $info_link = $settings_info.find('> .settings_info_menu > a').attr('href', this_options.info_link);
+				if (this_options.info_link_target) {
+					$info_link.attr("target",this_options.info_link_target);
 				}
 				$context.append($settings_info);
 
 				$context.find('.help_info').on('mouseenter', enterHelpInfo).on('mouseleave', leaveHelpInfo);
 
 				// menu for permanently enabling of service buttons
-				if (options.perma_option && any_perm) {
+				if (this_options.perma_option && any_perm) {
 
 					// define container
 					var $container_settings_info = $context.find('li.settings_info');
@@ -542,14 +634,14 @@
 
 					// append perma-options-icon (.settings) and form (hidden)
 					$settings_info_menu.append(
-						'<span class="settings">' + options.txt_settings + '</span><form><fieldset><legend>' +
-						options.settings_perma + '</legend></fieldset></form>');
+						'<span class="settings">' + this_options.txt_settings + '</span><form><fieldset><legend>' +
+						this_options.settings_perma + '</legend></fieldset></form>');
 
 					// write services with <input> and <label> and checked state from cookie
 					var $fieldset = $settings_info_menu.find('form fieldset');
 					for (var i = 0; i < order.length; ++ i) {
 						var service_name = order[i];
-						var service = options.services[service_name];
+						var service = this_options.services[service_name];
 
 						if (service && service.status && service.perma_option && service.privacy !== 'safe') {
 							var class_name = service.class_name || service_name;
@@ -562,7 +654,7 @@
 							// enable services when cookie set and refresh cookie
 							if (perma) {
 								$context.find('li.'+class_name+' span.switch').click();
-								options.set_perma_option(service_name, options);
+								this_options.set_perma_option(service_name, this_options);
 							}
 						}
 					}
