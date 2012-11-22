@@ -166,8 +166,8 @@ globally defined options.
 ### `data-*` attributes
 
 In order to pass the options as `data-*` attributes simply prepend `data-` to
-all option names. For the language option you can also simple use the standard
-`lang` attribute. If you want to set an option of an service just use a `data-*`
+all option names. For the language option you can also use the standard `lang`
+attribute. If you want to set an option of an service just use a `data-*`
 attribute that includes dots (`.`) as if it where a JavaScript property
 expression:
 
