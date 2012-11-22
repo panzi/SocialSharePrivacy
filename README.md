@@ -1126,8 +1126,14 @@ The element of the share button is passed as `this`.
 Lookup image URL of shared thing in several places:
 
  * `settings.embed`, which may be a string or a function with the same parameters.
- * `'<iframe scrolling="no" frameborder="0" style="border:none;" allowtransparency="true" src="' +`<br/>
-   `escapeHtml(uri + options.referrer_track) + '"></iframe>'`
+
+If there is no embed code found it will construct it's own embed code. For this it
+first searches for a a meta element with the name `twitter:player` and use it's
+content as the `src` of an iframe element. If meta tags with the names
+`twitter:player:width` and `twitter:player:height` are found they are used for the
+width and height attributes of the iframe. If no `twitter:player` meta elements is
+found the url of the current page will be used as the iframe `src`
+(`uri + options.referrer_track`).
 
 The element of the share button is passed as `this`.
 
@@ -1136,7 +1142,9 @@ The element of the share button is passed as `this`.
 Lookup description of shared thing in several places:
 
  * `settings.description`, which may be a string or a function with the same parameters.
- * `$('meta[name="description"], meta[itemprop="description"]').attr('content')`
+ * `$('meta[name="twitter:description"]').attr('content')`
+ * `$('meta[itemprop="description"]').attr('content')`
+ * `$('meta[name="description"]').attr('content')`
  * `$('article, p').first().text()`
  * `$('body').text()`
 
