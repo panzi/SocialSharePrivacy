@@ -1128,7 +1128,7 @@ Lookup image URL of shared thing in several places:
  * `settings.embed`, which may be a string or a function with the same parameters.
 
 If there is no embed code found it will construct it's own embed code. For this it
-first searches for a a meta element with the name `twitter:player` and use it's
+first searches for a meta element with the name `twitter:player` and use it's
 content as the `src` of an iframe element. If meta tags with the names
 `twitter:player:width` and `twitter:player:height` are found they are used for the
 width and height attributes of the iframe. If no `twitter:player` meta elements is
