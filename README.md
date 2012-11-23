@@ -253,7 +253,7 @@ and separate JavaScript calls for each element).
 
 **NOTE:** When passing service options via `data-*` attributes all option
 values (except the common service options) are treated as strings. If you
-need to pass values of other types (numbers, booleans, lists or functions)
+need to pass values of other types (numbers, booleans, arrays or functions)
 you need to use the JavaScript object syntax.
 
 ### Global Options
