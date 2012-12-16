@@ -12,6 +12,7 @@ a user can also permanently enable a social share button.
 Supported share services:
 
  * [Buffer](#buffer-options-buffer)
+ * [Delicious](#delicious-options-delicious)
  * [Disqus](#disqus-options-disqus)
  * [EMail](#email-options-mail)
  * [Facebook](#facebook-options-facebook)
@@ -57,6 +58,7 @@ How to use
 <script type="text/javascript" src="jquery.js"></script> 
 <script type="text/javascript" src="jquery.socialshareprivacy.js"></script>
 <script type="text/javascript" src="jquery.socialshareprivacy.buffer.js"></script>
+<script type="text/javascript" src="jquery.socialshareprivacy.delicious.js"></script>
 <script type="text/javascript" src="jquery.socialshareprivacy.disqus.js"></script>
 <script type="text/javascript" src="jquery.socialshareprivacy.facebook.js"></script>
 <script type="text/javascript" src="jquery.socialshareprivacy.flattr.js"></script>
@@ -543,6 +545,42 @@ place for 20 characters for the shortened URL. (Function or string)</td>
 <td>picture</td>
 <td><a href="#getimageoptions-uri-settings">jQuery.fn.socialSharePrivacy.getImage</a></td>
 <td>URL of image that represents the thing to share. (Function or string)</td>
+</tr>
+</tbody>
+</table>
+
+
+### <span id="delicious-options-delicious">Delicious Options</span> (`delicious`)
+
+See also: [official documentation](http://delicious.com/tools)
+
+Example:
+
+```javascript
+$(document).ready(function () {
+	$('#share').socialSharePrivacy({
+		services: {
+			delicious: {
+				title : 'Bookmark title'
+			}
+		}
+	});
+});
+```
+
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td><a href="#gettitleoptions-uri-settings">jQuery.fn.socialSharePrivacy.getTitle</a></td>
+<td>Title of the new bookmark. (Function or string)</td>
 </tr>
 </tbody>
 </table>
