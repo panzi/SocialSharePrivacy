@@ -71,8 +71,8 @@
 						$self.find("i").fadeIn();
 					}, function () {
 						var $self = $(this);
-		                $self.find("i").stop(1, 1).css("display", "none");
-        		        $self.find("b").fadeIn();
+						$self.find("i").stop(1, 1).css("display", "none");
+						$self.find("b").fadeIn();
 					});
 				}
 			});
