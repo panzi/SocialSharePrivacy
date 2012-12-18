@@ -7,6 +7,7 @@
 	"use strict";
 
 	$.extend($.fn.socialSharePrivacy.settings.services.twitter, {
+		'dummy_line_img' : 'socialshareprivacy/images/dummy_twitter_fr.png',
 		'txt_info' : '2 clics pour une protection de donn&eacute;es am&eacute;lior&eacute;e: Ce n\'est qu\'apr&egrave;s avoir cliqu&eacute; ici que le bouton sera actif et vous pourrez envoyer votre recommandation &agrave; Twitter. D&eacute;j&agrave; lors de l\'activation des donn&eacute;es seront transmis &agrave; des tiers &ndash; voir <em>i</em>.',
 		'txt_off'  : 'pas connect&eacute; &agrave; Twitter',
 		'txt_on'   : 'connect&eacute; &agrave; Twitter'
