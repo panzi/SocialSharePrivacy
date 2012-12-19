@@ -1,4 +1,5 @@
-/*
+/**
+ * @license
  * jquery.socialshareprivacy.js | 2 Klicks fuer mehr Datenschutz
  *
  * http://www.heise.de/extras/socialshareprivacy/
@@ -715,7 +716,7 @@
 		'cookie_domain'     : document.location.hostname,
 		'cookie_expires'    : 365,
 		'path_prefix'       : '',
-		'css_path'          : 'stylesheets/socialshareprivacy.css',
+		'css_path'          : 'stylesheets/jquery.socialshareprivacy.css',
 		'uri'               : getURI,
 		'language'          : 'en',
 		'ignore_fragment'   : true
