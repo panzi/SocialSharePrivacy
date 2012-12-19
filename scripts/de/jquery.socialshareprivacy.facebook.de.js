@@ -17,8 +17,8 @@
 	"use strict";
 
 	$.extend($.fn.socialSharePrivacy.settings.services.facebook, {
-		'dummy_line_img' : 'socialshareprivacy/images/dummy_facebook_de.png',
-		'dummy_box_img'  : 'socialshareprivacy/images/dummy_box_facebook_de.png',
+		'dummy_line_img' : 'images/de/dummy_facebook.png',
+		'dummy_box_img'  : 'images/de/dummy_box_facebook.png',
 		'txt_info'       : '2 Klicks f&uuml;r mehr Datenschutz: Erst wenn Sie hier klicken, wird der Button aktiv und Sie k&ouml;nnen Ihre Empfehlung an Facebook senden. Schon beim Aktivieren werden Daten an Dritte &uuml;bertragen &ndash; siehe <em>i</em>.',
 		'txt_off'        : 'nicht mit Facebook verbunden',
 		'txt_on'         : 'mit Facebook verbunden'

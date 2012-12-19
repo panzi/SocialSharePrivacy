@@ -20,8 +20,8 @@
 	$.fn.socialSharePrivacy.settings.services.twitter = {
 		'status'            : true,
 		'button_class'      : 'tweet',
-		'dummy_line_img'    : 'socialshareprivacy/images/dummy_twitter.png',
-		'dummy_box_img'     : 'socialshareprivacy/images/dummy_box_twitter.png',
+		'dummy_line_img'    : 'images/dummy_twitter.png',
+		'dummy_box_img'     : 'images/dummy_box_twitter.png',
 		'dummy_alt'         : '"Tweet this"-Dummy',
 		'txt_info'          : '2 clicks for more privacy: The Tweet this button will be enabled once you click here. Activating the button already sends data to Twitter &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connected to Twitter',

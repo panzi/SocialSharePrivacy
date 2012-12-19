@@ -28,8 +28,8 @@
 	$.fn.socialSharePrivacy.settings.services.pinterest = {
 		'status'            : true, 
 		'button_class'      : 'pinit',
-		'dummy_line_img'    : 'socialshareprivacy/images/dummy_pinit.png',
-		'dummy_box_img'     : 'socialshareprivacy/images/dummy_box_pinit.png',
+		'dummy_line_img'    : 'images/dummy_pinit.png',
+		'dummy_box_img'     : 'images/dummy_box_pinit.png',
 		'dummy_alt'         : '"Pin it"-Dummy',
 		'txt_info'          : '2 clicks for more privacy: The Pin it button will be enabled once you click here. Activating the button already sends data to Pinterest &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connected to Pinterest',

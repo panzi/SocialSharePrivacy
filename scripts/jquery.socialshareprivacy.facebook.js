@@ -21,8 +21,8 @@
 	$.fn.socialSharePrivacy.settings.services.facebook = {
 		'status'            : true,
 		'button_class'      : 'fb_like',
-		'dummy_line_img'    : 'socialshareprivacy/images/dummy_facebook.png',
-		'dummy_box_img'     : 'socialshareprivacy/images/dummy_box_facebook.png',
+		'dummy_line_img'    : 'images/dummy_facebook.png',
+		'dummy_box_img'     : 'images/dummy_box_facebook.png',
 		'dummy_alt'         : 'Facebook "Like"-Dummy',
 		'txt_info'          : '2 clicks for more privacy: The Facebook Like button will be enabled once you click here. Activating the button already sends data to Facebook &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connected to Facebook',

@@ -22,8 +22,8 @@
 	$.fn.socialSharePrivacy.settings.services.flattr = {
 		'status'            : true, 
 		'button_class'      : 'flatter',
-		'dummy_line_img'    : 'socialshareprivacy/images/dummy_flattr.png',
-		'dummy_box_img'     : 'socialshareprivacy/images/dummy_box_flattr.png',
+		'dummy_line_img'    : 'images/dummy_flattr.png',
+		'dummy_box_img'     : 'images/dummy_box_flattr.png',
 		'dummy_alt'         : '"Flattr"-Dummy',
 		'txt_info'          : '2 clicks for more privacy: The Flattr button will be enabled once you click here. Activating the button already sends data to Flattr &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connected to Flattr',

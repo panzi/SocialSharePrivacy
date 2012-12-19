@@ -7,8 +7,8 @@
 	"use strict";
 
 	$.extend($.fn.socialSharePrivacy.settings.services.facebook, {
-		'dummy_line_img' : 'socialshareprivacy/images/dummy_facebook_fr.png',
-		'dummy_box_img'  : 'socialshareprivacy/images/dummy_box_facebook_fr.png',
+		'dummy_line_img' : 'images/fr/dummy_facebook.png',
+		'dummy_box_img'  : 'images/fr/dummy_box_facebook.png',
 		'txt_info' : '2 clics pour une protection de donn&eacute;es am&eacute;lior&eacute;e: Ce n\'est qu\'apr&egrave;s avoir cliqu&eacute; ici que le bouton sera actif et vous pourrez envoyer votre recommandation &agrave; Facebook. D&eacute;j&agrave; lors de l\'activation des donn&eacute;es seront transmis &agrave; des tiers &ndash; voir <em>i</em>.',
 		'txt_off'        : 'pas connect&eacute; &agrave; Facebook',
 		'txt_on'         : 'connect&eacute; &agrave; Facebook'

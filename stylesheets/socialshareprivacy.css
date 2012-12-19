@@ -319,14 +319,14 @@
 	width: 81px;
 	height: 20px;
 	margin-right: 20px;
-	background: url(images/tumblr.png) top left no-repeat transparent;
+	background: url(../images/tumblr.png) top left no-repeat transparent;
 }
 .social_share_privacy_area.box .tumblr a {
 	display: block;
 	margin: auto;
 	width: 58px;
 	height: 58px;
-	background: url(images/tumblr_box.png) top left no-repeat transparent;
+	background: url(../images/tumblr_box.png) top left no-repeat transparent;
 }
 .social_share_privacy_area .mail a {
 	text-indent: -9999em;
@@ -337,14 +337,14 @@
 	width: 43px;
 	height: 20px;
 	margin-right: 20px;
-	background: url(images/mail.png) top left no-repeat transparent;
+	background: url(../images/mail.png) top left no-repeat transparent;
 }
 .social_share_privacy_area.box .mail a {
 	display: block;
 	margin: auto;
 	width: 58px;
 	height: 39px;
-	background: url(images/mail_box.png) top left no-repeat transparent;
+	background: url(../images/mail_box.png) top left no-repeat transparent;
 }
 .social_share_privacy_area.line .reddit img,
 .social_share_privacy_area.line .reddit iframe,
@@ -372,7 +372,7 @@
 .social_share_privacy_area li .switch {
     display: inline-block;
     text-indent: -9999em;
-    background: transparent url(images/socialshareprivacy_on_off.png) no-repeat 0 0 scroll;
+    background: transparent url(../images/socialshareprivacy_on_off.png) no-repeat 0 0 scroll;
     width: 23px;
     height: 12px;
     overflow: hidden;
@@ -437,7 +437,7 @@
     display: none;
 }
 .social_share_privacy_area li .help_info.icon {
-    background: #fff url(images/socialshareprivacy_info.png) no-repeat center center scroll;
+    background: #fff url(../images/socialshareprivacy_info.png) no-repeat center center scroll;
     width: 25px;
     height: 20px;
     position: relative;
@@ -502,7 +502,7 @@
 .social_share_privacy_area li.settings_info .settings_info_menu .settings {
 	text-indent: -9999em;
 	display: inline-block;
-	background: #fff url(images/settings.png) no-repeat center center scroll;
+	background: #fff url(../images/settings.png) no-repeat center center scroll;
 	width: 25px;
 	height: 20px;
 	border: 2px solid #e7e3e3;

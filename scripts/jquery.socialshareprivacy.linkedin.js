@@ -18,8 +18,8 @@
 
 	$.fn.socialSharePrivacy.settings.services.linkedin = {
 		'status'            : true,
-		'dummy_line_img'    : 'socialshareprivacy/images/dummy_linkedin.png',
-		'dummy_box_img'     : 'socialshareprivacy/images/dummy_box_linkedin.png',
+		'dummy_line_img'    : 'images/dummy_linkedin.png',
+		'dummy_box_img'     : 'images/dummy_box_linkedin.png',
 		'dummy_alt'         : '"LinkedIn"-Dummy',
 		'txt_info'          : '2 clicks for more privacy: The Linked in button will be enabled once you click here. Activating the button already sends data to Linked in &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connected to LinkedIn',
