@@ -12,7 +12,7 @@
 	"use strict";
 
 	$.extend($.fn.socialSharePrivacy.settings.services.stumbleupon, {
-		'txt_info' : '2 Klicks f&uuml;r mehr Datenschutz: Erst wenn Sie hier klicken, wird der Button aktiv und Sie k&ouml;nnen Ihre Empfehlung an StumbleUpon senden. Schon beim Aktivieren werden Daten an Dritte &uuml;bertragen &ndash; siehe <em>i</em>.',
+		'txt_info' : 'Zwei Klicks f&uuml;r mehr Datenschutz: Erst wenn Sie hier klicken, wird der Button aktiv und Sie k&ouml;nnen Ihre Empfehlung an StumbleUpon senden. Schon beim Aktivieren werden Daten an Dritte &uuml;bertragen &ndash; siehe <em>i</em>.',
 		'txt_off'  : 'nicht mit StumbleUpon verbunden',
 		'txt_on'   : 'mit StumbleUpon verbunden'
 	});

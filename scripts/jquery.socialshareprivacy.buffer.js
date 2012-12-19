@@ -29,7 +29,7 @@
 		'dummy_line_img'    : 'images/dummy_buffer.png',
 		'dummy_box_img'     : 'images/dummy_box_buffer.png',
 		'dummy_alt'         : '"Buffer"-Dummy',
-		'txt_info'          : '2 clicks for more privacy: The Buffer button will be enabled once you click here. Activating the button already sends data to Buffer &ndash; see <em>i</em>.',
+		'txt_info'          : 'Two clicks for more privacy: The Buffer button will be enabled once you click here. Activating the button already sends data to Buffer &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connected to Buffer',
 		'txt_on'            : 'connected to Buffer',
 		'perma_option'      : true,

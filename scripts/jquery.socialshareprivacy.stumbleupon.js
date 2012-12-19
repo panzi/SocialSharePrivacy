@@ -23,7 +23,7 @@
 		'dummy_line_img'    : 'images/dummy_stumbleupon.png',
 		'dummy_box_img'     : 'images/dummy_box_stumbleupon.png',
 		'dummy_alt'         : '"Stumble!"-Dummy',
-		'txt_info'          : '2 clicks for more privacy: The Stumble! button will be enabled once you click here. Activating the button already sends data to StumbleUpon &ndash; see <em>i</em>.',
+		'txt_info'          : 'Two clicks for more privacy: The Stumble! button will be enabled once you click here. Activating the button already sends data to StumbleUpon &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connected to StumbleUpon',
 		'txt_on'            : 'connected to StumbleUpon',
 		'perma_option'      : true,
