@@ -1,7 +1,7 @@
 /*
  * jquery.socialshareprivacy.js
  *
- * Copiright (c) 2012 Mathias Panzenböck
+ * Copyright (c) 2012 Mathias Panzenböck
  * with code from Delicious Button v1.1 Copyright 2010 [Mike @ moretechtips.net]
  * http://code.google.com/p/delicious-button/
  *
