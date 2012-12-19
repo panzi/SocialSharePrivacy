@@ -23,7 +23,7 @@
 		'dummy_line_img'    : 'images/dummy_twitter.png',
 		'dummy_box_img'     : 'images/dummy_box_twitter.png',
 		'dummy_alt'         : '"Tweet this"-Dummy',
-		'txt_info'          : '2 clicks for more privacy: The Tweet this button will be enabled once you click here. Activating the button already sends data to Twitter &ndash; see <em>i</em>.',
+		'txt_info'          : 'Two clicks for more privacy: The Tweet this button will be enabled once you click here. Activating the button already sends data to Twitter &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connected to Twitter',
 		'txt_on'            : 'connected to Twitter',
 		'perma_option'      : true,

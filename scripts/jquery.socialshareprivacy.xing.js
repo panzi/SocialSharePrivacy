@@ -21,7 +21,7 @@
 		'dummy_line_img'    : 'images/dummy_xing.png',
 		'dummy_box_img'     : 'images/dummy_box_xing.png',
 		'dummy_alt'         : '"XING"-Dummy',
-		'txt_info'          : '2 clicks for more privacy: The XING button will be enabled once you click here. Activating the button already sends data to XING &ndash; see <em>i</em>.',
+		'txt_info'          : 'Two clicks for more privacy: The XING button will be enabled once you click here. Activating the button already sends data to XING &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connected to XING',
 		'txt_on'            : 'connected to XING',
 		'perma_option'      : true,

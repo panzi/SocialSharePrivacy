@@ -7,7 +7,7 @@
 	"use strict";
 
 	$.extend($.fn.socialSharePrivacy.settings.services.buffer, {
-		'txt_info' : '2 clics pour une protection de donn&eacute;es am&eacute;lior&eacute;e: Ce n\'est qu\'apr&egrave;s avoir cliqu&eacute; ici que le bouton sera actif et vous pourrez envoyer votre recommandation &agrave; Buffer. D&eacute;j&agrave; lors de l\'activation des donn&eacute;es seront transmis &agrave; des tiers &ndash; voir <em>i</em>.',
+		'txt_info' : 'Deux clics pour une protection de donn&eacute;es am&eacute;lior&eacute;e: Ce n\'est qu\'apr&egrave;s avoir cliqu&eacute; ici que le bouton sera actif et vous pourrez envoyer votre recommandation &agrave; Buffer. D&eacute;j&agrave; lors de l\'activation des donn&eacute;es seront transmis &agrave; des tiers &ndash; voir <em>i</em>.',
 		'txt_off'  : 'pas connect&eacute; &agrave; Buffer',
 		'txt_on'   : 'connect&eacute; &agrave; Buffer'
 	});

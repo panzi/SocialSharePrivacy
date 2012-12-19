@@ -31,7 +31,7 @@
 		'dummy_line_img'    : 'images/dummy_pinit.png',
 		'dummy_box_img'     : 'images/dummy_box_pinit.png',
 		'dummy_alt'         : '"Pin it"-Dummy',
-		'txt_info'          : '2 clicks for more privacy: The Pin it button will be enabled once you click here. Activating the button already sends data to Pinterest &ndash; see <em>i</em>.',
+		'txt_info'          : 'Two clicks for more privacy: The Pin it button will be enabled once you click here. Activating the button already sends data to Pinterest &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connected to Pinterest',
 		'txt_on'            : 'connected to Pinterest',
 		'perma_option'      : true,

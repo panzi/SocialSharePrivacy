@@ -31,7 +31,7 @@
 		'dummy_line_img'    : 'images/dummy_reddit.png',
 		'dummy_box_img'     : 'images/dummy_box_reddit.png',
 		'dummy_alt'         : '"Reddit this!"-Dummy',
-		'txt_info'          : '2 clicks for more privacy: The reddit this! button will be enabled once you click here. Activating the button already sends data to reddit &ndash; see <em>i</em>.',
+		'txt_info'          : 'Two clicks for more privacy: The reddit this! button will be enabled once you click here. Activating the button already sends data to reddit &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connected to reddit',
 		'txt_on'            : 'connected to reddit',
 		'perma_option'      : true,

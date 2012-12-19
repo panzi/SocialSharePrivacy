@@ -17,7 +17,7 @@
 		'dummy_line_img'    : 'images/dummy_delicious.png',
 		'dummy_box_img'     : 'images/dummy_box_delicious.png',
 		'dummy_alt'         : '"Delicious"-Dummy',
-		'txt_info'          : '2 clicks for more privacy: The Delicious button will be enabled once you click here. Activating the button already sends data to Delicious &ndash; see <em>i</em>.',
+		'txt_info'          : 'Two clicks for more privacy: The Delicious button will be enabled once you click here. Activating the button already sends data to Delicious &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connected to Delicious',
 		'txt_on'            : 'connected to Delicious',
 		'perma_option'      : true,
