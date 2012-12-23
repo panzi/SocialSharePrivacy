@@ -1,0 +1,11 @@
+.social_share_privacy_area.line li div.pinit {
+	width: 100px;
+}
+.social_share_privacy_area.line .pinterest iframe {
+	width: 100px;
+	height: 20px;
+}
+.social_share_privacy_area.box .pinterest iframe {
+	width: 43px;
+	height: 58px;
+}
