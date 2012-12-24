@@ -7,26 +7,14 @@
     <meta name="description" content="Social Share Privacy : Fork of &quot;jquery.socialshareprivacy.js | 2 Klicks fuer mehr Datenschutz&quot;" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="socialshareprivacy/style.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/jquery.socialshareprivacy.min.css"/>
 
 	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
 	<script type="text/javascript" src="javascripts/jquery.cookies.js"></script>
-	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.js"></script>
-	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.facebook.js"></script>
-	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.stumbleupon.js"></script>
-	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.gplus.js"></script>
-	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.mail.js"></script>
-	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.pinterest.js"></script>
-	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.reddit.js"></script>
-	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.tumblr.js"></script>
-	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.twitter.js"></script>
-	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.linkedin.js"></script>
-	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.xing.js"></script>
-	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.buffer.js"></script>
-	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.disqus.js"></script>
-	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.delicious.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.min.js"></script>
 	<script type="text/javascript">
 	$.fn.socialSharePrivacy.settings.order = ['facebook','twitter','gplus','disqus','stumbleupon','delicious','reddit','pinterest','tumblr','linkedin','buffer','xing','mail'];
+	$.fn.socialSharePrivacy.settings.services.flattr.status = false;
 	var disqus_shortname = 'socialshareprivacy';
 	$(document).ready(function () {
 		$('#share').socialSharePrivacy({
@@ -75,15 +63,15 @@
 <div id="share"></div>
 <figure style="width:180px;margin-top:10px;">
 <div>
-<img src="socialshareprivacy/images/like_deactivated.png">
+<img src="images/like_deactivated.png">
 
 <div class="step"><span class="darr">&darr;</span> 1st click: activate button</div>
 
-<img src="socialshareprivacy/images/like_activated.png">
+<img src="images/like_activated.png">
 
 <div class="step"><span class="darr">&darr;</span> 2nd click: like</div>
 
-<img src="socialshareprivacy/images/like_liked.png">
+<img src="images/like_liked.png">
 </div>
 
 <figcaption>Before activation this button doesn't send information to a third party.</figcaption>
@@ -96,7 +84,7 @@
 
 
 <figure style="width:172px;">
-<img src="socialshareprivacy/images/permissions.png">
+<img src="images/permissions.png">
 <figcaption>All buttons can be permanently enabled.</figcaption>
 </figure>
 
