@@ -45,8 +45,8 @@ Overview
   * [Global Options](#global-options)
   * [Common Service Options](#common-service-options)
  * [Custom Services](#custom-services)
- * [Helper Functions](#helper-functions-jquery-fn-socialshareprivacy)
- * [Pack.sh](#pack-sh)
+ * [Helper Functions](#helper-functions-jqueryfnsocialshareprivacy)
+ * [Pack.sh](#packsh)
 
 <span id="dependencies">Dependencies</span>
 -------------------------------------------
@@ -89,7 +89,7 @@ $(document).ready(function () {
 
 You only need to include the JavaScript files of the services you want to use. I
 recommend to pack all needed files into one using a JavaScript packer/compressor.
-The included [pack.sh](#pack-sh) script can do that for you, if you've got
+The included [pack.sh](#packsh) script can do that for you, if you've got
 [uglifyjs](https://npmjs.org/package/uglify-js) and [uglifycss](https://npmjs.org/package/uglifycss)
 installed.
 
@@ -1082,7 +1082,7 @@ See also: [official documentation](https://www.xing.com/app/share?op=button_buil
 })(jQuery);
 ```
 
-### <span id="helper-functions-jquery-fn-socialshareprivacy">Helper Functions</span> (`jQuery.fn.socialSharePrivacy.*`)
+### <span id="helper-functions-jqueryfnsocialshareprivacy">Helper Functions</span> (`jQuery.fn.socialSharePrivacy.*`)
 
 Some helper functions that might be handy to use in your custom service.
 
@@ -1194,7 +1194,7 @@ If not defined in `settings.description` the found text is truncated at 3500 byt
 
 The element of the share button is passed as `this`.
 
-<span id="pack-sh">Pack.sh</span>
+<span id="packsh">Pack.sh</span>
 ---------------------------------
 
 You can use `pack.sh` to pack the modules and languages you want.
