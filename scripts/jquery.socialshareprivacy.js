@@ -716,7 +716,7 @@
 		'cookie_domain'     : document.location.hostname,
 		'cookie_expires'    : 365,
 		'path_prefix'       : '',
-		'css_path'          : 'stylesheets/jquery.socialshareprivacy.css',
+		'css_path'          : "stylesheets/jquery.socialshareprivacy.css",
 		'uri'               : getURI,
 		'language'          : 'en',
 		'ignore_fragment'   : true
