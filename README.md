@@ -35,11 +35,26 @@ incompatible changes, though (consolidated option names).
 The original can be found here:
 [http://www.heise.de/extras/socialshareprivacy/](http://www.heise.de/extras/socialshareprivacy/)
 
-Dependencies
-------------
+Overview
+--------
 
- * jQuery: [http://jquery.com/](http://jquery.com/)
- * jQuery cookies plugin (optional): [https://github.com/panzi/jQuery-Cookies](https://github.com/panzi/jQuery-Cookies)
+ * [Dependencies](#dependencies)
+ * [How to user](#how-to-use)
+ * [Methods](#methods)
+ * [Options](#options)
+  * [Global Options](#global-options)
+  * [Common Service Options](#common-service-options)
+ * [Custom Services](#custom-services)
+ * [Helper Functions](#helper-functions-jquery-fn-socialshareprivacy)
+ * [Pack.sh](#pack-sh)
+
+<span id="dependencies">Dependencies</span>
+-------------------------------------------
+
+ * [jQuery](http://jquery.com/)
+ * [jQuery cookies plugin](https://github.com/panzi/jQuery-Cookies) (optional)
+ * [uglifyjs](https://npmjs.org/package/uglify-js) (optional)
+ * [uglifycss](https://npmjs.org/package/uglifycss) (optional)
 
 The jQuery cookies plugin is needed in order to enable services permanently.
 However, you can plug in you own replacement to store this options differently
@@ -48,29 +63,15 @@ example that stores the perma options in HTML5 local storage instead of cookies
 see the file
 [jquery.socialshareprivacy.localstorage.js](https://github.com/panzi/SocialSharePrivacy/blob/master/jquery.socialshareprivacy.localstorage.js).
 
-How to use
-----------
+<span id="how-to-use">How to use</span>
+----------------------------------------
 
 ```html
 <html>
 <head>
 …
 <script type="text/javascript" src="jquery.js"></script> 
-<script type="text/javascript" src="jquery.socialshareprivacy.js"></script>
-<script type="text/javascript" src="jquery.socialshareprivacy.buffer.js"></script>
-<script type="text/javascript" src="jquery.socialshareprivacy.delicious.js"></script>
-<script type="text/javascript" src="jquery.socialshareprivacy.disqus.js"></script>
-<script type="text/javascript" src="jquery.socialshareprivacy.facebook.js"></script>
-<script type="text/javascript" src="jquery.socialshareprivacy.flattr.js"></script>
-<script type="text/javascript" src="jquery.socialshareprivacy.gplus.js"></script>
-<script type="text/javascript" src="jquery.socialshareprivacy.linkedin.js"></script>
-<script type="text/javascript" src="jquery.socialshareprivacy.mail.js"></script>
-<script type="text/javascript" src="jquery.socialshareprivacy.pinterest.js"></script>
-<script type="text/javascript" src="jquery.socialshareprivacy.reddit.js"></script>
-<script type="text/javascript" src="jquery.socialshareprivacy.stumbleupon.js"></script>
-<script type="text/javascript" src="jquery.socialshareprivacy.tumblr.js"></script>
-<script type="text/javascript" src="jquery.socialshareprivacy.twitter.js"></script>
-<script type="text/javascript" src="jquery.socialshareprivacy.xing.js"></script>
+<script type="text/javascript" src="jquery.socialshareprivacy.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function () {
 	$('.share').socialSharePrivacy();
@@ -87,10 +88,13 @@ $(document).ready(function () {
 ```
 
 You only need to include the JavaScript files of the services you want to use. I
-reccomend to pack all needed files into one using a JavaScript packer/compressor.
+recommend to pack all needed files into one using a JavaScript packer/compressor.
+The included [pack.sh](#pack-sh) script can do that for you, if you've got
+[uglifyjs](https://npmjs.org/package/uglify-js) and [uglifycss](https://npmjs.org/package/uglifycss)
+installed.
 
-Methods
--------
+<span id="methods">Methods</span>
+---------------------------------
 
 ### socialSharePrivacy
 
@@ -155,8 +159,8 @@ Get or set all options. If no `options` are specified it will act as a getter.
 
 Toggle the named service or toggle all services if no `service_name` is given.
 
-Options
--------
+<span id="options">Options</span>
+---------------------------------
 
 Options can be set globally via `$.fn.socialSharePrivacy.settings`, via an
 options object passed to the `socialSharePrivacy` function or via `data-*`
@@ -258,7 +262,7 @@ values (except the common service options) are treated as strings. If you
 need to pass values of other types (numbers, booleans, arrays or functions)
 you need to use the JavaScript object syntax.
 
-### Global Options
+### <span id="global-options">Global Options</span>
 
 Set these options like this:
 
@@ -416,7 +420,7 @@ elements. (Function or string)</td>
 </tbody>
 </table>
 
-### Common Service Options
+### <span id="common-service-options">Common Service Options</span>
 
 <table>
 <thead>
@@ -1061,8 +1065,8 @@ user.
 
 See also: [official documentation](https://www.xing.com/app/share?op=button_builder)
 
-Custom Services
----------------
+<span id="custom-services">Custom Services</span>
+-------------------------------------------------
 
 ```javascript
 (function ($, undefined) {
@@ -1078,7 +1082,7 @@ Custom Services
 })(jQuery);
 ```
 
-### Helper Functions (`jQuery.fn.socialSharePrivacy.*`)
+### <span id="helper-functions-jquery-fn-socialshareprivacy">Helper Functions</span> (`jQuery.fn.socialSharePrivacy.*`)
 
 Some helper functions that might be handy to use in your custom service.
 
@@ -1189,3 +1193,50 @@ Lookup description of shared thing in several places:
 If not defined in `settings.description` the found text is truncated at 3500 bytes.
 
 The element of the share button is passed as `this`.
+
+<span id="pack-sh">Pack.sh</span>
+---------------------------------
+
+You can use `pack.sh` to pack the modules and languages you want.
+
+Example:
+
+```sh
+./pack.sh -m twitter,facebook,gplus -l de,fr
+```
+
+This generates these files:
+
+```
+build/jquery.socialshareprivacy.min.js
+build/jquery.socialshareprivacy.min.de.js
+build/jquery.socialshareprivacy.min.fr.js
+build/jquery.socialshareprivacy.min.css
+```
+
+These files then contain only the JavaScript/CSS code for Twitter, Facebook and Google+.
+`jquery.socialshareprivacy.min.de.js` and `jquery.socialshareprivacy.min.fr.js` only
+contain translation strings, so you need to include them after `jquery.socialshareprivacy.min.js`
+in your HTML document.
+
+### Usage
+
+	Usage:
+	 ./pack.sh [options]
+	
+	Options:
+	 -h              Print this help message.
+	 -m <modules>    Comma separated list of JavaScript modules to pack. Possible values:
+	                     all, none, buffer, delicious, disqus, facebook, flattr,
+	                     gplus, linkedin, localstorage, mail, pinterest, reddit,
+	                     stumbleupon, tumblr, twitter, xing
+	                 default: all
+	
+	 -l <languages>  Comma separated list of languages to pack. Possible values:
+	                     all, none, de, fr
+	                 default: all
+	
+	 -c <enabled>    Pack stylesheets. Possible values: on, off (default: on)
+	 -s <path>       Stylesheet path in the generated JavaScript file.
+	                 default: stylesheets/jquery.socialshareprivacy.min.css
+	 -o <directory>  Output directory. (default: build)
