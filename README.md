@@ -93,6 +93,15 @@ The included [pack.sh](#packsh) script can do that for you, if you've got
 [uglifyjs](https://npmjs.org/package/uglify-js) and [uglifycss](https://npmjs.org/package/uglifycss)
 installed.
 
+However, for your convenience I provide these precompiled versions of the scripts:
+
+ * [jquery.socialshareprivacy.min.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.js)
+ * [jquery.socialshareprivacy.min.de.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.de.js)
+ * [jquery.socialshareprivacy.min.fr.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.fr.js)
+ * [jquery.socialshareprivacy.min.css](http://panzi.github.com/SocialSharePrivacy/stylesheets/jquery.socialshareprivacy.min.css)
+
+These files contain everything except the `jquery.socialshareprivacy.localstorage.js` module.
+
 <span id="methods">Methods</span>
 ---------------------------------
 
