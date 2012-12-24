@@ -1,6 +1,6 @@
 #!/bin/bash
 
-modules=all
+modules=all-services
 css=on
 stylefile=stylesheets/jquery.socialshareprivacy.min.css
 langs=all
@@ -32,8 +32,10 @@ while getopts ":m:s:c:l:o:h" opt; do
 			echo "Options:"
 			echo " -h              Print this help message."
 			echo " -m <modules>    Comma separated list of JavaScript modules to pack. Possible values:"
-			echo all none $allmodules|sed 's/ /, /g'|fmt -60|xargs -n 1 -d '\n' echo "                    "
-			echo "                 default: all"
+			echo all all-services none $allmodules|sed 's/ /, /g'|fmt -60|xargs -n 1 -d '\n' echo "                    "
+			echo "                 'all-services' includes all social share services but not the"
+			echo "                 jquery.socialshareprivacy.localstorage.js module."
+			echo "                 default: all-services"
 			echo
 			echo " -l <languages>  Comma separated list of languages to pack. Possible values:"
 			echo all none $alllangs|sed 's/ /, /g'|fmt -60|xargs -n 1 -d '\n' echo "                    "
@@ -55,7 +57,9 @@ while getopts ":m:s:c:l:o:h" opt; do
 done
 
 if [ "$modules" = "all" ]; then
-	modules=`echo $allmodules|tr ' ' ','`
+	modules=`echo -n $allmodules|tr ' ' ','`
+elif [ "$modules" = "all-services" ]; then
+	modules=`echo -n $allmodules|tr ' ' '\n'|sed /localstorage/d|tr '\n' ','`
 elif [ "$modules" = "" ]; then
 	modules="none"
 fi
