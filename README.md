@@ -61,7 +61,7 @@ However, you can plug in you own replacement to store this options differently
 (e.g. via ajax in the user profile or in the browsers local store). For an
 example that stores the perma options in HTML5 local storage instead of cookies
 see the file
-[jquery.socialshareprivacy.localstorage.js](https://github.com/panzi/SocialSharePrivacy/blob/master/jquery.socialshareprivacy.localstorage.js).
+[jquery.socialshareprivacy.localstorage.js](https://github.com/panzi/SocialSharePrivacy/blob/master/scripts/jquery.socialshareprivacy.localstorage.js).
 
 <span id="how-to-use">How to use</span>
 ----------------------------------------
