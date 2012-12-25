@@ -39,7 +39,7 @@ Overview
 --------
 
  * [Dependencies](#dependencies)
- * [How to user](#how-to-use)
+ * [How to use](#how-to-use)
  * [Methods](#methods)
  * [Options](#options)
   * [Global Options](#global-options)
