@@ -95,12 +95,13 @@ installed.
 
 However, for your convenience I provide these precompiled versions of the scripts:
 
- * [jquery.socialshareprivacy.min.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.js)
- * [jquery.socialshareprivacy.min.de.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.de.js)
- * [jquery.socialshareprivacy.min.fr.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.fr.js)
+ * [jquery.socialshareprivacy.min.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.js) <sup>1</sup>
+ * [jquery.socialshareprivacy.min.de.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.de.js) <sup>2</sup>
+ * [jquery.socialshareprivacy.min.fr.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.fr.js) <sup>2</sup>
  * [jquery.socialshareprivacy.min.css](http://panzi.github.com/SocialSharePrivacy/stylesheets/jquery.socialshareprivacy.min.css)
 
-These files contain everything except the `jquery.socialshareprivacy.localstorage.js` module.
+1 This file contain all JavaScripts except the `jquery.socialshareprivacy.localstorage.js` module and the translations.  
+2 These files contain only translation strings and have to be included in addition to `jquery.socialshareprivacy.min.js`.
 
 <span id="methods">Methods</span>
 ---------------------------------
