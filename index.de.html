@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de" xml:lang="de">
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Social Share Privacy : Fork von &quot;jquery.socialshareprivacy.js | 2 Klicks fuer mehr Datenschutz&quot;" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css"/>
+    <link rel="stylesheet" type="text/css" href="stylesheets/jquery.socialshareprivacy.min.css"/>
+
+	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.cookies.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.min.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.min.de.js"></script>
+	<script type="text/javascript" src="javascripts/main.js"></script>
+
+    <title>Social Share Privacy</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <div id="header_menu">
+            <span class="lang_select">
+              <a href="index.html" title="English">en</a>
+            </span>
+            <a id="forkme_banner" href="https://github.com/panzi/SocialSharePrivacy">Auf GitHub anzeigen</a>
+          </div>
+
+          <h1 id="project_title">Social Share Privacy</h1>
+          <h2 id="project_tagline">Fork von &quot;jquery.socialshareprivacy.js | 2 Klicks fuer mehr Datenschutz&quot;</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/panzi/SocialSharePrivacy/zipball/master">Dieses Project als .zip Datei herunterladen</a>
+              <a class="tar_download_link" href="https://github.com/panzi/SocialSharePrivacy/tarball/master">Dieses Project als .tar.gz Datei herunterladen</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+
+<div id="share"></div>
+<figure style="width:180px;margin-top:10px;">
+<div>
+<img src="images/de/like_deactivated.png">
+
+<div class="step"><span class="darr">&darr;</span> 1. Klick: Knopf aktivieren</div>
+
+<img src="images/de/like_activated.png">
+
+<div class="step"><span class="darr">&darr;</span> 2. Klick: Gefällt mir</div>
+
+<img src="images/de/like_liked.png">
+</div>
+
+<figcaption>Vor Aktivierung werden keine Daten an Dritte gesendet.</figcaption>
+</figure>
+
+<p>Mehr und mehr Webseiten verwenden Buttons von Facebook, Google+ und Twitter. Diese Buttons senden jedoch noch bevor der Benutzer sie klickt Daten an diese sozialen Netzwerke. Dadurch können diese Netzwerke ermitteln welche Benutzer welche Webseite besuchen und somit umfangreiche Surf-Profile ihrer Benutzer erstellen. Da dies weder von den Benutzern erwartet noch von Webseiten-Betreibern erwünscht ist wurde dieser alternative Weg diese Social Services zu nutzen entwickelt.</p>
+
+<p>Das Grundkonzept ist sehr einfach. Zunächst wird nur ein ausgegrautes Bild des Gefällt mir-Buttons eingebettet. Erst wenn ein Benutzer diesen Button klickt wird der echte Button geladen und somit Daten an das soziale Netzwerk gesendet. Mit einen zweiten Klick kann nun die Webseite geliked (bzw. getweetet etc.) werden.</p>
+
+
+<figure style="width:172px;">
+<img src="images/de/permissions.png">
+<figcaption>Alle Knöpfe können permanent aktiviert werden.</figcaption>
+</figure>
+
+<p>Mit dem ersten Klick stimmt ein Benutzer zu, dass Daten an das betreffende soziale Netzwerk gesendet werden. Dies passiert aber nur für genau jene Webseite,
+auf der der Gefällt mir-Button eingebettet ist und nur für das ausgewählte soziale Netzwerk. Wenn der Benutzer die Webseite noch einmal besucht ist der Knopf zunächst wieder deaktiviert. Somit kann ein soziales Netzwerk kein Surf-Profil des Benutzers anlegen.</p>
+
+<p>Wenn Benutzern ihre Privatsphäre egal ist und sie lieber den Gefällt mir-Button aktiviert haben wollen, dann können sie das im Einstellungs-Menü (Zahnrad-Icon) festlegen. Dies passiert defaultmäßig per Cookie und für ein ganzes Domain. Dieses Feature ist aber erweiterbar und so kann diese Information an beliebiger Stelle gespeichert werden (z.B. per AJAX am Webserver oder im HTML5 local storage des Webbrowsers).</p>
+
+<p>Dies ist ein Fork des "<a href="http://www.heise.de/extras/socialshareprivacy/">jquery.socialshareprivacy.js</a> | <a href="http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html">2 Klicks fuer mehr Datenschutz</a>" Projekts des <a href="http://www.heise.de/">Heise</a> Verlags.</p>
+
+<h2>Für Webmasters</h2>
+
+<p>Social Share Privacy ist ein jQuery plugin unter the MIT Lizenz. Mehr Informationen über die Verwendung auf ihrer Webseite kann auf <a href="https://github.com/panzi/SocialSharePrivacy">github</a> gefunden werden.</p>
+
+<div class="clear"></div>
+
+<hr/>
+
+<div id="disqus_thread"></div>
+
+<a id="comments-button" href="javascript:void(0)">Kommentare</a>
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Social Share Privacy gewartet von <a href="https://github.com/panzi">panzi</a></p>
+        <p>Veröffentlicht mit <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+  </body>
+</html>

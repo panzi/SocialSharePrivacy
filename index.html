@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xml:lang="en">
 
   <head>
     <meta charset='utf-8' />
@@ -7,34 +7,12 @@
     <meta name="description" content="Social Share Privacy : Fork of &quot;jquery.socialshareprivacy.js | 2 Klicks fuer mehr Datenschutz&quot;" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/jquery.socialshareprivacy.min.css"/>
+    <link rel="stylesheet" type="text/css" href="stylesheets/jquery.socialshareprivacy.min.css"/>
 
 	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
 	<script type="text/javascript" src="javascripts/jquery.cookies.js"></script>
 	<script type="text/javascript" src="javascripts/jquery.socialshareprivacy.min.js"></script>
-	<script type="text/javascript">
-	$.fn.socialSharePrivacy.settings.order = ['facebook','twitter','gplus','disqus','stumbleupon','delicious','reddit','pinterest','tumblr','linkedin','buffer','xing','mail'];
-	$.fn.socialSharePrivacy.settings.services.flattr.status = false;
-	var disqus_shortname = 'socialshareprivacy';
-	$(document).ready(function () {
-		$('#share').socialSharePrivacy({
-			layout:'box',
-			services: {
-				disqus: {
-					shortname: disqus_shortname,
-					onclick: function () {
-						$('#comments-button').click();
-					}
-				}
-			}
-		});
-		$('#comments-button').click(function () {
-			$.getScript('http://' + disqus_shortname + '.disqus.com/embed.js');
-			$(this).remove();
-		});
-	});
-	</script>
-
+	<script type="text/javascript" src="javascripts/main.js"></script>
 
     <title>Social Share Privacy</title>
   </head>
@@ -44,7 +22,12 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <a id="forkme_banner" href="https://github.com/panzi/SocialSharePrivacy">View on GitHub</a>
+          <div id="header_menu">
+            <span class="lang_select">
+              <a href="index.de.html" title="Deutsch">de</a>
+            </span>
+            <a id="forkme_banner" href="https://github.com/panzi/SocialSharePrivacy">View on GitHub</a>
+          </div>
 
           <h1 id="project_title">Social Share Privacy</h1>
           <h2 id="project_tagline">Fork of &quot;jquery.socialshareprivacy.js | 2 Klicks fuer mehr Datenschutz&quot;</h2>
@@ -116,8 +99,6 @@
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-
-    
 
   </body>
 </html>

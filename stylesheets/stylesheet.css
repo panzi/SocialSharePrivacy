@@ -262,11 +262,15 @@ Full-Width Styles
   margin: 0 auto;
 }
 
-#forkme_banner {
-  display: block;
+#header_menu {
   position: absolute;
   top:0;
   right: 10px;
+}
+
+#forkme_banner {
+  display: inline-block;
+  margin-left: 10px;
   z-index: 10;
   padding: 10px 50px 10px 10px;
   color: #fff;
@@ -288,6 +292,14 @@ Full-Width Styles
 
 #header_wrap .inner {
   padding: 50px 10px 30px 10px;
+}
+
+.lang_select a {
+	color: #fff;
+}
+
+.lang_select a:hover {
+	text-decoration: underline;
 }
 
 #project_title {
