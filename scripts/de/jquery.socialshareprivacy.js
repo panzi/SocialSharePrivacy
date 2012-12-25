@@ -13,14 +13,11 @@
  *
  * Spread the word, link to us if you can.
  */
-(function ($, undefined) {
-	"use strict";
 
-	$.extend($.fn.socialSharePrivacy.settings, {
-		'info_link'         : 'http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html',
-		'txt_settings'      : 'Einstellungen',
-		'txt_help'          : 'Wenn Sie diese Felder durch einen Klick aktivieren, werden Informationen an Facebook, Twitter oder Google etc. in die USA &uuml;bertragen und unter Umst&auml;nden auch dort gespeichert. N&auml;heres erfahren Sie durch einen Klick auf das <em>i</em>.',
-		'settings_perma'    : 'Dauerhaft aktivieren und Daten&uuml;ber&shy;tragung zustimmen:',
-		'language'          : 'de'
-	});
-})(jQuery);
+jQuery.extend(jQuery.fn.socialSharePrivacy.settings, {
+	'info_link'         : 'http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html',
+	'txt_settings'      : 'Einstellungen',
+	'txt_help'          : 'Wenn Sie diese Felder durch einen Klick aktivieren, werden Informationen an Facebook, Twitter oder Google etc. in die USA &uuml;bertragen und unter Umst&auml;nden auch dort gespeichert. N&auml;heres erfahren Sie durch einen Klick auf das <em>i</em>.',
+	'settings_perma'    : 'Dauerhaft aktivieren und Daten&uuml;ber&shy;tragung zustimmen:',
+	'language'          : 'de'
+});

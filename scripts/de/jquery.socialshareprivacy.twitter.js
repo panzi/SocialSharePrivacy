@@ -14,12 +14,9 @@
  * Spread the word, link to us if you can.
  */
 
-(function ($, undefined) {
-	"use strict";
 
-	$.extend($.fn.socialSharePrivacy.settings.services.twitter, {
-		'txt_info' : 'Zwei Klicks f&uuml;r mehr Datenschutz: Erst wenn Sie hier klicken, wird der Button aktiv und Sie k&ouml;nnen Ihre Empfehlung an Twitter senden. Schon beim Aktivieren werden Daten an Dritte &uuml;bertragen &ndash; siehe <em>i</em>.',
-		'txt_off'  : 'nicht mit Twitter verbunden',
-		'txt_on'   : 'mit Twitter verbunden'
-	});
-})(jQuery);
+jQuery.extend(jQuery.fn.socialSharePrivacy.settings.services.twitter, {
+	'txt_info' : 'Zwei Klicks f&uuml;r mehr Datenschutz: Erst wenn Sie hier klicken, wird der Button aktiv und Sie k&ouml;nnen Ihre Empfehlung an Twitter senden. Schon beim Aktivieren werden Daten an Dritte &uuml;bertragen &ndash; siehe <em>i</em>.',
+	'txt_off'  : 'nicht mit Twitter verbunden',
+	'txt_on'   : 'mit Twitter verbunden'
+});

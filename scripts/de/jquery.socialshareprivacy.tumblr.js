@@ -8,11 +8,8 @@
  * Spread the word, link to us if you can.
  */
 
-(function ($, undefined) {
-	"use strict";
 
-	$.extend($.fn.socialSharePrivacy.settings.services.tumblr, {
-		'txt_info'   : 'Diesen Inhalt auf Tumblr posten.',
-		'txt_button' : 'Auf Tumblr teilen'
-	});
-})(jQuery);
+jQuery.extend(jQuery.fn.socialSharePrivacy.settings.services.tumblr, {
+	'txt_info'   : 'Diesen Inhalt auf Tumblr posten.',
+	'txt_button' : 'Auf Tumblr teilen'
+});
