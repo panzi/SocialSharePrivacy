@@ -30,13 +30,14 @@ Note that Tumblr and email are just normal links and thus always enabled.
 
 This is a fork of socialSharePrivacy by Heise. In this fork the service support
 was made extensible, some services where added and some bugs fixed. It has some
-incompatible changes, though (consolidated option names).
+incompatible changes, though (consolidated option names, use of the boolean values
+`true` and `false` instead of the strings `"on"` and `"off"` etc.).
 
 The original can be found here:
 [http://www.heise.de/extras/socialshareprivacy/](http://www.heise.de/extras/socialshareprivacy/)
 
 The Delicious support was heavily inspired by the delicious button jQuery plugin:
-[http://code.google.com/p/delicious-button/](http://code.google.com/p/delicious-button/)
+[http://code.google.com/p/delicious-button/](http://code.google.com/p/delicious-button/)  
 The style for this button was atually copied and only slightly adapted from this plugin.
 
 Overview
