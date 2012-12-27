@@ -2,12 +2,11 @@
  * jquery.socialshareprivacy.js
  *
  * Copyright (c) 2012 Mathias Panzenböck
- * with code from Delicious Button v1.1 Copyright 2010 [Mike @ moretechtips.net]
- * http://code.google.com/p/delicious-button/
  *
- * Licensed under the Apache License, Version 2.0 
- * (the "License"); you may not use this file except in compliance with the License. 
- * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+ * is released under the MIT License http://www.opensource.org/licenses/mit-license.php
+ *
+ * Code inspired by Delicious Button v1.1:
+ * http://code.google.com/p/delicious-button/
  */
 (function ($, undefined) {
 	"use strict";

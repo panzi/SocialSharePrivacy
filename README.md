@@ -35,6 +35,10 @@ incompatible changes, though (consolidated option names).
 The original can be found here:
 [http://www.heise.de/extras/socialshareprivacy/](http://www.heise.de/extras/socialshareprivacy/)
 
+The Delicious support was heavily inspired by the delicious button jQuery plugin:
+[http://code.google.com/p/delicious-button/](http://code.google.com/p/delicious-button/)
+The style for this button was atually copied and only slightly adapted from this plugin.
+
 Overview
 --------
 
@@ -47,6 +51,7 @@ Overview
  * [Custom Services](#custom-services)
  * [Helper Functions](#helper-functions-jqueryfnsocialshareprivacy)
  * [Pack.sh](#packsh)
+ * [License](#license)
 
 <span id="dependencies">Dependencies</span>
 -------------------------------------------
@@ -1252,3 +1257,47 @@ in your HTML document.
 	 -s <path>       Stylesheet path in the generated JavaScript file.
 	                 default: stylesheets/jquery.socialshareprivacy.min.css
 	 -o <directory>  Output directory. (default: build)
+
+<span id="license">License</span>
+---------------------------------
+
+Most of this plugin is licensed under the [MIT license](http://www.opensource.org/licenses/mit-license.php):
+
+Copyright (c) 2012 Mathias Panzenböck  
+Copyright (c) 2011 Hilko Holweg, Sebastian Hilbig, Nicolas Heiringhoff,
+Juergen Schmidt, Heise Zeitschriften Verlag GmbH & Co. KG, http://www.heise.de
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The file `stylesheets/jquery.socialshareprivacy.delicious.css` is licensed under
+the Apache License, Version 2.0:
+
+Copyright (c) 2012 Mathias Panzenböck  
+Copyright (c) 2010 [Mike @ moretechtips.net]
+
+Licensed under the Apache License, Version 2.0 (the "License");  
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+> [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
