@@ -5,7 +5,7 @@ Social Share Privacy is a jQuery plugin that lets you add social share buttons
 to your website that don't allow the social sites to track your users. The buttons
 are first disabled and a user needs to click them to enable them. So in order to
 e.g. like a site on facebook with these social share buttons a user needs to click
-tow times. But in return for this extra click a user can only be tracked be this
+two times. But in return for this extra click a user can only be tracked be this
 third party sites when he decides to enable the buttons. Using the settings menu
 a user can also permanently enable a social share button.
 
