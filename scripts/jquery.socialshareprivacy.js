@@ -247,7 +247,7 @@
 	}
 
 	function buttonClickHandler (service_name) {
-		function onclick () {
+		function onclick (event) {
 			var $container = $(this).parents('li.help_info').first();
 			var $share = $container.parents('.social_share_privacy_area').first().parent();
 			var options = $share.data('social-share-privacy-options');
@@ -265,6 +265,7 @@
 					typeof(service.button) === "function" ?
 					service.button.call($container.parent().parent()[0],service,uri,options) :
 					service.button);
+				$share.trigger({type: 'socialshareprivacy:enable', serviceName: service_name, isClick: !event.isTrigger});
 			} else {
 				$container.removeClass('info_off');
 				$switch.addClass('off').removeClass('on').html(service.txt_off||'\u00a0');
@@ -275,6 +276,7 @@
 							src: service.path_prefix + (options.layout === 'line' ?
 								service.dummy_line_img : service.dummy_box_img)
 						}).click(onclick));
+				$share.trigger({type: 'socialshareprivacy:disable', serviceName: service_name, isClick: !event.isTrigger});
 			}
 		};
 		return onclick;
@@ -379,6 +381,7 @@
 						return this.data('social-share-privacy-options');
 
 					case "destroy":
+						this.trigger({type: 'socialshareprivacy:destroy'});
 						this.children('.social_share_privacy_area').remove();
 						this.removeData('social-share-privacy-options');
 						break;
@@ -402,7 +405,7 @@
 						this.each(function () {
 							var $self = $(this);
 							var options = $self.data('social-share-privacy-options');
-							this.find('.'+(options.services[arg].class_name||arg)+' .switch.on').click();
+							$self.find('.'+(options.services[arg].class_name||arg)+' .switch.on').click();
 						});
 						break;
 
@@ -410,7 +413,7 @@
 						this.each(function () {
 							var $self = $(this);
 							var options = $self.data('social-share-privacy-options');
-							this.find('.'+(options.services[arg].class_name||arg)+' .switch').click();
+							$self.find('.'+(options.services[arg].class_name||arg)+' .switch').click();
 						});
 						break;
 
@@ -588,8 +591,9 @@
 			}
 
 			var $context = $('<ul class="social_share_privacy_area"></ul>').addClass(this_options.layout);
+			var $share = $(this);
 
-			$(this).prepend($context).data('social-share-privacy-options',this_options);
+			$share.prepend($context).data('social-share-privacy-options',this_options);
 
 			for (var i = 0; i < order.length; ++ i) {
 				var service_name = order[i];
@@ -687,6 +691,7 @@
 					$container_settings_info.find('fieldset input').on('change', permCheckChangeHandler);
 				}
 			}
+			$share.trigger({type: 'socialshareprivacy:create', options: this_options});
 		});
 	};
 

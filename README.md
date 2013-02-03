@@ -46,6 +46,7 @@ Overview
  * [Dependencies](#dependencies)
  * [How to use](#how-to-use)
  * [Methods](#methods)
+ * [Events](#events)
  * [Options](#options)
   * [Global Options](#global-options)
   * [Common Service Options](#common-service-options)
@@ -174,6 +175,33 @@ Get or set all options. If no `options` are specified it will act as a getter.
 ```
 
 Toggle the named service or toggle all services if no `service_name` is given.
+
+<span id="events">Events</span>
+-------------------------------
+
+### socialshareprivacy:create
+
+This event is emitted after a the `socialSharePrivacy` method was called on
+an element. The event object will have an `options` attribute holding the
+option object of the initialized Social Share Privacy widget.
+
+### socialshareprivacy:destroy
+
+This event is emitted before a Social Share Privacy widget is destroyed.
+
+### socialshareprivacy:disable
+
+This event is emitted after a certain service was disabled. The event object
+will have a `serviceName` property, holding the name of the service that was
+disabled, and an `isClick` property, wich is `true` if a click by a user caused
+this event (`false` if it was enabled via JavaScript).
+
+### socialshareprivacy:enable
+
+This event is emitted after a certain service was enabled. The event object
+will have a `serviceName` property, holding the name of the service that was
+enabled, and an `isClick` property, wich is `true` if a click by a user caused
+this event (`false` if it was enabled via JavaScript).
 
 <span id="options">Options</span>
 ---------------------------------
