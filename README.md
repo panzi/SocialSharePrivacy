@@ -181,9 +181,9 @@ Toggle the named service or toggle all services if no `service_name` is given.
 
 ### socialshareprivacy:create
 
-This event is emitted after a the `socialSharePrivacy` method was called on
-an element. The event object will have an `options` attribute holding the
-option object of the initialized Social Share Privacy widget.
+This event is emitted after the `socialSharePrivacy` method created a Social
+Share privacy widget. The event object will have an `options` attribute holding
+the option object of the initialized widget.
 
 ### socialshareprivacy:destroy
 
@@ -194,7 +194,7 @@ This event is emitted before a Social Share Privacy widget is destroyed.
 This event is emitted after a certain service was disabled. The event object
 will have a `serviceName` property, holding the name of the service that was
 disabled, and an `isClick` property, wich is `true` if a click by a user caused
-this event (`false` if it was enabled via JavaScript).
+this event (`false` if it was disable via JavaScript).
 
 ### socialshareprivacy:enable
 
