@@ -55,7 +55,7 @@
 			if (options.dnt)      params.dnt      = options.dnt;
 
 			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no"></iframe>').attr(
-				'src', 'http://platform.twitter.com/widgets/tweet_button.html?' +
+				'src', '//platform.twitter.com/widgets/tweet_button.html?' +
 				$.param(params).replace(/\+/g,'%20'));
 		}
 	};
