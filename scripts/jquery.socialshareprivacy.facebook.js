@@ -75,7 +75,7 @@
 				params.layout = 'box_count';
 			}
 			return $('<iframe scrolling="no" frameborder="0" allowtransparency="true"></iframe>').attr(
-				'src','http://www.facebook.com/plugins/like.php?'+$.param(params));
+				'src','//www.facebook.com/plugins/like.php?'+$.param(params));
 		}
 	};
 })(jQuery);
