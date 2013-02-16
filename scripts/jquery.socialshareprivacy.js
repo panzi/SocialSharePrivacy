@@ -455,7 +455,7 @@
 						if (name in ctx) {
 							ctx = ctx[name];
 							if (typeof ctx === "string") {
-								ctx = (new Function("return ("+ctx+");")).call(this);
+								ctx = (new Function("$", "return ("+ctx+");")).call(this, $);
 							}
 						}
 						else {
@@ -464,7 +464,7 @@
 					}
 					var name = path[j];
 					if (typeof ctx[name] === "object") {
-						ctx[name] = $.extend(true, (new Function("return ("+attr.value+");")).call(this), ctx[name]);
+						ctx[name] = $.extend(true, (new Function("$", "return ("+attr.value+");")).call(this, $), ctx[name]);
 					}
 					else {
 						ctx[name] = attr.value;
@@ -497,17 +497,17 @@
 				}
 			}
 			if (typeof data.services === "string") {
-				data.services = (new Function("return ("+data.services+");")).call(this);
+				data.services = (new Function("$", "return ("+data.services+");")).call(this, $);
 			}
 			if ('options' in data) {
-				data = $.extend(data, (new Function("return ("+data.options+");")).call(this));
+				data = $.extend(data, (new Function("$", "return ("+data.options+");")).call(this, $));
 				delete data.options;
 			}
 			if ('services' in data) {
 				for (var service_name in data.services) {
 					var service = data.services[service_name];
 					if (typeof service === "string") {
-						data.services[service_name] = (new Function("return ("+service+");")).call(this);
+						data.services[service_name] = (new Function("$", "return ("+service+");")).call(this, $);
 					}
 					// only values of common options are parsed:
 					if (typeof service.status === "string") {

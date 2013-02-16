@@ -44,19 +44,15 @@
 	height: 62px;
 	margin: auto;
 }
-.social_share_privacy_area.box .hackernews .hackernews-widget .points {
-	display: block;
-	width: 60px;
-}
 .social_share_privacy_area.box .hackernews .hackernews-widget a.name {
 	display: block;
 	width: 62px;
 }
 .social_share_privacy_area .hackernews .hackernews-widget a.name:hover {
-	background-color: #ff771d;
+	background-color: #ff8635;
 }
 .social_share_privacy_area .hackernews .hackernews-widget a.name:active {
-	background-color: #ff771d;
+	background-color: #ff8635;
 	-webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,0.1);
 	-moz-box-shadow: inset 0 3px 5px rgba(0,0,0,0.1);
 	box-shadow: inset 0 3px 5px rgba(0,0,0,0.1);
@@ -77,6 +73,8 @@
 	min-width: 1em;
 }
 .social_share_privacy_area.box .hackernews .hackernews-widget .points {
+	display: block;
+	width: 60px;
 	height: 35px;
 	line-height: 35px;
 	font-size: 14px;

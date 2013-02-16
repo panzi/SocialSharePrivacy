@@ -50,7 +50,6 @@
 			$.ajax(prot+"//api.thriftdb.com/api.hnsearch.com/items/_search?filter[fields][url][]="+encodeURIComponent(url), {
 				dataType: "jsonp",
 				success: function (data) {
-					console.log("success",data);
 					var item = data.results[0];
 					if (item) {
 						item = item.item;

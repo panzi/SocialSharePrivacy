@@ -36,6 +36,10 @@
 .social_share_privacy_area.box li .dummy_btn {
 	margin-bottom: 10px;
 }
+.social_share_privacy_area li .dummy_btn img.privacy_dummy,
+.social_share_privacy_area li .dummy_btn iframe {
+	vertical-align: bottom;
+}
 .social_share_privacy_area li .dummy_btn iframe {
     overflow: hidden;
     height: inherit;
