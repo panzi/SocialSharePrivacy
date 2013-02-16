@@ -18,6 +18,7 @@ Supported share services:
  * [Facebook](#facebook-options-facebook)
  * [Flattr](#flattr-options-flattr)
  * [Google+](#google-options-gplus)
+ * [Hacker News](#hacker-news-options-hackernews)
  * [Linked in](#linked-in-options-linkedin)
  * [Pinterest](#pinterest-options-pinterest)
  * [reddit](#reddit-options-reddit)
@@ -831,6 +832,27 @@ $(document).ready(function () {
 There are no Google+ specific options.
 
 See also: [official documentation](http://www.google.com/webmasters/+1/button/)
+
+### <span id="hacker-news-options-hackernews">Hacker News Options</span> (`hackernews`)
+
+See also: [HNSearch API documentation](http://www.hnsearch.com/api)
+
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td><a href="#gettitleoptions-uri-settings">jQuery.fn.socialSharePrivacy.getTitle</a></td>
+<td>Title of the news to share. (Function or string)</td>
+</tr>
+</tbody>
+</table>
 
 ### <span id="pinterest-options-pinterest">Pinterest Options</span> (`pinterest`)
 
