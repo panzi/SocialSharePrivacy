@@ -366,14 +366,14 @@ Full-Width Styles
 #main_content {
   position: relative;
   padding-top: 40px;
-  min-height: 1380px;
+  min-height: 1400px;
   padding-left: 110px;
   padding-right: 110px;
 }
 
 #footer_wrap {
   background: #212121;
-  min-height: 380px;
+  min-height: 400px;
 }
 
 

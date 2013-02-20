@@ -1,5 +1,4 @@
-$.fn.socialSharePrivacy.settings.order = ['facebook','twitter','gplus','disqus','stumbleupon','delicious','reddit','pinterest','tumblr','linkedin','buffer','xing','mail'];
-$.fn.socialSharePrivacy.settings.services.flattr.status = false;
+$.fn.socialSharePrivacy.settings.order = ['flattr','facebook','twitter','gplus','disqus','stumbleupon','delicious','reddit','pinterest','tumblr','linkedin','buffer','xing','mail'];
 var disqus_shortname = 'socialshareprivacy';
 var disqus_url = $.fn.socialSharePrivacy.settings.uri($.fn.socialSharePrivacy.settings);
 $(document).ready(function () {
@@ -11,6 +10,9 @@ $(document).ready(function () {
 				onclick: function () {
 					$('#comments-button').click();
 				}
+			},
+			flattr: {
+				uid: 'panzi'
 			}
 		}
 	});
