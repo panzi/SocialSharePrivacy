@@ -12,7 +12,7 @@ You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2
 }
 .social_share_privacy_area.line .delicious .delicious-widget,
 .social_share_privacy_area.line .delicious img.privacy_dummy {
-	width: 76px;
+	width: 75px;
 	height: 20px;
 	margin-right: 20px;
 }
@@ -79,7 +79,6 @@ You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2
 	-moz-border-radius:3px;
 	-o-border-radius:3px;
 	border-radius:3px;
-	margin-right:1px;
 	outline:none!important;
 	text-decoration:none!important;
 	height:18px;
@@ -92,6 +91,7 @@ You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2
 	width:20px;
 	position:relative;
 	direction:ltr;
+	margin-right:1px;
 }
 .social_share_privacy_area.line .delicious a.icon:hover {
 	border-color:#666;
