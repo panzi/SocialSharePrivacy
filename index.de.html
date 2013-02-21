@@ -45,7 +45,6 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
 
-<div id="share"></div>
 <figure style="width:180px;margin-top:10px;">
 <div>
 <img src="images/de/like_deactivated.png">
@@ -82,6 +81,34 @@ auf der der Gefällt mir-Button eingebettet ist und nur für das ausgewählte so
 <h2>Für Webmasters</h2>
 
 <p>Social Share Privacy ist ein jQuery plugin unter der MIT Lizenz. Mehr Informationen über die Verwendung auf ihrer Webseite kann auf <a href="https://github.com/panzi/SocialSharePrivacy">github</a> gefunden werden.</p>
+
+<p>Wenn ihnen die detailierten Optionen egal sind und sie nur einen einfachen allgemein verwendbaren Ebembed-Code haben wollen können sie folgendes Formular verwenden:</p>
+
+<div id="service-edit">
+
+<div id="service-select">
+<input type="checkbox" id="select-all" value="all" checked="checked" onchange="$('#service-select ul input[type=checkbox]').prop('checked',this.checked);updateEmbedCode();"/>
+<label for="select-all">Alle</label>
+<ul>
+</ul>
+</div>
+
+<div id="options-and-code">
+<label for="layout">Layout:</label>
+<select id="layout" onchange="updateEmbedCode();">
+<option value="line">Horizontal (Line)</option>
+<option value="box" selected="selected">Vertikal (Box)</option>
+</select><br/>
+
+<input type="checkbox" id="cookies" value="1" onchange="updateEmbedCode();" checked="checked"/>
+<label for="cookies">Cookies verwenden</label>
+
+<textarea id="code" onfocus="var code = this; setTimeout(function(){code.select();},0);" readonly="readonly"></textarea>
+</div>
+
+</div>
+
+<div id="share"></div>
 
 <div class="clear"></div>
 

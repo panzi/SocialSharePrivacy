@@ -44,7 +44,6 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
 
-<div id="share"></div>
 <figure style="width:180px;margin-top:10px;">
 <div>
 <img src="images/like_deactivated.png">
@@ -81,6 +80,34 @@
 <h2>For Webmasters</h2>
 
 <p>Social Share Privacy is a jQuery plugin under the MIT license. More information on how to use it on your own webpage you can find on <a href="https://github.com/panzi/SocialSharePrivacy">github</a>.</p>
+
+<p>If you don't care about all the possible options and just want a quck short universal embed code you can use this form:</p>
+
+<div id="service-edit">
+
+<div id="service-select">
+<input type="checkbox" id="select-all" value="all" checked="checked" onchange="$('#service-select ul input[type=checkbox]').prop('checked',this.checked);updateEmbedCode();"/>
+<label for="select-all">All</label>
+<ul>
+</ul>
+</div>
+
+<div id="options-and-code">
+<label for="layout">Layout:</label>
+<select id="layout" onchange="updateEmbedCode();">
+<option value="line">Horizontal (Line)</option>
+<option value="box" selected="selected">Vertical (Box)</option>
+</select><br/>
+
+<input type="checkbox" id="cookies" value="1" onchange="updateEmbedCode();" checked="checked"/>
+<label for="cookies">Use cookies</label>
+
+<textarea id="code" onfocus="var code = this; setTimeout(function(){code.select();},0);" readonly="readonly"></textarea>
+</div>
+
+</div>
+
+<div id="share"></div>
 
 <div class="clear"></div>
 

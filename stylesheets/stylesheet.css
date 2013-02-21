@@ -460,3 +460,31 @@ figure figcaption {
 .clear {
 	clear: both;
 }
+#service-edit {
+	position: relative;
+	height: 230px;
+}
+#service-select ul {
+	overflow: auto;
+	height: 200px;
+	width: 200px;
+}
+#service-select ul,
+#service-select ul li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#service-select {
+	width: 100px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+#options-and-code {
+	margin-left: 220px;
+}
+#code {
+	width: 350px;
+	height: 150px;
+}
