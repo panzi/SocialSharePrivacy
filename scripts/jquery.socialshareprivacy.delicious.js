@@ -60,7 +60,7 @@
 					if (settings.layout === 'line') $button.append('<div style="clear:both;"></div>');
 					$button.find('i').text(options.txt_button);
 					$button.find('b').text(txt_button);
-					$button.find('a.icon').attr("href", "http://delicious.com/url/" + hash);
+					$button.find('a.icon').attr("href", hash ? "http://delicious.com/url/" + hash : save_url);
 					$button.find('a.count').attr("href", save_url).click(function (event) {
 						window.open(save_url + "&noui&jump=close", "delicious", "toolbar=no,width=555,height=555");
 						event.preventDefault();
