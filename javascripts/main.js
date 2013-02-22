@@ -25,14 +25,16 @@ $(document).ready(function () {
 	var services = $.fn.socialSharePrivacy.settings.services;
 	var $select = $('#service-select ul');
 	for (var service_name in services) {
-		var $service = $('<li><input type="checkbox" checked="checked"/> <label></label></li>');
+		var $service = $('<li><label></label></li>');
+		var $input = $('<input type="checkbox" checked="checked"/>');
 
-		$service.find('input').attr({
+
+		$input.attr({
 			value: service_name,
 			id:    'select-'+service_name
 		}).change(updateEmbedCode);
 
-		$service.find('label').attr('for', 'select-'+service_name).text(services[service_name].display_name);
+		$service.find('label').attr('for', 'select-'+service_name).text(' '+services[service_name].display_name).prepend($input);
 
 		$select.append($service);
 	}
