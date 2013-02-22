@@ -290,7 +290,7 @@ service implementation inline, if you want:
 				display_name   : 'My Inline Service',
 				txt_info       : 'Click to enable.',
 				perma_option   : true,
-				button         : function (options, uri, serrings) {
+				button         : function (options, uri, settings) {
 					return $('<div>ENABLED</div>');
 				}
 			}
