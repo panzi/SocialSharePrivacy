@@ -43,10 +43,7 @@
 							break;
 						}
 					}
-					if (isNaN(total_posts)) total_posts = 0;
-					if (total_posts > 9999) txt_button = Math.floor(total_posts / 1E3) + "K";
-					else if (total_posts > 999) txt_button = Math.floor(total_posts / 1E3) + "," + total_posts % 1E3;
-					else if (total_posts > 0) txt_button = String(total_posts);
+					if (total_posts) txt_button = $.fn.socialSharePrivacy.formatNumber(total_posts);
 					else txt_button = options.txt_button;
 					var save_url = "http://delicious.com/save?"+$.param({
 						v:     "5",

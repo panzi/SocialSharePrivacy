@@ -18,8 +18,9 @@
 					var key = $widget.attr("data-count");
 					var count = data.counts[0][key];
 					var text = data.text[key];
-					$widget.attr('title', count === 0 ? text.zero : count === 1 ? text.one : text.multiple.replace('{num}', count));
-					$widget.find('.count a').text(count >= 10000 ? Math.floor(count/1000)+'k' : String(count));
+					var scount = $.fn.socialSharePrivacy.formatNumber(count);
+					$widget.attr('title', count === 0 ? text.zero : count === 1 ? text.one : text.multiple.replace('{num}', scount));
+					$widget.find('.count a').text(scount);
 					$widget.addClass('init');
 				}
 			});

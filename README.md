@@ -1203,6 +1203,21 @@ Escapes text so it can be used safely in HTML strings.
 </tbody>
 </table>
 
+#### <span id="formatnumber-number">formatNumber(number)</span>
+
+Format a number to be displayed in a typical number bubble. It will
+abbreviate numbers bigger than 9999 using the `K` suffix, rounding the
+number to the closest thousand and it inserts thousands delimeter
+characters.
+
+Example:
+
+```javascript
+$.fn.socialSharePrivacy.formatNumber(1234)    => "1,234"
+$.fn.socialSharePrivacy.formatNumber(12345)   => "12K"
+$.fn.socialSharePrivacy.formatNumber(1234567) => "1,235K"
+```
+
 #### <span id="gettitleoptions-uri-settings">getTitle(options, uri, settings)</span>
 
 Lookup title of shared thing in several places:
