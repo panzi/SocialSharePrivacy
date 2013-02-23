@@ -51,6 +51,7 @@
 	}
 
 	function requestLoad (event) {
+		if (!event) event = window.event;
 		if (!this.readyState || this.readyState === 'loaded' || this.readyState === 'complete' || event.type === 'error') {
 			this.onload = this.onreadystatechange = this.onerror = requestLoad;
 			var $script = $(this);

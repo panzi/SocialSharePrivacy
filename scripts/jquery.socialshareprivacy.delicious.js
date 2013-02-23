@@ -54,22 +54,25 @@
 					});
 
 					$button.html('<a target="delicious" class="icon"><div class="delicious1"></div><div class="delicious2"></div><div class="delicious3"></div></a><a class="count" target="delicious"><i></i><b></b></a>');
-					if (settings.layout === 'line') $button.append('<div style="clear:both;"></div>');
 					$button.find('i').text(options.txt_button);
 					$button.find('b').text(txt_button);
 					$button.find('a.icon').attr("href", hash ? "http://delicious.com/url/" + hash : save_url);
-					$button.find('a.count').attr("href", save_url).click(function (event) {
+					var $count = $button.find('a.count').attr("href", save_url).click(function (event) {
 						window.open(save_url + "&noui&jump=close", "delicious", "toolbar=no,width=555,height=555");
 						event.preventDefault();
-					}).hover(function () {
-						var $self = $(this);
-						$self.find("b").stop(1, 1).css("display", "none");
-						$self.find("i").fadeIn();
-					}, function () {
-						var $self = $(this);
-						$self.find("i").stop(1, 1).css("display", "none");
-						$self.find("b").fadeIn();
 					});
+					
+					if (total_posts) {
+						$count.hover(function () {
+							var $self = $(this);
+							$self.find("b").stop(1, 1).css("display", "none");
+							$self.find("i").fadeIn();
+						}, function () {
+							var $self = $(this);
+							$self.find("i").stop(1, 1).css("display", "none");
+							$self.find("b").fadeIn();
+						});
+					}
 				}
 			});
 
