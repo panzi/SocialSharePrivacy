@@ -54,6 +54,7 @@ Overview
  * [Custom Services](#custom-services)
  * [Helper Functions](#helper-functions-jqueryfnsocialshareprivacy)
  * [Pack.sh](#packsh)
+ * [Known Issues](#known-issues)
  * [License](#license)
 
 <span id="dependencies">Dependencies</span>
@@ -1325,6 +1326,22 @@ in your HTML document.
 	 -s <path>       Stylesheet path in the generated JavaScript file.
 	                 default: stylesheets/jquery.socialshareprivacy.min.css
 	 -o <directory>  Output directory. (default: build)
+
+<span id="known-issues">Known Issues</span>
+-------------------------------------------
+
+In Internet Explorer <= 8 the Disqus Widget doesn't work the first time you enable it.
+You have to disable and then enable it again. I could not figure out what might cause
+this.
+
+It is recommended to declare a compatibility mode of Internet Explorer >= 9. E.g. add
+this to the head of your HTML documents:
+
+```html
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+```
+
+Internet Explorer <= 7 is not supported.
 
 <span id="license">License</span>
 ---------------------------------
