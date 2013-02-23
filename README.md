@@ -1310,14 +1310,15 @@ in your HTML document.
 	 -h              Print this help message.
 	 -m <modules>    Comma separated list of JavaScript modules to pack. Possible values:
 	                     all, all-services, none, buffer, delicious, disqus,
-	                     facebook, flattr, gplus, linkedin, localstorage, mail,
-	                     pinterest, reddit, stumbleupon, tumblr, twitter, xing
+	                     facebook, flattr, gplus, hackernews, linkedin,
+	                     localstorage, mail, pinterest, reddit, stumbleupon, tumblr,
+	                     twitter, xing
 	                 'all-services' includes all social share services but not the
 	                 jquery.socialshareprivacy.localstorage.js module.
 	                 default: all-services
 	
 	 -l <languages>  Comma separated list of languages to pack. Possible values:
-	                     all, none, de, fr
+	                     all, none, de, fr, nl
 	                 default: all
 	
 	 -c <enabled>    Pack stylesheets. Possible values: on, off (default: on)
