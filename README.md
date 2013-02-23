@@ -1330,7 +1330,7 @@ in your HTML document.
 <span id="known-issues">Known Issues</span>
 -------------------------------------------
 
-In Internet Explorer <= 8 the Disqus Widget doesn't work the first time you enable it.
+In Internet Explorer <= 8 the Disqus widget doesn't work the first time you enable it.
 You have to disable and then enable it again. I could not figure out what might cause
 this.
 
