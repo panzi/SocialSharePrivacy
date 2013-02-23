@@ -52,8 +52,8 @@
 				success: function (data) {
 					var item = data.results[0];
 					if (item) {
-						var points = $.fn.socialSharePrivacy.formatNumber(item.points);
 						item = item.item;
+						var points = $.fn.socialSharePrivacy.formatNumber(item.points);
 						$code.find("a").attr("href", prot+"//news.ycombinator.com/item?id="+item.id);
 						$code.find(".points a").text(points).attr('title',
 							item.points === 1 ?
