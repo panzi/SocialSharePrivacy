@@ -1323,6 +1323,7 @@ in your HTML document.
 	                 default: all
 	
 	 -c <enabled>    Pack stylesheets. Possible values: on, off (default: on)
+	 -p <path>       Prefix to stylesheet and dummy image paths. (empty per default)
 	 -s <path>       Stylesheet path in the generated JavaScript file.
 	                 default: stylesheets/jquery.socialshareprivacy.min.css
 	 -o <directory>  Output directory. (default: build)

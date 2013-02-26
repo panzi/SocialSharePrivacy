@@ -2,19 +2,23 @@
 
 modules=all-services
 css=on
+pathprefix=
 stylefile=stylesheets/jquery.socialshareprivacy.min.css
 langs=all
 builddir=build
 allmodules=`ls scripts/jquery.socialshareprivacy.*.js|sed 's/scripts\/jquery\.socialshareprivacy\.\(.*\)\.js/\1/'`
 alllangs=`ls -d scripts/??|xargs -n 1 basename`
 
-while getopts ":m:s:c:l:o:h" opt; do
+while getopts ":m:s:p:c:l:o:h" opt; do
 	case $opt in
 		m)
 			modules="$OPTARG"
 			;;
 		c)
 			css="$OPTARG"
+			;;
+		p)
+			pathprefix="$OPTARG"
 			;;
 		s)
 			stylefile="$OPTARG"
@@ -42,6 +46,7 @@ while getopts ":m:s:c:l:o:h" opt; do
 			echo "                 default: all"
 			echo
 			echo " -c <enabled>    Pack stylesheets. Possible values: on, off (default: on)"
+			echo " -p <path>       Prefix to stylesheet and dummy image paths. (empty per default)"
 			echo " -s <path>       Stylesheet path in the generated JavaScript file."
 			echo "                 default: stylesheets/jquery.socialshareprivacy.min.css"
 			echo " -o <directory>  Output directory. (default: build)"
@@ -79,6 +84,7 @@ fi
 
 uglifyjs $files \
 	--compress=warnings=false \
+	| replace 'path_prefix:""' "path_prefix:\"$pathprefix\"" \
 	| replace stylesheets/jquery.socialshareprivacy.css "$stylefile" \
 	> "$builddir/jquery.socialshareprivacy.min.js" || exit 1
 echo "created $builddir/jquery.socialshareprivacy.min.js"
