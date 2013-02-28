@@ -25,6 +25,20 @@
 		return String(value);
 	}
 
+	var loadingScript = false;
+	function loadScript () {
+		// prevent already loaded buttons from being broken:
+		$('.social_share_privacy_area .pinterest .pinit a[data-pin-log]').attr('data-pin-do','ignore');
+		var prot  = 'https:' === document.location.protocol ? 'https:' : 'http:';
+		$.ajax({
+			url      : prot+'//assets.pinterest.com/js/pinit.js',
+			dataType : 'script',
+			cache    : true
+		});
+		// because there is no callback yet I have no choice but to do this now:
+		loadingScript = false;
+	}
+
 	$.fn.socialSharePrivacy.settings.services.pinterest = {
 		'status'            : true, 
 		'button_class'      : 'pinit',
@@ -41,17 +55,9 @@
 		'description'       : $.fn.socialSharePrivacy.getDescription,
 		'media'             : $.fn.socialSharePrivacy.getImage,
 		'button'            : function (options, uri, settings) {
-			var base_url;
-			if ('https:' === document.location.protocol) {
-				base_url = 'https://assets.pinterest.com/pinit.html?';
-			} else {
-				base_url = 'http://pinit-cdn.pinterest.com/pinit.html?';
-			}
+			var prot  = 'https:' === document.location.protocol ? 'https:' : 'http:';
 			var params = {
-				ref    : uri,
 				url    : uri + options.referrer_track,
-				layout : settings.layout === 'line' ? 'horizontal' : 'vertical',
-				count  : '1',
 				media  : get(this, options, uri, settings, 'media')
 			};
 			var title       = get(this, options, uri, settings, 'title');
@@ -59,8 +65,21 @@
 			if (title)       params.title       = title;
 			if (description) params.description = description;
 
-			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no"></iframe>').attr(
-				'src', base_url+$.param(params));
+			var $code = $('<a data-pin-do="buttonPin"><img /></a>');
+
+			$code.filter('a').attr({
+				'data-pin-config' : settings.layout === 'line' ? 'beside' : 'above',
+				href              : prot+'//pinterest.com/pin/create/button/?'+$.param(params)
+			}).find('img').attr('src', prot+'//assets.pinterest.com/images/pidgets/pin_it_button.png');
+
+			// This way when the user has permanently enabled pinterest and there are several pinterest
+			// buttons on one webpage it will load the script only once and so the buttons will work:
+			if (!loadingScript) {
+				loadingScript = true;
+				setTimeout(loadScript, 10);
+			}
+
+			return $code;
 		}
 	};
 })(jQuery);
