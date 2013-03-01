@@ -857,7 +857,7 @@ See also: [HNSearch API documentation](http://www.hnsearch.com/api)
 
 ### <span id="pinterest-options-pinterest">Pinterest Options</span> (`pinterest`)
 
-See also: [official documentation](http://pinterest.com/about/goodies/#button_for_web_sites)
+See also: [official documentation](http://business.pinterest.com/widget-builder/#do_pin_it_button)
 
 <table>
 <thead>
