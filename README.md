@@ -671,7 +671,8 @@ $(document).ready(function () {
 <tr>
 <td>shortname</td>
 <td></td>
-<td>Your Disqus forum shortname. (String)</td>
+<td>Your Disqus forum shortname. If an empty string is given it tries to use
+<code>window.disqus_shortname</code>. (String)</td>
 </tr>
 <tr>
 <td>count</td>

@@ -1,0 +1,3 @@
+[submodule "node_modules/extend"]
+	path = node_modules/extend
+	url = git://github.com/dreamerslab/node.extend.git

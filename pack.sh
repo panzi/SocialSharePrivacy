@@ -95,7 +95,7 @@ if [ "$langs" != "none" ]; then
 		if [ "$modules" != "none" ]; then
 			files="$files `eval ls scripts/$lang/jquery.socialshareprivacy.{$modules}.js 2>/dev/null`"
 		fi
-		uglifyjs $files \
+		node join-trans.js $files | uglifyjs \
 			--compress=warnings=false \
 			--output="$builddir/jquery.socialshareprivacy.min.$lang.js" || exit 1
 		echo "created $builddir/jquery.socialshareprivacy.min.$lang.js"

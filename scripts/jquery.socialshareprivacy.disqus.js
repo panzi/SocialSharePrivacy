@@ -40,6 +40,9 @@
 	}
 
 	function request (options) {
+		// this breaks every other usage of the disqus count API:
+		window.DISQUSWIDGETS = DISQUSWIDGETS;
+
 		requestActive = true;
 		var script = document.createElement('script');
 		script.type  = "text/javascript";
@@ -85,9 +88,7 @@
 		'count'             : 'comments',
 		'onclick'           : null,
 		'button'            : function (options, uri, settings) {
-			// this breaks every other usage of the disqus count API:
-			window.DISQUSWIDGETS = DISQUSWIDGETS;
-
+			var shortname = options.shortname || window.disqus_shortname || '';
 			var $code;
 			if (settings.layout === 'line') {
 				$code = $('<div class="disqus-widget">'+
@@ -102,7 +103,7 @@
 
 			$code.attr({
 				'data-count'     : options.count,
-				'data-shortname' : options.shortname,
+				'data-shortname' : shortname,
 				'data-uri'       : uri + options.referrer_track
 			});
 
@@ -112,7 +113,7 @@
 			}
 
 			enqueue({
-				shortname : options.shortname,
+				shortname : shortname,
 				uri       : uri + options.referrer_track
 			});
 
