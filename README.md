@@ -105,13 +105,46 @@ installed.
 However, for your convenience I provide these precompiled versions of the scripts:
 
  * [jquery.socialshareprivacy.min.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.js) <sup>1</sup>
- * [jquery.socialshareprivacy.min.de.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.de.js) <sup>2</sup>
- * [jquery.socialshareprivacy.min.fr.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.fr.js) <sup>2</sup>
- * [jquery.socialshareprivacy.min.nl.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.nl.js) <sup>2</sup>
+ * [jquery.socialshareprivacy.min.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.autoload.js) <sup>2</sup>
+ * [jquery.socialshareprivacy.min.de.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.de.js) <sup>3</sup>
+ * [jquery.socialshareprivacy.min.fr.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.fr.js) <sup>3</sup>
+ * [jquery.socialshareprivacy.min.nl.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.nl.js) <sup>3</sup>
  * [jquery.socialshareprivacy.min.css](http://panzi.github.com/SocialSharePrivacy/stylesheets/jquery.socialshareprivacy.min.css)
 
 1 This file contains all JavaScripts except the `jquery.socialshareprivacy.localstorage.js` module and the translations.  
-2 These files contain only translation strings and have to be included in addition to `jquery.socialshareprivacy.min.js`.
+2 This file contains the same as 1, but it also automatically initializes elements with the attribute `data-social-share-privacy="true"` set.  
+3 These files contain only translation strings and have to be included in addition to `jquery.socialshareprivacy.min.js`.
+
+You can also asynchronously load the buttons if you use the `jquery.socialshareprivacy.min.autoload.js` script:
+
+```html
+<html>
+<head>
+…
+<script type="text/javascript" src="jquery.js"></script>
+…
+</head>
+<body>
+…
+<div data-social-share-privacy="true"></div>
+…
+<div data-social-share-privacy="true"></div>
+…
+<script type="text/javascript">
+(function () {
+	var s = document.createElement('script');
+    var t = document.getElementsByTagName('script')[0];
+
+	s.type = 'text/javascript';
+	s.async = true;
+	s.src = 'jquery.socialshareprivacy.min.autoload.js';
+	
+    t.parentNode.insertBefore(s, t);
+})();
+</script>
+</body>
+</html>
+```
 
 <span id="methods">Methods</span>
 ---------------------------------
@@ -1293,6 +1326,7 @@ This generates these files:
 
 ```
 build/jquery.socialshareprivacy.min.js
+build/jquery.socialshareprivacy.min.autoload.js
 build/jquery.socialshareprivacy.min.de.js
 build/jquery.socialshareprivacy.min.fr.js
 build/jquery.socialshareprivacy.min.css

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 modules=all-services
+autoload=on
 css=on
 pathprefix=
 stylefile=stylesheets/jquery.socialshareprivacy.min.css
@@ -13,6 +14,9 @@ while getopts ":m:s:p:c:l:o:h" opt; do
 	case $opt in
 		m)
 			modules="$OPTARG"
+			;;
+		a)
+			autoload="$OPTARG"
 			;;
 		c)
 			css="$OPTARG"
@@ -45,6 +49,7 @@ while getopts ":m:s:p:c:l:o:h" opt; do
 			echo all none $alllangs|sed 's/ /, /g'|fmt -60|xargs -n 1 -d '\n' echo "                    "
 			echo "                 default: all"
 			echo
+			echo " -a <enabled>    Autoload version. Possible values: on, off (default: on)"
 			echo " -c <enabled>    Pack stylesheets. Possible values: on, off (default: on)"
 			echo " -p <path>       Prefix to stylesheet and dummy image paths. (empty per default)"
 			echo " -s <path>       Stylesheet path in the generated JavaScript file."
@@ -64,7 +69,7 @@ done
 if [ "$modules" = "all" ]; then
 	modules=`echo -n $allmodules|tr ' ' ','`
 elif [ "$modules" = "all-services" ]; then
-	modules=`echo -n $allmodules|tr ' ' '\n'|sed /localstorage/d|tr '\n' ','`
+	modules=`echo -n $allmodules|tr ' ' '\n'|sed '/^localstorage$\|^autoload$/d'|tr '\n' ','`
 elif [ "$modules" = "" ]; then
 	modules="none"
 fi
@@ -88,6 +93,16 @@ uglifyjs $files \
 	| replace stylesheets/jquery.socialshareprivacy.css "$stylefile" \
 	> "$builddir/jquery.socialshareprivacy.min.js" || exit 1
 echo "created $builddir/jquery.socialshareprivacy.min.js"
+
+
+if [ "$autoload" = "on" ]; then
+	uglifyjs $files scripts/jquery.socialshareprivacy.autoload.js \
+		--compress=warnings=false \
+		| replace 'path_prefix:""' "path_prefix:\"$pathprefix\"" \
+		| replace stylesheets/jquery.socialshareprivacy.css "$stylefile" \
+		> "$builddir/jquery.socialshareprivacy.min.autoload.js" || exit 1
+	echo "created $builddir/jquery.socialshareprivacy.min.autoload.js"
+fi
 
 if [ "$langs" != "none" ]; then
 	for lang in $langs; do
