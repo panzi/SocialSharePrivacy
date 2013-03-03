@@ -353,13 +353,18 @@ $.fn.socialSharePrivacy.settings.title = "Title of the thing to share.";
 
 Or like this:
 
-```javascript
-$.extend($.fn.socialSharePrivacy.settings, {
+```html
+<script type="application/x-social-share-privacy-settings">
+{
 	path_prefix: "/socialshareprivacy",
 	css_path:    "socialshareprivacy.css",
 	…
-});
+}
+</script>
 ```
+
+The version using `&lt;script&gt;` tags uses again JavaScript expressions to
+enable inline service definitions.
 
 <table>
 <thead>

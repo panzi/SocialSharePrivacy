@@ -8,7 +8,7 @@
  * Copyright (c) 2011 Hilko Holweg, Sebastian Hilbig, Nicolas Heiringhoff, Juergen Schmidt,
  * Heise Zeitschriften Verlag GmbH & Co. KG, http://www.heise.de
  *
- * Copyright (c) 2012 Mathias Panzenböck
+ * Copyright (c) 2012-2013 Mathias Panzenböck
  *
  * is released under the MIT License http://www.opensource.org/licenses/mit-license.php
  *
@@ -770,4 +770,15 @@
 	};
 
 	$.fn.socialSharePrivacy = socialSharePrivacy;
+
+	// load global settings
+	$(document).ready(function () {
+		$('script[type="application/x-social-share-privacy-settings"]').each(function () {
+			var settings = (new Function('return ('+$.text(this)+');')).call(this);
+
+			if (typeof settings === "object") {
+				$.extend(true, $.fn.socialSharePrivacy.settings, settings);
+			}
+		});
+	});
 }(jQuery));

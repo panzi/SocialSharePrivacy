@@ -24,13 +24,19 @@
 <script type="text/javascript" src="../scripts/jquery.socialshareprivacy.xing.js"></script>
 <script type="text/javascript" src="../scripts/jquery.socialshareprivacy.delicious.js"></script>
 <script type="text/javascript" src="../scripts/jquery.socialshareprivacy.hackernews.js"></script>
+<script type="application/x-social-share-privacy-settings">
+// You can define global options like this.
+// This is actually not JSON but a single JavaScript expression.
+// This way you could define an inline service here.
+{
+	path_prefix: '../',
+	// define the default order of the buttons:
+	// services that aren't listed are added at the end sorted alphabetiacally
+	order: ['facebook', 'gplus', 'twitter', 'tumblr']
+}
+</script>
 <script type="text/javascript">
 // <![CDATA[
-// define the default order of the buttons:
-// services that aren't listed are added at the end sorted alphabetiacally
-$.fn.socialSharePrivacy.settings.order = ['facebook', 'gplus', 'twitter', 'tumblr'];
-$.fn.socialSharePrivacy.settings.path_prefix = '../';
-
 $(document).ready(function () {
 	$('#share1').socialSharePrivacy({
 		services: {
