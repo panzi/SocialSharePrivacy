@@ -363,8 +363,8 @@ Or like this:
 </script>
 ```
 
-The version using `&lt;script&gt;` tags uses again JavaScript expressions to
-enable inline service definitions.
+The version using `script` tags uses again JavaScript expressions to enable
+inline service definitions.
 
 <table>
 <thead>
