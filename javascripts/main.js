@@ -54,6 +54,7 @@ function updateEmbedCode () {
 	};
 	var cookies = $('#cookies').is(':checked');
 	var async = $('#async').is(':checked');
+	var jquery = $('#jquery').is(':checked');
 	var flattr = true;
 	var disqus = true;
 	var flattr_uid = $('#flattr-uid').val();
@@ -86,14 +87,19 @@ function updateEmbedCode () {
 	}
 
 	if (async) {
+		var head_code = [];
+
+		if (!jquery) {
+			head_code.push('<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>');
+		}
+
 		if (cookies) {
-			$('#head-code').val(
-				'<script type="text/javascript" src="http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>').show();
-			$('label[for="head-code"]').show();
+			head_code.push('<script type="text/javascript" src="http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>');
 		}
-		else {
-			$('#head-code, label[for="head-code"]').hide();
-		}
+
+		head_code = head_code.join('\n');
+		$('#head-code').val(head_code);
+		$('#head-code, label[for="head-code"]')[head_code ? 'show' : 'hide']();
 		
 		$('#share-code').val(
 			"<div data-social-share-privacy='true' data-options='"+escapeSQuotAttr(JSON.stringify(options))+"'></div>");
@@ -113,6 +119,7 @@ function updateEmbedCode () {
 	}
 	else {
 		$('#head-code').val(
+			(jquery ? '' : '<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>\n')+
 			(cookies ? '<script type="text/javascript" src="http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>\n' : '')+
 			'<script type="text/javascript" src="http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.autoload.js"></script>\n'+
 			'<script type="text/javascript">jQuery.extend(true,jQuery.fn.socialSharePrivacy.settings,'+escapeSQuotAttr(JSON.stringify(options))+');</script>').show();
