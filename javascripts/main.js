@@ -101,13 +101,11 @@ function updateEmbedCode () {
 			head_code.push('<script type="text/javascript" src="http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>');
 		}
 
+		head_code.push('<script type="application/x-social-share-privacy-settings">'+escapeSQuotAttr(JSON.stringify(options))+'</script>');
+
 		head_code = head_code.join('\n');
 		$('#head-code').val(head_code);
-		$('#head-code, label[for="head-code"]')[head_code ? 'show' : 'hide']();
-		
-		$('#share-code').val(
-			"<div data-social-share-privacy='true' data-options='"+escapeSQuotAttr(JSON.stringify(options))+"'></div>");
-
+		$('#head-code, label[for="head-code"]').show();
 
 		$('#foot-code').val(
 			"<script type=\"text/javascript\">(function () {"+
@@ -126,14 +124,14 @@ function updateEmbedCode () {
 			(jquery ? '' : '<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>\n')+
 			(cookies ? '<script type="text/javascript" src="http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>\n' : '')+
 			'<script type="text/javascript" src="http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.autoload.js"></script>\n'+
-			'<script type="text/javascript">jQuery.extend(true,jQuery.fn.socialSharePrivacy.settings,'+escapeSQuotAttr(JSON.stringify(options))+');</script>').show();
+			'<script type="application/x-social-share-privacy-settings">'+escapeSQuotAttr(JSON.stringify(options))+'</script>').show();
 		$('label[for="head-code"]').show();
 		
-		$('#share-code').val(
-			"<div data-social-share-privacy='true'></div>");
-
 		$('#foot-code, label[for="foot-code"]').hide();
 	}
+	
+	$('#share-code').val("<div data-social-share-privacy='true'></div>");
+
 
 	options.perma_option = cookies;
 	options.css_path = null;
