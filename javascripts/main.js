@@ -52,6 +52,7 @@ function updateEmbedCode () {
 		path_prefix: 'http://panzi.github.com/SocialSharePrivacy/',
 		layout: $('#layout').val()
 	};
+	var uri = $.trim($('#uri').val());
 	var cookies = $('#cookies').is(':checked');
 	var async = $('#async').is(':checked');
 	var jquery = $('#jquery').is(':checked');
@@ -59,6 +60,9 @@ function updateEmbedCode () {
 	var disqus = true;
 	var flattr_uid = $('#flattr-uid').val();
 	var disqus_shortname = $('#disqus-shortname').val();
+
+	if (uri) options.uri = uri;
+
 	var $unchecked = $('#service-select ul input[type=checkbox]:not(:checked)');
 	if ($unchecked.length > 0) {
 		options.services = {};
