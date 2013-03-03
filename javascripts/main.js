@@ -25,7 +25,7 @@ $(document).ready(function () {
 	var services = $.fn.socialSharePrivacy.settings.services;
 	var $select = $('#service-select ul');
 	for (var service_name in services) {
-		var $service = $('<li><label></label></li>');
+		var $service = $('<li><label class="checkbox-label"></label></li>');
 		var $input = $('<input type="checkbox" checked="checked"/>');
 
 
@@ -42,7 +42,10 @@ $(document).ready(function () {
 	updateEmbedCode();
 });
 
-var escapeHtml = $.fn.socialSharePrivacy.escapeHtml;
+var HTML_CHAR_MAP = {"<": "&lt;",">": "&gt;","&": "&amp;","'": "&#39;"};
+function escapeSQuotAttr(s){
+	return s.replace(/[<>&']/g, function(ch){ return HTML_CHAR_MAP[ch]; });
+}
 
 function updateEmbedCode () {
 	var options = {
@@ -50,19 +53,76 @@ function updateEmbedCode () {
 		layout: $('#layout').val()
 	};
 	var cookies = $('#cookies').is(':checked');
+	var async = $('#async').is(':checked');
+	var flattr = true;
+	var disqus = true;
+	var flattr_uid = $('#flattr-uid').val();
+	var disqus_shortname = $('#disqus-shortname').val();
 	var $unchecked = $('#service-select ul input[type=checkbox]:not(:checked)');
 	if ($unchecked.length > 0) {
 		options.services = {};
 		for (var i = 0; i < $unchecked.length; ++ i) {
 			options.services[$unchecked[i].value] = {status: false};
 		}
+		if ('flattr' in options.services) {
+			flattr = false;
+		}
+		if ('disqus' in options.services) {
+			disqus = false;
+		}
 	}
-	$('#code').val(
-		(cookies ? '<script type="text/javascript" src="http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>\n' : '')+
-		'<script type="text/javascript" src="http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.js"></script>\n'+
-		'\n'+
-		'<div class="social-share-privacy" data-options="'+escapeHtml(JSON.stringify(options))+'"></div>\n'+
-		'<script type="text/javascript">jQuery(".social-share-privacy").socialSharePrivacy();</script>');
+
+	$('#flattr-uid').prop('disabled', !flattr);
+	$('#disqus-shortname').prop('disabled', !disqus);
+
+	if (flattr && flattr_uid) {
+		if (!options.services) options.services = {};
+		options.services.flattr = {uid: flattr_uid};
+	}
+	
+	if (disqus && disqus_shortname) {
+		if (!options.services) options.services = {};
+		options.services.disqus = {shortname: disqus_shortname};
+	}
+
+	if (async) {
+		if (cookies) {
+			$('#head-code').val(
+				'<script type="text/javascript" src="http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>').show();
+			$('label[for="head-code"]').show();
+		}
+		else {
+			$('#head-code, label[for="head-code"]').hide();
+		}
+		
+		$('#share-code').val(
+			"<div data-social-share-privacy='true' data-options='"+escapeSQuotAttr(JSON.stringify(options))+"'></div>");
+
+
+		$('#foot-code').val(
+			"<script type=\"text/javascript\">(function () {"+
+			"var s = document.createElement('script');"+
+			"var t = document.getElementsByTagName('script')[0];"+
+			"s.type = 'text/javascript';"+
+			"s.async = true;"+
+			"s.src = 'http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.autoload.js';"+
+			"t.parentNode.insertBefore(s, t);"+
+			"})();"+
+			"</script>").show();
+		$('label[for="foot-code"]').show();
+	}
+	else {
+		$('#head-code').val(
+			(cookies ? '<script type="text/javascript" src="http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>\n' : '')+
+			'<script type="text/javascript" src="http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.autoload.js"></script>\n'+
+			'<script type="text/javascript">jQuery.extend(true,jQuery.fn.socialSharePrivacy.settings,'+escapeSQuotAttr(JSON.stringify(options))+');</script>').show();
+		$('label[for="head-code"]').show();
+		
+		$('#share-code').val(
+			"<div data-social-share-privacy='true'></div>");
+
+		$('#foot-code, label[for="foot-code"]').hide();
+	}
 
 	options.perma_option = cookies;
 	options.css_path = null;

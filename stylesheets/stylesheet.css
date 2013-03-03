@@ -51,6 +51,17 @@ a:focus {
   outline: none;
 }
 
+textarea {
+	display: block;
+	width: 100%;
+	height: 100px;
+	margin-bottom: 1em;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+        -ie-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
 /*******************************************************************************
 Theme Styles
 *******************************************************************************/
@@ -463,6 +474,7 @@ figure figcaption {
 #service-edit {
 	position: relative;
 	height: 230px;
+	margin-bottom: 1em;
 }
 #service-select ul {
 	overflow: auto;
@@ -484,14 +496,22 @@ figure figcaption {
 #service-select label {
 	display: block;
 }
-#service-select label,
-#service-edit label[for=cookies] {
+#service-edit label.checkbox-label {
 	cursor: pointer;
 }
 #options-and-code {
 	margin-left: 220px;
+	border-style: none;
+}
+#options-and-code td {
+	border-style: none;
+	padding: 0;
+}
+#options-and-code td.label {
+	text-align: right;
+	padding-right: 10px;
 }
 #code {
 	width: 350px;
 	height: 150px;
-}
+}i

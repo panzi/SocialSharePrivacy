@@ -93,20 +93,65 @@ All</label>
 </ul>
 </div>
 
-<div id="options-and-code">
-<label for="layout">Layout:</label>
+<table id="options-and-code">
+<tbody>
+<tr>
+<td class="label"><label for="layout">Layout:</label></td>
+<td>
 <select id="layout" onchange="updateEmbedCode();">
 <option value="line">Horizontal (Line)</option>
 <option value="box" selected="selected">Vertical (Box)</option>
-</select><br/>
+</select>
+</td>
+</tr>
 
+<tr>
+<td class="label"></td>
+<td>
 <input type="checkbox" id="cookies" value="1" onchange="updateEmbedCode();" checked="checked"/>
-<label for="cookies">Use cookies</label>
+<label for="cookies" class="checkbox-label">Use cookies</label>
+</td>
+</tr>
 
-<textarea id="code" onfocus="var code = this; setTimeout(function(){code.select();},0);" readonly="readonly"></textarea>
+<tr>
+<td class="label"></td>
+<td>
+<input type="checkbox" id="async" value="1" onchange="updateEmbedCode();" checked="checked"/>
+<label for="async" class="checkbox-label">Load script asynchronously</label>
+</td>
+</tr>
+
+<tr>
+<td class="label">
+<label for="flattr-uid">Flattr UID:</label>
+</td>
+<td>
+<input id="flattr-uid" type="text" onchange="updateEmbedCode();"/>
+</td>
+</tr>
+
+<tr>
+<td class="label">
+<label for="disqus-shortname">Disqus shortname:</label>
+</td>
+<td>
+<input id="disqus-shortname" type="text" onchange="updateEmbedCode();"/>
+</td>
+</tr>
+
+</tbody>
+</table>
+
 </div>
 
-</div>
+<label for="head-code">Insert this once in the head of your page:</label>
+<textarea id="head-code" onfocus="var code = this; setTimeout(function(){code.select();},0);" readonly="readonly"></textarea>
+
+<label for="share-code">Insert this wherever you want a share widget displayed (can be multiple times):</label>
+<textarea id="share-code" onfocus="var code = this; setTimeout(function(){code.select();},0);" readonly="readonly"></textarea>
+
+<label for="foot-code">Insert this once anywhere after the other code (e.g. the bottom of the page):</label>
+<textarea id="foot-code" onfocus="var code = this; setTimeout(function(){code.select();},0);" readonly="readonly"></textarea>
 
 <div id="share"></div>
 
