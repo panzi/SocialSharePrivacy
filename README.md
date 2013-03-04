@@ -156,7 +156,7 @@ You can also asynchronously load the buttons if you use the `jquery.socialsharep
 .socialSharePrivacy([options])
 ```
 
-Add social share buttons to all elements in the set.
+Add social share buttons to all elements in the set. Returns `this`.
 
 ### destroy
 
@@ -165,7 +165,7 @@ Add social share buttons to all elements in the set.
 .socialSharePrivacy("destroy")
 ```
 Remove all social share buttons. This will return all elements in the set back
-to their pre-init state.
+to their pre-init state. Returns `this`.
 
 ### disable
 
@@ -175,6 +175,7 @@ to their pre-init state.
 ```
 
 Disable the named service or disable all services if no `service_name` is given.
+Returns `this`.
 
 ### enable
 
@@ -184,6 +185,7 @@ Disable the named service or disable all services if no `service_name` is given.
 ```
 
 Enable the named service or enable all services if no `service_name` is given.
+Returns `this`.
 
 ### option
 
@@ -193,6 +195,7 @@ Enable the named service or enable all services if no `service_name` is given.
 ```
 
 Get or set an option. If no `value` is specified it will act as a getter.
+Returns `this` when acting as setter.
 
 ### options
 
@@ -202,6 +205,7 @@ Get or set an option. If no `value` is specified it will act as a getter.
 ```
 
 Get or set all options. If no `options` are specified it will act as a getter.
+Returns `this` when acting as setter.
 
 ### toggle
 
@@ -211,6 +215,7 @@ Get or set all options. If no `options` are specified it will act as a getter.
 ```
 
 Toggle the named service or toggle all services if no `service_name` is given.
+Returns `this`.
 
 <span id="events">Events</span>
 -------------------------------
@@ -230,7 +235,7 @@ This event is emitted before a Social Share Privacy widget is destroyed.
 This event is emitted after a certain service was disabled. The event object
 will have a `serviceName` property, holding the name of the service that was
 disabled, and an `isClick` property, wich is `true` if a click by a user caused
-this event (`false` if it was disable via JavaScript).
+this event (`false` if it was disabled via JavaScript).
 
 ### socialshareprivacy:enable
 
