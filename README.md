@@ -105,7 +105,7 @@ installed.
 However, for your convenience I provide these precompiled versions of the scripts:
 
  * [jquery.socialshareprivacy.min.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.js) <sup>1</sup>
- * [jquery.socialshareprivacy.min.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.autoload.js) <sup>2</sup>
+ * [jquery.socialshareprivacy.min.autoload.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.autoload.js) <sup>2</sup>
  * [jquery.socialshareprivacy.min.de.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.de.js) <sup>3</sup>
  * [jquery.socialshareprivacy.min.fr.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.fr.js) <sup>3</sup>
  * [jquery.socialshareprivacy.min.nl.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.nl.js) <sup>3</sup>
