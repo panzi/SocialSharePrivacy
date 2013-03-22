@@ -55,7 +55,7 @@
 	$.fn.socialSharePrivacy.settings.services.tumblr = {
 		'status'            : true,
 		'privacy'           : 'safe',
-		'button_class'      : 'tubmlr',
+		'button_class'      : 'tumblr',
 		'txt_info'          : 'Post this on Tumblr.',
 		'txt_button'        : 'Share on Tubmlr',
 		'display_name'      : 'Tumblr',
