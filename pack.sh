@@ -10,7 +10,7 @@ builddir=build
 allmodules=`ls scripts/jquery.socialshareprivacy.*.js|sed 's/scripts\/jquery\.socialshareprivacy\.\(.*\)\.js/\1/'`
 alllangs=`ls -d scripts/??|xargs -n 1 basename`
 
-while getopts ":m:s:p:c:l:o:h" opt; do
+while getopts ":m:a:s:p:c:l:o:h" opt; do
 	case $opt in
 		m)
 			modules="$OPTARG"
