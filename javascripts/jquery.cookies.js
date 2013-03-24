@@ -1,7 +1,21 @@
 "use strict";
 
 (function ($,undefined) {
-	function get (name) {
+	function decode (s) {
+		try {
+			return decodeURIComponent(s);
+		}
+		catch (e) {
+			try {
+				return unescape(s);
+			}
+			catch (e2) {
+				return s;
+			}
+		}
+	}
+
+	function get () {
 		var cookies = {};
 		if (document.cookie) {
 			var values = document.cookie.split(/; */g);
@@ -11,24 +25,19 @@
 				var key, value;
 				
 				if (pos < 0) {
-					key   = decodeURIComponent(value);
+					key   = decode(value);
 					value = undefined;
 				}
 				else {
-					key   = decodeURIComponent(value.slice(0,pos));
-					value = decodeURIComponent(value.slice(pos+1));
+					key   = decode(value.slice(0,pos));
+					value = decode(value.slice(pos+1));
 				}
 
 				cookies[key] = value;
 			}
 		}
 
-		if (name === undefined) {
-			return cookies;
-		}
-		else {
-			return cookies[name];
-		}
+		return cookies;
 	}
 	
 	function set (name, value, expires, path, domain, secure) {
@@ -40,12 +49,20 @@
 				return;
 
 			case 2:
-				if (value && typeof(value) === "object") {
+				if (typeof(value) === "object") {
 					expires = value.expires;
 					path    = value.path;
 					domain  = value.domain;
 					secure  = value.secure;
 					value   = value.value;
+				}
+
+			case 3:
+				if (typeof(expires) === "object" && !(expires instanceof Date)) {
+					path    = expires.path;
+					domain  = expires.domain;
+					secure  = expires.secure;
+					expires = expires.expires;
 				}
 		}
 
@@ -70,7 +87,7 @@
 
 			case "number":
 				var date = new Date();
-				date.setTime(date.getTime()+(1000*60*60*24*expires));
+				date.setDate(date.getDate()+expires);
 				buf.push("expires="+date.toUTCString());
 				break;
 		}
@@ -78,14 +95,14 @@
 		if (path === true) {
 			buf.push("path="+document.location.pathname);
 		}
-		else if (path !== undefined && path !== false) {
+		else if (path) {
 			buf.push("path="+path.replace(/[;\s]/g,encodeURIComponent));
 		}
 
 		if (domain === true) {
 			buf.push("domain="+document.location.host);
 		}
-		else if (domain !== undefined && domain !== false) {
+		else if (domain) {
 			buf.push("domain="+domain.replace(/[;\s]/g,encodeURIComponent));
 		}
 
@@ -96,13 +113,20 @@
 		document.cookie = buf.join("; ");
 	}
 
-	$.cookie = function () {
+	$.cookie = function (name) {
 		switch (arguments.length) {
 			case 0:
 				return get();
 			case 1:
-				if (typeof(arguments[0]) !== "object") {
-					return get(arguments[0]);
+				if (typeof(name) !== "object") {
+					var cookies = get();
+					if (name === undefined) {
+						return cookies;
+					}
+					else if (Object.prototype.hasOwnProperty.call(cookies,name)) {
+						return cookies[name];
+					}
+					return null;
 				}
 			case 2:
 			case 3:
@@ -115,5 +139,16 @@
 			default:
 				throw new Error("Illegal number of arguments");
 		}
+	};
+
+	$.removeCookie = function (name) {
+		var cookies = get();
+		if (Object.prototype.hasOwnProperty.call(cookies,name)) {
+			var args = Array.prototype.slice.call(arguments,1);
+			args.unshift(name,null,-1);
+			set.apply(this,args);
+			return true;
+		}
+		return false;
 	};
 })(jQuery);
