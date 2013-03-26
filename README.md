@@ -109,6 +109,7 @@ However, for your convenience I provide these precompiled versions of the script
  * [jquery.socialshareprivacy.min.de.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.de.js) <sup>3</sup>
  * [jquery.socialshareprivacy.min.fr.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.fr.js) <sup>3</sup>
  * [jquery.socialshareprivacy.min.nl.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.nl.js) <sup>3</sup>
+ * [jquery.socialshareprivacy.min.ru.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.ru.js) <sup>3</sup>
  * [jquery.socialshareprivacy.min.css](http://panzi.github.com/SocialSharePrivacy/stylesheets/jquery.socialshareprivacy.min.css)
 
 1 This file contains all JavaScripts except the `jquery.socialshareprivacy.localstorage.js` module and the translations.  
