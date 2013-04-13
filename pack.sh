@@ -86,6 +86,7 @@ files="scripts/jquery.socialshareprivacy.js"
 if [ "$modules" != "none" ]; then
 	files="$files `eval echo scripts/jquery.socialshareprivacy.{$modules}.js`"
 fi
+files="$files scripts/jquery.socialshareprivacy.settings.js"
 
 uglifyjs $files \
 	--compress=warnings=false \

@@ -770,15 +770,4 @@
 	};
 
 	$.fn.socialSharePrivacy = socialSharePrivacy;
-
-	// load global settings
-	$(document).ready(function () {
-		$('script[type="application/x-social-share-privacy-settings"]').each(function () {
-			var settings = (new Function('return ('+$.text(this)+');')).call(this);
-
-			if (typeof settings === "object") {
-				$.extend(true, $.fn.socialSharePrivacy.settings, settings);
-			}
-		});
-	});
 }(jQuery));
