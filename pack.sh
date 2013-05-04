@@ -90,8 +90,8 @@ files="$files scripts/jquery.socialshareprivacy.settings.js"
 
 uglifyjs $files \
 	--compress=warnings=false \
-	| replace 'path_prefix:""' "path_prefix:\"$pathprefix\"" \
-	| replace stylesheets/jquery.socialshareprivacy.css "$stylefile" \
+	| sed -e "s|path_prefix:\"\"|path_prefix:\"$pathprefix\"|g" \
+	| sed -e "s|stylesheets/jquery.socialshareprivacy.css|$stylefile|g" \
 	> "$builddir/jquery.socialshareprivacy.min.js" || exit 1
 echo "created $builddir/jquery.socialshareprivacy.min.js"
 
@@ -99,8 +99,8 @@ echo "created $builddir/jquery.socialshareprivacy.min.js"
 if [ "$autoload" = "on" ]; then
 	uglifyjs $files scripts/jquery.socialshareprivacy.autoload.js \
 		--compress=warnings=false \
-		| replace 'path_prefix:""' "path_prefix:\"$pathprefix\"" \
-		| replace stylesheets/jquery.socialshareprivacy.css "$stylefile" \
+	    | sed -e "s|path_prefix:\"\"|path_prefix:\"$pathprefix\"|g" \
+	    | sed -e "s|stylesheets/jquery.socialshareprivacy.css|$stylefile|g" \
 		> "$builddir/jquery.socialshareprivacy.min.autoload.js" || exit 1
 	echo "created $builddir/jquery.socialshareprivacy.min.autoload.js"
 fi
