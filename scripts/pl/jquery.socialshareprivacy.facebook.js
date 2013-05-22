@@ -16,8 +16,6 @@
  */
 
 jQuery.extend(jQuery.fn.socialSharePrivacy.settings.services.facebook, {
-	'dummy_line_img' : 'images/de/dummy_facebook.png',
-	'dummy_box_img'  : 'images/de/dummy_box_facebook.png',
   'txt_info' : 'Dwa kliknięcia &ndash; więcej prywatności: Kliknięcie tutaj uruchomi przycisk "Lubię to". Samo uchuchomienie przycisku powoduje wysłanie Twoich danych do Facebooka. Kliknij w <em>i</em>, aby dowiedzieć się więcej.',
 	'txt_off'  : 'brak połączenia z Facebookiem',
 	'txt_on'   : 'połączono z Facebookiem'

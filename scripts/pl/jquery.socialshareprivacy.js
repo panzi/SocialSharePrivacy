@@ -17,7 +17,7 @@
 jQuery.extend(jQuery.fn.socialSharePrivacy.settings, {
 	'info_link'         : 'http://panzi.github.io/SocialSharePrivacy/',
 	'txt_settings'      : 'Ustawienia',
-  'txt_help'          : 'Klinięcie w poszczególne przyciski aktywuje daną usługę. Oznacza to wysłanie Twoich danych na serwery Facebooka, Google\'a, Twittera, itp., oraz ich archiwizajcę. Kliknij <em>i</em>, aby dowiedzieć się więcej.',
+  'txt_help'          : 'Klinięcie w poszczególne przyciski aktywuje daną usługę. Oznacza to wysłanie Twoich danych na serwery Facebooka, Google\'a, Twittera, itp., oraz ich archiwizację. Kliknij <em>i</em>, aby dowiedzieć się więcej.',
 	'settings_perma'    : 'Aktywuj na stałe następujące przyciski:',
 	'language'          : 'pl'
 });
