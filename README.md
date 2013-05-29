@@ -62,8 +62,8 @@ Overview
 
  * [jQuery](http://jquery.com/)
  * [jQuery cookies plugin](https://github.com/panzi/jQuery-Cookies) (optional)
- * [uglifyjs](https://npmjs.org/package/uglify-js) (optional)
- * [uglifycss](https://npmjs.org/package/uglifycss) (optional)
+ * [uglifyjs](https://npmjs.org/package/uglify-js) (for [pack.sh](#packsh))
+ * [uglifycss](https://npmjs.org/package/uglifycss) (for [pack.sh](#packsh))
 
 The jQuery cookies plugin is needed in order to enable services permanently.
 However, you can plug in you own replacement to store this options differently
@@ -1325,7 +1325,9 @@ The element of the share button is passed as `this`.
 <span id="packsh">Pack.sh</span>
 ---------------------------------
 
-You can use `pack.sh` to pack the modules and languages you want.
+You can use `pack.sh` to pack the modules and languages you want. This requires
+[uglifyjs](https://npmjs.org/package/uglify-js) and
+[uglifycss](https://npmjs.org/package/uglifycss) to be installed.
 
 Example:
 
