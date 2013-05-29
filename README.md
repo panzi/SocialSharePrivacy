@@ -104,13 +104,14 @@ installed.
 
 However, for your convenience I provide these precompiled versions of the scripts:
 
- * [jquery.socialshareprivacy.min.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.js) <sup>1</sup>
- * [jquery.socialshareprivacy.min.autoload.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.autoload.js) <sup>2</sup>
- * [jquery.socialshareprivacy.min.de.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.de.js) <sup>3</sup>
- * [jquery.socialshareprivacy.min.fr.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.fr.js) <sup>3</sup>
- * [jquery.socialshareprivacy.min.nl.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.nl.js) <sup>3</sup>
- * [jquery.socialshareprivacy.min.ru.js](http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.ru.js) <sup>3</sup>
- * [jquery.socialshareprivacy.min.css](http://panzi.github.com/SocialSharePrivacy/stylesheets/jquery.socialshareprivacy.min.css)
+ * [jquery.socialshareprivacy.min.js](http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.js) <sup>1</sup>
+ * [jquery.socialshareprivacy.min.autoload.js](http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.autoload.js) <sup>2</sup>
+ * [jquery.socialshareprivacy.min.de.js](http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.de.js) <sup>3</sup>
+ * [jquery.socialshareprivacy.min.fr.js](http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.fr.js) <sup>3</sup>
+ * [jquery.socialshareprivacy.min.nl.js](http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.nl.js) <sup>3</sup>
+ * [jquery.socialshareprivacy.min.pl.js](http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.pl.js) <sup>3</sup>
+ * [jquery.socialshareprivacy.min.ru.js](http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.ru.js) <sup>3</sup>
+ * [jquery.socialshareprivacy.min.css](http://panzi.github.io/SocialSharePrivacy/stylesheets/jquery.socialshareprivacy.min.css)
 
 1 This file contains all JavaScripts except the `jquery.socialshareprivacy.localstorage.js` module and the translations.  
 2 This file contains the same as 1, but it also automatically initializes elements with the attribute `data-social-share-privacy="true"` set.  
@@ -383,7 +384,7 @@ inline service definitions.
 <tbody>
 <tr>
 <td>info_link</td>
-<td><a href="http://panzi.github.com/SocialSharePrivacy/">http://panzi.github.com/SocialSharePrivacy/</a></td>
+<td><a href="http://panzi.github.io/SocialSharePrivacy/">http://panzi.github.io/SocialSharePrivacy/</a></td>
 <td>The link of the <em>i</em>-icon that links users to more information about this.</td>
 </tr>
 <tr>
