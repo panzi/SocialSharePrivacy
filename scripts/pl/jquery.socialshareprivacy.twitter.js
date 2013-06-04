@@ -17,7 +17,7 @@
 
 
 jQuery.extend(jQuery.fn.socialSharePrivacy.settings.services.twitter, {
-  'txt_info' : 'Dwa kliknięcia &ndash; więcej prywatności: Kliknięcie tutaj uruchomi przycisk "Tweet this". Samo uchuchomienie przycisku powoduje wysłanie Twoich danych do Twittera. Kliknij w <em>i</em>, aby dowiedzieć się więcej.',
+  'txt_info' : 'Dwa kliknięcia &ndash; więcej prywatności: Kliknięcie tutaj uruchomi przycisk "Tweetnij". Samo uchuchomienie przycisku powoduje wysłanie Twoich danych do Twittera. Kliknij w <em>i</em>, aby dowiedzieć się więcej.',
 	'txt_off'  : 'brak połączenia z Twitterem',
 	'txt_on'   : 'połączono z Twitterem'
 });
