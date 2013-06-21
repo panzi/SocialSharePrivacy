@@ -748,7 +748,7 @@
 
 	socialSharePrivacy.settings = {
 		'services'          : {},
-		'info_link'         : 'http://panzi.github.com/SocialSharePrivacy/',
+		'info_link'         : 'http://panzi.github.io/SocialSharePrivacy/',
 		'info_link_target'  : '',
 		'txt_settings'      : 'Settings',
 		'txt_help'          : 'If you activate these fields via click, data will be sent to a third party (Facebook, Twitter, Google, ...) and stored there. For more details click <em>i</em>.',
