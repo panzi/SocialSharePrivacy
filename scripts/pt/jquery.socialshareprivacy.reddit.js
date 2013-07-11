@@ -1,7 +1,7 @@
 /*
  * jquery.socialshareprivacy.js | 2 Klicks fuer mehr Datenschutz
  *
- * Copyright (c) 2012 Mathias Panzenböck
+ * Copyright (c) 2012 Augusto Stoffel
  *
  * is released under the MIT License http://www.opensource.org/licenses/mit-license.php
  *

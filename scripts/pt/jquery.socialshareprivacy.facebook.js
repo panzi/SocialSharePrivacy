@@ -7,7 +7,7 @@
  * Copyright (c) 2011 Hilko Holweg, Sebastian Hilbig, Nicolas Heiringhoff, Juergen Schmidt,
  * Heise Zeitschriften Verlag GmbH & Co. KG, http://www.heise.de
  *
- * Copyright (c) 2012 Mathias Panzenböck
+ * Copyright (c) 2012 Augusto Stoffel
  *
  * is released under the MIT License http://www.opensource.org/licenses/mit-license.php
  *

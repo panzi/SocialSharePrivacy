@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 Mathias Panzenböck
+ * Copyright (c) 2012 Augusto Stoffel
  * released under the MIT License http://www.opensource.org/licenses/mit-license.php
  */
 
