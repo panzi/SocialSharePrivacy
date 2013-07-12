@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<title>Social Share Privacy: Demo 1</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.facebook.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.twitter.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.gplus.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.tumblr.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.reddit.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.pinterest.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.flattr.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.stumbleupon.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.mail.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.linkedin.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.xing.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.buffer.js"></script>
+<script type="text/javascript" src="../scripts/pt/jquery.socialshareprivacy.js"></script>
+<script type="text/javascript" src="../scripts/pt/jquery.socialshareprivacy.facebook.js"></script>
+<script type="text/javascript" src="../scripts/pt/jquery.socialshareprivacy.twitter.js"></script>
+<script type="text/javascript" src="../scripts/pt/jquery.socialshareprivacy.gplus.js"></script>
+<script type="text/javascript" src="../scripts/pt/jquery.socialshareprivacy.tumblr.js"></script>
+<script type="text/javascript" src="../scripts/pt/jquery.socialshareprivacy.reddit.js"></script>
+<script type="text/javascript" src="../scripts/pt/jquery.socialshareprivacy.pinterest.js"></script>
+<script type="text/javascript" src="../scripts/pt/jquery.socialshareprivacy.flattr.js"></script>
+<script type="text/javascript" src="../scripts/pt/jquery.socialshareprivacy.stumbleupon.js"></script>
+<script type="text/javascript" src="../scripts/pt/jquery.socialshareprivacy.mail.js"></script>
+<script type="text/javascript" src="../scripts/pt/jquery.socialshareprivacy.linkedin.js"></script>
+<script type="text/javascript" src="../scripts/pt/jquery.socialshareprivacy.xing.js"></script>
+<script type="text/javascript" src="../scripts/pt/jquery.socialshareprivacy.buffer.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+// Default reihenfolge der Buttons festlegen:
+$.fn.socialSharePrivacy.settings.order = ['facebook', 'gplus', 'twitter', 'tumblr'];
+$.fn.socialSharePrivacy.settings.path_prefix = '../';
+
+$(document).ready(function () {
+	$('.share').socialSharePrivacy();
+	$('#other').socialSharePrivacy({uri: 'http://example.com/'});
+});
+// ]]>
+</script>
+</head>
+<body>
+
+<h1>Social Share Privacy: Demo 1</h1>
+
+<p>
+Demonstra&ccedil;&atilde;o dos bot&otilde;es:
+</p>
+
+<div class="share"></div>
+
+<p>
+Social share privacy tem suporte a mais de uma lista de bot&otilde;es no mesmo documento.
+</p>
+
+<div class="share"></div>
+
+<p>
+Diferentes bot&otilde;es de compartilhamento podem ter op&ccedil;&otilde;es diferentes.  Por exemplo, estes bot&otilde;es usam a URI "http://example.com/" em vez de document.location.
+</p>
+
+<div id="other"></div>
+
+</body>
+</html>
