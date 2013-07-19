@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<title>Social Share Privacy: Demo 1</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.facebook.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.twitter.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.gplus.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.tumblr.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.reddit.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.pinterest.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.flattr.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.stumbleupon.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.mail.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.linkedin.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.xing.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.buffer.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+// define the default order of the buttons:
+$.fn.socialSharePrivacy.settings.order = ['facebook', 'gplus', 'twitter', 'tumblr', 'reddit'];
+$.fn.socialSharePrivacy.settings.path_prefix = '../';
+
+$(document).ready(function () {
+	$('.share').socialSharePrivacy();
+	$('#other').socialSharePrivacy({uri: 'http://example.com/'});
+});
+// ]]>
+</script>
+</head>
+<body>
+
+<h1>Social Share Privacy: Demo 1</h1>
+
+<p>
+Demostraci&oacute;n Bot&oacute;n para compartir:
+</p>
+
+<div class="share"></div>
+
+<p>
+Social share privacy soporta m&aacute;s de una lista de botones en un documento.
+</p>
+
+<div class="share"></div>
+
+<p>
+Diferentes botones pueden tener diferentes opciones. Por Ejemplo estos botones usa la URL
+"http://example.com" en vez de document.location.
+</p>
+
+<div id="other"></div>
+
+</body>
+</html>
