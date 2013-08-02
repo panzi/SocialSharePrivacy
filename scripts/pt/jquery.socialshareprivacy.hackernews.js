@@ -12,7 +12,7 @@
 jQuery.extend(jQuery.fn.socialSharePrivacy.settings.services.hackernews, {
 	'txt_info' : 'Dois cliques para mais privacidade: o bot&atilde;o do Hacker News ser&aacute; ativado quando voc&ecirc; clicar aqui. Ativar este bot&atilde;o enviar&aacute; dados ao Hacker News &ndash; veja <em>i</em>.',
 	'txt_off'  : 'n&atilde;o conectado ao Hacker News',
-	'txt_on'   : 'conectado ao Hacker News'
+	'txt_on'   : 'conectado ao Hacker News',
 	'txt_n_points'  : '{points} pontos',
 	'txt_one_point' : '1 ponto'
 });
