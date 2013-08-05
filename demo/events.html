@@ -15,6 +15,9 @@
 $.fn.socialSharePrivacy.settings.path_prefix = '../';
 
 $(document).ready(function () {
+	// I simply call enable/disable on ALL share elements. This does not result in
+	// an endless-loops because enabling/disabling an already enabled/disabled
+	// service does nothing and thus doesn't trigger the event recursively.
 	$('.share').socialSharePrivacy().
 	on('socialshareprivacy:enable', function (event) {
 		$('.share').socialSharePrivacy('enable',event.serviceName);
