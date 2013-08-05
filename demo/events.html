@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<title>Social Share Privacy: Events</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.facebook.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.twitter.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.gplus.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.reddit.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+$.fn.socialSharePrivacy.settings.path_prefix = '../';
+
+$(document).ready(function () {
+	$('.share').socialSharePrivacy().
+	on('socialshareprivacy:enable', function (event) {
+		$('.share').socialSharePrivacy('enable',event.serviceName);
+	}).
+	on('socialshareprivacy:disable', function (event) {
+		$('.share').socialSharePrivacy('disable',event.serviceName);
+	});
+});
+// ]]>
+</script>
+</head>
+<body>
+
+<h1>Social Share Privacy: Events</h1>
+
+<div class="share"></div>
+
+<p>
+This demo demonstrates how multiple social share privacy widgets can be synchronized using events.
+</p>
+
+<div class="share"></div>
+
+</body>
+</html>

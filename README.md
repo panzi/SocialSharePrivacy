@@ -155,7 +155,6 @@ You can also asynchronously load the buttons if you use the `jquery.socialsharep
 
 ### socialSharePrivacy
 
-**Signature:**
 ```javascript
 .socialSharePrivacy([options])
 ```
@@ -164,7 +163,6 @@ Add social share buttons to all elements in the set. Returns `this`.
 
 ### destroy
 
-**Signature:**
 ```javascript
 .socialSharePrivacy("destroy")
 ```
@@ -173,7 +171,6 @@ to their pre-init state. Returns `this`.
 
 ### disable
 
-**Signature:**
 ```javascript
 .socialSharePrivacy("disable", [service_name])
 ```
@@ -181,9 +178,18 @@ to their pre-init state. Returns `this`.
 Disable the named service or disable all services if no `service_name` is given.
 Returns `this`.
 
+### disabled
+
+```javascript
+.socialSharePrivacy("disabled", [service_name])
+```
+
+Returns `true` if the given service is disabled, `false` otherwise. If
+`service_name` is not given then it will return an object that maps
+service names to their disabled-value.
+
 ### enable
 
-**Signature:**
 ```javascript
 .socialSharePrivacy("enable", [service_name])
 ```
@@ -191,9 +197,18 @@ Returns `this`.
 Enable the named service or enable all services if no `service_name` is given.
 Returns `this`.
 
+### enabled
+
+```javascript
+.socialSharePrivacy("enabled", [service_name])
+```
+
+Returns `true` if the given service is enabled, `false` otherwise. If
+`service_name` is not given then it will return an object that maps
+service names to their enabled-value.
+
 ### option
 
-**Signature:**
 ```javascript
 .socialSharePrivacy("option", option_name, [value])
 ```
@@ -203,7 +218,6 @@ Returns `this` when acting as setter.
 
 ### options
 
-**Signature:**
 ```javascript
 .socialSharePrivacy("options", [options])
 ```
@@ -213,7 +227,6 @@ Returns `this` when acting as setter.
 
 ### toggle
 
-**Signature:**
 ```javascript
 .socialSharePrivacy("toggle", [service_name])
 ```

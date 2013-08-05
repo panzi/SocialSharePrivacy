@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<title>Social Share Privacy: Dynamic Layout</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.facebook.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.twitter.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.gplus.js"></script>
+<script type="text/javascript" src="../scripts/jquery.socialshareprivacy.reddit.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+$.fn.socialSharePrivacy.settings.path_prefix = '../';
+
+$(document).ready(function () {
+	$('.share').socialSharePrivacy({layout:window.innerWidth < 640 ? 'box' : 'line'});
+
+	$(window).resize(function () {
+		var layout = window.innerWidth < 640 ? 'box' : 'line';
+		var $share = $('.share');
+		if ($share.socialSharePrivacy('options').layout !== layout) {
+			var enabled = $share.socialSharePrivacy('enabled');
+			$share.socialSharePrivacy('destroy').socialSharePrivacy({layout:layout});
+
+			for (var name in enabled) {
+				if (enabled[name]) {
+					$share.socialSharePrivacy('enable',name);
+				}
+			}
+		}
+	});
+});
+// ]]>
+</script>
+</head>
+<body>
+
+<h1>Social Share Privacy: Dynamic Layout</h1>
+
+<div class="share"></div>
+
+<p>
+This demonstrates how to change the layout dynamically without loosing the state.
+</p>
+
+</body>
+</html>
