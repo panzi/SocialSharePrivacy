@@ -20,7 +20,7 @@ $(document).ready(function () {
 		perma_option: false,
 		info_link_target: '_blank'
 	});
-	
+
 	$('#share2').socialSharePrivacy({
 		// Set perma_option to true.
 		// Initially it is only set to true if jQuery.cookie is available.
@@ -39,6 +39,32 @@ $(document).ready(function () {
 			return localStorage.getItem('socialSharePrivacy_'+service_name) === 'perma_on';
 		}
 	});
+
+	var $share3 = $('#share3').socialSharePrivacy({
+		// no perma options menu:
+		perma_option: false
+	}).on('socialshareprivacy:enable', function (event) {
+		// set perma option for enabled service:
+		var options = $(this).socialSharePrivacy('options');
+		options.set_perma_option(event.serviceName, options);
+	}).on('socialshareprivacy:disable', function (event) {
+		// delete perma option for disabled service:
+		var options = $(this).socialSharePrivacy('options');
+		options.del_perma_option(event.serviceName, options);
+	});
+
+	// manually enable services for which the perma option is set:
+	var options = $share3.socialSharePrivacy('options');
+	var perma = options.get_perma_options(options);
+	for (var service_name in options.services) {
+		if (perma[service_name]) {
+			$share3.socialSharePrivacy('enable',service_name);
+		}
+	}
+
+	// prevent ref-cycles via closures (not needed for somewhat recent browsers,
+	// but I like to do it anyway):
+	options = $share3 = perma = null;
 });
 // ]]>
 </script>
@@ -58,6 +84,12 @@ Share buttons that use HTML5 localStorage for perma options:
 </p>
 
 <div id="share2"></div>
+
+<p>
+Automatically set the perma option if you enable a service:
+</p>
+
+<div id="share3"></div>
 
 </body>
 </html>
