@@ -53,7 +53,7 @@ Overview
   * [Common Service Options](#common-service-options)
  * [Custom Services](#custom-services)
  * [Helper Functions](#helper-functions-jqueryfnsocialshareprivacy)
- * [Pack.sh](#packsh)
+ * [Build.sh](#buildsh)
  * [Known Issues](#known-issues)
  * [License](#license)
 
@@ -62,8 +62,8 @@ Overview
 
  * [jQuery](http://jquery.com/)
  * [jQuery cookies plugin](https://github.com/panzi/jQuery-Cookies) (optional)
- * [uglifyjs](https://npmjs.org/package/uglify-js) (for [pack.sh](#packsh))
- * [uglifycss](https://npmjs.org/package/uglifycss) (for [pack.sh](#packsh))
+ * [uglifyjs](https://npmjs.org/package/uglify-js) (for [build.sh](#buildsh))
+ * [uglifycss](https://npmjs.org/package/uglifycss) (for [build.sh](#buildsh))
 
 The jQuery cookies plugin is needed in order to enable services permanently.
 However, you can plug in you own replacement to store this options differently
@@ -1338,17 +1338,17 @@ If not defined in `settings.description` the found text is truncated at 3500 byt
 
 The element of the share button is passed as `this`.
 
-<span id="packsh">Pack.sh</span>
----------------------------------
+<span id="buildsh">Build.sh</span>
+----------------------------------
 
-You can use `pack.sh` to pack the modules and languages you want. This requires
+You can use `build.sh` to pack the modules and languages you want. This requires
 [uglifyjs](https://npmjs.org/package/uglify-js) and
 [uglifycss](https://npmjs.org/package/uglifycss) to be installed.
 
 Example:
 
 ```sh
-./pack.sh -m twitter,facebook,gplus -l de,fr
+./build.sh -m twitter,facebook,gplus -l de,fr
 ```
 
 This generates these files:
@@ -1369,24 +1369,23 @@ in your HTML document.
 ### Usage
 
 	Usage:
-	 ./pack.sh [options]
+	 ./build.sh [options]
 	
 	Options:
 	 -h              Print this help message.
 	 -m <modules>    Comma separated list of JavaScript modules to pack. Possible values:
-	                     all, all-services, none, buffer, delicious, disqus,
-	                     facebook, flattr, gplus, hackernews, linkedin,
-	                     localstorage, mail, pinterest, reddit, stumbleupon, tumblr,
-	                     twitter, xing
-	                 'all-services' includes all social share services but not the
-	                 jquery.socialshareprivacy.localstorage.js module.
-	                 default: all-services
-	
-	 -l <languages>  Comma separated list of languages to pack. Possible values:
-	                     all, none, de, fr, nl
+	                     all, none, buffer, delicious, disqus, facebook, flattr,
+	                     gplus, hackernews, linkedin, mail, pinterest, reddit,
+	                     stumbleupon, tumblr, twitter, xing
 	                 default: all
 	
+	 -l <languages>  Comma separated list of languages to pack. Possible values:
+	                     all, none, de, es, fr, nl, pl, pt, ru
+	                 default: all
+	
+	 -a <enabled>    Autoload. Possible values: on, off (default: on)
 	 -c <enabled>    Pack stylesheets. Possible values: on, off (default: on)
+	 -i <enabled>    Pack images. Possible values: on, off (default: on)
 	 -p <path>       Prefix to stylesheet and dummy image paths. (empty per default)
 	 -s <path>       Stylesheet path in the generated JavaScript file.
 	                 default: stylesheets/jquery.socialshareprivacy.min.css
