@@ -8,10 +8,10 @@ var jQuery = {
 
 for (var i = 2; i < process.argv.length; ++ i) {
 	var filename = process.argv[i];
-	var service = /jquery\.socialshareprivacy(?:\.(.*))?\.js$/.exec(filename)[1];
+	var m = /modules\/(.*)?\.js$/.exec(filename);
 
-	if (service) {
-		jQuery.fn.socialSharePrivacy.settings.services[service] = {};
+	if (m) {
+		jQuery.fn.socialSharePrivacy.settings.services[m[1]] = {};
 	}
 
 	eval(fs.readFileSync(filename,'utf8'));

@@ -56,6 +56,8 @@
 		'status'            : true,
 		'privacy'           : 'safe',
 		'button_class'      : 'tumblr',
+		'line_img'          : 'images/tumblr.png',
+		'box_img'           : 'images/box_tumblr.png',
 		'txt_info'          : 'Post this on Tumblr.',
 		'txt_button'        : 'Share on Tubmlr',
 		'display_name'      : 'Tumblr',
@@ -74,7 +76,11 @@
 		// type: 'photo' or 'video':
 		'caption'           : $.fn.socialSharePrivacy.getDescription,
 		'button'            : function (options, uri, settings) {
-			var $code = $('<a target="_blank">' + options.txt_button + '</a>').click(openTumblr);
+			var $code = $('<a target="_blank"/>').click(openTumblr);
+			$('<img>', {
+				alt: options.txt_button,
+				src: options.path_prefix + (settings.layout === 'line' ? options.line_img : options.box_img)
+			}).appendTo($code);
 			switch (options.type) {
 				case 'link':
 					return $code.attr('href', 'http://www.tumblr.com/share/link?'+$.param({

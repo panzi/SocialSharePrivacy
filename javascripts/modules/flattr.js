@@ -24,7 +24,7 @@
 
 	$.fn.socialSharePrivacy.settings.services.flattr = {
 		'status'            : true, 
-		'button_class'      : 'flatter',
+		'button_class'      : 'flattr',
 		'dummy_line_img'    : 'images/dummy_flattr.png',
 		'dummy_box_img'     : 'images/dummy_box_flattr.png',
 		'dummy_alt'         : '"Flattr"-Dummy',

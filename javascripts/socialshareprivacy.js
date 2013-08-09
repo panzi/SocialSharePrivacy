@@ -646,7 +646,7 @@
 			if (this_options.perma_option && any_perm) {
 				if (this_options.get_perma_options) {
 					permas = this_options.get_perma_options(this_options);
-					}
+				}
 				else {
 					permas = {};
 					for (var service_name in this_options.services) {
@@ -793,7 +793,7 @@
 		'cookie_domain'     : document.location.hostname,
 		'cookie_expires'    : 365,
 		'path_prefix'       : '',
-		'css_path'          : "stylesheets/jquery.socialshareprivacy.css",
+		'css_path'          : "stylesheets/socialshareprivacy.css",
 		'uri'               : getURI,
 		'language'          : 'en',
 		'ignore_fragment'   : true
