@@ -11,20 +11,20 @@
 	"use strict";
 
 	function getQuote (options, uri, settings) {
-		var text = $('article, p').text();
+		var text = $.trim($('article, p').text());
 		
 		if (text.length <= 600) {
 			return text;
 		}
 
 		var abbrev = text.slice(0, 597);
-		if (!/\W/.test(text.charAt(length - 3))) {
+		if (/^\w+$/.test(text.slice(596,598))) {
 			var match = /^(.*)\s\S*$/.exec(abbrev);
 			if (match) {
 				abbrev = match[1];
 			}
 		}
-		return abbrev + "\u2026";
+		return $.trim(abbrev) + "\u2026";
 	}
 
 	function getClickthru (options, uri) {
