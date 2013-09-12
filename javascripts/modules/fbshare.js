@@ -24,27 +24,20 @@
 		return getDescription.call(this, options, uri, settings) + '\n\n' + uri + options.referrer_track;
 	}
 
-	$.fn.socialSharePrivacy.settings.services.mail = {
+	$.fn.socialSharePrivacy.settings.services.fbshare = {
 		'status'            : true,
 		'privacy'           : 'safe',
-		'button_class'      : 'mail',
-		'line_img'          : 'images/mail.png',
-		'box_img'           : 'images/box_mail.png',
-		'txt_info'          : 'Send this via email to a friend.',
-		'txt_button'        : 'Send Email',
-		'display_name'      : 'Mail',
+		'button_class'      : 'fbshare',
+		'line_img'          : 'images/fbshare.png',
+		'box_img'           : 'images/box_fbshare.png',
+		'txt_info'          : 'Share via facebook.',
+		'txt_button'        : 'FB share',
+		'display_name'      : 'FB share',
 		'referrer_track'    : '',
-		'subject'           : $.fn.socialSharePrivacy.getTitle,
-		'body'              : getBody,
 		'button'            : function (options, uri, settings) {
-			return $('<a/>').attr(
-				'href', 'mailto:?'+$.param({
-					subject : get(this, options, uri, settings, 'subject'),
-					body    : get(this, options, uri, settings, 'body')
-				}).replace(/\+/g,'%20')).append($('<img>', {
-					alt: options.txt_button,
-					src: options.path_prefix + (settings.layout === 'line' ? options.line_img : options.box_img)
-				}));
+			return $('<a/>',{ target: '_blank', href: 'https://www.facebook.com/sharer/sharer.php?'+$.param({u:uri})}).append(
+				$('<img>', { alt: options.txt_button,
+					src: options.path_prefix + (settings.layout === 'line' ? options.line_img : options.box_img) }));
 		}
 	};
 })(jQuery);

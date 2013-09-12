@@ -28,7 +28,7 @@
 			var title = typeof(options.title) === 'function' ?
 				options.title.call(this, options, uri, settings) :
 				String(options.title);
-			var prot = ('https:' === document.location.protocol ? 'https:' : 'http:');
+			var prot = 'https:'; // ('https:' === document.location.protocol ? 'https:' : 'http:');
 
 			var $code;
 			if (settings.layout === 'line') {

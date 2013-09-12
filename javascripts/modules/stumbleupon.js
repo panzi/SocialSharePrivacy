@@ -30,7 +30,7 @@
 		'display_name'      : 'Stumble Upon',
 		'referrer_track'    : '',
 		'button'            : function (options, uri, settings) {
-			var base_url = 'https:' === document.location.protocol ? 'https://' : 'http://';
+			var base_url = 'https://'; // 'https:' === document.location.protocol ? 'https://' : 'http://';
 			var w, h;
 
 			if (settings.layout === 'line') {

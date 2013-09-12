@@ -29,7 +29,7 @@
 	function loadScript () {
 		// prevent already loaded buttons from being broken:
 		$('.social_share_privacy_area .pinterest .pinit a[data-pin-log]').attr('data-pin-do','ignore');
-		var prot  = 'https:' === document.location.protocol ? 'https:' : 'http:';
+		var prot  = 'https:'; // 'https:' === document.location.protocol ? 'https:' : 'http:';
 		$.ajax({
 			url      : prot+'//assets.pinterest.com/js/pinit.js',
 			dataType : 'script',
@@ -55,7 +55,7 @@
 		'description'       : $.fn.socialSharePrivacy.getDescription,
 		'media'             : $.fn.socialSharePrivacy.getImage,
 		'button'            : function (options, uri, settings) {
-			var prot  = 'https:' === document.location.protocol ? 'https:' : 'http:';
+			var prot  = 'https:'; // 'https:' === document.location.protocol ? 'https:' : 'http:';
 			var params = {
 				url    : uri + options.referrer_track,
 				media  : get(this, options, uri, settings, 'media')
