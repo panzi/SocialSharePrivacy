@@ -83,27 +83,27 @@
 			}).appendTo($code);
 			switch (options.type) {
 				case 'link':
-					return $code.attr('href', 'http://www.tumblr.com/share/link?'+$.param({
+					return $code.attr('href', 'https://www.tumblr.com/share/link?'+$.param({
 						url         : uri + options.referrer_track,
 						name        : get(this, options, uri, settings, 'name'),
 						description : get(this, options, uri, settings, 'description')
 					}));
 
 				case 'quote':
-					return $code.attr('href', 'http://www.tumblr.com/share/quote?'+$.param({
+					return $code.attr('href', 'https://www.tumblr.com/share/quote?'+$.param({
 						source      : uri + options.referrer_track,
 						quote       : get(this, options, uri, settings, 'quote')
 					}));
 
 				case 'photo':
-					return $code.attr('href', 'http://www.tumblr.com/share/photo?'+$.param({
+					return $code.attr('href', 'https://www.tumblr.com/share/photo?'+$.param({
 						source      : get(this, options, uri, settings, 'photo'),
 						caption     : get(this, options, uri, settings, 'caption'),
 						clickthrou  : get(this, options, uri, settings, 'clickthrou')
 					}));
 
 				case 'video':
-					return $code.attr('href', 'http://www.tumblr.com/share/video?'+$.param({
+					return $code.attr('href', 'https://www.tumblr.com/share/video?'+$.param({
 						embed       : get(this, options, uri, settings, 'embed'),
 						caption     : get(this, options, uri, settings, 'caption')
 					}));

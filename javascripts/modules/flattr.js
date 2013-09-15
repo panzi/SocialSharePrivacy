@@ -61,8 +61,8 @@
 			if (settings.layout === 'line') attrs['data-flattr-button'] = 'compact';
 
 			var $code = $('<a class="FlattrButton">' + get(this, options, uri, settings, 'description') +
-				'</a><script text="text/javscript" src="'+(location.protocol === 'https:' ? 'https:' : 'http:') +
-				'//api.flattr.com/js/0.6/load.js?mode=auto"></script>');
+				'</a><script text="text/javscript" src="'+
+				'https://api.flattr.com/js/0.6/load.js?mode=auto"></script>');
 
 			$code.filter('a').attr(attrs);
 

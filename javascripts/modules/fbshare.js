@@ -1,7 +1,16 @@
 /*
- * jquery.socialshareprivacy.js | 2 Klicks fuer mehr Datenschutz
+ * Facebook share module for jquery.socialshareprivacy.js | 2 Klicks fuer mehr Datenschutz
+ *
+ * http://www.heise.de/extras/socialshareprivacy/
+ * http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html
+ *
+ * Copyright (c) 2011 Hilko Holweg, Sebastian Hilbig, Nicolas Heiringhoff, Juergen Schmidt,
+ * Heise Zeitschriften Verlag GmbH & Co. KG, http://www.heise.de
  *
  * Copyright (c) 2012 Mathias Panzenböck
+ *
+ * Fbshare module:
+ * copyright (c) 2013 zzzen.com
  *
  * is released under the MIT License http://www.opensource.org/licenses/mit-license.php
  *

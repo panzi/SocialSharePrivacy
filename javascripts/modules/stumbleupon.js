@@ -11,7 +11,8 @@
  *
  * is released under the MIT License http://www.opensource.org/licenses/mit-license.php
  *
- * Spread the word, link to us if you can.
+ * Warning: this button uses plaintext http and can be harmful to users under opressive regimes
+ *
  */
 
 (function ($, undefined) {
@@ -30,7 +31,7 @@
 		'display_name'      : 'Stumble Upon',
 		'referrer_track'    : '',
 		'button'            : function (options, uri, settings) {
-			var base_url = 'https://'; // 'https:' === document.location.protocol ? 'https://' : 'http://';
+			var base_url = 'https:' === document.location.protocol ? 'https://' : 'http://';
 			var w, h;
 
 			if (settings.layout === 'line') {

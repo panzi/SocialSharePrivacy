@@ -7,6 +7,9 @@
  *
  * Code inspired by Delicious Button v1.1:
  * http://code.google.com/p/delicious-button/
+ *
+ * Warning: this button uses plaintext http and can be harmful to users under opressive regimes
+ *
  */
 (function ($, undefined) {
 	"use strict";
