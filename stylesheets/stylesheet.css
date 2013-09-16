@@ -479,10 +479,10 @@ figure figcaption {
 #service-select ul {
 	overflow: auto;
 	height: 200px;
-	width: 200px;
+	width: 250px;
 }
 #service-select {
-	width: 200px;
+	width: 250px;
 	position: absolute;
 	left: 0px;
 	top: 0px;
@@ -500,7 +500,7 @@ figure figcaption {
 	cursor: pointer;
 }
 #options-and-code {
-	margin-left: 220px;
+	margin-left: 270px;
 	border-style: none;
 }
 #options-and-code td {
