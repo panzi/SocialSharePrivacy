@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<title>Social Share Privacy: test build.sh output</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>
+<script type="text/javascript" src="../build/javascripts/jquery.socialshareprivacy.min.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+// define module order (1-click modules first) and other defaults
+$.fn.socialSharePrivacy.settings.order = ['mail','tumblr','fbshare','facebook'];
+$.fn.socialSharePrivacy.settings.description = 'SocialSharePrivacy build tester';
+$.fn.socialSharePrivacy.settings.path_prefix = '../build/';
+// flattr needs a valid id or it fails. It's not a hint that you should flattr panzi ;)
+$.fn.socialSharePrivacy.settings.services.flattr.uid = 'panzi';
+
+$(document).ready(function () {
+	$('.share').socialSharePrivacy();
+});
+// ]]>
+</script>
+</head>
+<body>
+
+<h1>Social Share Privacy: test build.sh output</h1>
+<div style="height:42px"><!-- leave space for tooltips --></div>
+<div class="share"></div>
+<div style="clear:both; float:left" class="share" data-layout="box"></div>
+<div style="margin-top:23px"><!-- Not sure why I need this, but apparently - I do :( -->
+If you've used <code>build.sh</code>, you should see here all modules you've included (in both line and box layouts).<br>
+If you haven't - you won't see anything here :)<br>
+Run <code>./build.sh -h</code> from <code>..</code> to see available options.
+</div>
+</body>
+</html>

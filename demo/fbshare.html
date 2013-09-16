@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<title>Social Share Privacy: Test the fbshare module</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://panzi.github.com/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>
+<script type="text/javascript" src="../javascripts/socialshareprivacy.js"></script>
+<script type="text/javascript" src="../javascripts/modules/mail.js"></script>
+<script type="text/javascript" src="../javascripts/modules/fbshare.js"></script>
+<script type="text/javascript" src="../javascripts/modules/facebook.js"></script>
+<script type="text/javascript" src="../javascripts/modules/twitter.js"></script>
+<script type="text/javascript" src="../javascripts/modules/gplus.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+// define button order and other defaults:
+$.fn.socialSharePrivacy.settings.order = ['mail', 'fbshare', 'facebook', 'twitter', 'gplus'];
+$.fn.socialSharePrivacy.settings.path_prefix = '../';
+//$.fn.socialSharePrivacy.settings.perma_option = false;
+$.fn.socialSharePrivacy.settings.info_link_target = '_blank';
+
+$(document).ready(function () {
+	$('.share').socialSharePrivacy();
+});
+// ]]>
+</script>
+</head>
+<body>
+
+<h1>Social Share Privacy: Test the fbshare module</h1>
+
+<div class="share"></div>
+<div style="float:left" class="share" data-layout="box"></div>
+
+<p>
+This page tests fbshare in "line" and "box" layouts.<br>
+The rest of the share buttons are here so that it doesn't feel too lonely :)
+</p>
+
+</body>
+</html>

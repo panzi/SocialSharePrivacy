@@ -29,9 +29,8 @@
 	function loadScript () {
 		// prevent already loaded buttons from being broken:
 		$('.social_share_privacy_area .pinterest .pinit a[data-pin-log]').attr('data-pin-do','ignore');
-		var prot  = 'https:' === document.location.protocol ? 'https:' : 'http:';
 		$.ajax({
-			url      : prot+'//assets.pinterest.com/js/pinit.js',
+			url      : 'https://assets.pinterest.com/js/pinit.js',
 			dataType : 'script',
 			cache    : true
 		});
@@ -42,8 +41,8 @@
 	$.fn.socialSharePrivacy.settings.services.pinterest = {
 		'status'            : true, 
 		'button_class'      : 'pinit',
-		'dummy_line_img'    : 'images/dummy_pinit.png',
-		'dummy_box_img'     : 'images/dummy_box_pinit.png',
+		'dummy_line_img'    : 'images/dummy_pinterest.png',
+		'dummy_box_img'     : 'images/dummy_box_pinterest.png',
 		'dummy_alt'         : '"Pin it"-Dummy',
 		'txt_info'          : 'Two clicks for more privacy: The Pin it button will be enabled once you click here. Activating the button already sends data to Pinterest &ndash; see <em>i</em>.',
 		'txt_off'           : 'not connected to Pinterest',
@@ -55,7 +54,6 @@
 		'description'       : $.fn.socialSharePrivacy.getDescription,
 		'media'             : $.fn.socialSharePrivacy.getImage,
 		'button'            : function (options, uri, settings) {
-			var prot  = 'https:' === document.location.protocol ? 'https:' : 'http:';
 			var params = {
 				url    : uri + options.referrer_track,
 				media  : get(this, options, uri, settings, 'media')
@@ -69,8 +67,8 @@
 
 			$code.filter('a').attr({
 				'data-pin-config' : settings.layout === 'line' ? 'beside' : 'above',
-				href              : prot+'//pinterest.com/pin/create/button/?'+$.param(params)
-			}).find('img').attr('src', prot+'//assets.pinterest.com/images/pidgets/pin_it_button.png');
+				href              : 'https://pinterest.com/pin/create/button/?'+$.param(params)
+			}).find('img').attr('src', 'https://assets.pinterest.com/images/pidgets/pin_it_button.png');
 
 			// This way when the user has permanently enabled pinterest and there are several pinterest
 			// buttons on one webpage it will load the script only once and so the buttons will work:
