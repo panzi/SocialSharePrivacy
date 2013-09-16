@@ -19,20 +19,6 @@
 (function ($, undefined) {
 	"use strict";
 
-	function get (self, options, uri, settings, name) {
-		var value = options[name];
-		if (typeof value === "function") {
-			value = value.call(self, options, uri, settings);
-		}
-		return String(value);
-	}
-
-	var getDescription = $.fn.socialSharePrivacy.getDescription;
-
-	function getBody (options, uri, settings) {
-		return getDescription.call(this, options, uri, settings) + '\n\n' + uri + options.referrer_track;
-	}
-
 	$.fn.socialSharePrivacy.settings.services.fbshare = {
 		'status'            : true,
 		'privacy'           : 'safe',
@@ -44,9 +30,9 @@
 		'display_name'      : 'FB share',
 		'referrer_track'    : '',
 		'button'            : function (options, uri, settings) {
-			return $('<a/>',{ target: '_blank', href: 'https://www.facebook.com/sharer/sharer.php?'+$.param({u:uri})}).append(
-				$('<img>', { alt: options.txt_button,
-					src: options.path_prefix + (settings.layout === 'line' ? options.line_img : options.box_img) }));
+			return $('<a/>', {target: '_blank', href: 'https://www.facebook.com/sharer/sharer.php?'+$.param({u:uri + options.referrer_track})}).append(
+				$('<img>', {alt: options.txt_button,
+					src: options.path_prefix + (settings.layout === 'line' ? options.line_img : options.box_img)}));
 		}
 	};
 })(jQuery);
