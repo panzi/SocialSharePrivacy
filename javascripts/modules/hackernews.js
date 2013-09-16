@@ -28,7 +28,6 @@
 			var title = typeof(options.title) === 'function' ?
 				options.title.call(this, options, uri, settings) :
 				String(options.title);
-			var prot = ('https:' === document.location.protocol ? 'https:' : 'http:');
 
 			var $code;
 			if (settings.layout === 'line') {
@@ -42,19 +41,19 @@
 					'<a class="name" target="_blank">Y</a></div>');
 			}
 
-			$code.find("a").attr("href", prot+"//news.ycombinator.com/submitlink?"+$.param({
+			$code.find("a").attr("href", "https://news.ycombinator.com/submitlink?"+$.param({
 				"u": url,
 				"t": title
 			}));
 
-			$.ajax(prot+"//api.thriftdb.com/api.hnsearch.com/items/_search?filter[fields][url][]="+encodeURIComponent(url), {
+			$.ajax("https://api.thriftdb.com/api.hnsearch.com/items/_search?filter[fields][url][]="+encodeURIComponent(url), {
 				dataType: "jsonp",
 				success: function (data) {
 					var item = data.results[0];
 					if (item) {
 						item = item.item;
 						var points = $.fn.socialSharePrivacy.formatNumber(item.points);
-						$code.find("a").attr("href", prot+"//news.ycombinator.com/item?id="+item.id);
+						$code.find("a").attr("href", "https://news.ycombinator.com/item?id="+item.id);
 						$code.find(".points a").text(points).attr('title',
 							item.points === 1 ?
 							options.txt_one_point :

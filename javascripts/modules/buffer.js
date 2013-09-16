@@ -40,7 +40,7 @@
 		'picture'           : $.fn.socialSharePrivacy.getImage,
 		'button'            : function (options, uri, settings) {
 			return $('<iframe allowtransparency="true" frameborder="0" scrolling="no"></iframe>').attr(
-				'src', 'http://widgets.bufferapp.com/button/?'+$.param({
+				'src', 'https://widgets.bufferapp.com/button/?'+$.param({
 					count   : settings.layout === 'line' ? 'horizontal' : 'vertical',
 					via     : get(this, options, uri, settings, 'via'),
 					text    : $.fn.socialSharePrivacy.abbreviateText(

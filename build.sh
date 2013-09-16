@@ -121,7 +121,7 @@ fi
 
 if [ "$img" = "on" ]; then
 	mkdir -p "$builddir/images" || exit 1
-	files="`eval ls images/{dummy_,}{box_,}{$modules}.* 2>/dev/null`"
+	files="`eval ls images/socialshareprivacy_* images/settings.png images/{dummy_,}{box_,}{$modules}.* 2>/dev/null`"
 	if [ "$files" != "" ]; then
 		cp $files "$builddir/images" || exit 1
 		echo "copied images to $builddir/images"

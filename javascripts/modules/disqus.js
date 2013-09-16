@@ -46,7 +46,7 @@
 		requestActive = true;
 		var script = document.createElement('script');
 		script.type  = "text/javascript";
-		script.src   = 'http://'+options.shortname+'.disqus.com/count.js?q=1&0=2,'+encodeURIComponent(options.uri);
+		script.src   = 'https://'+options.shortname+'.disqus.com/count.js?q=1&0=2,'+encodeURIComponent(options.uri);
 		script.async = true;
 		script.setAttribute('data-request-id', options.requestId);
 		script.onload = script.onreadystatechange = script.onerror = requestLoad;

@@ -30,7 +30,7 @@
 		'button_class'      : 'mail',
 		'line_img'          : 'images/mail.png',
 		'box_img'           : 'images/box_mail.png',
-		'txt_info'          : 'Send this per email to a friend.',
+		'txt_info'          : 'Send this via email to a friend.',
 		'txt_button'        : 'Send Email',
 		'display_name'      : 'Mail',
 		'referrer_track'    : '',

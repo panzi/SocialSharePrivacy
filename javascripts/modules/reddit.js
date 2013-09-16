@@ -52,11 +52,7 @@
 				w = 58;
 				layout = '/button/button2.html?';
 			}
-			if ('https:' === document.location.protocol) {
-				base_url = 'https://redditstatic.s3.amazonaws.com';
-			} else {
-				base_url = 'http://www.reddit.com/static';
-			}
+			base_url = 'https://redditstatic.s3.amazonaws.com';
 			var params = {
 				url   : uri + options.referrer_track,
 				width : String(w)

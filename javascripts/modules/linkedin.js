@@ -31,7 +31,6 @@
 		'onerror'           : null,
 		'showzero'          : false,
 		'button'            : function (options, uri, settings) {
-			var protocol = location.protocol === 'https:' ? 'https' : 'http';
 			var attrs = {
 				'data-counter' : settings.layout === 'line' ? 'right' : 'top',
 				'data-url'     : uri + options.referrer_track,
@@ -44,8 +43,8 @@
 			if (window.IN && window.IN.parse) {
 				$code = $code.add('<script type="text/javascript">IN.parse(document.body);</script>');
 			}
-			else if ($('script[src^="'+protocol+'://platform.linkedin.com/"]').length === 0) {
-				$code = $code.add('<script type="text/javascript" src="'+protocol+'://platform.linkedin.com/in.js"></script>');
+			else if ($('script[src^="https://platform.linkedin.com/"]').length === 0) {
+				$code = $code.add('<script type="text/javascript" src="https://platform.linkedin.com/in.js"></script>');
 			}
 
 			return $code;
