@@ -26,8 +26,8 @@
 		'line_img'          : 'images/fbshare.png',
 		'box_img'           : 'images/box_fbshare.png',
 		'txt_info'          : 'Share via facebook.',
-		'txt_button'        : 'FB share',
-		'display_name'      : 'FB share',
+		'txt_button'        : 'Facebook Share',
+		'display_name'      : 'Facebook Share',
 		'referrer_track'    : '',
 		'button'            : function (options, uri, settings) {
 			return $('<a/>', {target: '_blank', href: 'https://www.facebook.com/sharer/sharer.php?'+$.param({u:uri + options.referrer_track})}).append(

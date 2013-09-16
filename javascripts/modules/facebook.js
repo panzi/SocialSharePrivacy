@@ -28,7 +28,7 @@
 		'txt_off'           : 'not connected to Facebook',
 		'txt_on'            : 'connected to Facebook',
 		'perma_option'      : true,
-		'display_name'      : 'Facebook',
+		'display_name'      : 'Facebook Like/Recommend',
 		'referrer_track'    : '',
 		'action'            : 'like',
 		'colorscheme'       : 'light',
