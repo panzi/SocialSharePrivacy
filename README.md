@@ -15,7 +15,8 @@ Supported share services:
  * [Delicious](#delicious-options-delicious)
  * [Disqus](#disqus-options-disqus)
  * [EMail](#email-options-mail)
- * [Facebook](#facebook-options-facebook)
+ * [Facebook Like/Recommend](#facebook-like-recommend-options-facebook)
+ * [Facebook Share](#facebook-share-options-fbshare)
  * [Flattr](#flattr-options-flattr)
  * [Google+](#google-options-gplus)
  * [Hacker News](#hacker-news-options-hackernews)
@@ -772,13 +773,13 @@ Possible values: <code>comments</code> or <code>reactions</code></td>
 </tbody>
 </table>
 
-### <span id="facebook-options-facebook">Facebook Options</span> (`facebook`)
+### <span id="facebook-like-recommend-options-facebook">Facebook Like/Recommend Options</span> (`facebook`)
 
 Note that facebook only supports certain languages and requires the region suffix (e.g.
 `en_US`). The facebook service ensures that only supported language strings are sent
 to facebook, because otherwise facebook fails to render anything.
 
-See also: [official documentation](http://developers.facebook.com/docs/reference/plugins/like/)
+See also: [official documentation](https://developers.facebook.com/docs/reference/plugins/like/)
 
 Example:
 
@@ -822,6 +823,12 @@ $(document).ready(function () {
 </tr>
 </tbody>
 </table>
+
+### <span id="facebook-share-options-facebook">Facebook Share Options</span> (`fbshare`)
+
+There are no Facebook Share specific options.
+
+See also: [official documentation](https://developers.facebook.com/docs/plugins/share/)
 
 ### <span id="flattr-options-flattr">Flattr Options</span> (`flattr`)
 
