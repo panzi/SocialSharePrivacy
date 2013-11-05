@@ -875,8 +875,8 @@ $(document).ready(function () {
 <tr>
 <td>category</td>
 <td></td>
-<td>Possible values: <code>Text</code>, <code>Images</code>, <code>Video</code>, <code>Software</code>, <code>People</code> or
-<code>Other</code></td>
+<td>Possible values: <code>text</code>, <code>images</code>, <code>video</code>, <code>audio</code>,
+<code>software</code>, <code>people</code> or <code>rest</code></td>
 </tr>
 <tr>
 <td>tags</td>
