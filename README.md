@@ -110,6 +110,7 @@ However, for your convenience I provide these precompiled versions of the script
  * [jquery.socialshareprivacy.min.de.js](http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.de.js) <sup>3</sup>
  * [jquery.socialshareprivacy.min.es.js](http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.es.js) <sup>3</sup>
  * [jquery.socialshareprivacy.min.fr.js](http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.fr.js) <sup>3</sup>
+ * [jquery.socialshareprivacy.min.it.js](http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.it.js) <sup>3</sup>
  * [jquery.socialshareprivacy.min.nl.js](http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.nl.js) <sup>3</sup>
  * [jquery.socialshareprivacy.min.pl.js](http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.pl.js) <sup>3</sup>
  * [jquery.socialshareprivacy.min.pt.js](http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.pt.js) <sup>3</sup>
