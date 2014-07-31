@@ -1,12 +1,12 @@
 [submodule "node_modules/extend"]
 	path = node_modules/extend
-	url = git://github.com/dreamerslab/node.extend.git
+	url = https://github.com/dreamerslab/node.extend.git
 [submodule "node_modules/restler"]
 	path = node_modules/restler
-	url = git@github.com:danwrong/restler.git
+	url = https://github.com/danwrong/restler.git
 [submodule "node_modules/xml2js"]
 	path = node_modules/xml2js
-	url = git@github.com:Leonidas-from-XIV/node-xml2js.git
+	url = https://github.com/Leonidas-from-XIV/node-xml2js.git
 [submodule "node_modules/sax"]
 	path = node_modules/sax
-	url = git@github.com:isaacs/sax-js.git
+	url = https://github.com/isaacs/sax-js.git
