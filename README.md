@@ -65,6 +65,7 @@ Overview
  * [jQuery cookies plugin](https://github.com/panzi/jQuery-Cookies) (optional)
  * [uglifyjs](https://npmjs.org/package/uglify-js) (for [build.sh](#buildsh))
  * [uglifycss](https://npmjs.org/package/uglifycss) (for [build.sh](#buildsh))
+ * [extend](https://www.npmjs.org/package/extend) (for [build.sh](#buildsh))
 
 The jQuery cookies plugin is needed in order to enable services permanently.
 However, you can plug in you own replacement to store this options differently
@@ -1351,7 +1352,13 @@ The element of the share button is passed as `this`.
 
 You can use `build.sh` to pack the modules and languages you want. This requires
 [uglifyjs](https://npmjs.org/package/uglify-js) and
-[uglifycss](https://npmjs.org/package/uglifycss) to be installed.
+[uglifycss](https://npmjs.org/package/uglifycss) and
+[extend](https://www.npmjs.org/package/extend) to be installed.
+
+In case you haven't done so already you might need to checkout the git submodules with
+```sh
+git submodule update --init --recursive
+```
 
 Example:
 
