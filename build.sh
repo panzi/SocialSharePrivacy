@@ -85,7 +85,11 @@ mkdir -p "$builddir/javascripts" || exit 1
 
 files="javascripts/socialshareprivacy.js"
 if [ "$modules" != "none" ]; then
-	files="$files `eval echo javascripts/modules/{$modules}.js`"
+	if [[ $modules == *,* ]]; then
+		files="$files `eval echo javascripts/modules/{$modules}.js`"
+	else
+		files="$files javascripts/modules/$modules.js"
+	fi
 fi
 files="$files javascripts/settings.js"
 
@@ -110,7 +114,11 @@ if [ "$langs" != "none" ]; then
 	for lang in $langs; do
 		files="javascripts/locale/$lang/socialshareprivacy.js"
 		if [ "$modules" != "none" ]; then
-			files="$files `eval ls javascripts/locale/$lang/modules/{$modules}.js 2>/dev/null`"
+			if [[ $modules == *,* ]]; then
+				files="$files `eval ls javascripts/locale/$lang/modules/{$modules}.js 2>/dev/null`"
+			else
+				files="$files `ls javascripts/locale/$lang/modules/$modules.js 2>/dev/null`"
+			fi
 		fi
 		node join-trans.js $files | uglifyjs \
 			--compress=warnings=false \
@@ -121,7 +129,11 @@ fi
 
 if [ "$img" = "on" ]; then
 	mkdir -p "$builddir/images" || exit 1
-	files="`eval ls images/socialshareprivacy_* images/settings.png images/{dummy_,}{box_,}{$modules}.* 2>/dev/null`"
+	if [[ $modules == *,* ]]; then
+		files="`eval ls images/socialshareprivacy_* images/settings.png images/{dummy_,}{box_,}{$modules}.* 2>/dev/null`"
+	else
+		files="`eval ls images/socialshareprivacy_* images/settings.png images/{dummy_,}{box_,}$modules.* 2>/dev/null`"
+	fi
 	if [ "$files" != "" ]; then
 		cp $files "$builddir/images" || exit 1
 		echo "copied images to $builddir/images"
@@ -131,7 +143,11 @@ if [ "$img" = "on" ]; then
 		for lang in $langs; do
 			if [ -d "images/$lang" ]; then
 				mkdir -p "$builddir/images/$lang" || exit 1
-				files="`eval ls images/$lang/{dummy_,}{box_,}{$modules}.* 2>/dev/null`"
+				if [[ $modules == *,* ]]; then
+					files="`eval ls images/$lang/{dummy_,}{box_,}{$modules}.* 2>/dev/null`"
+				else
+					files="`eval ls images/$lang/{dummy_,}{box_,}$modules.* 2>/dev/null`"
+				fi
 				if [ "$files" != "" ]; then
 					cp $files "$builddir/images/$lang" || exit 1
 					echo "copied images to $builddir/images/$lang"
@@ -146,7 +162,11 @@ if [ "$css" = "on" ]; then
 	mkdir -p "$styledir" || exit 1
 	files="stylesheets/common.css"
 	if [ "$modules" != "none" ]; then
-		files="$files `eval ls stylesheets/modules/{$modules}.css 2>/dev/null`"
+		if [[ $modules == *,* ]]; then
+			files="$files `eval ls stylesheets/modules/{$modules}.css 2>/dev/null`"
+		else
+			files="$files `ls stylesheets/modules/$modules.css 2>/dev/null`"
+		fi
 	fi
 	uglifycss $files > "$builddir/$stylefile" || exit 1
 	echo "created $builddir/$stylefile"
