@@ -275,7 +275,7 @@
 	// build URI from rel="canonical" or document.location
 	function getURI (options) {
 		var uri = document.location.href;
-		var canonical = $("link[rel=canonical]").attr("href") || $('head meta[property="og:url"]').attr("content");
+		var canonical = $('head meta[property="og:url"]').attr("content") || $("link[rel=canonical]").attr("href");
 
 		if (canonical) {
 			uri = absurl(canonical);
