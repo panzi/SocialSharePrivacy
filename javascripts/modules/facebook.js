@@ -70,8 +70,8 @@
 				params.layout = 'button_count';
 			}
 			else {
-				params.width  = 62;
-				params.height = 61;
+				params.width  = '62';
+				params.height = '61';
 				params.layout = 'box_count';
 			}
 			return $('<iframe scrolling="no" frameborder="0" allowtransparency="true"></iframe>').attr(
