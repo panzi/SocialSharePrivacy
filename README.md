@@ -5,7 +5,7 @@ Social Share Privacy is a jQuery plugin that lets you add social share buttons
 to your website that don't allow the social sites to track your users. The buttons
 are first disabled and a user needs to click them to enable them. So in order to
 e.g. like a site on facebook with these social share buttons a user needs to click
-two times. But in return for this extra click a user can only be tracked be this
+two times. But in return for this extra click a user can only be tracked by this
 third party sites when he decides to enable the buttons. Using the settings menu
 a user can also permanently enable a social share button.
 
@@ -68,8 +68,8 @@ Overview
  * [extend](https://www.npmjs.org/package/extend) (for [build.sh](#buildsh))
 
 The jQuery cookies plugin is needed in order to enable services permanently.
-However, you can plug in you own replacement to store this options differently
-(e.g. via ajax in the user profile or in the browsers local store). For an
+However, you can plug in your own replacement to store these options differently
+(e.g. via ajax in the user profile or in the browser's local store). For an
 example that stores the perma options in HTML5 local storage instead of cookies
 see the file
 [localstorage.js](https://github.com/panzi/SocialSharePrivacy/blob/master/javascripts/localstorage.js).
@@ -278,7 +278,7 @@ globally defined options.
 
 In order to pass the options as `data-*` attributes simply prepend `data-` to
 all option names. For the language option you can also use the standard `lang`
-attribute. If you want to set an option of an service just use a `data-*`
+attribute. If you want to set an option of a service just use a `data-*`
 attribute that includes dots (`.`) as if it where a JavaScript property
 expression:
 
