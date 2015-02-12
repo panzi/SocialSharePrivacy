@@ -100,7 +100,7 @@ $(document).ready(function () {
 
 You only need to include the JavaScript files of the services you want to use. I
 recommend to pack all needed files into one using a JavaScript packer/compressor.
-The included [pack.sh](#packsh) script can do that for you, if you've got
+The included [build.sh](#buildsh) script can do that for you, if you've got
 [uglifyjs](https://npmjs.org/package/uglify-js) and [uglifycss](https://npmjs.org/package/uglifycss)
 installed.
 
