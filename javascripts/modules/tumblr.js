@@ -59,7 +59,7 @@
 		'line_img'          : 'images/tumblr.png',
 		'box_img'           : 'images/box_tumblr.png',
 		'txt_info'          : 'Post this on Tumblr.',
-		'txt_button'        : 'Share on Tubmlr',
+		'txt_button'        : 'Share on Tumblr',
 		'display_name'      : 'Tumblr',
 		'referrer_track'    : '',
 		'type'              : 'link', // possible values are 'link', 'quote', 'photo' or 'video'
