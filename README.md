@@ -491,7 +491,7 @@ null.</td>
 <tr>
 <td>language</td>
 <td>en</td>
-<td></td>
+<td>Tells the share service which language to use. (Does not affect the language displayed by Social Share Privacy.)</td>
 </tr>
 <tr>
 <td>uri</td>
