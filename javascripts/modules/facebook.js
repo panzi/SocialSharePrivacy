@@ -70,7 +70,7 @@
 				params.layout = 'button_count';
 			}
 			else {
-				params.width  = '62';
+				params.width  = '48';
 				params.height = '61';
 				params.layout = 'box_count';
 			}
