@@ -94,11 +94,11 @@ function updateEmbedCode () {
 		var head_code = [];
 
 		if (!jquery) {
-			head_code.push('<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>');
+			head_code.push('<script type="text/javascript" src="https://panzi.github.io/SocialSharePrivacy/javascripts/jquery.min.js"></script>');
 		}
 
 		if (cookies) {
-			head_code.push('<script type="text/javascript" src="http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>');
+			head_code.push('<script type="text/javascript" src="https://panzi.github.io/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>');
 		}
 
 		head_code.push('<script type="application/x-social-share-privacy-settings">'+escapeSQuotAttr(JSON.stringify(options))+'</script>');
@@ -113,7 +113,7 @@ function updateEmbedCode () {
 			"var t = document.getElementsByTagName('script')[0];"+
 			"s.type = 'text/javascript';"+
 			"s.async = true;"+
-			"s.src = 'http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.autoload.js';"+
+			"s.src = 'https://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.autoload.js';"+
 			"t.parentNode.insertBefore(s, t);"+
 			"})();"+
 			"</script>").show();
@@ -121,9 +121,9 @@ function updateEmbedCode () {
 	}
 	else {
 		$('#head-code').val(
-			(jquery ? '' : '<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>\n')+
-			(cookies ? '<script type="text/javascript" src="http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>\n' : '')+
-			'<script type="text/javascript" src="http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.autoload.js"></script>\n'+
+			(jquery ? '' : '<script type="text/javascript" src="https://panzi.github.io/SocialSharePrivacy/javascripts/jquery.min.js"></script>\n')+
+			(cookies ? '<script type="text/javascript" src="https://panzi.github.io/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>\n' : '')+
+			'<script type="text/javascript" src="https://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.autoload.js"></script>\n'+
 			'<script type="application/x-social-share-privacy-settings">'+escapeSQuotAttr(JSON.stringify(options))+'</script>').show();
 		$('label[for="head-code"]').show();
 		
