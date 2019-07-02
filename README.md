@@ -254,14 +254,14 @@ This event is emitted before a Social Share Privacy widget is destroyed.
 
 This event is emitted after a certain service was disabled. The event object
 will have a `serviceName` property, holding the name of the service that was
-disabled, and an `isClick` property, wich is `true` if a click by a user caused
+disabled, and an `isClick` property, which is `true` if a click by a user caused
 this event (`false` if it was disabled via JavaScript).
 
 ### socialshareprivacy:enable
 
 This event is emitted after a certain service was enabled. The event object
 will have a `serviceName` property, holding the name of the service that was
-enabled, and an `isClick` property, wich is `true` if a click by a user caused
+enabled, and an `isClick` property, which is `true` if a click by a user caused
 this event (`false` if it was enabled via JavaScript).
 
 <span id="options">Options</span>
