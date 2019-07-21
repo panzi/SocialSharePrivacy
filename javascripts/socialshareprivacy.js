@@ -375,30 +375,24 @@
 	}
 
 	function setPermaOption (service_name, options) {
-		$.cookie('socialSharePrivacy_'+service_name, 'perma_on', options.cookie_expires, options.cookie_path, options.cookie_domain);
+		$.cookie('socialSharePrivacy_'+service_name, 'perma_on', {
+			domain: options.cookie_domain,
+			expires: options.cookie_expires,
+			path: options.cookie_path
+		});
 	}
 	
 	function delPermaOption (service_name, options) {
-		$.cookie('socialSharePrivacy_'+service_name, null, -1, options.cookie_path, options.cookie_domain);
+		$.cookie('socialSharePrivacy_'+service_name, null, {
+			domain: options.cookie_domain,
+			path: options.cookie_path
+		});
 	}
 
 	function getPermaOption (service_name, options) {
-		return !!options.get_perma_options(options)[service_name];
+		return !!$.cookie('socialSharePrivacy_'+service_name);
 	}
 	
-	function getPermaOptions (options) {
-		var cookies = $.cookie();
-		var permas = {};
-		for (var name in cookies) {
-			var match = /^socialSharePrivacy_(.+)$/.exec(name);
-			if (match) {
-				permas[match[1]] = cookies[name] === 'perma_on';
-			}
-		}
-		return permas;
-	}
-
-
 	// extend jquery with our plugin function
 	function socialSharePrivacy (options) {
 
@@ -786,11 +780,11 @@
 		'layout'            : 'line', // possible values: 'line' (~120x20) or 'box' (~58x62)
 		'set_perma_option'  : setPermaOption,
 		'del_perma_option'  : delPermaOption,
-		'get_perma_options' : getPermaOptions,
+		'get_perma_options' : null,
 		'get_perma_option'  : getPermaOption,
 		'perma_option'      : !!$.cookie,
 		'cookie_path'       : '/',
-		'cookie_domain'     : document.location.hostname,
+		'cookie_domain'     : null,
 		'cookie_expires'    : 365,
 		'path_prefix'       : '',
 		'css_path'          : "stylesheets/socialshareprivacy.css",
